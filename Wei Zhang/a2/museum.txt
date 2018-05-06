@@ -1,0 +1,30 @@
+CQ	65	Watching Fish at Yuquan	he describes the swimming fish in the sunshine filled pool with light colors.	painting 	animals	Zhou Shaomiao	water colour	1955	2000-03-04	4536	donors
+CR	66	Fall	All the colors terraced on horse manure paper to create different layers	painting 	nature	Zhou Daosheng	water colour	1983	2000-03-05	4537	donors
+CS	67	rain	Light colored and wash like styled, the painting describes the raining season of the South of China in Marsh	painting 	nature	Yan Taiyang	water colour	1945	2000-03-06	4538	donors
+CT	68	Lilac	an illustration for her mature watercolor skills and her strong affection for the flowers, successfully creates an atmosphere of blooming lilacs.	painting 	nature	Xiao Shufang	water colour	1954	2000-03-07	4539	donors
+CU	69	Scenery in Tianping Mountain		painting 	nature	 Zhang Meisun	water colour	1954	2000-03-08	4540	donors
+CV	70	Homeless	The disappointed eyes and shabby clothes of the kind show the common living condition of the people of that time	painting 	environment	Yu Zhongzhi	water colour	1942	2000-03-09	4541	donors
+CW	71	Taro	the painting is as if the music of the impressionism, which could be traced on the present painting. 	painting 	environment	Zhu Qizhan	ink 	1982	2000-03-10	4542	donors
+CX	72	Gentle Breeze and Bright Moon	As the early fall comes, the flowers look like the frost and the snow.	painting 	environment	Zhou Yansheng	ink 	1994	2000-03-11	4543	donors
+CY	73	People and the premier	"The work broke the modes of ""three prominences"" and ""high, big, complete"" during the Cultural Revolution. "	painting 	environment	Zhou Sicong	ink 	1979	2000-03-12	4544	donors
+CZ	74	The Soul of theYellow River	The stone beasts symbolize the history of the country, while the curving beauty stands for the life force of the river. 	painting 	environment	Zhou Shaohua		1981	2000-03-13	4545	donors
+DA	75	Small jug red flower 	This jug was hand-built and then high-fired.	vase	dyed	Lin li	Pottery	1985	2000-03-14	4546	donors
+DB	76	White pocelain 	This Red ceramic pitcher is made of red clay pottery on a traditional Ukrainian technology and hand-painted with drawing of family's potters.	vase	dyed	Zhen Hao	Pottery	1978	2000-03-15	4547	donors
+DC	77	Pagoda jug	The used ceramic colors are lightfast and wiped	vase	dyed	Duan Jie	Pottery	1975	2000-03-16	4548	donors
+DD	78	Jug figured green flower	Very good vintage condition, glaze is slightly transparent	vase	undyed	Lu Dan	Pottery	1974	2000-03-17	4549	donors
+DE	79	Rooster	he mixed the figure and the colors of glost together which has a distinctive flavour. 	sculpture	event	Zhou Qingding	stone	1967	2000-03-18	4550	donors
+DF	80	Girl of Chuang Nationality	she created this works due to the impression of that young girl. 	sculpture	event	Zhang Dehua	bronze	1988	2000-03-19	4551	others
+DG	81	Conversation	represents the link between ancient times and modern times, tradition and innovation.	sculpture	event	Zhang Baogui	stone	1996	2000-03-20	4552	others
+DH	82	Days and Nights	creates a pretty, pure and soft atmosphere by an image of beautiful girl and a normal detail of burse	sculpture	event	Zhang Dedi	marble	1984	2000-03-21	4553	others
+DI	83	Qu Qiubai	"This works of ""Qu Qiubai"" is meant to be ""a normal intellectual"" who receives the success. "	sculpture	human	Zhan Wang	bronze	1991	2000-03-22	4554	others
+DJ	84	"Three Heroes of Jianhu"	The heavenliness of arch sculpt and power of outline has reached the perfect unification of form 	sculpture	human	 Zeng Chenggang		1989	2000-03-23	4555	others
+DK	85	Drunk	 conveys the feeling of Beijing drunk by the implicit smiles which moved the audience naturally. 	sculpture	human	Deng Xian	stone	1984	2000-03-24	4556	others
+DL	86	Challenge	It represents the feeling of young people nowadays to struggle in conflict, disappointment and solitude.	sculpture	human	Yu Chang	stone	1989	2000-03-25	4557	others
+DM	87	Du Fu	The muddy style which the sculptor preferred is wonderful.	sculpture	human	Ye Yushan	wood	1984	2000-03-26	4558	others
+DN	88	Looking Over Beijing	The image of a girl of Zang nationality looking up shows the feeling of yearning towards Beijing	sculpture	human	Yang Weiming	bronze	1984	2000-03-27	4559	others
+DO	89	Edgar Parks Snow in Bao'an	The facial expression and gestures of thisSculpture work shows the intimity 	sculpture	human	Yang Meiying	bronze	1978	2000-03-28	4560	others
+DP	90	Drinking Bear	That the animal Sculpture won the gold prize represents the trend of thought to seek for greenness and change.	sculpture	event	Yang Dongbaiwood		1982	2000-03-29	4561	others
+DQ	91	General Yang Hucheng	The eyebrow and mouth express the character and spirit of General Yang.	sculpture	human	Xing Yongchuan	plastic	1984	2000-03-30	4562	others
+DR	92	"Girl"	"The works ""Girl"" makes use of the grounding color, carving the black stripes into hair"	sculpture	human	Xia Xiaomin	bronze	1984	2000-03-31	4563	others
+DS	93	Breeder	"The wood Sculpture ""Breeder"" visualizes successfully a female breeder of rural area."	sculpture	human	Wu Mingwan	metal	1963	2000-04-01	4564	others
+DT	94	Fruit Fission	 the contrast of light and shade makes people pleasing to both the eye and the mind. 	sculpture	human	Wen Lou	plastic	1979	2000-04-02	4565	others

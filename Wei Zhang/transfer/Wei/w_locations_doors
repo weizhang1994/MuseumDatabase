@@ -1,0 +1,7 @@
+Wei	storage	lobby
+Wei	lobby	galleryA
+Wei	lobby	galleryB
+Wei	galleryA	galleryB
+Wei	galleryA	galleryC
+Wei	galleryB	galleryC
+Wei	galleryA	galleryD

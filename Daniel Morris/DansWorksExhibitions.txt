@@ -1,0 +1,126 @@
+YanDis	981	Back to the 80s	MCA	2016-07-18	2017-04-12
+ValThe	993	Back to the 80s	MCA	2016-07-18	2017-04-12
+McmYou	984	Back to the 80s	MCA	2016-07-18	2017-04-12
+NixUnt	988	Back to the 80s	MCA	2016-07-18	2017-04-12
+MawNia	988	Back to the 80s	MCA	2016-07-18	2017-04-12
+NixSel	988	Back to the 80s	MCA	2016-07-18	2017-04-12
+WatSel	989	Back to the 80s	MCA	2016-07-18	2017-04-12
+DwyUnt	995	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+HalGiv	996	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+ManExo	5	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+WhiTau	7	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+MorCol	7	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+MarEdw	8	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+WhiUnt	8	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+SmiAda	8	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+NikHan	9	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+PicDes	0	Its a Colourful World	MCA	2016-09-12	2017-09-18
+KenThe	9	Its a Colourful World	MCA	2016-09-12	2017-09-18
+TilTab	11	Its a Colourful World	MCA	2016-09-12	2017-09-18
+RayTou	13	Its a Colourful World	MCA	2016-09-12	2017-09-18
+GilCar	998	Its a Colourful World	MCA	2016-09-12	2017-09-18
+KovSer	999	Its a Colourful World	MCA	2016-09-12	2017-09-18
+OweSun	5	Its a Colourful World	MCA	2016-09-12	2017-09-18
+SanHac	8	Its a Colourful World	MCA	2016-09-12	2017-09-18
+GreEll	11	Its a Colourful World	MCA	2016-09-12	2017-09-18
+TemCor	995	Its a Colourful World	MCA	2016-09-12	2017-09-18
+SanIts	10	Its a Colourful World	MCA	2016-09-12	2017-09-18
+JohAsa	15	Its a Colourful World	MCA	2016-09-12	2017-09-18
+LeeThe	12	Dalmation	MCA	2017-04-17	2017-08-12
+WloAro	13	Dalmation	MCA	2017-04-17	2017-08-12
+HeaUnt	3	Dalmation	MCA	2017-04-17	2017-08-12
+HeaUnt	5	Dalmation	MCA	2017-04-17	2017-08-12
+YatBra	6	Dalmation	MCA	2017-04-17	2017-08-12
+NixUnt	988	Dalmation	MCA	2017-04-17	2017-08-12
+PurPir	996	Dalmation	MCA	2017-04-17	2017-08-12
+SteMin	12	Dalmation	MCA	2017-04-17	2017-08-12
+ParCam	972	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+YanThe	976	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+YanJoe	979	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+MofSom	989	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+SteDro	2	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+WymCom	8	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+RinPre	11	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+MunMan	15	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+PicDes	0	Early 2000s Works	MCA	2017-09-23	2017-12-23
+MayBru	0	Early 2000s Works	MCA	2017-09-23	2017-12-23
+GlaSto	0	Early 2000s Works	MCA	2017-09-23	2017-12-23
+MofInv	0	Early 2000s Works	MCA	2017-09-23	2017-12-23
+MayArt	0	Early 2000s Works	MCA	2017-09-23	2017-12-23
+RraOve	1	Early 2000s Works	MCA	2017-09-23	2017-12-23
+KenNeo	2	Early 2000s Works	MCA	2017-09-23	2017-12-23
+NorPas	3	Early 2000s Works	MCA	2017-09-23	2017-12-23
+KeeMic	4	Early 2000s Works	MCA	2017-09-23	2017-12-23
+KeeIan	4	Early 2000s Works	MCA	2017-09-23	2017-12-23
+KeeEdd	4	Early 2000s Works	MCA	2017-09-23	2017-12-23
+KeeGeo	4	Early 2000s Works	MCA	2017-09-23	2017-12-23
+OweSun	5	Early 2000s Works	MCA	2017-09-23	2017-12-23
+ManExo	5	Early 2000s Works	MCA	2017-09-23	2017-12-23
+WatApr	5	Early 2000s Works	MCA	2017-09-23	2017-12-23
+HarDog	6	Early 2000s Works	MCA	2017-09-23	2017-12-23
+MacOpe	6	Early 2000s Works	MCA	2017-09-23	2017-12-23
+WhiTau	7	Early 2000s Works	MCA	2017-09-23	2017-12-23
+AngBic	8	Back to the 80s	MCA	2016-07-18	2017-04-12
+ArmEmp	9	Back to the 80s	MCA	2016-07-18	2017-04-12
+ArmSec	995	Back to the 80s	MCA	2016-07-18	2017-04-12
+BarInh	6	Back to the 80s	MCA	2016-07-18	2017-04-12
+BelWor	2	Back to the 80s	MCA	2016-07-18	2017-04-12
+MayArt	0	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+MesSof	11	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+ParCam	972	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+YanThe	976	Life in Three Dimentions	MCA	2016-08-19	2017-01-18
+TipCro	15	Its a Colourful World	MCA	2016-09-12	2017-09-18
+WilCru	11	Its a Colourful World	MCA	2016-09-12	2017-09-18
+ArmSpl	9	Its a Colourful World	MCA	2016-09-12	2017-09-18
+ArmUnt	998	Its a Colourful World	MCA	2016-09-12	2017-09-18
+BenUnt	989	Its a Colourful World	MCA	2016-09-12	2017-09-18
+BorStr	9	Its a Colourful World	MCA	2016-09-12	2017-09-18
+BelUzv	6	Its a Colourful World	MCA	2016-09-12	2017-09-18
+BenHom	999	Its a Colourful World	MCA	2016-09-12	2017-09-18
+DwyUnt	995	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+HalGiv	996	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+NikHan	9	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+MesSof	11	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+MorCol	7	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+SmiAda	8	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+WhiUnt	8	Through the Eye of the Lens	MCA	2017-01-23	2017-06-18
+MawNia	988	Dalmation	MCA	2017-04-17	2017-08-12
+McmYou	984	Dalmation	MCA	2017-04-17	2017-08-12
+NixSel	988	Dalmation	MCA	2017-04-17	2017-08-12
+SelBes	11	Dalmation	MCA	2017-04-17	2017-08-12
+ValThe	993	Dalmation	MCA	2017-04-17	2017-08-12
+WatSel	989	Dalmation	MCA	2017-04-17	2017-08-12
+AngBic	8	Dalmation	MCA	2017-04-17	2017-08-12
+KenThe	9	Early 2000s Works	MCA	2017-09-23	2017-12-23
+TilTab	11	Early 2000s Works	MCA	2017-09-23	2017-12-23
+ArmEmp	9	Early 2000s Works	MCA	2017-09-23	2017-12-23
+ArmSec	995	Early 2000s Works	MCA	2017-09-23	2017-12-23
+BarInh	6	Early 2000s Works	MCA	2017-09-23	2017-12-23
+BlaPar	989	Early 2000s Works	MCA	2017-09-23	2017-12-23
+BurSys	968	Old but Gold	MCA	2015-09-12	2016-07-13
+McmYou	984	Old but Gold	MCA	2015-09-12	2016-07-13
+ParCam	972	Old but Gold	MCA	2015-09-12	2016-07-13
+ValThe	993	Old but Gold	MCA	2015-09-12	2016-07-13
+YanDis	981	Old but Gold	MCA	2015-09-12	2016-07-13
+YanJoe	979	Old but Gold	MCA	2015-09-12	2016-07-13
+YanThe	976	Old but Gold	MCA	2015-09-12	2016-07-13
+BauAut	11	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+JohAsa	15	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+MayArt	0	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+SmiAda	8	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+WatApr	5	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+WloAro	13	Cowboy Exhibition	MCA	2015-10-13	2016-08-14
+BedCam	4	Aboriginal Exhibition	MCA	2015-11-19	2016-09-07
+GilCar	998	Aboriginal Exhibition	MCA	2015-11-19	2016-09-07
+MayBru	0	Aboriginal Exhibition	MCA	2015-11-19	2016-09-07
+SelBes	11	Aboriginal Exhibition	MCA	2015-11-19	2016-09-07
+YatBra	6	Aboriginal Exhibition	MCA	2015-11-19	2016-09-07
+DeaWhe	2	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DonUnt	5	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DwyNon	994	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DwyRec	996	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DwySpe	15	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DwySqu	10	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+DwyWal	2	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+EagNew	5	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03
+EagTan	12	Saskatchewan Exhibition	MCA	2016-12-04	2017-04-03

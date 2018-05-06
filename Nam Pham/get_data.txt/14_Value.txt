@@ -1,0 +1,68 @@
+
+
+\i '13_media.txt'
+
+INSERT INTO ns_works_value(ns_wv_idalpha,
+                           ns_wv_idnumeric,
+                           ns_wv_inname,
+                           ns_wv_insurancevalue,
+                           ns_wv_startdate) 
+	SELECT  itemalpha,
+	        itemnumber,
+		'WAC gallery',
+		insurance_value_$,
+		'2016-6-1'
+	FROM all_works;
+
+UPDATE ns_works_value SET ns_wv_enddate = '2016-10-21' WHERE ns_wv_idnumeric IN (111, 112, 113);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

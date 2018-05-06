@@ -1,0 +1,73 @@
+
+--Provide the location of all the items in the museum (not included the potentially borrowed one) 
+--after all previous exhibitions end
+SELECT * 
+	FROM works_location
+;
+
+--Provide the information of all the previous locations that items has gone to and the date they go 
+--into those location
+SELECT * 
+	FROM works_move_in_date
+;
+
+--Provide the information of the previous 3 exhibitions as well as the next three
+SELECT * 
+	FROM exhibitions_info
+;
+
+--Provide the location that the exhibitions will be held (this include the previous one as well)
+SELECT * 
+	FROM exhibition_location
+;
+
+--Provide the infomation about all the location, this will also include the Grand Hall
+SELECT * 
+	FROM galleries
+;
+
+--Provide the information of the doors that now we will have after the change
+SELECT 
+	name, 
+	door_name
+FROM
+	galleries,
+	doors
+WHERE
+	door_from = name OR
+	door_to = name
+ORDER BY name;
+
+--Provide the information of the items that is owned by the museum, this also include the 2 new columns we 
+--get from the assignment
+SELECT 
+	itemAlpha,
+	itemNumber,
+	name,
+	claim,
+	potray_with
+FROM
+	all_works
+WHERE
+	claim = 'OWNED'
+ORDER BY 
+	itemNumber
+;
+
+--Provide the information items that is borrowed from others, this will also include the name of the donator(s)
+SELECT 
+	itemAlpha,
+	itemNumber,
+	name,
+	claim,
+	donor,
+	potray_with
+FROM
+	all_works,
+	donors
+WHERE
+	ItemAlpha_don = itemAlpha AND
+	ItemNumber_don = itemNumber
+ORDER BY 
+	itemNumber
+;

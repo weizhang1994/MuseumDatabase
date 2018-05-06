@@ -1,0 +1,175 @@
+-- Daniel Morris
+-- ddm855
+-- 11188831
+
+DROP TABLE Works CASCADE;
+DROP TABLE Media CASCADE;
+DROP TABLE Exhibitions CASCADE;
+DROP TABLE ExhibitWorks CASCADE;
+DROP TABLE Rooms CASCADE;
+DROP TABLE WorksLocations CASCADE;
+DROP TABLE Doors CASCADE;
+DROP TABLE ExhibitLocations;
+
+
+DROP DOMAIN workIdNum CASCADE;
+DROP DOMAIN workIdAlpha CASCADE;
+DROP DOMAIN workName CASCADE;
+DROP DOMAIN workType CASCADE;
+DROP DOMAIN workSubType CASCADE;
+DROP DOMAIN workArtist CASCADE;
+DROP DOMAIN workCompDate CASCADE;
+DROP DOMAIN workAcqDate CASCADE;
+DROP DOMAIN workValue CASCADE;
+DROP DOMAIN workDesc CASCADE;
+DROP DOMAIN workMedia CASCADE;
+DROP DOMAIN locationName CASCADE;
+DROP DOMAIN locationDim CASCADE;
+DROP DOMAIN locationSugg CASCADE;
+DROP DOMAIN exhibitName CASCADE;
+DROP DOMAIN exhibitDesc CASCADE;
+DROP DOMAIN exhibitStart CASCADE;
+DROP DOMAIN exhibitEnd CASCADE;
+DROP DOMAIN doorNumber CASCADE;
+DROP DOMAIN doorRoom1 CASCADE;
+DROP DOMAIN doorRoom2 CASCADE;
+
+
+--Creating Works Table
+
+CREATE DOMAIN workIdNum as smallint;
+CREATE DOMAIN workIdAlpha as text;
+CREATE DOMAIN workName as varchar(200);
+CREATE DOMAIN workType as varchar(20);
+CREATE DOMAIN workSubType as varchar(20);
+CREATE DOMAIN workArtist as varchar(40);
+CREATE DOMAIN workCompDate as date;
+CREATE DOMAIN workAcqDate as date; 
+CREATE DOMAIN workValue as smallint;
+CREATE DOMAIN workDesc as varchar(10000);
+
+CREATE TABLE Works (
+	wkIdAlpha workIdAlpha NOT NULL,
+	wkIdNum workIdNum NOT NULL,
+	wkName workName NOT NULL,
+	wkType workType NOT NULL,
+	wkSubType workSubType NOT NULL,
+	wkArtist workArtist NOT NULL,
+	wkCompDate workCompDate NOT NULL,
+	wkAcqDate workAcqDate NOT NULL,
+	wkValue workValue NOT NULL,
+	wkDesc workDesc NOT NULL,
+	PRIMARY KEY (wkIdNum, wkIdAlpha)
+	
+);
+
+
+--Creating Media Table
+
+CREATE DOMAIN workMedia as varchar(30);
+
+
+CREATE TABLE Media (
+	medIDAlpha workIdAlpha NOT NULL,
+	medIdNum workIdNum NOT NULL,
+	medMedia workMedia NOT NULL,
+	CONSTRAINT fKey FOREIGN KEY (medIDAlpha, medIdNum)
+		REFERENCES Works(wkIdAlpha, wkIdNum)
+	
+);
+
+
+--Creating Rooms Table
+
+CREATE DOMAIN locationName as varchar(10);
+CREATE DOMAIN locationDim as smallint;
+CREATE DOMAIN locationSugg as smallint;
+
+CREATE TABLE Rooms (
+
+	rmName locationName PRIMARY KEY NOT NULL,
+	rmWidth locationDim NOT NULL,
+	rmLength locationDim NOT NULL,
+	rmSuggMin locationSugg NOT NULL,
+	rmSuggMax locationSugg NOT NULL
+);
+
+
+--Creating Exhibitions Table
+
+CREATE DOMAIN exhibitName as varchar(30);
+CREATE DOMAIN exhibitDesc as varchar(200);
+CREATE DOMAIN exhibitStart as date;
+CREATE DOMAIN exhibitEnd as date;
+
+CREATE TABLE Exhibitions (
+	exName exhibitName PRIMARY KEY NOT NULL,
+	exDesc exhibitDesc,
+	exStart exhibitStart NOT NULL,
+	exEnd exhibitEnd NOT NULL
+	
+);
+
+CREATE TABLE ExhibitLocations (
+	exLocName exhibitName PRIMARY KEY NOT NULL
+		REFERENCES Exhibitions(exName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL,
+	exLocLoc locationName
+		REFERENCES Rooms(rmName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL
+);
+
+
+--Creating Exhibition Works Table
+
+CREATE TABLE ExhibitWorks (
+ 
+	ewName exhibitName NOT NULL
+		REFERENCES Exhibitions(exName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL,
+	ewIdAlpha workIdAlpha NOT NULL,
+	ewIdNum workIdNum NOT NULL,
+	CONSTRAINT fKey FOREIGN KEY (ewIdAlpha, ewIdNum)
+		REFERENCES Works(wkIdAlpha, wkIdNum)
+);
+
+--Creating Lobby Works Table
+
+Create TABLE WorksLocations (
+	locIdAlpha workIdAlpha NOT NULL,
+	locIdNum workIdNum NOT NULL,
+	locName locationName NOT NULL,
+	CONSTRAINT fKey FOREIGN KEY (locIdAlpha, locIdNum)
+		REFERENCES Works(wkIdAlpha, wkIdNum)
+);
+
+--Creating Doors Table
+
+CREATE DOMAIN doorNumber as smallint;
+CREATE DOMAIN doorRoom1 as varchar(30);
+CREATE DOMAIN doorRoom2 as varchar(30);
+
+
+Create TABLE Doors (
+
+	doorNum doorNumber PRIMARY KEY NOT NULL,
+	doorRm1 doorRoom1 NOT NULL
+		REFERENCES Rooms(rmName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL,
+	doorRm2 doorRoom2 NOT NULL
+		REFERENCES Rooms(rmName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL
+
+);
+
+
+
+
+
+	
+

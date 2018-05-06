@@ -1,0 +1,392 @@
+
+\i '1_droptables.txt'
+\i '2_drop_domain.txt'
+\i '3_create_domain.txt'
+\i '4_createtables.txt'
+
+
+
+-- TABLE ns_institutions
+
+INSERT INTO ns_institutions VALUES ('WAC gallery', 'museum@mail.com', '(+1) 306-888-0101', '20 Black Street S', 'Saskatoon', 'Saskatchewan', 'Canada', 'F4N 1L9');
+
+
+
+
+INSERT INTO ns_institutions (ns_in_inname) SELECT DISTINCT (name) FROM loan_institution;
+
+UPDATE ns_institutions SET ns_in_email = (SELECT e_mail from loan_institution WHERE name = 'Art Gallery of Ontario' LIMIT 1), 
+			  ns_in_phonenumber = (SELECT phonenum from loan_institution WHERE name = 'Art Gallery of Ontario' LIMIT 1), 
+			  ns_in_streetaddress = '317 Dundas Street West', 
+			  ns_in_city = 'Toronto', 
+			  ns_in_postalcode  = 'M5T 1G4', 
+			  ns_in_country = 'Canada', 
+			  ns_in_countrysubdivision = 'Ontario'
+		WHERE ns_in_inname = 'Art Gallery of Ontario';
+
+
+UPDATE ns_institutions SET ns_in_email = (SELECT e_mail from loan_institution WHERE name = 'CBC Museum' LIMIT 1), 
+			  ns_in_phonenumber = (SELECT phonenum from loan_institution WHERE name = 'CBC Museum' LIMIT 1), 
+			  ns_in_streetaddress = '250 Front Street West',
+			  ns_in_city = 'Toronto', 
+			  ns_in_postalcode  = 'E5K 1J4', 
+			  ns_in_countrysubdivision = 'Ontario',
+			  ns_in_country = 'Canada' 
+		WHERE ns_in_inname = 'CBC Museum';
+
+
+UPDATE ns_institutions SET ns_in_email = (SELECT e_mail from loan_institution WHERE name = 'Bata Shoe Museum' LIMIT 1), 
+			  ns_in_phonenumber = (SELECT phonenum from loan_institution WHERE name = 'Bata Shoe Museum' LIMIT 1), 
+			  ns_in_streetaddress = '327 Bloor Street West', 
+			  ns_in_city = 'Toronto', 
+			  ns_in_postalcode  = 'A5H 5J1',
+			  ns_in_countrysubdivision = 'Ontario',
+			  ns_in_country = 'Canada' 
+		WHERE ns_in_inname = 'Bata Shoe Museum';
+
+
+UPDATE ns_institutions SET ns_in_email = (SELECT e_mail from loan_institution WHERE name = 'Addison Sod House' LIMIT 1), 
+			  ns_in_phonenumber = (SELECT phonenum from loan_institution WHERE name = 'Addison Sod House' LIMIT 1), 
+			  ns_in_streetaddress = 'Oakdale No.320', 
+			  ns_in_city = 'Kindersley Saskatchewan', 
+			  ns_in_postalcode  = 'D2O 8G3', 
+			  ns_in_countrysubdivision = 'Saskatchewan',
+			  ns_in_country = 'Canada' 
+		WHERE ns_in_inname = 'Addison Sod House';
+
+
+
+UPDATE ns_institutions SET ns_in_email = (SELECT e_mail from loan_institution WHERE name = 'Annandale Historic Site' LIMIT 1), 
+			   ns_in_phonenumber = (SELECT phonenum from loan_institution WHERE name = 'Annandale Historic Site' LIMIT 1),
+			   ns_in_streetaddress = '30 Tillson Avanue', 
+			   ns_in_city = 'Tillsonburg', 
+			   ns_in_postalcode  = 'B8N 3H4',
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_country = 'Canada' 
+		WHERE ns_in_inname = 'Annandale Historic Site';
+
+
+
+
+
+INSERT INTO ns_institutions (ns_in_inname) SELECT DISTINCT (donor) FROM donors;
+
+UPDATE ns_institutions SET ns_in_country = 'Canada' WHERE ns_in_inname <> 'Boston Musem' AND ns_in_inname <> 'Boston Center';
+UPDATE ns_institutions SET ns_in_country = 'USA' WHERE ns_in_inname IN ('Boston Center', 'Boston Musem');
+
+UPDATE ns_institutions SET ns_in_email = 'gal@mail.com', 
+			   ns_in_phonenumber = '(+1) 403-999-6666',
+			   ns_in_streetaddress = '134 Dal Street', 
+			   ns_in_city = 'Calgary', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'S2K 1L5'
+		WHERE ns_in_inname = 'The gallery';
+
+UPDATE ns_institutions SET ns_in_email = 'blog@mail.com', 
+			   ns_in_phonenumber = '(+1) 403-999-6666',
+			   ns_in_streetaddress = '112 Jo Ave N', 
+			   ns_in_city = 'Calgary',
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'D7J K9O'
+		WHERE ns_in_inname = 'The next garden';
+		
+UPDATE ns_institutions SET ns_in_email = 'vo@mail.com', 
+			   ns_in_phonenumber = '(+1) 403-222-2222',
+			   ns_in_streetaddress = '89 Homain St', 
+			   ns_in_city = 'Calgary', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'L8O 1M6'
+		WHERE ns_in_inname = 'Walker Art Center';
+
+UPDATE ns_institutions SET ns_in_email = 'alo@mail.com', 
+			   ns_in_phonenumber = '(+1) 306-111-1111',
+			   ns_in_streetaddress = '112 Marlin St', 
+			   ns_in_city = 'Regina', 
+			   ns_in_countrysubdivision = 'Saskatchewan',
+			   ns_in_postalcode  = 'F2H 6V8'
+		WHERE ns_in_inname = 'Minh Chi Ho';
+
+UPDATE ns_institutions SET ns_in_email = 'xo@mail.com', 
+			   ns_in_phonenumber = '(+1) 223-111-2222',
+			   ns_in_streetaddress = '119 Ho Linh Ave S', 
+			   ns_in_city = 'Manitoba', 
+			   ns_in_countrysubdivision = 'Manitoba',
+			   ns_in_postalcode  = 'N6U 4D9'
+		WHERE ns_in_inname = 'Khan Museum';
+		
+		
+UPDATE ns_institutions SET ns_in_email = 'al@mail.com', 
+			   ns_in_phonenumber = '(+1) 306-999-1111',
+			   ns_in_streetaddress = '12 Ko St', 
+			   ns_in_city = 'Saskatoon', 
+			   ns_in_countrysubdivision = 'Saskatchewan',
+			   ns_in_postalcode  = 'S4N 1O9'
+		WHERE ns_in_inname = 'Henry Them';
+		
+UPDATE ns_institutions SET ns_in_email = 'ko@mail.com', 
+			   ns_in_phonenumber = '(+1) 333-333-33333',
+			   ns_in_streetaddress = '111 Vak Ave W', 
+			   ns_in_city = 'Manitoba',
+			    ns_in_countrysubdivision = 'Saskatchewan',
+			   ns_in_postalcode  = 'S2N 1J9' 
+		WHERE ns_in_inname = 'Saint Gallery';
+		
+UPDATE ns_institutions SET ns_in_email = 'lo@mail.com', 
+			   ns_in_phonenumber = '(+1) 322-977-7777',
+			   ns_in_streetaddress = '17 Blog St', 
+			   ns_in_city = 'Albelta', 
+			    ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'F6N 9K6'
+		WHERE ns_in_inname = 'Twin Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'go@mail.com', 
+			   ns_in_phonenumber = '(+1) 222-222-2222',
+			   ns_in_streetaddress = '12 Newton St', 
+			   ns_in_city = 'Manitoba', 
+			   ns_in_countrysubdivision = 'Manitoba',
+			   ns_in_postalcode  = 'F6J 9K9'
+		WHERE ns_in_inname = 'Henry Gallery';
+		
+UPDATE ns_institutions SET ns_in_email = 'ao@mail.com', 
+			   ns_in_phonenumber = '(+1) 229-111-0000',
+			   ns_in_streetaddress = '34 Gao Street', 
+			   ns_in_city = 'Hamilton',
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'F6H 6J0' 
+		WHERE ns_in_inname = 'New Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'xhsdsw@mail.com', 
+			   ns_in_phonenumber = '(+1) 777-111-2222',
+			   ns_in_streetaddress = '31 Hamil St', 
+			   ns_in_city = 'Hamilton',
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'D4G 1AI'
+		WHERE ns_in_inname = 'The Zone';
+		
+UPDATE ns_institutions SET ns_in_email = 'xoqffq@mail.com', 
+			   ns_in_phonenumber = '(+1) 119-221-1212',
+			   ns_in_streetaddress = '90 JoJo St', 
+			   ns_in_city = 'Calgary', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'F8U 4N9' 
+		WHERE ns_in_inname = 'Hala Barbra';
+		
+UPDATE ns_institutions SET ns_in_email = 'sadw@mail.com', 
+			   ns_in_phonenumber = '(+1) 121-333-2222',
+			   ns_in_streetaddress = '112 Bloas Blvd', 
+			   ns_in_city = 'Vancouver', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'G9I 8Ko0'
+		WHERE ns_in_inname = 'John Smith';
+		
+UPDATE ns_institutions SET ns_in_email = 'the_gar@mail.com', 
+			   ns_in_phonenumber = '(+1) 232-112-9909',
+			   ns_in_streetaddress = '65 Nort St', 
+			   ns_in_city = 'Edmonton', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'V90 2N8' 
+		WHERE ns_in_inname = 'The next Garden';
+		
+UPDATE ns_institutions SET ns_in_email = 'bi_mu@mail.com', 
+			   ns_in_phonenumber = '(+1) 121-212-1212',
+			   ns_in_streetaddress = '45 Hill Ave', 
+			   ns_in_city = 'Vancouver', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'S0M 9L2'
+		WHERE ns_in_inname = 'Big Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'fwed@mail.com', 
+			   ns_in_phonenumber = '(+1) 889-222-1111',
+			   ns_in_streetaddress = '45 Kol Blvd', 
+			   ns_in_city = 'Hamiton', 
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'H97 8J0' 
+		WHERE ns_in_inname = 'Jean Funk';
+		
+UPDATE ns_institutions SET ns_in_email = 'fdwdfw@mail.com', 
+			   ns_in_phonenumber = '(+1) 613-555-0185',
+			   ns_in_streetaddress = '1267 7th Ave', 
+			   ns_in_city = 'Calgary', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'T2P 0W4' 
+		WHERE ns_in_inname = 'Mickey Norm';
+		
+UPDATE ns_institutions SET ns_in_email = 'sav@mail.com', 
+			   ns_in_phonenumber = '(+1) 403-952-7481',
+			   ns_in_streetaddress = '283 3rd Avenue', 
+			   ns_in_city = 'Medicine Hat', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'T1A 8A5' 
+		WHERE ns_in_inname = 'Hughes Man';
+		
+UPDATE ns_institutions SET ns_in_email = 'wgwr@mail.com', 
+			   ns_in_phonenumber = '(+1) 819-463-3595',
+			   ns_in_streetaddress = '3929 rue des St', 
+			   ns_in_city = 'Gracefield', 
+			   ns_in_countrysubdivision = 'Quebec',
+			   ns_in_postalcode  = 'J0X 1W0' 
+		WHERE ns_in_inname = 'Kai Smoan';
+		
+UPDATE ns_institutions SET ns_in_email = 'bfff@mail.com', 
+			   ns_in_phonenumber = '(+1) 250-371-0872',
+			   ns_in_streetaddress = '837 McGill Road', 
+			   ns_in_city = 'Kamloops', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'V2C 5R8'
+		WHERE ns_in_inname = 'Hoax Gallery';
+		
+UPDATE ns_institutions SET ns_in_email = 'xowrrbvre@mail.com', 
+			   ns_in_phonenumber = '(+1) 604-488-4643',
+			   ns_in_streetaddress = '3673 Robson St', 
+			   ns_in_city = 'Vancouver', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'V6B 3K9'
+		WHERE ns_in_inname = 'Saint Louis Gallery';
+		
+UPDATE ns_institutions SET ns_in_email = 'xvwbr@mail.com', 
+			   ns_in_phonenumber = '(+1) 250-598-6722',
+			   ns_in_streetaddress = '125 Burdett Avenue', 
+			   ns_in_city = 'Victoria', 
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'V8R 5A7' 
+		WHERE ns_in_inname = 'Hans Sanx';
+		
+UPDATE ns_institutions SET ns_in_email = 'fweeg@mail.com', 
+			   ns_in_phonenumber = '(+1) 250-330-9120',
+			   ns_in_streetaddress = '2455 Kinchant St', 
+			   ns_in_city = 'Prince George', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'V2N 4M6'
+		WHERE ns_in_inname = 'Smantha Oax';
+		
+UPDATE ns_institutions SET ns_in_email = 'xdvfbfo@mail.com', 
+			   ns_in_phonenumber = '(+1) 514-983-7659',
+			   ns_in_streetaddress = '2939 Sherbrooke Ouest', 
+			   ns_in_city = 'Montreal', 
+			   ns_in_countrysubdivision = 'Quebec',
+			   ns_in_postalcode  = 'H4A 1H3'
+		WHERE ns_in_inname = 'Canada Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'vfdbfdbxo@mail.com', 
+			   ns_in_phonenumber = '(+1) 416-356-4611',
+			   ns_in_streetaddress = '3085 Eglinton Avenue', 
+			   ns_in_city = 'Toronto', 
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'M4P 1A6' 
+		WHERE ns_in_inname = 'Mike Lens';
+		
+UPDATE ns_institutions SET ns_in_email = 'xofdvbff@mail.com', 
+			   ns_in_phonenumber = '(+1) 604-631-1246',
+			   ns_in_streetaddress = '3201 Robson St', 
+			   ns_in_city = 'Vancouver', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'V6B 3K9'
+		WHERE ns_in_inname = 'Museum of Alberta';
+		
+UPDATE ns_institutions SET ns_in_email = 'xcddfbo@mail.com', 
+			   ns_in_phonenumber = '(+1 ) 780-338-8227',
+			   ns_in_streetaddress = '4753 5th Avenue', 
+			   ns_in_city = 'Berwyn', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'T0H 0E0'
+		WHERE ns_in_inname = 'Beauty Gallery';
+		
+UPDATE ns_institutions SET ns_in_email = 'fgfb@mail.com', 
+			   ns_in_phonenumber = '(+1) 780-929-2244',
+			   ns_in_streetaddress = '1400 Pine Street', 
+			   ns_in_city = 'Beaumont', 
+			   ns_in_countrysubdivision = 'Alberta',
+			   ns_in_postalcode  = 'T0C 0H0' 
+		WHERE ns_in_inname = 'Montreal Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'xovfvbfdb@mail.com', 
+			   ns_in_phonenumber = '(+1) 604-448-7796',
+			   ns_in_streetaddress = '1044 Jade St', 
+			   ns_in_city = 'Richmond', 
+			   ns_in_countrysubdivision = 'B.C',
+			   ns_in_postalcode  = 'V7E 2E4'
+		WHERE ns_in_inname = 'Vietnam zoo';
+		
+UPDATE ns_institutions SET ns_in_email = 'fbfbfdxo@mail.com', 
+			   ns_in_phonenumber = '(+1) 306-962-8939',
+			   ns_in_streetaddress = '1909 Hamilton Street', 
+			   ns_in_city = 'Toronto', 
+			   ns_in_countrysubdivision = 'Ontario',
+			   ns_in_postalcode  = 'S4P 3Y2'
+		WHERE ns_in_inname = 'Toronto Museum';
+		
+UPDATE ns_institutions SET ns_in_email = 'xofdbdb@mail.com', 
+			   ns_in_phonenumber = '(+1) 905-853-8827',
+			   ns_in_streetaddress = '3189 Leslie Street', 
+			   ns_in_city = 'Boston',
+			   ns_in_countrysubdivision = 'Massachusetts',
+			   ns_in_postalcode  = '02201-1111'
+		WHERE ns_in_inname = 'Boston Musem';
+		
+UPDATE ns_institutions SET ns_in_email = 'xfbfdbbo@mail.com', 
+			   ns_in_phonenumber = '(+1) 604-448-7796',
+			   ns_in_streetaddress = '1044 Jade St', 
+			   ns_in_city = 'Boston', 
+			   ns_in_countrysubdivision = 'Massachusetts',
+			   ns_in_postalcode  = '02201-2121'
+		WHERE ns_in_inname = 'Boston Center';
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

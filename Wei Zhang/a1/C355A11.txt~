@@ -1,0 +1,82 @@
+-- C355A11.txt
+-- Wei Zhang wez758 11146590
+-- This is database to collect the domains, tables, attributes, views required to
+-- fit the location data profiles
+
+
+-- Create a composite type for physical dimensions in table lifLocation
+
+CREATE DOMAIN AS
+
+
+CREATE TYPE dimension AS (
+	length	real,
+	width real,
+	height real
+);
+
+-- Create a library table named namcMuseum
+-- This table is uesd to collect all the information of National Art Museum of China
+
+CREATE TABLE mifMuseum (
+	mifNumberL varchar(10) NOT NULL,
+	mifNumberN smallint NOT NULL,
+	mifName varchar(50) NOT NULL,
+	mifDescription text NOT NULL,
+	mifType varchar(50) NOT NULL,
+	mifSubtype varchar(50) NOT NULL,
+	mifAuthor varchar(50) NOT NULL,
+	mifMaterial varchar(50) NOT NULL,
+	mifCompDate date NOT NULL,
+	mifAcquDate date NOT NULL,
+	mifInsurance smallint NOT NULL,
+	PRIMARY KEY(mifNumberL, mifNumberN)
+); 
+
+
+-- The museum consists of an entrance lobby, three galleries and a storage facility 
+CREATE TABLE liLocation (
+	lifName varchar(50) UNIQUE NOT NULL PRIMARY KEY,
+	lifDimensions dimension NOT NULL
+	
+	
+);
+
+
+-- The additional table lciLocationCapacity is a collection of suggested number of
+-- works, it has suggested mininum number of works and suggested maximum number of
+-- works
+CREATE TABLE lciLocationCapacity (
+	lifName varchar(50) 
+		REFERENCES liLocation
+			ON UPDATE CASCADE
+			ON DELETE SET NULL,
+	lciSmin smallint NOT NULL,
+        CHECK (lciSmin >= 0),
+        lciSmax smallint NOT NULL,
+        CHECK (lciSmax >= 0),
+        CONSTRAINT valid_Snum CHECK (lciSmax >= lciSmin)
+);
+
+
+-- The additional table for location that collected each location's connectivity
+CREATE TABLE ldiLocationDoor (
+	ldiFrom varchar(50) NOT NULL,
+	ldiTo varchar(50) NOT NULL 
+);
+
+
+-- The information needed to do an exhibition
+CREATE TABLE eiExhibitions (
+        eiName varchar(50) UNIQUE NOT NULL,
+	eiDescription text NOT NULL,
+	eiStartDate date NOT NULL,
+	eiEndDate date NOT NULL,
+	eiLocation varchar(50) NOT NULL
+);
+
+
+
+			
+       	 			   
+	

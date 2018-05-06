@@ -1,0 +1,75 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #1
+
+--This is the file for queries.
+--The queries will be called in the form of SELECT * FROM viewname after
+--creating the view
+
+--1.
+
+CREATE VIEW listinStorageView 
+AS SELECT DISTINCT i.locRoomName, i.locLetterKey, i.locNumberKey, w.wksCarName, w.wksInsuranceValue
+FROM worksLocations AS i
+INNER JOIN works AS w
+ON i.locLetterKey=w.wksLetterkey
+AND i.locNumberKey=w.wksNumberkey
+WHERE locRoomName='Storage';
+
+	
+SELECT * FROM listinstorageview;
+
+--2.
+
+CREATE VIEW allexhibitionsview
+AS 
+SELECT DISTINCT e.exbName, e.exbDesc, l.exbLoc, COUNT(e.exbName) 
+FROM exhibitions AS e
+LEFT JOIN exhibitionsWorks AS c
+ON e.exbName=c.exbName
+LEFT JOIN exhibitionLocation AS l
+ON l.exblname=e.exbname
+GROUP BY e.exbName, l.exbLoc;
+
+
+
+
+SELECT * FROM allexhibitionsview;
+
+--3.
+CREATE VIEW publicDataview
+AS
+SELECT DISTINCT e.exbName, w.wksCarName, w.wksdescription, w.wksBodyType, w.wksTranstype, w.wksManufacturer, w.wksEngine, w.wksDateofCompletion, w.wksDateofAquisition 
+FROM exhibitionsWorks AS e
+INNER JOIN works AS w
+ON e.exbLetterKey=w.wksLetterkey
+AND e.exbNumberKey=w.wksNumberkey;
+
+SELECT * FROM publicDataview;
+
+--4.
+CREATE VIEW listingview
+AS
+SELECT DISTINCT e.exbEndDate, w.wksCarName, w.wksBodyType, w.wksTranstype
+FROM exhibitions AS e
+LEFT JOIN exhibitionsWorks as c
+ON e.exbName=c.exbname
+LEFT JOIN works as w
+ON w.wksNumberKey=c.exbNumberkey;
+
+SELECT * FROM listingview;
+
+--5.
+CREATE VIEW additionalworkslisting
+AS
+SELECT DISTINCT (l.locRoommax- COUNT(e.exbLoc)) AS amount_of_space, e.exbLName
+FROM locations AS l
+LEFT JOIN exhibitionlocation AS e
+ON l.locRoomName=e.exbloc
+LEFT JOIN exhibitionsWorks AS c
+ON e.exbLName=c.exbName
+WHERE e.exblName IS NOT NULL
+GROUP BY e.exbLName, l.locroommax;
+
+
+
+SELECT * FROM additionalworkslisting;
+

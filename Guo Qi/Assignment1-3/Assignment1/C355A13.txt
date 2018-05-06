@@ -1,0 +1,149 @@
+-- Create view for each table
+CREATE VIEW WorksView
+	AS SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription
+	FROM 
+		Works;
+
+CREATE VIEW MediaView
+	AS SELECT
+		meIDLetter,
+		meIDNumber,
+		meMaterial
+	FROM 
+		Media;
+
+CREATE VIEW LocationsView
+	AS SELECT
+		lcName,
+		lcDimension,
+		lcMinnumWork,
+		lcMaxNumWork
+	FROM 
+		Locations;
+
+CREATE VIEW DoorsView
+	AS SELECT
+		drLocation1,
+		drLocation2
+	FROM 
+		Doors;
+
+CREATE VIEW ExhibitionsView
+	AS SELECT
+		exName,
+		exDescription,
+		exStartDate,
+		exEndDate,
+	FROM 
+		Exhibitions;
+
+CREATE VIEW WorksLocationsView
+	AS SELECT
+		wlIDLetter,
+		wlIDNumber,
+		wlLocation
+	FROM 
+		WorksLocations;
+
+CREATE VIEW ExhibitionsWorksView
+	AS SELECT
+		ewExhibition,
+		ewIDLetter,
+		ewIDNumber
+	FROM 
+		ExhibitionsWorks;
+
+CREATE VIEW ExhibitionsLocationsView
+	AS SELECT
+		elLocation,
+		elExhibition,
+		elExStartDate
+	FROM 
+		ExhibitionsLocations;
+
+-- Produce for the head of the museum a listing of all works (including their identifier, name, and insurance value) that are currently in storage
+CREATE VIEW WorksInStorage
+	AS SELECT 
+		wkIDLetter AS "IDLetter", 
+		wkIDNumber AS "IDNumber", 
+		wkName AS "Name", 
+		wkInsuranceValue AS "Insurance Value"
+	FROM 
+		WorksView AS w, WorksLocationsView AS wl
+	WHERE
+		w.wkIDLetter=wl.wlIDLetter AND w.wkIDNumber=wl.wlIDNumber AND wl.wlLocation='storage'
+	;
+
+-- Produce for the public a listing of all exhibitions (including name, description, location, and number of works)
+CREATE VIEW ExhibitionsList
+	AS SELECT
+		exName AS "Name", 
+		exDescription AS "Description", 
+		exLocation AS "Location", 
+		count AS "Number of Works"
+	FROM (
+			SELECT ewExhibition, count(ewExhibition)
+				FROM 
+					ExhibitionsWorksView
+				GROUP BY 
+					ewExhibition
+		) AS ec, Exhibitions AS ex
+	WHERE ex.exName=ec.ewExhibition;
+
+
+-- Produce for the public a listing of all publicly available data on all works in each of the exhibitions sorted by exhibition and by the name of the work
+CREATE VIEW PublicWorks
+	AS SELECT 
+		ewExhibition AS "Exhibition Name",
+		wkName AS "Work Name",
+		wkType AS "Type",
+		wkSubType AS "Subtype",
+		wkAuthor AS "Author",
+		wkCompletionDate AS "Completion Date",
+		wkAcquisitionDate AS "Acquisition Date",
+		wkDescription AS "Description"
+	FROM
+		WorksView, ExhibitionsWorksView
+	WHERE
+		ewIDLetter=wkIDLetter AND ewIDNumber=wkIDNumber
+	ORDER BY 
+		ewExhibition, wkName;
+
+-- Produce for a curator a listing of works sorted by when they are available for use in a new exhibition and by classification and by name of the work
+CREATE VIEW AvailableWorks
+	AS (SELECT
+		wkName AS "Work Name",
+		wkType AS "Work Type",
+		wkSubType AS "Work Subtype",
+		exEndDate AS "Available Date"
+	FROM
+		ExhibitionsView, WorksLocationsView, WorksView
+	WHERE
+		exLocation=wlLocation AND wlIDLetter=wkIDLetter AND wlIDNumber=wkIDNumber
+	) 
+	UNION
+	(SELECT 
+		wkName AS "Work Name",
+		wkType AS "Work Type",
+		wkSubType AS "Work Subtype",
+		date(now()) AS "Available Date"
+	FROM WorksLocationsView AS wl, WorksView AS w
+	
+	WHERE
+		wlLocation='storage' AND wlIDNumber=wkIDNumber AND wlIDLetter=wkIDLetter
+	)
+	ORDER BY
+		"Available Date", "Work Type", "Work Subtype", "Work Name"; 
+		
+-- Produce for the curator a listing of the amount of additional works that could be added to each exhibit based on the unused capacity of the galleries that they are currently in. This listing should just have the amount of additional works that could be added and the name of the exhibit
+

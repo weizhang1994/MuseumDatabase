@@ -1,0 +1,89 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #2
+
+INSERT INTO exhibitions
+SELECT 'Cars of Inventors', 'A look at the cars that represented inventors ideas',  exbenddate + 5, exbenddate + integer '126'
+FROM exhibitions
+WHERE exbname = 'Old but Gold';
+
+INSERT INTO exhibitions
+SELECT 'Hogs of the Road', 'A look at the bikes and cars that run the road',  exbenddate + 5, exbenddate + integer '155'
+FROM exhibitions
+WHERE exbname = 'Just living life';
+
+INSERT INTO exhibitions
+SELECT 'Millionaires Day Out', 'A look at the pricey cars of the past and the future',  exbenddate + 5, exbenddate + integer '96'
+FROM exhibitions
+WHERE exbname = 'At the Raceway';
+
+--Copy in new exhbitionsworks data
+\copy exhibitionsWorks FROM 'C355A21-2.txt';
+
+INSERT INTO exhibitionlocation
+SELECT exbLoc, 'Cars of Inventors'
+FROM exhibitionlocation
+WHERE exbLoc = 'Gallery A';
+
+INSERT INTO exhibitionlocation
+SELECT exbLoc, 'Hogs of the Road'
+FROM exhibitionlocation
+WHERE exbLoc = 'Gallery B';
+
+INSERT INTO exhibitionlocation
+SELECT exbLoc, 'Millionaires Day Out'
+FROM exhibitionlocation
+WHERE exbLoc = 'Gallery C';
+
+--Alter works Location table so that it has a date of transfer from locations
+ALTER TABLE worksLocations
+ADD COLUMN dateOfTransfer date;
+
+--Return works after a day of the exhibit being over
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, 'Storage', exbenddate + 1
+FROM exhibitions, exhibitionsworks
+WHERE exbwname = 'Old but Gold'
+AND exbwname = exbname;
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, 'Storage', exbenddate + 1
+FROM exhibitions, exhibitionsworks
+WHERE exbwname = 'Just living life'
+AND exbwname = exbname;
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, 'Storage', exbenddate + 1
+FROM exhibitions, exhibitionsworks
+WHERE exbwname = 'At the Raceway'
+AND exbwname = exbname;
+
+--Take works from storage to new exhibit
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, exbloc, exbstartdate - 3
+FROM exhibitions, exhibitionsworks, exhibitionlocation 
+WHERE exbwname = 'Cars of Inventors'
+AND exbwname = exbname
+AND exblname = exbname;
+
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, exbloc, exbstartdate - 3
+FROM exhibitions, exhibitionsworks, exhibitionlocation
+WHERE exbwname = 'Hogs of the Road'
+AND exbwname = exbname
+AND exblname = exbname;
+
+
+INSERT INTO worksLocations
+SELECT DISTINCT exbletterkey, exbnumberkey, exbloc, exbstartdate - 3
+FROM exhibitions, exhibitionsworks, exhibitionlocation
+WHERE exbwname = 'Millionaires Day Out'
+AND exbwname = exbname
+AND exblname = exbname;
+
+
+
+
+
+

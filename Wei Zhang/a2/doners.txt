@@ -1,0 +1,15 @@
+CQ	65	grape ape
+CR	66	scooby dum
+CS	67	george jetson
+CT	68	bambi
+CU	69	quick draw mcgraw
+CV	70	velma dinkley
+CW	71	henery hawk
+CX	72	blacque jacque
+CY	73	boo boo bear
+CZ	74	atom ant
+DA	75	Captain caveman
+DB	76	underdog
+DC	77	lucy van pelt
+DD	78	darkwing duck
+DE	79	magica de spell

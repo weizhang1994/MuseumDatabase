@@ -1,0 +1,93 @@
+--Assignment #3 | Kevin Noonan | krn871 | 11138394
+
+--CREATE TABLE OnLoanto
+--This table will track the name, address, phonenumber and email of an institution 
+--that a work has been lent to. Also there are start and ending dates of the loan period
+
+DROP TABLE onLoanto CASCADE;
+DROP DOMAIN lntName CASCADE;
+DROP DOMAIN lntAddress CASCADE;
+DROP DOMAIN lntPhnNum CASCADE;
+DROP DOMAIN lntEmail CASCADE;
+DROP DOMAIN lntStartDate CASCADE;
+DROP DOMAIN lntEndDate CASCADE;
+
+CREATE DOMAIN lntName AS varchar(100);
+CREATE DOMAIN lntAddress AS varchar(100);
+CREATE DOMAIN lntPhnNum AS varchar(20);
+CREATE DOMAIN lntEmail AS varchar(50);
+CREATE DOMAIN lntStartDate AS date;
+CREATE DOMAIN lntEndDate AS date;
+
+CREATE TABLE onLoanto(
+		onLoanName lntName NOT NULL,
+		onLoanAddress lntAddress NOT NULL, 
+		onLoanNum lntPhnNum NOT NULL, 
+		onLoanEmail lntEmail NOT NULL, 
+		onLoanStart lntStartDate NOT NULL, 
+		onLoanEnd lntEndDate NOT NULL
+);
+
+--SET location to onLoan as did earlier with sold.
+
+INSERT into locations(
+SELECT 'onLoan', 0, 0, 0, 0, '20161021' 
+);
+
+--WORKS THAT ARE GOING ON FOR LOAN
+-- CPC
+-- LSS
+-- DMSJ
+-- WFW
+-- BMWRS
+-- MCD
+
+--Process for Onloan
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'onLoan', '20161129'
+FROM works
+WHERE wksletterkey = 'CPC' AND wksnumberkey = 2
+OR wksletterkey = 'LSS' AND wksnumberkey = 3
+OR wksletterkey = 'DMSJ' AND wksnumberkey = 10
+OR wksletterkey = 'WFW' AND wksnumberkey = 88
+OR wksletterkey = 'BMWRS' AND wksnumberkey = 91
+OR wksletterkey = 'MCD' AND wksnumberkey = 80;
+
+--Process for bringig back after being on loan
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20170429'
+FROM works
+WHERE wksletterkey = 'CPC' AND wksnumberkey = 2
+OR wksletterkey = 'LSS' AND wksnumberkey = 3
+OR wksletterkey = 'DMSJ' AND wksnumberkey = 10
+OR wksletterkey = 'WFW' AND wksnumberkey = 88
+OR wksletterkey = 'BMWRS' AND wksnumberkey = 91
+OR wksletterkey = 'MCD' AND wksnumberkey = 80;
+
+INSERT INTO OnLoanto(
+SELECT 'Brown University', 'Providence, RI 02912, United States', '1-401-863-1000', 'brownuni@edu', '20161129', '20170429'
+);
+
+INSERT INTO OnLoanto(
+SELECT 'Harvard University', 'Cambridge, MA 02138, United States', '1 617-495-1000', 'harvarduni@edu', '20161129', '20170429'
+);
+
+INSERT INTO OnLoanto(
+SELECT 'University of Saskatchewan', 'Saskatoon, SK', '(306) 966-4343', 'uofs@edu', '20161129', '20170429'
+);
+
+INSERT INTO OnLoanto(
+SELECT 'University of Calgary', 'University of Calgary, 2500 University Dr NW', '403.210.7625', 'uofc@edu', '20161129', '20170429'
+);
+
+INSERT INTO OnLoanto(
+SELECT 'University of Alberta', '116 St & 85 Ave, Edmonton, AB T6G 2R3', '(780) 492-3111', 'uofa@edu', '20161129', '20170429'
+);
+
+INSERT INTO OnLoanto(
+SELECT 'Yale University', 'New Haven, CT 06520, United States', '1 203-432-4771', 'yaleuni@edu', '20161129', '20170429'
+);
+
+

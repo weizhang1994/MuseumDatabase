@@ -1,0 +1,24 @@
+Gallery D	MCA	90	10	30	15	25	2017-02-04	\N	\N	\N	\N	\N	\N	\N	\N
+Storage	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Lobby	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Sold	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery C	MCA	50	10	60	14	24	2017-12-23	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery B	MCA	40	10	30	7	16	2017-09-18	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery A	MCA	40	10	30	7	16	2017-08-12	\N	\N	\N	\N	\N	\N	\N	\N
+Harvard University	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	101 Oliver Place	Cambridge	MA	USA	013410
+Tate Modern	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	101 James Place	London	LO	England	LS26OWE
+Peterson Museum	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	34 8th St	Pheonix	AZ	USA	023310
+The Louvre	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	34 Bonjour Ave	Paris	PA	France	A4G9OWW
+National Gallery of Art	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	90 101th Ave	Miami	FL	USA	013721
+Metropolitan Museum of Art	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	45 981th St	London	LO	England	LS35OEE
+Sydney - Yorkton	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+KalTire Yorkton	MCA	\N	\N	\N	\N	\N	\N	KalTire Sponsor Society	Lance	3000000	32 Logan Ave	Yorkton	SK	Canada	S4B4A5
+Yorkton - Lumston	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Town Hall Lumston	MCA	\N	\N	\N	\N	\N	\N	Lumston Sponsor Society	Bill	5000000	13 Author St	Lumston	SK	Canada	S6A4B3
+Lumston - Regina	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Costco Regina	MCA	\N	\N	\N	\N	\N	\N	Costco Sponsor Society	Sam	7000000	1001 Prince of Wales Dr	Regina	SK	Canada	S2R9A5
+Regina - Moose Jaw	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Tunnels Moose Jaw	MCA	\N	\N	\N	\N	\N	\N	Moose Jaw Tunnels Sponsor Society	Kevin	3000000	32 Burtha Ave	Moose Jaw	SK	Canada	S4B1H7
+Moose Jaw - Saskatoon	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+U of S Saskatoon	MCA	\N	\N	\N	\N	\N	\N	U of S Sponsor Society	Jack	1000000	101 Innovation Place	Saskatoon	SK	Canada	S4B9A1
+Saskatoon - Sydney	MCA	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

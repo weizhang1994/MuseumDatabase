@@ -1,0 +1,12 @@
+STORAGE	Lobby
+LOBBY	Storage
+LOBBY	Gallery No1
+LOBBY	Gallery No2
+Gallery No1	Lobby
+Gallery No1	Gallery No2
+Gallery No1	Main Hall
+Gallery No2	Lobby
+Gallery No2	Gallery No1
+Gallery No2	Main Hall
+Main Hall	Gallery No1
+Main Hall	Gallery No2

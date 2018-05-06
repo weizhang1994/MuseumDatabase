@@ -1,0 +1,23 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #2
+
+--Create a new column for the attribute wksCountry
+
+ALTER TABLE works
+ADD COLUMN wksCountry varchar(40);
+
+DROP TABLE temp;
+CREATE TABLE temp();
+
+ALTER TABLE temp
+ADD COLUMN numberkey int2;
+
+ALTER TABLE temp
+ADD COLUMN Country varchar(40);
+
+
+\copy temp FROM 'C355A22c-1.txt';
+
+UPDATE works 
+SET wksCountry = Country
+FROM temp
+WHERE temp.numberkey = works.wksnumberkey;

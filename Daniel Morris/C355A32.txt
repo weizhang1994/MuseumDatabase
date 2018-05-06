@@ -1,0 +1,467 @@
+INSERT INTO Works
+	SELECT 'CooUnt',
+	001,
+	'Untitled sc/ab/102/2001',
+	'Sculpture',
+	'Greyscale',
+	'Sophie Coombs',
+	'20010218',
+	'20161025',
+	500,
+	'Sophie Coombs’ multi-disciplinary artistic practice includes drawing, the production of artist’s books, sculpture and installation.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'CooUnt',
+	001,
+	'Book';
+
+INSERT INTO Media
+	SELECT 'CooUnt',
+	001,
+	'Ink on Paper';
+
+INSERT INTO Media
+	SELECT 'CooUnt',
+	001,
+	'Satin Cover';
+
+
+INSERT INTO Works
+	SELECT 'CulPir',
+	004,
+	'Pirate',
+	'Painting',
+	'Colourful',
+	'Adam Cullen',
+	'20040214',
+	'20161025',
+	300,
+	'With its bold but simple composition, startling use of colour and raucous brushwork, Pirate is a classic example of Adam Cullens painterly technique and his fascination with the renegades, mavericks and tragic characters on the edges of society.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'CulPir',
+	004,
+	'Polymer Paint';
+INSERT INTO Media
+	SELECT 'CulPir',
+	004,
+	'Gouache';
+INSERT INTO Media
+	SELECT 'CulPir',
+	004,
+	'Canvas';
+
+INSERT INTO Works
+	SELECT 'DanIts',
+	009,
+	'ITS SUCH A THIN LINE BETWEEN CLEVER AND STUPID',
+	'Sculpture',
+	'Greyscale',
+	'Aleks Danko',
+	'20090314',
+	'20161025',
+	600,
+	'These four works play with language to explore reading, looking and comprehending. The artist has used the gravoply engraving process to inscribe words on shiny plastic and sand-blasted glass.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DanIts',
+	009,
+	'Mirror';
+INSERT INTO Media
+	SELECT 'DanIts',
+	009,
+	'Mirror Clips';
+
+
+INSERT INTO Works
+	SELECT 'DavPor',
+	991,
+	'Portrait of Bungaree',
+	'Other',
+	'Colourful',
+	'Juan Davilla',
+	'19910418',
+	'20161025',
+	500,
+	'Bungaree was an Australian Aboriginal man who came from Broken Bay, just to the north of Sydney. He was a familiar figure in early colonial Sydney, who welcomed the newly arrived to his land on Sydney Harbour and acted as a mediator between the European and Indigenous communities. Bungaree accompanied Matthew Flinders during his circumnavigation of Australia, from 1801 to 1803, playing a key role in the survey’s success as interpreter and negotiator with Indigenous groups along the coast.',
+	'Owned',
+	NULL,
+	'Yes';
+
+INSERT INTO Media
+	SELECT 'DavPor',
+	991,
+	'Screenprint';
+
+INSERT INTO Media
+	SELECT 'DavPor',
+	991,
+	'Paper';
+
+INSERT INTO Works
+	SELECT 'DeaWhe',
+	002,
+	'Wheres Mickey?',
+	'Photograph',
+	'Colourful',
+	'Destiny Deacon',
+	'20020416',
+	'20161025',
+	400,
+	'Mickey Mouse, the archetypal figure of white American consumer culture, appears to have left The Happiest Place on Earth and taken up residence in the body of an Aboriginal Australian man, dressed as a woman, in Destiny Deacon’s Where’s Mickey?',
+	'Owned',
+	NULL,
+	'Yes';
+
+INSERT INTO Media
+	SELECT 'DeaWhe',
+	002,
+	'Print';
+
+INSERT INTO Media
+	SELECT 'DeaWhe',
+	002,
+	'Polaroid Frame';
+
+INSERT INTO Works
+	SELECT 'DeaTra',
+	003,
+	'Travelling (from Oz Series)',
+	'Photograph',
+	'Colourful',
+	'Destiny Deacon',
+	'20030214',
+	'20161025',
+	200,
+	'Travelling is a work from the series Oz Games – under the spell of the tall poppies, which Destiny Deacon made in the lead-up to the 2000 Sydney Olympic Games. The series is a playful parody of the Wizard of Oz, with Aboriginal dolls playing the parts of Dorothy, the Tin Man, the Scarecrow and the Lion.',
+	'Owned',
+	NULL,
+	'Yes';
+
+INSERT INTO Media
+	SELECT 'DeaTra',
+	003,
+	'Polaroid';
+
+INSERT INTO Media
+	SELECT 'DeaTra',
+	003,
+	'Print';
+
+
+INSERT INTO Works
+	SELECT 'DwyRec',
+	996,
+	'Recent old work',
+	'Sculpture',
+	'Blue',
+	'Mikala Dwyer',
+	'19960718',
+	'20161025',
+	700,
+	'Like its oxymoronic title, Recent old work defies logic and expectations. The installation is a strange gymnasium of movable and weighted objects of arcane and mysterious purposes. ',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwyRec',
+	996,
+	'Wood';
+
+INSERT INTO Media
+	SELECT 'DwyRec',
+	996,
+	'Plasterboard';
+
+INSERT INTO Media
+	SELECT 'DwyRec',
+	996,
+	'Wool';
+
+INSERT INTO Media
+	SELECT 'DwyRec',
+	996,
+	'Carpet';
+
+
+INSERT INTO Works
+	SELECT 'DwyNon',
+	994,
+	'No, not ever',
+	'Painting',
+	'Pink',
+	'Mikala Dwyer',
+	'19940221',
+	'20161025',
+	500,
+	'Mikala Dwyer made these monochromes painted in nail polish for the 1995 Istanbul Biennale. A number of them were shown as part of the installation Woops (1994), a corner assemblage of suspended lame, strewn satin and stretched pantyhose that crossed a ‘bad’ teenage girl’s bedroom with a burlesque drag queen’s dressing room.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwyNon',
+	994,
+	'Ink';
+
+INSERT INTO Media
+	SELECT 'DwyNon',
+	994,
+	'Nail Polish';
+
+INSERT INTO Media
+	SELECT 'DwyNon',
+	994,
+	'Printed Paper';
+
+
+INSERT INTO Works
+	SELECT 'DwySqu',
+	010,
+	'Square Cloud Compound',
+	'Sculpture',
+	'Colourful',
+	'Mikala Dwyer',
+	'20100516',
+	'20161025',
+	700,
+	'The large installation Square Cloud Compound explores ideas of impermanence, flight and escape. The work includes a colourful fabric-cube canopy held up by a number of lamp posts painted in prison stripes. The posts stand upright like sentinels, not only supporting the work but also holding it down with stockings pulled to snapping point.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Textile';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Polymer Paint';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Wood';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Plastic';
+
+INSERT INTO Works
+	SELECT 'EagTan',
+	012,
+	'Tango',
+	'Painting',
+	'Colourful',
+	'Helen Eager',
+	'20120115',
+	'20161025',
+	800,
+	'Tango is a wall painting by Helen Eager created specifically for the staircase leading from the MCA’s quayside entry to level one. The work is visible from within the building but also from without and was commissioned by the MCA in 2003 for the reopening of the newly constructed galleries and public spaces.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Polymer Paint';
+
+INSERT INTO Media
+	SELECT 'DwySqu',
+	010,
+	'Wall';
+
+INSERT INTO Works
+	SELECT 'DeaFor',
+	001,
+	'Forced into Images',
+	'Other',
+	'Other',
+	'Destiny Deacon',
+	'20010617',
+	'20161025',
+	100,
+	'The masked children in the silent Super 8 footage of Forced Into Images are the niece and nephew of the artist, Destiny Deacon, who worked with her longtime collaborator, Virginia Fraser, on this piece. ',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DeaFor',
+	001,
+	'Digital Video';
+
+INSERT INTO Works
+	SELECT 'DonUnt',
+	005,
+	'Untitled (for Mary Webb)',
+	'Other',
+	'Colourful',
+	'A.D.S Donaldson',
+	'20050819',
+	'20161025',
+	1000,
+	'Untitled (for Mary Webb) is more than a carpet. It is a woven floorwork that pays homage to a painting by Mary Webb, an Australian artist who bridged the art worlds of Sydney and Paris in the post-war years. ADS Donaldson’s colourful hard-edged design is based on a black-and-white reproduction of an abstract painting by Webb.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DonUnt',
+	005,
+	'Wool';
+
+INSERT INTO Works
+	SELECT 'DwySpe',
+	015,
+	'Spell for a corner',
+	'Painting',
+	'Colourful',
+	'Mikala Dwyer',
+	'20150609',
+	'20161025',
+	900,
+	'Spell for a Corner was commissioned by the MCA to accompany the installation Square Cloud Compound, also by Mikala Dwyer. The vibrant wall painting fills the corner of the gallery in a geometric array of coloured triangles. Like light refracted through a prism, Dwyer’s shards of colour disperse in pure hues at different angles, creating a mandala-like pattern of intersecting forms.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwySpe',
+	015,
+	'Acrylic';
+
+INSERT INTO Media
+	SELECT 'DwySpe',
+	015,
+	'Wall';
+
+INSERT INTO Works
+	SELECT 'DwyWal',
+	002,
+	'Wall sculpture',
+	'Sculpture',
+	'Other',
+	'Mikala Dwyer',
+	'20020617',
+	'20161025',
+	80,
+	'Leaning casually against a corner, Mikala Dwyer’s Wall sculpture is an unassuming presence in the gallery space. An assemblage of aluminium, resin, fabric and plastic resting on the floor, it confounds expectations of traditional sculpture’s use of plinths, and hardwearing surfaces such as bronze, marble or steel.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'DwyWal',
+	002,
+	'Plastic';
+
+INSERT INTO Media
+	SELECT 'DwyWal',
+	002,
+	'Resin';
+
+INSERT INTO Media
+	SELECT 'DwyWal',
+	002,
+	'Aluminum';
+
+INSERT INTO Media
+	SELECT 'DwyWal',
+	002,
+	'Fabric';
+
+INSERT INTO Works
+	SELECT 'EagNew',
+	005,
+	'New Directions',
+	'Drawing',
+	'Red',
+	'Helen Eager',
+	'20050630',
+	'20161025',
+	20,
+	'New Directions 1 comprises a series of drawings on paper. Within each page a group of Eager’s signature triangular motifs hangs together, forming a chain of forms in the same colour, attached by one point, with none floating completely free.',
+	'Owned',
+	NULL,
+	'No';
+
+INSERT INTO Media
+	SELECT 'EagNew',
+	005,
+	'Oil Pastel';
+
+INSERT INTO Media
+	SELECT 'EagNew',
+	005,
+	'Paper';
+	
+	
+INSERT INTO rooms
+	SELECT 'Sold', 0, 0, 0, 0, '20160701'; 
+	
+INSERT INTO worksLocations
+	SELECT 'BedCam', 4, 'Sold', '20161021';
+INSERT INTO worksLocations
+	SELECT 'BauAut', 11, 'Sold', '20161021';	
+INSERT INTO worksLocations
+	SELECT 'BirUnt', 5, 'Sold', '20161021';	
+	
+DROP DOMAIN wkOwnerName CASCADE;
+DROP DOMAIN wkOwnerIdAlpha CASCADE;
+DROP DOMAIN wkOwnerIdNum CASCADE;
+DROP DOMAIN wkOwnerDate CASCADE;
+DROP TABLE workOwner CASCADE;
+
+CREATE DOMAIN wkOwnerName as varchar(40);
+CREATE DOMAIN wkOwnerIdAlpha as text;
+CREATE DOMAIN wkOwnerIdNum as smallint;
+CREATE DOMAIN wkOwnerDate as date;
+	
+CREATE TABLE workOwner (
+	wkoName wkOwnerName NOT NULL,
+	wkoIdAlpha wkOwnerIdAlpha NOT NULL,
+	wkoIdNum wkOwnerIdNum NOT NULL,
+	wkoDate wkOwnerDate NOT NULL,
+	CONSTRAINT fKey FOREIGN KEY (wkoIdAlpha, wkoIdNum)
+		REFERENCES Works(wkIdAlpha, wkIdNum)
+);
+
+--temporarily setting the owner of the owned works to MCA in the works table
+UPDATE works
+	SET wkBorrowedBy = 'MCA'
+		WHERE wkBorrowStatus = 'Owned';
+
+		
+-- using this temporarily owner to insert into workOwner table
+INSERT INTO workOwner
+	SELECT wkBorrowedBy, wkIdAlpha, wkIdNum, '20161019'
+		FROM works;
+		
+		
+--change the owner date of the new works that were added on Oct 25th
+UPDATE workOwner
+	SET wkoDate = '20161025'
+		FROM works
+			WHERE wkAcqDate = '20161025'
+				AND wkIdAlpha = wkoIdAlpha
+				AND wkIdNum = wkoIdNum;
+		
+		
+--deleting the now redundant wkBorrowedBy column in works table
+ALTER TABLE works DROP COLUMN wkBorrowedBy;
+

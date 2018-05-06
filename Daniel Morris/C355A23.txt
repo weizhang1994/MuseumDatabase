@@ -1,0 +1,23 @@
+-- question 1a queries
+
+select exlocname, exlocloc FROM exhibitlocations;
+select doornum, doorrm1, doorrm2 FROM doors;
+
+-- question 1b queries
+
+select exname, exstart, exend FROM exhibitions;
+select ewname, ewidalpha, ewidnum FROM exhibitworks;
+select locidalpha, locidnum, locname, locmovedate FROM worksLocations;
+
+-- question 2a queries
+
+select wkIdAlpha, wkIdNum, wkBorrowStatus, wkBorrowedBy FROM works;
+
+-- question 2b queries
+
+select rmname, availabilityDate FROM rooms;
+select doorNum, doorRm1, doorRm2 FROM doors;
+
+-- question 2c queries
+
+select wkIdAlpha, wkIdNum, wkIsAboriginal, wkDesc FROM works;

@@ -1,0 +1,456 @@
+set datestyle to MDY;
+
+--Drop all of the rule from assignment 1 because I will have to many of my data for this assignment have to
+DROP RULE give_location_1 ON exhibition_location CASCADE;
+
+DROP RULE give_location_main ON exhibition_location CASCADE;
+
+DROP RULE give_location ON exhibition_location CASCADE;
+
+DROP RULE ex_to_locate2 ON exhibition_location CASCADE; 
+
+DROP RULE ex_to_locate ON exhibitions_info CASCADE; 
+
+DROP RULE date_change2 ON works_move_in_date CASCADE;
+
+DROP RULE date_change ON works_location CASCADE;
+
+DROP RULE return_to_storage ON exhibitions_works CASCADE;
+
+ALTER TABLE exhibitions_works DROP CONSTRAINT exhibitions_works_pkey;
+
+--Restore the data in the exhibitions_works table because I got my mark deduce for not having data from the 
+--last assignment
+\copy exhibitions_works FROM 'C355A31_1.txt'
+
+--Restore the data from the last assignment to get the current location of all the table, think again, now 
+--I see this table is kind of pointless, but I cannot change my database
+UPDATE works_location 
+	SET current_location = 'Main Hall',
+	    date_in = '7/2/2016', 
+	    date_out = '12/4/2016' 
+	WHERE date_in = '12/5/2016' AND 
+	      current_location = 'STORAGE' AND 
+	      date_out IS null;
+
+UPDATE works_location 
+	SET current_location = 'Gallery No1',
+	    date_in = '8/3/2016', 
+	    date_out = '11/19/2016' 
+	WHERE date_in = '11/20/2016' AND 
+	      current_location = 'STORAGE' AND 
+	      date_out IS null;
+	      
+UPDATE works_location 
+	SET current_location = 'Gallery No2',
+	    date_in = '9/21/2016', 
+	    date_out = '1/19/2017' 
+	WHERE date_in = '1/20/2017' AND 
+	      current_location = 'STORAGE' AND 
+	      date_out IS null;
+      
+
+--Now, we can start to expand the exhibitions:
+
+UPDATE exhibitions_info SET number_of_items = ( SELECT max_capacity
+							FROM galleries WHERE location_name = name);
+
+--Produce the report of the current exhibitions, both present and the future
+CREATE VIEW part_31 
+	AS SELECT 
+		  theme AS "Exhibition theme", 
+		  start_date AS "Start date", 
+		  end_date AS "End date", 
+		  name AS "Current Location", 
+		  max_capacity AS "Location max capacity", 
+		  number_of_items AS "Current number of works planned for" 
+	FROM 
+	     exhibitions_info, 
+	     galleries 
+	WHERE 
+	     location_name = name;
+
+SELECT * FROM part_31;
+
+
+--Creating rule to add the new item to the current exhibition
+--When we update the value date of the works_location, the new data will be insert to works_move_in_date table
+CREATE RULE date_change AS ON UPDATE TO works_location
+	DO ALSO INSERT INTO works_move_in_date VALUES  (new.itemalpha_ex,
+							new.itemNumber_ex,
+							new.date_in,
+							new.date_out,
+							new.current_location);
+
+--When we insert the new info to works_move_in_date the date of the date that has been null will be changed
+CREATE RULE date_change2 AS ON INSERT to works_move_in_date
+	DO ALSO UPDATE works_move_in_date SET date_out = new.date_in
+		WHERE itemalpha = new.itemalpha AND itemNumber = new.itemNumber 
+						AND date_in <> new.date_in AND date_out IS null;
+
+
+
+
+
+
+
+--Insert and update the new item data for current exhibition held in Main Hall
+
+INSERT INTO exhibitions_works VALUES ('JLK', 189, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 189;
+
+INSERT INTO exhibitions_works VALUES ('KKK', 190, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 190;
+
+INSERT INTO exhibitions_works VALUES ('KKL', 192, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 192;
+
+INSERT INTO exhibitions_works VALUES ('KJK', 193, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 193;
+
+INSERT INTO exhibitions_works VALUES ('KLK', 194, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 194;
+
+INSERT INTO exhibitions_works VALUES ('KJJ', 195, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 195;
+
+INSERT INTO exhibitions_works VALUES ('KLL', 196, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 196;
+
+INSERT INTO exhibitions_works VALUES ('KJL', 197, 'MUL');
+UPDATE works_location SET 
+		current_location = 'Main Hall', 
+		date_in = '10/28/2016', 
+		date_out = '12/4/2016' 
+	WHERE itemnumber_ex = 197;
+
+
+
+
+
+--Insert and update the new item data for current exhibition held in Gallery No1
+
+INSERT INTO exhibitions_works VALUES ('BAA', 114, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 114;
+
+INSERT INTO exhibitions_works VALUES ('BCC', 115, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 115;
+
+INSERT INTO exhibitions_works VALUES ('CCC', 118, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 118;
+
+INSERT INTO exhibitions_works VALUES ('CCA', 119, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 119;
+
+INSERT INTO exhibitions_works VALUES ('CCB', 120, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 120;
+
+INSERT INTO exhibitions_works VALUES ('CAC', 121, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 121;
+
+INSERT INTO exhibitions_works VALUES ('CBC', 122, 'PAY');
+UPDATE works_location SET 
+		current_location = 'Gallery No1', 
+		date_in = '10/28/2016', 
+		date_out = '11/19/2016' 
+	WHERE itemnumber_ex = 122;
+
+
+
+
+
+
+--Insert and update the new item data for current exhibition held in Gallery No2
+INSERT INTO exhibitions_works VALUES ('EDE', 139, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 139;
+
+INSERT INTO exhibitions_works VALUES ('EFE', 140, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 140;
+
+INSERT INTO exhibitions_works VALUES ('EDD', 141, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 141;
+
+INSERT INTO exhibitions_works VALUES ('EFF', 142, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 142;
+
+INSERT INTO exhibitions_works VALUES ('EDF', 143, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 143;
+
+INSERT INTO exhibitions_works VALUES ('EFD', 144, 'WEI');
+UPDATE works_location SET 
+		current_location = 'Gallery No2', 
+		date_in = '10/28/2016', 
+		date_out = '1/19/2017' 
+	WHERE itemnumber_ex = 144;
+
+
+
+
+
+--The items are insert to the future exhibitions which will be held in Gallery number 2
+
+INSERT INTO exhibitions_works VALUES ('HGI', 170, 'GRA');
+INSERT INTO works_move_in_date VALUES('HGI', 170, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('AAA', 100, 'GRA');
+INSERT INTO works_move_in_date VALUES('AAA', 100, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KLJ', 198, 'GRA');
+INSERT INTO works_move_in_date VALUES('KLJ', 198, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('LLJ', 200, 'GRA');
+INSERT INTO works_move_in_date VALUES('LLJ', 200, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('LLK', 201, 'GRA');
+INSERT INTO works_move_in_date VALUES('LLK', 201, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('LJJ', 204, 'GRA');
+INSERT INTO works_move_in_date VALUES('LJJ', 204, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('LKK', 205, 'GRA');
+INSERT INTO works_move_in_date VALUES('LKK', 205, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('AAB', 101, 'GRA');
+INSERT INTO works_move_in_date VALUES('AAB', 101, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+--Because some item was used from the previous exhibitions, therefore it will go to the storage
+--before go to the next exhibitions
+INSERT INTO exhibitions_works VALUES ('JLK', 189, 'GRA');
+INSERT INTO works_move_in_date VALUES('JLK', 189, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('JLK', 189, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KKK', 190, 'GRA');
+INSERT INTO works_move_in_date VALUES('KKK', 190, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KKK', 190, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KKL', 192, 'GRA');
+INSERT INTO works_move_in_date VALUES('KKL', 192, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KKL', 192, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KJK', 193, 'GRA');
+INSERT INTO works_move_in_date VALUES('KJK', 193, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KJK', 193, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KLK', 194, 'GRA');
+INSERT INTO works_move_in_date VALUES('KLK', 194, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KLK', 194, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KJJ', 195, 'GRA');
+INSERT INTO works_move_in_date VALUES('KJJ', 195, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KJJ', 195, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KLL', 196, 'GRA');
+INSERT INTO works_move_in_date VALUES('KLL', 196, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KLL', 196, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+INSERT INTO exhibitions_works VALUES ('KJL', 197, 'GRA');
+INSERT INTO works_move_in_date VALUES('KJL', 197, '12/5/2016', null, 'STORAGE');
+INSERT INTO works_move_in_date VALUES('KJL', 197, '1/21/2017', '6/24/2017', 'Gallery No2');
+
+
+
+--The items are insert to the future exhibitions which will be held in Gallery number 1
+
+INSERT INTO exhibitions_works VALUES ('FFF', 145, 'MED');
+INSERT INTO works_move_in_date VALUES('FFF', 145, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('FFE', 147, 'MED');
+INSERT INTO works_move_in_date VALUES('FFE', 147, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('FDF', 148, 'MED');
+INSERT INTO works_move_in_date VALUES('FDF', 148, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('FEF', 149, 'MED');
+INSERT INTO works_move_in_date VALUES('FEF', 149, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('HGG', 168, 'MED');
+INSERT INTO works_move_in_date VALUES('HGG', 168, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('HII', 169, 'MED');
+INSERT INTO works_move_in_date VALUES('HII', 169, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('BAA', 114, 'MED');
+INSERT INTO works_move_in_date VALUES('BAA', 114, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('EED', 137, 'MED');
+INSERT INTO works_move_in_date VALUES('EED', 137, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('EEF', 138, 'MED');
+INSERT INTO works_move_in_date VALUES('EEF', 138, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DEF', 134, 'MED');
+INSERT INTO works_move_in_date VALUES('DEF', 134, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DFF', 133, 'MED');
+INSERT INTO works_move_in_date VALUES('DFF', 133, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DEE', 132, 'MED');
+INSERT INTO works_move_in_date VALUES('DEE', 132, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DFD', 131, 'MED');
+INSERT INTO works_move_in_date VALUES('DFD', 131, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DED', 130, 'MED');
+INSERT INTO works_move_in_date VALUES('DED', 130, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DDF', 129, 'MED');
+INSERT INTO works_move_in_date VALUES('DDF', 129, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+INSERT INTO exhibitions_works VALUES ('DDE', 128, 'MED');
+INSERT INTO works_move_in_date VALUES('DDE', 128, '11/21/2016', '3/25/2017', 'Gallery No1');
+
+
+--The items are insert to the future exhibitions which will be held in Main Hall
+
+INSERT INTO exhibitions_works VALUES ('BCC', 115, 'ART');
+INSERT INTO works_move_in_date VALUES('BCC', 115, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('HHI', 165, 'ART');
+INSERT INTO works_move_in_date VALUES('HHI', 165, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('HHG', 164, 'ART');
+INSERT INTO works_move_in_date VALUES('HHG', 164, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('HHH', 163, 'ART');
+INSERT INTO works_move_in_date VALUES('HHH', 163, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GIH', 162, 'ART');
+INSERT INTO works_move_in_date VALUES('GIH', 162, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GHI', 161, 'ART');
+INSERT INTO works_move_in_date VALUES('GHI', 161, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GII', 160, 'ART');
+INSERT INTO works_move_in_date VALUES('GII', 160, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GHH', 159, 'ART');
+INSERT INTO works_move_in_date VALUES('GHH', 159, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GIG', 158, 'ART');
+INSERT INTO works_move_in_date VALUES('GIG', 158, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GHG', 157, 'ART');
+INSERT INTO works_move_in_date VALUES('GHG', 157, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GGI', 156, 'ART');
+INSERT INTO works_move_in_date VALUES('GGI', 156, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GGH', 155, 'ART');
+INSERT INTO works_move_in_date VALUES('GGH', 155, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('GGG', 154, 'ART');
+INSERT INTO works_move_in_date VALUES('GGG', 154, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('FED', 153, 'ART');
+INSERT INTO works_move_in_date VALUES('FED', 153, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('FDE', 152, 'ART');
+INSERT INTO works_move_in_date VALUES('FDE', 152, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('FEE', 151, 'ART');
+INSERT INTO works_move_in_date VALUES('FEE', 151, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('FDD', 150, 'ART');
+INSERT INTO works_move_in_date VALUES('FDD', 150, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('EEE', 136, 'ART');
+INSERT INTO works_move_in_date VALUES('EEE', 136, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('DDD', 127, 'ART');
+INSERT INTO works_move_in_date VALUES('DDD', 127, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('CBA', 126, 'ART');
+INSERT INTO works_move_in_date VALUES('CBA', 126, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('CBB', 124, 'ART');
+INSERT INTO works_move_in_date VALUES('CBB', 124, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('CAB', 125, 'ART');
+INSERT INTO works_move_in_date VALUES('CAB', 125, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('LJK', 206, 'ART');
+INSERT INTO works_move_in_date VALUES('LJK', 206, '12/6/2016', '3/10/2017', 'Main Hall');
+
+INSERT INTO exhibitions_works VALUES ('LKJ', 207, 'ART');
+INSERT INTO works_move_in_date VALUES('LKJ', 207, '12/6/2016', '3/10/2017', 'Main Hall');
+
+
+
+
+
+
+
+CREATE VIEW look AS SELECT * FROM works_move_in_date ORDER BY itemnumber, date_in; 
+--SELECT * FROM look;   

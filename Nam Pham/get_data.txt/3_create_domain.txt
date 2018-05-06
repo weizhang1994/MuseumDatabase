@@ -1,0 +1,112 @@
+-- Institutions table domains
+CREATE DOMAIN ns_inName as varchar(50) ;
+CREATE DOMAIN ns_email as varchar(100);
+CREATE DOMAIN ns_phoneNumber as varchar(20);
+CREATE DOMAIN ns_streetAddress as varchar(50);
+CREATE DOMAIN ns_city as varchar(60);
+CREATE DOMAIN ns_countrySubdivision as varchar(20);
+CREATE DOMAIN ns_country as varchar(20);
+CREATE DOMAIN ns_postalcode as varchar(50);
+
+
+
+
+-- Works table domains:
+CREATE DOMAIN ns_IDAlpha as varchar(10);
+CREATE DOMAIN ns_IDNumeric as smallint;
+CREATE DOMAIN ns_wkName as varchar(200);
+CREATE DOMAIN ns_creator as varchar(50);
+CREATE DOMAIN ns_coDate as date;
+CREATE DOMAIN ns_acDate as date;
+CREATE DOMAIN ns_wkDescription as text;
+CREATE DOMAIN ns_theme as varchar(50);
+CREATE DOMAIN ns_subject as varchar(50);
+CREATE DOMAIN ns_culture as varchar(50);
+CREATE DOMAIN ns_colour as varchar(50);
+CREATE DOMAIN ns_carType as varchar(50);
+CREATE DOMAIN ns_transmission as varchar(50);
+
+
+
+
+-- Locations table domains:
+CREATE DOMAIN ns_lcName as varchar(58);
+CREATE DOMAIN ns_length as real;
+CREATE DOMAIN ns_height as real;
+CREATE DOMAIN ns_width as real;
+CREATE DOMAIN ns_minNumWorks smallint;
+CREATE DOMAIN ns_maxNumWorks smallint;
+CREATE DOMAIN ns_availabilityDate as date;
+CREATE DOMAIN ns_sponsor as varchar(50);
+CREATE DOMAIN ns_security as varchar(50);
+CREATE DOMAIN ns_insurance as integer;
+
+
+
+
+-- Exhibitions table domains:
+CREATE DOMAIN ns_exName as varchar(100);
+CREATE DOMAIN ns_isTraveling  as boolean;
+CREATE DOMAIN ns_exStartDate as date;
+CREATE DOMAIN ns_exDescription as text;
+CREATE DOMAIN ns_exEndDate as date;
+
+
+
+
+-- Exhibitions_ location table domains:
+CREATE DOMAIN ns_travelingStartDate as date;
+CREATE DOMAIN ns_travelingEndDate as date;
+
+
+
+
+-- Transactions table domains
+CREATE DOMAIN ns_trDate as date;
+CREATE DOMAIN ns_trType as varchar(20);
+
+
+
+
+-- Works_Ownership table domains
+CREATE DOMAIN ns_woStartDate as date;
+CREATE DOMAIN ns_woEndDate as date;
+
+
+
+
+-- Works_Locations table domains:
+CREATE DOMAIN ns_wlStartDateTime as timestamp;
+CREATE DOMAIN ns_wlEndDateTime as timestamp;
+
+
+
+
+-- Works_Value table domains:
+CREATE DOMAIN ns_wvStartDate as date;
+CREATE DOMAIN ns_wvEndDate as date;
+
+
+
+
+-- Works_State domains:
+CREATE DOMAIN ns_state as varchar(30);
+CREATE DOMAIN ns_wsStartDate as date;
+CREATE DOMAIN ns_wsEndDate as date;
+
+
+
+
+-- Works_Exhibitions domain:
+--No new domain
+
+
+
+
+-- Media table domains:
+CREATE DOMAIN ns_material as varchar(100);
+
+
+
+
+

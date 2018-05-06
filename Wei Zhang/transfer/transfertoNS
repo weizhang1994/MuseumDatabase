@@ -1,0 +1,2563 @@
+ 
+insert into ns_exhibitions values
+('the first era',	'2015-01-01',	'Wei',	FALSE,	'the collection of works related to history famous people', 	'2015-02-01'),
+('the second era',	'2015-01-01',	'Wei',	FALSE,	'An exhibition of modern world', 	'2015-02-01'),
+('the third era',	'2015-01-01',	'Wei',	FALSE,	'An exhibition of future imaginary',	'2015-02-01');
+
+--Wei Zhang
+ --Loading my old works table into my new ns_works table
+--insert into ns_works (ns_wk_codate) values ('1945-12-20');
+insert into ns_works(
+ns_wk_idalpha, 
+ns_wk_idNumeric, 
+ns_wk_inName, 
+ns_wk_wkname, 
+ns_wk_creator, 
+ns_wk_acdate, 
+ns_wk_codate,
+ns_wk_wkdescription, 
+ns_wk_theme)
+select  museumletter,museumnumber,'Wei', museumname, museumAuthor,museumacqudate,'1945-12-20',museumDescription,museumsubtypefrom museum;
+
+
+insert into ns_exhibitions(
+ns_ex_exName, 
+ns_ex_exStartDate, 
+ns_ex_inName,  
+ns_ex_isTraveling, 
+ns_ex_exDescription,
+ns_ex_exEndDate)
+select
+exhibitionname, 
+exhibitionstartdate,
+'Wei',
+false,
+exhibitiondescription,
+exhibitionenddate
+from
+exhibition;
+
+
+-- Wei Zhang CMPT355 team 6
+-- Load the old database data into my new designed database structure
+
+-- Loading the intitution info into my ns_database.
+insert into  ns_institutions values
+(''grape',		'grape@usa'SK',.mail',	'613-555-0193',	'320 Front Street West',	'Flanders',	''SK',',  ''Canada',',	'CA118TH'),
+(''scooby', 		'scooby@usa'SK',.mail', 	'613-555-0157',	'1745 Broadway South',		'Woburn',	''SK',',  ''Canada',',	'GU104QG'),
+(''george',		'george@usa'SK',.mail',	'613-555-0115',	'232 West Street North', 	'Savory',	''SK',',  ''Canada',',	''SK',95NS'),
+(''bambi', 		'bambi@usa'SK',.mail',	'613-555-0135',	'74 Gartner Street', 		'Emerson',	''SK',',  ''Canada',',	'L409YX'),
+(''quick', 		'quick@usa'SK',.mail',	'613-555-0156',	'982 S. Johnson Street', 	'Makamik',	''SK',',  ''Canada',',	'NW22LL'),
+(''velma', 		'velma@usa'SK',.mail',	'613-555-0110',	'452 Homewood Circle', 		'Caughnawaga',	''SK',',  ''Canada',',	'LN95HY'),
+(''Dolly Donoghoe',	'Donoghoe@usa'SK',.mail',	'613-555-0193',	'Heilsburg Place West',		'Richer',	''SK',',  ''Canada',',	'IV448RN'),
+(''Thekla Minner',	'Minner@usa'SK',.mail',	'613-555-0157',	'Tokeneke Ridge Quay',		'Pakan',	''SK',',  ''Canada',',	'CA118TH'),
+(''Irma Helems',		'Helems@usa'SK',.mail',	'613-555-0115',	'Jimdale Hill',			'Bitumount',	''SK',',  ''Canada',',	'GU104QG'),
+(''Carlie Mattley',	'Mattley@usa'SK',.mail',	'613-555-0135',	'Southeast Gott Route',		'Trenton',	''SK',',  ''Canada',',	''SK',95NS'),
+(''Louetta Dunsford',	'Dunsford@usa'SK',.mail',	'613-555-0156',	'South Bottlebrush Walk',	'Wasaga Beach',	''SK',',  ''Canada',',	'L409YX'),
+(''Melva Pakley',		'Pakley@usa'SK',.mail',	'613-555-0110',	'Sandy Creek Causeway',		'Sillery',	''SK',',  ''Canada',',	'NW22LL'),
+(''Ollie Bloomer',	'Bloomer@usa'SK',.mail',	'613-555-0193',	'Stonegarden Place',		'Rae',		''SK',',  ''Canada',',	'LN95HY'),
+(''Annetta Fageley',	'Fageley@usa'SK',.mail',	'613-555-0157',	'West Darst Path',		'Kapu'SK',asing',	''SK',',  ''Canada',',	'IV448RN'),
+(''Dorthea Weckerham',	'Weckerham@usa'SK',.mail',	'613-555-0115',	'East Back George',		'Washagami',	''SK',',  ''Canada',',	'CA118TH'),
+(''Mahala Darnold',	'Darnold@usa'SK',.mail',	'613-555-0135',	'Southeast Inca Place',		'Bergen',	''SK',',  ''Canada',',	'GU104QG'),
+(''Dorcas Lechleiter',	'Lechleiter@usa'SK',.mail','613-555-0156',	'North Yantacaw Brook Heights',	'Mayo',		''SK',',  ''Canada',',	''SK',95NS'),
+(''Frances Rieser',	'Rieser@usa'SK',.mail',	'613-555-0110',	'Gloria Jean Quadrant',		'Deloro',	''SK',',  ''Canada',',	'L409YX'),
+(''Adline Henery',	'Henery@usa'SK',.mail',	'613-555-0193',	'West Birnham Hill',		'Elsas',	''SK',',  ''Canada',',	'NW22LL'),
+(''Rozella Goodell',	'Goodell@usa'SK',.mail',	'613-555-0157',	'East Countryridge Canyon',	'Clive',	''SK',',  ''Canada',',	'LN95HY'),
+(''Cressie Lighbody',	'Lighbody@usa'SK',.mail',	'613-555-0115',	'West New Gardens Croft',	'Miami',	''SK',',  ''Canada',',	'IV448RN'),
+(''Prudence Beckley',	'Beckley@usa'SK',.mail',	'613-555-0135',	'South Casanda Quay',		'Richibucto',	''SK',',  ''Canada',',	'CA118TH'),
+(''Ettie Ellsworth',	'Ellsworth@usa'SK',.mail',	'613-555-0156',	'Lower Darwin West',		'Bellburns',	''SK',',  ''Canada',',	'GU104QG'),
+(''Lilia Mowan',	 	'Mowan@usa'SK',.mail',	'613-555-0110',	'North Harriet Cove',		'Estevan',	''SK',',  ''Canada',',	''SK',95NS'),
+(''Ola Resier',	 	'Resier@usa'SK',.mail',	'613-555-0193',	'Bourne Grange Row',		'Altona',	''SK',',  ''Canada',',	'L409YX'),
+(''Isabell Wiseman',	'Wiseman@usa'SK',.mail',	'613-555-0157',	'West Treyburn Croft',		'Springhill',	''SK',',  ''Canada',',	'NW22LL'),
+(''Margarita Corcoran',	'Corcoran@usa'SK',.mail',	'613-555-0115',	'Southeast Runford Viaduct',	'Crutwell',	''SK',',  ''Canada',',	'LN95HY'),
+(''Pearly Serionier',	'Serionier@usa'SK',.mail',	'613-555-0156',	'North Florin Perkins Promenade','Oban',	''SK',',  ''Canada',',	'CA118TH'),
+(''Fern Guion',		'Guion@usa'SK',.mail',	'613-555-0110',	'Southwest 'SK',yline Lakes Path',	'Miocene',	''SK',',  ''Canada',',	'GU104QG'),
+(''Judie Judd',	 	'Judd@usa'SK',.mail',	'613-555-0193',	'South Chicatabut Mews',	'Mobile',	''SK',',  ''Canada',',	''SK',95NS'),
+(''Louis Newcomer',	'Newcomer@usa'SK',.mail',	'613-555-0157',	'West Oakwood Manor',		'Pukatawagan',	''SK',',  ''Canada',',	'L409YX'),
+(''Alicia Hopkins',	'Hopkins@usa'SK',.mail',	'613-555-0115',	'West Armsby Cemetery',		'Forest',	''SK',',  ''Canada',',	'NW22LL'),
+(''Anastacia Peale',	'Peale@usa'SK',.mail',	'613-555-0135',	'North Took Walk',		'Connaught',	''SK',',  ''Canada',',	'LN95HY'),
+(''Angelita Densan',	'Densan@usa'SK',.mail',	'613-555-0156',	'North Ritchfield Crescent',	'Lacombe',	''SK',',  ''Canada',',	'IV448RN'),
+(''Idell Weismentel',	'Weismentel@usa'SK',.mail','613-555-0110',	'Butchers Nook Southwest',	'Hecate',	''SK',',  ''Canada',',	''SK',95NS'),
+(''Melvina',	 	'Melvina@usa'SK',.mail','613-555-0110',	'Butchers Nook Southwest',	'Hecate',	''SK',',  ''Canada',',	''SK',95NS'),
+(''Wei',			'Wei@usa'SK',.mail',	'306-888-9023',	'College drive',		'Sa'SK',atoon',	''SK',',  ''Canada',',	'L409YX');
+
+
+-- Loading my old locations data into my ns_locations
+insert into  ns_locations (
+ns_lc_lcname, 
+ns_lc_inname,
+ns_lc_length,
+ns_lc_height,
+ns_lc_width,
+ns_lc_minnumworks,
+ns_lc_maxnumworks,
+ns_lc_availabilitydate,
+ns_lc_sponsor,
+ns_lc_security,
+ns_lc_insurance,
+ns_lc_streetaddress,
+ns_lc_city,
+ns_lc_countrysubdivision,
+ns_lc_country,
+ns_lc_postalcode)
+
+
+
+
+values
+('storage',	'Wei',	30,	30,	5,	0,	600,	null,	null,	null,	null,	null,	null,	null,	null,	null),
+('lobby',	'Wei',	25,	20,	5,	2,	4,	null,	null,	null,	null,	null,	null,	null,	null,	null),
+('galleryA',	'Wei',	10,	10,	5,	7,	16,	'2017-03-07',	null,	null,	null,	null,	null,	null,	null,	null),
+('galleryB',	'Wei',	10,	15,	5,	7,	16,	'2017-04-07',	null,	null,	null,	null,	null,	null,	null,	null),
+('galleryC',	'Wei',	20,	20,	5,	14,	24,	'2017-02-07',	null,	null,	null,	null,	null,	null,	null,	null),
+('galleryD',	'Wei',	20,	25,	5,	15,	25,	null,	null,	null,	null,	null,	null,	null,	null,	null),
+('grape',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'320 Front Street West',	'Flanders',	'SK',	'Canada',	'CA118TH'),
+('scoob',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'1745 Broadway South',		'Woburn',	'SK',	'Canada',	'GU104QG'),
+('george',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'232 West Street North',	'Savory',	'SK',	'Canada',	'SK95NS'),
+('bambi',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'74 Gartner Street',		'Emerson',	'SK',	'Canada',	'L409YX'),
+('quick',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'982 S. Johnson Street',	'Makamik',	'SK',	'Canada',	'NW22LL'),
+('velma',	'Wei',	null,	null,	null,	null,	null,	null,	'Sheldon',	'Sameul',	29300,	'452 Homewood Circle',		'Caughnawaga',	'SK',	'Canada',	'LN95HY');
+
+
+
+insert into ns_locations values
+('onloanadress',	'Dolly Donoghoe',	null,	null,	null,	null,	null,	null,	null,	null,	null,	'Heilsburg Place West',		'Richer',	'SK',  'Canada',	'IV448RN'),
+('onloanadress',	'Thekla Minner',	null,	null,	null,	null,	null,	null,	null,	null,	null,	'Tokeneke Ridge Quay',		'Pakan',	'SK',  'Canada',	'CA118TH'),
+('onloanadress',	'Irma Helems',		null,	null,	null,	null,	null,	null,	null,	null,	null,	'Jimdale Hill',			'Bitumount',	'SK',  'Canada',	'GU104QG'),
+('onloanadress',	'Carlie Mattley',	null,	null,	null,	null,	null,	null,	null,	null,	null,	'Southeast Gott Route',		'Trenton',	'SK',  'Canada',	'SK95NS'),
+('onloanadress',	'Louetta Dunsford',	null,	null,	null,	null,	null,	null,	null,	null,	null,	'South Bottlebrush Walk',	'Wasaga Beach',	'SK',  'Canada',	'L409YX'),
+('onloanadress',	'Melva Pakley',		null,	null,	null,	null,	null,	null,	null,	null,	null,	'Sandy Creek Causeway',		'Sillery',	'SK',  'Canada',	'NW22LL');
+
+-- Wei Zhang
+-- Loading my old location-doors into my new locations-doors
+
+
+insert into ns_locations_doors 
+(ns_ld_inname, ns_ld_lcname1, ns_ld_lcname2)
+
+select 
+'Wei', locationdoor.locationdoorfrom, locationdoor.locationdoorto 
+from
+locationdoor;
+
+insert into ns_works_exhibitions(
+ns_we_idalpha,
+ns_we_idnumeric,
+ns_we_exname,
+ns_we_inname,
+ns_we_exstartdate,
+ns_we_exenddate)
+select 
+museumletter,
+museumnumber,
+exhibitionname,
+'Wei',
+exhibitionstartdate,
+exhibitionenddate
+from
+musexhibition;
+
+--Wei Zhang
+-- Loading my old muslocation table into my new ns_works_location table
+
+--create cast ( esdate as ns_wlstartdatetime)
+--without function;
+
+insert into ns_works_locations
+(ns_wl_lcname, 
+ns_wl_idalpha, 
+ns_wl_idnumeric, 
+ns_wl_inname, 
+ns_wl_wlstartdatetime, 
+ns_wl_wlenddatetime)
+select 
+locationname, 
+museumletter, 
+museumnumber, 
+'Wei', 
+moveindate,
+moveoutdate
+from
+muslocation;
+
+-- Wei Zhang
+-- loading my works media information into my works table
+
+
+insert into ns_works_media(
+ns_wm_idalpha,
+ns_wm_idnumeric,
+ns_wm_inname,
+ns_wm_material)
+select 
+museumletter,
+museumnumber,
+'Wei',
+museummaterial
+from
+museum;
+
+-- Wei zhang
+--loading my insurance from works to my new ns_works_value table
+
+
+insert into ns_works_value (
+ns_wv_idalpha,
+ns_wv_idnumeric,
+ns_wv_inname,
+ns_wv_startdate,
+ns_wv_insurancevalue,
+ns_wv_enddate)
+select 
+museumletter,
+museumnumber,
+'Wei',
+museumacqudate,
+museuminsurance,
+null
+from 
+museum;
+
+ -- loading my old locations doors to new ns_locations
+insert into ns_locations_doors values
+('Wei', 'storage',	'lobby'),
+('Wei', 'lobby',	'galleryA'),
+('Wei', 'lobby',	'galleryB'),
+('Wei', 'galleryA',	'galleryB'),
+('Wei', 'galleryA',	'galleryC'),
+('Wei', 'galleryB',	'galleryC'),
+('Wei', 'galleryA',	'galleryD');
+-- Drop Institutions table domains
+DROP DOMAIN IF EXISTS ns_inName cascade;
+DROP DOMAIN IF EXISTS ns_email cascade;
+DROP DOMAIN IF EXISTS ns_phoneNumber cascade;
+DROP DOMAIN IF EXISTS ns_streetAddress cascade;
+DROP DOMAIN IF EXISTS ns_city cascade;
+DROP DOMAIN IF EXISTS ns_countrySubdivision cascade;
+DROP DOMAIN IF EXISTS ns_country cascade;
+DROP DOMAIN IF EXISTS ns_postalCode cascade;
+
+
+-- Drop Works table domains:
+DROP DOMAIN IF EXISTS ns_IDAlpha cascade;
+DROP DOMAIN IF EXISTS ns_IDNumeric cascade;
+DROP DOMAIN IF EXISTS ns_wkName cascade;
+DROP DOMAIN IF EXISTS ns_creator cascade;
+DROP DOMAIN IF EXISTS ns_coDate cascade;
+DROP DOMAIN IF EXISTS ns_acDate cascade;
+DROP DOMAIN IF EXISTS ns_wkDescription cascade;
+DROP DOMAIN IF EXISTS ns_theme cascade;
+DROP DOMAIN IF EXISTS ns_subject cascade;
+DROP DOMAIN IF EXISTS ns_culture cascade;
+DROP DOMAIN IF EXISTS ns_colour cascade;
+DROP DOMAIN IF EXISTS ns_carType cascade;
+DROP DOMAIN IF EXISTS ns_transmission cascade;
+
+
+--Drop Locations table domains:
+DROP DOMAIN IF EXISTS ns_lcName cascade;
+DROP DOMAIN IF EXISTS ns_length cascade;
+DROP DOMAIN IF EXISTS ns_height cascade;
+DROP DOMAIN IF EXISTS ns_width cascade;
+DROP DOMAIN IF EXISTS ns_minNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_maxNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_availabilityDate cascade;
+DROP DOMAIN IF EXISTS ns_sponsor cascade;
+DROP DOMAIN IF EXISTS ns_security cascade;
+DROP DOMAIN IF EXISTS ns_insurance cascade;
+
+
+-- Drop Exhibitions table domains:
+DROP DOMAIN IF EXISTS ns_exName cascade;
+DROP DOMAIN IF EXISTS ns_exStartDate cascade;
+DROP DOMAIN IF EXISTS ns_isTraveling cascade;
+DROP DOMAIN IF EXISTS ns_exDescription cascade;
+DROP DOMAIN IF EXISTS ns_exEndDate cascade;
+
+
+-- Drop Exhibitions_ location table domains:
+DROP DOMAIN IF EXISTS ns_travelingStartDate cascade;
+DROP DOMAIN IF EXISTS ns_travelingEndDate cascade;
+
+
+-- Drop Transactions table domains
+DROP DOMAIN IF EXISTS ns_trDate cascade;
+DROP DOMAIN IF EXISTS ns_trType cascade;
+
+
+--Drop Works_Ownership table domains
+DROP DOMAIN IF EXISTS ns_woStartDate cascade;
+DROP DOMAIN IF EXISTS ns_woEndDate cascade;
+
+
+--Drop Works_Locations table domains:
+DROP DOMAIN IF EXISTS ns_wlStartDateTime cascade;
+DROP DOMAIN IF EXISTS ns_wlEndDateTime cascade;
+
+
+-- Drop Works_Value table domains:
+DROP DOMAIN IF EXISTS ns_wvStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wvEndDate cascade;
+
+
+-- Drop Works_State domains:
+DROP DOMAIN IF EXISTS ns_state cascade;
+DROP DOMAIN IF EXISTS ns_wsStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wsEndDate cascade;
+
+
+-- Drop Works_Exhibitions domain:
+--No new domain
+
+
+-- Drop Media table domains:
+DROP DOMAIN IF EXISTS ns_material cascade;
+
+
+
+
+
+
+
+
+
+
+-- Institutions table domains
+CREATE DOMAIN ns_inName as varchar('50) ;
+CREATE DOMAIN ns_email as varchar('100);
+CREATE DOMAIN ns_phoneNumber as varchar('20);
+CREATE DOMAIN ns_streetAddress as varchar('50);
+CREATE DOMAIN ns_city as varchar('60);
+CREATE DOMAIN ns_countrySubdivision as varchar('20);
+CREATE DOMAIN ns_country as varchar('20);
+CREATE DOMAIN ns_postalcode as varchar('50);
+
+
+
+
+-- Works table domains:
+CREATE DOMAIN ns_IDAlpha as varchar('10);
+CREATE DOMAIN ns_IDNumeric as smallint;
+CREATE DOMAIN ns_wkName as varchar('200);
+CREATE DOMAIN ns_creator as varchar('50);
+CREATE DOMAIN ns_coDate as date;
+CREATE DOMAIN ns_acDate as date;
+CREATE DOMAIN ns_wkDescription as text;
+CREATE DOMAIN ns_theme as varchar('50);
+CREATE DOMAIN ns_subject as varchar('50);
+CREATE DOMAIN ns_culture as varchar('50);
+CREATE DOMAIN ns_colour as varchar('50);
+CREATE DOMAIN ns_carType as varchar('50);
+CREATE DOMAIN ns_transmission as varchar('50);
+
+
+
+
+-- Locations table domains:
+CREATE DOMAIN ns_lcName as varchar('58);
+CREATE DOMAIN ns_length as real;
+CREATE DOMAIN ns_height as real;
+CREATE DOMAIN ns_width as real;
+CREATE DOMAIN ns_minNumWorks smallint;
+CREATE DOMAIN ns_maxNumWorks smallint;
+CREATE DOMAIN ns_availabilityDate as date;
+CREATE DOMAIN ns_sponsor as varchar('50);
+CREATE DOMAIN ns_security as varchar('50);
+CREATE DOMAIN ns_insurance as integer;
+
+
+
+
+-- Exhibitions table domains:
+CREATE DOMAIN ns_exName as varchar('100);
+CREATE DOMAIN ns_isTraveling  as boolean;
+CREATE DOMAIN ns_exStartDate as date;
+CREATE DOMAIN ns_exDescription as text;
+CREATE DOMAIN ns_exEndDate as date;
+
+
+
+
+-- Exhibitions_ location table domains:
+CREATE DOMAIN ns_travelingStartDate as date;
+CREATE DOMAIN ns_travelingEndDate as date;
+
+
+
+
+-- Transactions table domains
+CREATE DOMAIN ns_trDate as date;
+CREATE DOMAIN ns_trType as varchar('20);
+
+
+
+
+-- Works_Ownership table domains
+CREATE DOMAIN ns_woStartDate as date;
+CREATE DOMAIN ns_woEndDate as date;
+
+
+
+
+-- Works_Locations table domains:
+CREATE DOMAIN ns_wlStartDateTime as timestamp;
+CREATE DOMAIN ns_wlEndDateTime as timestamp;
+
+
+
+
+-- Works_Value table domains:
+CREATE DOMAIN ns_wvStartDate as date;
+CREATE DOMAIN ns_wvEndDate as date;
+
+
+
+
+-- Works_State domains:
+CREATE DOMAIN ns_state as varchar('30);
+CREATE DOMAIN ns_wsStartDate as date;
+CREATE DOMAIN ns_wsEndDate as date;
+
+
+
+
+-- Works_Exhibitions domain:
+--No new domain
+
+
+
+
+-- Media table domains:
+CREATE DOMAIN ns_material as varchar('100);
+
+
+
+
+
+
+-- Drop all tables if exist
+Drop Table IF EXISTS ns_Institutions cascade;
+
+
+Drop Table IF EXISTS ns_Works cascade;
+
+
+Drop Table IF EXISTS ns_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions_locations cascade;
+
+
+Drop Table IF EXISTS ns_Transactions cascade;
+
+
+Drop Table IF EXISTS ns_Works_Ownership cascade;
+
+
+Drop Table IF EXISTS ns_Works_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Works_Value cascade;
+
+
+Drop Table IF EXISTS ns_Works_State cascade;
+
+
+Drop Table IF EXISTS ns_Works_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_Works_Media cascade;
+
+
+Drop Table IF EXISTS ns_Locations_Doors cascade;
+
+
+
+
+
+
+
+
+
+
+-- There are 4 main tables, 7 temporal tables, 2 secondary tables
+
+
+
+
+-- 4 main TABLES
+-- ('1) Institutions
+CREATE TABLE ns_institutions ('
+        ns_in_inName                       ns_inName                    NOT NULL,
+    
+        ns_in_email                           ns_email                      NULL,
+        ns_in_phoneNumber                  ns_phoneNumber    NULL,
+        ns_in_streetAddress                ns_streetAddress     NULL,
+        ns_in_city                                     ns_city                          NULL,
+        ns_in_countrySubdivision           ns_countrySubdivision                       NULL,
+        ns_in_country                      ns_country                       NULL,
+        ns_in_postalCode                   ns_postalCode         NULL,
+    
+        PRIMARY KEY ('  ns_in_InName )
+);
+
+
+
+
+-- ('2) Works
+CREATE TABLE ns_works ('
+        ns_wk_IDAlpha                    ns_IDAlpha                     NOT NULL,
+        ns_wk_IDNumeric                 ns_IDNumeric             NOT NULL,
+        ns_wk_inName                    ns_inName                 NOT NULL,
+    
+        ns_wk_wkName                    ns_wkName               NULL,
+        ns_wk_creator                   ns_creator                     NULL,
+        ns_wk_coDate                    ns_coDate                   NULL,
+        ns_wk_acDate                    ns_acDate                     NULL,
+        ns_wk_wkDescription                ns_wkDescription    NULL,
+        ns_wk_theme                     ns_theme                    NULL,
+        ns_wk_subject                     ns_subject                      NULL,
+        ns_wk_culture                ns_culture                      NULL,
+        ns_wk_colour                     ns_colour                     NULL,
+        ns_wk_carType                     ns_carType                    NULL,
+        ns_wk_transmission                 ns_transmission      NULL,
+
+
+
+
+   
+   CHECK (' ns_wk_coDate <  ns_wk_acDate),
+    
+        PRIMARY KEY ('ns_wk_IDAlpha, ns_wk_IDNumeric,   ns_wk_inName),
+    
+        FOREIGN KEY (' ns_wk_inName)
+          REFERENCES ns_Institutions(' ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- ('3) Locations
+CREATE TABLE ns_locations ('
+
+
+        ns_lc_lcName                       ns_lcName                         NOT NULL,
+        ns_lc_inName                         ns_inName                         NOT NULL,
+            
+        ns_lc_length                        ns_length                             NULL,
+        ns_lc_height                        ns_height                             NULL,
+        ns_lc_width                        ns_width                             NULL,
+        ns_lc_minNumWorks        ns_minNumWorks                 NULL,
+        ns_lc_maxNumWorks        ns_maxNumWorks                 NULL,
+        ns_lc_availabilityDate           ns_availabilityDate                 NULL,
+        ns_lc_sponsor                    ns_sponsor                     NULL,
+        ns_lc_security                        ns_security                     NULL,
+        ns_lc_insurance                     ns_insurance                 NULL,
+        ns_lc_StreetAddress            ns_streetAddress                 NULL,
+        ns_lc_city                         ns_city                                 NULL,
+        ns_lc_countrySubdivision              ns_countrySubdivision                      NULL,
+        ns_lc_country                         ns_country                      NULL,
+        ns_lc_postalCode               ns_postalCode                       NULL,
+
+
+        PRIMARY KEY ('ns_lc_lcName, ns_lc_inName),
+    
+        FOREIGN KEY ('ns_lc_inName)
+            REFERENCES ns_institutions(' ns_in_inName)
+                                ON UPDATE CASCADE    
+                                   ON DELETE CASCADE
+);
+-- ('4) Exhibitions
+CREATE TABLE ns_exhibitions ('
+
+
+        ns_ex_exName                   ns_exName               NOT NULL,
+        ns_ex_exStartDate             ns_exStartDate          NOT NULL,
+        ns_ex_inName                     ns_inName             NOT NULL,
+    
+        ns_ex_isTraveling                 ns_isTraveling              NOT NULL,
+        ns_ex_exDescription                ns_exDescription          NULL,
+        ns_ex_exEndDate              ns_exEndDate         NULL,
+    
+        PRIMARY KEY (' ns_ex_exName  , ns_ex_exStartDate ,   ns_ex_inName ),
+    
+        FOREIGN KEY (' ns_ex_inName )
+            REFERENCES ns_institutions('ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--The 7 TEMPORAL TABLES
+
+
+-- ('5) Transactions
+CREATE TABLE ns_Transactions ('
+
+
+        ns_tr_inName                    ns_inName                  NOT NULL,
+        ns_tr_inNameReceiver         ns_inName                 NOT NULL,
+ns_tr_inNameGiver             ns_inName                 NOT NULL,
+        ns_tr_IDAlpha                     ns_IDAlpha                  NOT NULL,
+        ns_tr_IDNumeric                     ns_IDNumeric              NOT NULL,
+ns_tr_trDate                         ns_trDate                  NOT NULL,
+    
+        ns_tr_trType                         ns_trType                 NULL,
+        ns_tr_IDAlphaOther             ns_IDAlpha                 NULL,
+        ns_tr_ns_IDNumericOther         ns_IDNumeric            NULL,
+    
+        PRIMARY KEY ('ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate  ),
+    
+FOREIGN KEY ('ns_tr_inName, ns_tr_IDAlpha , ns_tr_IDNumeric )
+
+
+
+
+REFERENCES ns_works('ns_wk_inName, ns_wk_IDAlpha,
+ns_wk_IDNumeric )
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY ('ns_tr_inNameReceiver)
+REFERENCES ns_institutions('ns_in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+
+
+FOREIGN KEY ('ns_tr_inNameGiver)
+REFERENCES ns_institutions('ns_in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- ('6) Works-Ownership
+CREATE TABLE ns_works_Ownership ('
+        ns_wo_inName                     ns_inName               NOT NULL,
+        ns_wo_IDAlpha                     ns_IDAlpha               NOT NULL,
+        ns_wo_IDNumeric             ns_IDNumeric          NOT NULL,
+        ns_wo_inNameOwner             ns_inName              NOT NULL,
+        ns_wo_woStartDate             ns_woStartDate          NOT NULL,
+
+
+
+
+        ns_wo_woEndDate             ns_woEndDate            NULL,
+    
+        PRIMARY KEY ('ns_wo_inName, ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_woStartDate,ns_wo_inNameOwner ),
+                
+        FOREIGN KEY ('ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_inName)  
+                            REFERENCES ns_Works('ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                     ON UPDATE CASCADE    
+                 ON DELETE CASCADE,
+        FOREIGN KEY ('ns_wo_inNameOwner )
+REFERENCES ns_Institutions('ns_in_inName)
+ ON UPDATE CASCADE    
+ ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ('7) Works-Locations
+CREATE TABLE ns_works_Locations ('
+
+
+
+
+        ns_wl_lcName                      ns_lcName                      NOT NULL,
+        ns_wl_IDAlpha                     ns_IDAlpha                     NOT NULL,
+        ns_wl_IDNumeric                   ns_IDNumeric                   NOT NULL,
+        ns_wl_inName                      ns_inName                      NOT NULL,
+        ns_wl_wlStartDateTime           ns_wlStartDateTime           NOT NULL,
+    
+        ns_wl_wlEndDateTime             ns_wlEndDateTime               NULL,
+    
+        PRIMARY KEY ('ns_wl_lcName,ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlStartDateTime),
+    
+        FOREIGN KEY (' ns_wl_inName ,ns_wl_IDAlpha, ns_wl_IDNumeric)
+          REFERENCES ns_works('ns_wk_inName, ns_wk_IDAlpha, ns_wk_IDNumeric )
+
+
+
+
+
+
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY ('ns_wl_lcName, ns_wl_inName)
+REFERENCES ns_locations('ns_lc_lcName, ns_lc_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+
+
+
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ('8) Works-Exhibitions
+CREATE TABLE ns_Works_Exhibitions ('
+
+
+
+
+        ns_we_IDAlpha             ns_IDAlpha             NOT NULL,
+        ns_we_IDNumeric             ns_IDNumeric        NOT NULL,
+        ns_we_exName             ns_exName             NOT NULL,
+        ns_we_inName             ns_inName              NOT NULL,
+        ns_we_exStartDate             ns_exStartDate         NOT NULL,
+
+
+
+
+        ns_we_exEndDate             ns_exEndDate         NULL,
+    
+        PRIMARY KEY ('ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate),
+        FOREIGN KEY ('ns_we_IDAlpha, ns_we_IDNumeric, ns_we_inName) REFERENCES ns_works('ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY ('ns_we_exName,  ns_we_inName ,  ns_we_exStartDate ) REFERENCES ns_exhibitions('ns_ex_exName, ns_ex_inName, ns_ex_exStartDate)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ('9) Exhibitions-Locations
+CREATE TABLE ns_exhibitions_Locations ('
+    
+ns_el_lcName ns_lcName NOT NULL,
+ns_el_exName ns_exName NOT NULL,
+        ns_el_exStartDate ns_exStartDate NOT NULL,
+ns_el_inName ns_inName NOT NULL,
+
+
+
+
+        ns_el_travelingStartDate ns_travelingStartDate NULL,
+        ns_el_travelingEndDate ns_travelingEndDate NULL,
+        ns_el_exEndDate ns_exEndDate NULL,
+    
+        PRIMARY KEY ('ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName),
+        FOREIGN KEY ('ns_el_lcName, ns_el_inName)
+REFERENCES ns_locations('ns_lc_lcName, ns_lc_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY ('ns_el_exName, ns_el_exStartDate, ns_el_inName)
+REFERENCES ns_exhibitions('ns_ex_exName, ns_ex_exStartDate,    
+ns_ex_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ('10) Works-Value
+CREATE TABLE ns_works_Value ('
+        ns_wv_IDAlpha            ns_IDAlpha              NOT NULL,
+        ns_wv_IDNumeric               ns_IDNumeric          NOT NULL,
+        ns_wv_inName             ns_inName             NOT NULL,
+        ns_wv_startDate             ns_wvStartDate             NOT NULL,
+       
+        ns_wv_InsuranceValue         ns_insurance   NULL,
+        ns_wv_enddate             ns_wvEndDate   NULL,
+    
+        PRIMARY KEY ('ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName,  ns_wv_startDate),
+        FOREIGN KEY ('ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName)
+                     REFERENCES ns_works('ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- ('11) Works-State
+CREATE TABLE ns_Works_State ('
+        ns_ws_IDAlpha         ns_IDAlpha             NOT NULL,
+        ns_ws_IDNumeric         ns_IDNumeric          NOT NULL,
+        ns_ws_inName         ns_inName              NOT NULL,
+ns_ws_wsStartDate         ns_wsStartDate         NOT NULL,
+    
+ns_ws_state             ns_state             NULL,
+        ns_ws_wsEndDate         ns_wsEndDate         NULL,
+    
+        PRIMARY KEY ('ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName, ns_ws_wsStartDate),
+        FOREIGN KEY ('ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName)
+REFERENCES ns_works('ns_wk_IDAlpha, ns_wk_IDNumeric,
+ns_wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+--The last 2 secondary TABLES
+
+
+-- ('12) Works-Media
+CREATE TABLE ns_works_media ('
+        ns_wm_IDAlpha         ns_IDAlpha              NOT NULL,
+        ns_wm_IDNumeric        ns_IDNumeric          NOT NULL,
+        ns_wm_inName          ns_inName              NOT NULL,
+                ns_wm_material            ns_material             NOT NULL,
+    
+        PRIMARY KEY ('ns_wm_IDAlpha, ns_wm_IDNumeric, ns_wm_inName, ns_wm_material),
+        FOREIGN KEY ('ns_wm_IDAlpha, ns_wm_IDNumeric , ns_wm_inName)          
+                   REFERENCES ns_works('ns_wk_IDAlpha, ns_wk_IDNumeric,
+ns_wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- ('13) Locations-Doors
+CREATE TABLE ns_Locations_Doors ('
+
+
+        ns_ld_inName         ns_inName              NOT NULL,
+        ns_ld_lcName1         ns_lcName             NOT NULL,
+        ns_ld_lcName2         ns_lcName             NOT NULL,
+    
+        PRIMARY KEY ('ns_ld_inName, ns_ld_lcName1, ns_ld_lcName2),
+        FOREIGN KEY ('ns_ld_lcName1, ns_ld_inName)
+REFERENCES ns_locations('ns_lc_lcName, ns_lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE,
+        FOREIGN KEY ('ns_ld_lcName2, ns_ld_inName)
+REFERENCES ns_locations('ns_lc_lcName, ns_lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE
+);
+
+ 
+-- Wei Zhang
+-- loading the ns_works_ownership table
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+ns_wk_inname,
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Wei',
+ns_wk_acdate,
+null
+from
+ns_works
+where
+ns_wk_idnumeric between 0 and 64 ;
+---------------------------------------
+-------------------------------------
+--insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_innamegiver,
+'1990-01-01',
+null
+from
+ns_transactions
+where
+ns_tr_idnumeric between 80 and 94 ;
+
+----------------------------------
+----------------------------------
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_tr_idalpha,
+ns_tr_idnumeric,
+'Wei',
+ns_tr_trdate,
+null
+from
+ns_transactions
+where
+ns_tr_trtype = 'buy' ;
+---------------------------------
+---------------------------------
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Prudence Beckley',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 80 ;
+---
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Ettie Ellsworth',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 81 ;
+---
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Lilia Mowan',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 82 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Ola Resier',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 83 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Isabell Wiseman',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 84 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Margarita Corcoran',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 85 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Pearly Serionier',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 86 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Fern Guion',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 87 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Judie Judd',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 88 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Louis Newcomer',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 89 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Alicia Hopkins',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 90 ;insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Anastacia Peale',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 91 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Angelita Densan',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 92 ;
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Idell Weismentel',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 93 ;
+
+
+insert into ns_works_ownership(
+ns_wo_inname,
+ns_wo_idalpha,
+ns_wo_idnumeric,
+ns_wo_innameowner,
+ns_wo_wostartdate,
+ns_wo_woenddate)
+
+select 
+
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'Melvina',
+'1990-01-01',
+null
+from
+ns_works
+where
+ns_wk_idnumeric = 94 ;
+
+------------------------------------
+insert into ns_works_ownership values
+('Wei','EG',110, 'Dolly Donoghoe', '2016-10-21',null),
+('Wei','EH',111, 'Dolly Donoghoe', '2016-10-21',null),
+('Wei','EI',112, 'Dolly Donoghoe', '2016-10-21',null),
+('Wei','EG',110, 'Wei', '1999-2-23','2016-10-21'),
+('Wei','EH',111, 'Wei', '1999-3-23','2016-10-21'),
+('Wei','EI',112, 'Wei', '1999-4-23','2016-10-21');
+
+ 
+insert into ns_works_state(
+ns_ws_idalpha,
+ns_ws_idnumeric,
+ns_ws_inname,
+ns_ws_wsstartdate,
+ns_ws_state,
+ns_ws_wsenddate)
+select
+ns_wk_idalpha,
+ns_wk_idnumeric,
+ns_wk_inname,
+'1990-01-01',
+'in good condition',
+null
+from 
+ns_works
+where 
+ns_wk_idnumeric
+between 
+80 and 94;
+
+--loading to transaction table
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Dolly Donoghoe',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '65';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Thekla Minner',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '66';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Irma Helems',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '67';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Carlie Mattley',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '68';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Louetta Dunsford',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '69';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Melva Pakley',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '70';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Ollie Bloomer',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '71';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Annetta Fageley',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '72';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Dorthea Weckerham',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '73';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Mahala Darnold',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '74';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Dorcas Lechleiter',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '75';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Frances Rieser',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '76';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Adline Henery',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '77';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Rozella Goodell',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '78';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Cressie Lighbody',
+museumletter,
+museumnumber,
+museumacqudate,
+'borrow in',
+null,
+null
+from
+museum
+where
+museumnumber = '79';
+------------------------------------
+-----------------------------------
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Prudence Beckley',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '95';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Ettie Ellsworth',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '96';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Lilia Mowan',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '97';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Ola Resier',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '98';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Isabell Wiseman',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '99';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Margarita Corcoran',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '100';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Pearly Serionier',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '101';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Fern Guion',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '102';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Judie Judd',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '103';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Louis Newcomer',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '104';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Alicia Hopkins',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '105';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Anastacia Peale',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '106';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Angelita Densan',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '107';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Idell Weismentel',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '108';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+'Melvina',
+museumletter,
+museumnumber,
+museumacqudate,
+'buy',
+null,
+null
+from
+museum
+where
+museumnumber = '109';
+-----------------------------------------------
+-----------------------------------------------
+insert into ns_works values
+('EG', 110, 'Wei', 'amazing', 'Jason', '1999-2-23', '2013-4-3', 'The amazing abstract works are displayed in work ', 'abstract'),
+('EH', 111, 'Wei', 'silent', 'Steven', '1999-3-23', '2013-4-2', 'The silent man here have a good imaginary','abstract'),
+('EI', 112, 'Wei', 'beauty alone', 'Sally', '1999-4-23', '2013-4-1', 'The great works shows a beauty women who just break up', 'abstract');
+
+
+
+
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Dolly Donoghoe',
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'2016-10-21',
+'sell',
+null,
+null
+from
+ns_works
+where
+ns_wk_idnumeric  = '110';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Dolly Donoghoe',
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'2016-10-21',
+'sell',
+null,
+null
+from
+ns_works
+where
+ns_wk_idnumeric = '111';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Dolly Donoghoe',
+'Wei',
+ns_wk_idalpha,
+ns_wk_idnumeric,
+'2016-10-21',
+'sell',
+null,
+null
+from
+ns_works
+where
+ns_wk_idnumeric = '112';
+-----------------------------
+----------------------------
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '39';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '40';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '41';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '42';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '43';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+insititutionname,
+'Wei',
+museumletter,
+museumnumber,
+loanstartdate,
+'lend out',
+null,
+null
+from
+loans
+where
+museumnumber = '44';
+
+--------------------------------
+---------------------------------
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '39';
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '40';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '41';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '42';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '43';
+
+
+insert into ns_transactions (
+ns_tr_inname,
+ns_tr_innamereceiver,
+ns_tr_innamegiver,
+ns_tr_idalpha,
+ns_tr_idnumeric,
+ns_tr_trdate,
+ns_tr_trtype,
+ns_tr_idalphaother,
+ns_tr_ns_idnumericother)
+select 
+'Wei',
+'Wei',
+insititutionname,
+museumletter,
+museumnumber,
+loanstartdate,
+'lend in',
+null,
+null
+from
+loans
+where
+museumnumber = '44';
+
+ 
+insert into ns_works_value values
+('EG',	110, 'Wei','2013-04-03', 3000,'2016-10-21'),
+('EH',	111,'Wei','2013-04-02', 3020,'2016-10-21'),
+('EI',	112,'Wei','2013-04-01',3050,'2016-10-21');
+
+

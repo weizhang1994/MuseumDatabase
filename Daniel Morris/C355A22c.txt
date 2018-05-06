@@ -1,0 +1,14 @@
+SELECT * FROM ts_stat('SELECT to_tsvector(wkDesc) from works') ORDER BY -ndoc;
+SELECT * FROM ts_stat('SELECT to_tsvector(wkDesc) from works') ORDER BY word;
+
+ALTER  TABLE Works ADD COLUMN wkIsAboriginal varchar(3) DEFAULT 'No';
+
+CREATE TABLE tempTable as select wkIdAlpha, wkIdNum from works where to_tsvector(wkDesc) @@ to_tsquery('Aboriginal');
+
+UPDATE Works
+SET wkIsAboriginal = 'Yes'
+FROM tempTable
+WHERE works.wkIdAlpha = tempTable.wkIdAlpha
+	AND works.wkIdNum = tempTable.wkIdNum;
+
+DROP TABLE tempTable;

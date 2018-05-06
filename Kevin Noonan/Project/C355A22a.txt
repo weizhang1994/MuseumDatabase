@@ -1,0 +1,19 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #2
+
+-- Alter works table so we have two additional columns one for borrowed and one for donor
+
+ALTER TABLE works
+ADD COLUMN wksOwnership varchar(50) DEFAULT 'owner';
+
+ALTER TABLE works
+ADD COLUMN wksDonor	varchar(100);
+
+--Copy in new definitions for borrowed and donors
+\copy works FROM 'C355A22a-1.txt'
+
+--Put the works that are borrowed into storage
+INSERT INTO worksLocations
+SELECT DISTINCT wksletterkey, wksnumberkey, 'Storage', current_date + integer '172'
+FROM works, exhibitions, exhibitionsworks
+WHERE wksownership = 'Borrowed';
+

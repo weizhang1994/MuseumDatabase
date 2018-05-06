@@ -1,0 +1,36 @@
+
+
+\i '5_Insert_institutions.txt'
+
+
+--TABLE nWorks
+
+INSERT INTO ns_works(ns_wk_idalpha, 
+		     ns_wk_idnumeric,  
+		     ns_wk_inname, 
+		     ns_wk_wkname, 
+		     ns_wk_creator, 
+		     ns_wk_codate, 
+		     ns_wk_acdate, 
+		     ns_wk_wkdescription, 
+		     ns_wk_theme, 
+		     ns_wk_subject, 
+		     ns_wk_culture, 
+		     ns_wk_colour, 
+		     ns_wk_cartype,
+		     ns_wk_transmission) 
+	SELECT itemalpha, 
+	       itemnumber, 
+	       'WAC gallery', 
+	       name, 
+	       author,
+	       date_complete,
+	       date_acquisition,
+	       description,
+	       sub_type,
+	       type,
+	       NULL,
+	       potray_with,
+	       NULL,
+	       NULL
+	FROM all_works;

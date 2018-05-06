@@ -1,0 +1,7 @@
+MCA	Lobby	Storage
+MCA	Lobby	Gallery A
+MCA	Lobby	Gallery B
+MCA	Gallery A	Gallery B
+MCA	Gallery A	Gallery C
+MCA	Gallery B	Gallery C
+MCA	Gallery B	Gallery D

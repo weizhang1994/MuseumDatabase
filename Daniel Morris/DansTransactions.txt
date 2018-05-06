@@ -1,0 +1,45 @@
+MCA	MCA	Mario	DwySpe	15	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DwyWal	2	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DeaTra	3	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DwyNon	994	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DavPor	991	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DeaFor	1	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DwyRec	996	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DwySqu	10	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	EagTan	12	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DonUnt	5	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DeaWhe	2	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	CooUnt	1	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	DanIts	9	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	EagNew	5	2016-10-25	Buy	\N	\N
+MCA	MCA	Mario	CulPir	4	2016-10-25	Buy	\N	\N
+MCA	MCA	Daffy Duck	AngBic	8	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Bart Simpson	ArmEmp	9	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Peter Griffen	ArmSec	995	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Spongebob	ArmSpl	9	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Patrick	ArmUnt	998	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Franklin	BarInh	6	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Mickey Mouse	BauAut	11	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Dexter	BenUnt	989	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Mario	BirUnt	5	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Tweetie Pie	BlaPar	989	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Donald Duck	BorStr	9	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Dora	BelWor	2	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Goofy	BedCam	4	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Bugs Bunny	BelUzv	6	2016-06-19	Borrow In	\N	\N
+MCA	MCA	Scooby Doo	BenHom	999	2016-06-19	Borrow In	\N	\N
+MCA	Harvard University	MCA	CooUnt	1	2016-11-08	Lend Out	\N	\N
+MCA	National Gallery of Art	MCA	CulPir	4	2016-11-09	Lend Out	\N	\N
+MCA	The Louvre	MCA	DanIts	9	2016-11-11	Lend Out	\N	\N
+MCA	Tate Modern	MCA	DavPor	991	2016-11-18	Lend Out	\N	\N
+MCA	Metropolitan Museum of Art	MCA	DeaFor	1	2016-11-27	Lend Out	\N	\N
+MCA	Peterson Museum	MCA	DeaTra	3	2016-11-28	Lend Out	\N	\N
+MCA	MCA	Harvard University	CooUnt	1	2017-04-16	Lend In	\N	\N
+MCA	MCA	National Gallery of Art	CulPir	4	2017-04-10	Lend In	\N	\N
+MCA	MCA	The Louvre	DanIts	9	2017-04-21	Lend In	\N	\N
+MCA	MCA	Tate Modern	DavPor	991	2017-04-11	Lend In	\N	\N
+MCA	MCA	Metropolitan Museum of Art	DeaFor	1	2017-04-06	Lend In	\N	\N
+MCA	MCA	Peterson Museum	DeaTra	3	2017-04-19	Lend In	\N	\N
+MCA	Unknown	MCA	BirUnt	5	2016-10-21	Sold	\N	\N
+MCA	Unknown	MCA	MarRin	989	2016-10-21	Sold	\N	\N
+MCA	Unknown	MCA	NelWal	12	2016-10-21	Sold	\N	\N

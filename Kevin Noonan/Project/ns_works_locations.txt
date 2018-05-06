@@ -1,0 +1,392 @@
+Gallery C	DDC	20	Petersen Museum	2015-05-21 00:00:00	\N
+Gallery C	FORDGT	24	Petersen Museum	2015-05-21 00:00:00	\N
+Lobby	TLTCS	64	Petersen Museum	2015-05-21 00:00:00	\N
+Storage	ARGT	103	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	CVT	108	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	DDVN	99	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	DEMB	110	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	FDSR	97	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	FES	100	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	HCB	104	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	HSE	105	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	MCCC	96	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	MM	102	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	PDDC	107	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	PNGW	106	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	TBV	101	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	VBS	98	Petersen Museum	2016-10-25 06:00:00	\N
+Storage	VCR	109	Petersen Museum	2016-10-25 06:00:00	\N
+Gallery A	ALC	14	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	DCA	44	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	DDT	53	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	GALT	47	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	NASHH	21	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	OYMIII	11	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	PASA	48	Petersen Museum	2016-12-24 00:00:00	\N
+Gallery A	PLE	7	Petersen Museum	2016-12-24 00:00:00	\N
+Storage	DDC	72	Petersen Museum	2017-01-18 00:00:00	\N
+Storage	FGL	41	Petersen Museum	2017-02-06 06:00:00	\N
+Storage	MT	40	Petersen Museum	2017-02-06 06:00:00	\N
+Gallery B	AC	63	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	BSEI	62	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	BVO	51	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	FMASW	38	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	FORDM	9	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	HDKHRM	61	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	JXKR	57	Petersen Museum	2017-02-07 00:00:00	\N
+Gallery B	PKT	52	Petersen Museum	2017-02-07 00:00:00	\N
+Storage	ARG	71	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	DDC	20	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	DDMC	54	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	DSJ	56	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	FGT	1	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	FGTSI	16	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	FORDGT	24	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	HDT	73	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	MJ	36	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	OLW	30	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	PORC	13	Petersen Museum	2017-04-07 06:00:00	\N
+Storage	VOLKB	26	Petersen Museum	2017-04-07 06:00:00	\N
+Gallery C	BEB	23	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	BENZ	58	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	BTA	15	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	BTC	35	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	CCI	5	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	CISC	43	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	DDS	46	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	DDSZ	22	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	FB	25	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	FMMS	50	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	JXKSS	59	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	LDR	55	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	MBW	42	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	MERR	28	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	MERTF	33	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	MLP	39	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	PM	49	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery C	TLGS	45	Petersen Museum	2017-04-08 00:00:00	\N
+Gallery A	DDV	4	Petersen Museum	2017-04-28 00:00:00	\N
+Gallery A	DHT	70	Petersen Museum	2017-04-28 00:00:00	\N
+Gallery A	FORDF	12	Petersen Museum	2017-04-28 00:00:00	\N
+Gallery A	HDVL	77	Petersen Museum	2017-04-28 00:00:00	\N
+Gallery A	JXJ	6	Petersen Museum	2017-04-28 00:00:00	\N
+Gallery A	POR	8	Petersen Museum	2017-04-28 00:00:00	\N
+Storage	CPC	2	Petersen Museum	2017-04-29 00:00:00	\N
+Storage	DMSJ	10	Petersen Museum	2017-04-29 00:00:00	\N
+Storage	LSS	3	Petersen Museum	2017-04-29 00:00:00	\N
+Storage	MCD	80	Petersen Museum	2017-04-29 00:00:00	\N
+Storage	BMWRS	91	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	CBSR	89	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	DDC	72	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	FCB	94	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	GMEV	81	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	HDMJ	76	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	HDX	75	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	KWSN	82	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	MBD	66	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	MLF	84	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	PRSN	87	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	RRT	85	Petersen Museum	2017-05-26 06:00:00	\N
+Storage	WFW	88	Petersen Museum	2017-05-26 06:00:00	\N
+Gallery B	BTRS	17	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	CHB	18	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	DHC	74	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	HUDW	27	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	MBS	29	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	MTQS	69	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery B	VOLKT	19	Petersen Museum	2017-07-11 00:00:00	\N
+Gallery C	CCDV	37	Petersen Museum	2017-07-12 00:00:00	\N
+Gallery C	CHVI	68	Petersen Museum	2017-07-12 00:00:00	\N
+Gallery C	CIPP	34	Petersen Museum	2017-07-12 00:00:00	\N
+Gallery C	CSC	31	Petersen Museum	2017-07-12 00:00:00	\N
+Gallery C	HST	32	Petersen Museum	2017-07-12 00:00:00	\N
+Gallery C	RFCO	67	Petersen Museum	2017-07-12 00:00:00	\N
+Storage	AC	63	Petersen Museum	2015-05-21 06:00:00	2017-02-07 00:00:00
+Storage	ALC	14	Petersen Museum	2015-05-21 06:00:00	2015-12-05 06:00:00
+Gallery A	ALC	14	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	ALC	14	Petersen Museum	2016-03-19 06:00:00	2016-10-28 00:00:00
+Gallery A	ALC	14	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	ALC	14	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery C	ARG	71	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	BEB	23	Petersen Museum	2015-05-21 06:00:00	2015-12-05 06:00:00
+Gallery A	BEB	23	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	BEB	23	Petersen Museum	2016-03-19 06:00:00	2016-10-28 00:00:00
+Gallery B	BEB	23	Petersen Museum	2016-10-28 00:00:00	2017-02-06 06:00:00
+Storage	BEB	23	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery A	BENZ	58	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	BENZ	58	Petersen Museum	2016-12-23 06:00:00	2017-04-08 00:00:00
+Storage	BMWRS	91	Petersen Museum	2017-04-29 00:00:00	2017-05-26 06:00:00
+Storage	BSEI	62	Petersen Museum	2015-05-21 06:00:00	2017-02-07 00:00:00
+Gallery C	BTA	15	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	BTA	15	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery C	BTC	35	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	BTC	35	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery B	BTRS	17	Petersen Museum	2015-05-21 00:00:00	2015-12-05 06:00:00
+Gallery A	BTRS	17	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	BTRS	17	Petersen Museum	2016-03-19 06:00:00	2017-02-06 06:00:00
+Storage	BTRS	17	Petersen Museum	2017-02-06 06:00:00	2017-02-07 00:00:00
+Gallery B	BTRS	17	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Storage	BVO	51	Petersen Museum	2015-05-21 06:00:00	2017-02-07 00:00:00
+Gallery B	CCDV	37	Petersen Museum	2015-05-21 00:00:00	2016-01-11 06:00:00
+Gallery B	CCDV	37	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	CCDV	37	Petersen Museum	2016-05-10 06:00:00	2017-02-06 06:00:00
+Storage	CCDV	37	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery C	CCDV	37	Petersen Museum	2017-04-08 00:00:00	2017-07-12 00:00:00
+Gallery A	CCI	5	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	CCI	5	Petersen Museum	2016-12-23 06:00:00	2017-04-08 00:00:00
+Gallery A	CHB	18	Petersen Museum	2015-05-21 00:00:00	2016-01-11 06:00:00
+Gallery B	CHB	18	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	CHB	18	Petersen Museum	2016-05-10 06:00:00	2016-12-23 06:00:00
+Storage	CHB	18	Petersen Museum	2016-12-23 06:00:00	2017-02-07 00:00:00
+Gallery B	CHB	18	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Gallery C	CHVI	68	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	CHVI	68	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery C	CHVI	68	Petersen Museum	2017-04-08 00:00:00	2017-07-12 00:00:00
+Gallery B	CIPP	34	Petersen Museum	2015-05-21 00:00:00	2017-02-06 06:00:00
+Storage	CIPP	34	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery C	CIPP	34	Petersen Museum	2017-04-08 00:00:00	2017-07-12 00:00:00
+Gallery B	CISC	43	Petersen Museum	2015-05-21 00:00:00	2017-02-06 06:00:00
+Storage	CISC	43	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery B	CPC	2	Petersen Museum	2015-05-21 00:00:00	2016-01-11 06:00:00
+Gallery B	CPC	2	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	CPC	2	Petersen Museum	2016-05-10 06:00:00	2016-11-29 00:00:00
+Storage	CPC	2	Petersen Museum	2017-02-06 06:00:00	2017-04-29 00:00:00
+Storage	CSC	31	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery C	CSC	31	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	CSC	31	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery C	CSC	31	Petersen Museum	2017-04-08 00:00:00	2017-07-12 00:00:00
+Storage	DCA	44	Petersen Museum	2015-05-21 06:00:00	2016-12-24 00:00:00
+Gallery A	DDC	72	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Gallery A	DDC	72	Petersen Museum	2017-04-28 00:00:00	2017-05-26 06:00:00
+Gallery C	DDMC	54	Petersen Museum	2015-05-21 00:00:00	2016-03-05 06:00:00
+Gallery C	DDMC	54	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	DDMC	54	Petersen Museum	2016-07-11 06:00:00	2017-04-07 06:00:00
+Storage	DDS	46	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery C	DDS	46	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	DDS	46	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Storage	DDSZ	22	Petersen Museum	2015-05-21 06:00:00	2017-02-07 00:00:00
+Gallery B	DDSZ	22	Petersen Museum	2017-02-07 00:00:00	2017-04-08 00:00:00
+Storage	DDT	53	Petersen Museum	2015-05-21 06:00:00	2016-12-24 00:00:00
+Storage	DDV	4	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery A	DDV	4	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	DDV	4	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery A	DDV	4	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	DDV	4	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Gallery B	DHC	74	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Gallery A	DHT	70	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	DHT	70	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Gallery B	DMSJ	10	Petersen Museum	2015-05-21 00:00:00	2016-11-29 00:00:00
+Storage	DMSJ	10	Petersen Museum	2017-02-06 06:00:00	2017-04-29 00:00:00
+Storage	DSJ	56	Petersen Museum	2015-05-21 06:00:00	2016-03-05 06:00:00
+Gallery C	DSJ	56	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	DSJ	56	Petersen Museum	2016-07-11 06:00:00	2016-10-28 00:00:00
+Gallery C	DSJ	56	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Gallery C	FB	25	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	FB	25	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery B	FGL	41	Petersen Museum	2015-05-21 00:00:00	2016-03-05 06:00:00
+Gallery C	FGL	41	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	FGL	41	Petersen Museum	2016-07-11 06:00:00	2017-02-06 06:00:00
+Gallery C	FGT	1	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Gallery C	FGTSI	16	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Gallery A	FMASW	38	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	FMASW	38	Petersen Museum	2016-12-23 06:00:00	2017-02-07 00:00:00
+Storage	FMMS	50	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery C	FMMS	50	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	FMMS	50	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery A	FORDF	12	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	FORDF	12	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery A	FORDF	12	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	FORDF	12	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Storage	FORDGT	60	Petersen Museum	2015-05-21 06:00:00	2016-10-21 00:00:00
+Storage	FORDM	9	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery A	FORDM	9	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	FORDM	9	Petersen Museum	2016-12-23 06:00:00	2017-02-07 00:00:00
+Lobby	GALT	47	Petersen Museum	2015-05-21 00:00:00	2016-12-24 00:00:00
+Storage	HDKHRM	61	Petersen Museum	2015-05-21 06:00:00	2017-02-07 00:00:00
+Gallery B	HDMJ	76	Petersen Museum	2016-10-28 00:00:00	2017-02-06 06:00:00
+Storage	HDMJ	76	Petersen Museum	2017-02-06 06:00:00	2017-05-26 06:00:00
+Gallery C	HDT	73	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Gallery A	HDVL	77	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	HDVL	77	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Gallery C	HDX	75	Petersen Museum	2016-10-28 00:00:00	2017-04-07 06:00:00
+Storage	HDX	75	Petersen Museum	2017-04-07 06:00:00	2017-05-26 06:00:00
+Storage	HST	32	Petersen Museum	2015-05-21 06:00:00	2016-01-11 06:00:00
+Gallery B	HST	32	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	HST	32	Petersen Museum	2016-05-10 06:00:00	2016-10-28 00:00:00
+Gallery B	HST	32	Petersen Museum	2016-10-28 00:00:00	2017-02-06 06:00:00
+Storage	HST	32	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery C	HST	32	Petersen Museum	2017-04-08 00:00:00	2017-07-12 00:00:00
+Gallery B	HUDW	27	Petersen Museum	2015-05-21 00:00:00	2015-12-05 06:00:00
+Gallery A	HUDW	27	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	HUDW	27	Petersen Museum	2016-03-19 06:00:00	2017-02-06 06:00:00
+Storage	HUDW	27	Petersen Museum	2017-02-06 06:00:00	2017-02-07 00:00:00
+Gallery B	HUDW	27	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Storage	JXJ	6	Petersen Museum	2015-05-21 06:00:00	2015-12-05 06:00:00
+Gallery A	JXJ	6	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	JXJ	6	Petersen Museum	2016-03-19 06:00:00	2016-10-28 00:00:00
+Gallery A	JXJ	6	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	JXJ	6	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery A	JXJ	6	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	JXJ	6	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Storage	JXKR	57	Petersen Museum	2015-05-21 06:00:00	2016-03-05 06:00:00
+Gallery C	JXKR	57	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	JXKR	57	Petersen Museum	2016-07-11 06:00:00	2017-02-07 00:00:00
+Gallery C	JXKSS	59	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	JXKSS	59	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery C	LDR	55	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	LDR	55	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery B	LSS	3	Petersen Museum	2015-05-21 00:00:00	2015-12-05 06:00:00
+Gallery A	LSS	3	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	LSS	3	Petersen Museum	2016-03-19 06:00:00	2016-11-29 00:00:00
+Storage	LSS	3	Petersen Museum	2017-02-06 06:00:00	2017-04-29 00:00:00
+Gallery A	MBD	66	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	MBD	66	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Gallery A	MBD	66	Petersen Museum	2017-04-28 00:00:00	2017-05-26 06:00:00
+Storage	MBS	29	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery A	MBS	29	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	MBS	29	Petersen Museum	2016-12-23 06:00:00	2017-02-07 00:00:00
+Gallery B	MBS	29	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Gallery C	MBW	42	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	MBW	42	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery B	MCD	80	Petersen Museum	2016-10-28 00:00:00	2016-11-29 00:00:00
+Storage	MCD	80	Petersen Museum	2017-02-06 06:00:00	2017-04-29 00:00:00
+Gallery A	MERR	28	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	MERR	28	Petersen Museum	2016-12-23 06:00:00	2017-04-08 00:00:00
+Gallery B	MERTF	33	Petersen Museum	2015-05-21 00:00:00	2017-02-06 06:00:00
+Storage	MERTF	33	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Gallery C	MJ	36	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	MLP	39	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery B	MLP	39	Petersen Museum	2016-10-28 00:00:00	2017-02-06 06:00:00
+Storage	MLP	39	Petersen Museum	2017-02-06 06:00:00	2017-04-08 00:00:00
+Storage	MT	40	Petersen Museum	2015-05-21 06:00:00	2016-10-28 00:00:00
+Gallery B	MT	40	Petersen Museum	2016-10-28 00:00:00	2017-02-06 06:00:00
+Gallery B	MTQS	69	Petersen Museum	2017-02-07 00:00:00	2017-05-26 06:00:00
+Storage	MTQS	69	Petersen Museum	2017-05-26 06:00:00	2017-07-11 00:00:00
+Storage	NASHH	21	Petersen Museum	2015-05-21 06:00:00	2016-01-11 06:00:00
+Gallery B	NASHH	21	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	NASHH	21	Petersen Museum	2016-05-10 06:00:00	2016-10-28 00:00:00
+Gallery A	NASHH	21	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	NASHH	21	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery C	OLW	30	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Gallery A	OYMIII	11	Petersen Museum	2015-05-21 00:00:00	2016-03-05 06:00:00
+Gallery C	OYMIII	11	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	OYMIII	11	Petersen Museum	2016-07-11 06:00:00	2016-12-23 06:00:00
+Storage	OYMIII	11	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Storage	PASA	48	Petersen Museum	2015-05-21 06:00:00	2016-03-05 06:00:00
+Gallery C	PASA	48	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	PASA	48	Petersen Museum	2016-07-11 06:00:00	2016-12-24 00:00:00
+Storage	PKT	52	Petersen Museum	2015-05-21 06:00:00	2016-03-05 06:00:00
+Gallery C	PKT	52	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	PKT	52	Petersen Museum	2016-07-11 06:00:00	2017-02-07 00:00:00
+Gallery A	PLE	7	Petersen Museum	2015-05-21 00:00:00	2016-12-23 06:00:00
+Storage	PLE	7	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery C	PM	49	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Storage	PM	49	Petersen Museum	2017-04-07 06:00:00	2017-04-08 00:00:00
+Gallery A	POR	8	Petersen Museum	2015-05-21 00:00:00	2015-12-05 06:00:00
+Gallery A	POR	8	Petersen Museum	2015-12-05 06:00:00	2016-03-19 06:00:00
+Storage	POR	8	Petersen Museum	2016-03-19 06:00:00	2016-12-23 06:00:00
+Storage	POR	8	Petersen Museum	2016-12-23 06:00:00	2016-12-24 00:00:00
+Gallery A	POR	8	Petersen Museum	2016-12-24 00:00:00	2016-12-25 00:00:00
+Storage	POR	8	Petersen Museum	2017-01-18 00:00:00	2017-04-28 00:00:00
+Gallery C	PORC	13	Petersen Museum	2015-05-21 00:00:00	2017-04-07 06:00:00
+Gallery C	RFCO	67	Petersen Museum	2017-04-08 00:00:00	2017-05-26 06:00:00
+Storage	RFCO	67	Petersen Museum	2017-05-26 06:00:00	2017-07-12 00:00:00
+Storage	TLGS	45	Petersen Museum	2015-05-21 06:00:00	2017-04-08 00:00:00
+Gallery C	VOLKB	26	Petersen Museum	2015-05-21 00:00:00	2016-03-05 06:00:00
+Gallery C	VOLKB	26	Petersen Museum	2016-03-05 06:00:00	2016-07-11 06:00:00
+Storage	VOLKB	26	Petersen Museum	2016-07-11 06:00:00	2017-04-07 06:00:00
+Storage	VOLKT	19	Petersen Museum	2015-05-21 06:00:00	2016-01-11 06:00:00
+Gallery B	VOLKT	19	Petersen Museum	2016-01-11 06:00:00	2016-05-10 06:00:00
+Storage	VOLKT	19	Petersen Museum	2016-05-10 06:00:00	2016-10-28 00:00:00
+Gallery A	VOLKT	19	Petersen Museum	2016-10-28 00:00:00	2016-12-23 06:00:00
+Storage	VOLKT	19	Petersen Museum	2016-12-23 06:00:00	2017-02-07 00:00:00
+Gallery B	VOLKT	19	Petersen Museum	2017-02-07 00:00:00	2017-07-11 00:00:00
+Storage	WFW	88	Petersen Museum	2017-04-29 00:00:00	2017-05-26 06:00:00
+Kindersley - Petersen Museum	DDV	4	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	JXJ	6	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	POR	8	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	FORDF	12	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	MBD	66	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	DHT	70	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	DDC	72	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kindersley - Petersen Museum	HDVL	77	Petersen Museum	2017-04-29 00:00:00	2017-05-20 00:00:00
+Kal-Tire Rosetown	DDV	4	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	JXJ	6	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	POR	8	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	FORDF	12	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	MBD	66	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	DHT	70	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	DDC	72	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Kal-Tire Rosetown	HDVL	77	Petersen Museum	2016-12-25 00:00:00	2017-01-15 00:00:00
+Grip it Saskatoon	DDV	4	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	JXJ	6	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	POR	8	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	FORDF	12	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	MBD	66	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	DHT	70	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	DDC	72	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Grip it Saskatoon	HDVL	77	Petersen Museum	2017-01-26 00:00:00	2017-02-16 00:00:00
+Gov of Sask Regina	DDV	4	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	JXJ	6	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	POR	8	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	FORDF	12	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	MBD	66	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	DHT	70	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	DDC	72	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Gov of Sask Regina	HDVL	77	Petersen Museum	2017-02-24 00:00:00	2017-03-17 00:00:00
+Canadian Tire Prince Albert	DDV	4	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	JXJ	6	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	POR	8	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	FORDF	12	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	MBD	66	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	DHT	70	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	DDC	72	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Canadian Tire Prince Albert	HDVL	77	Petersen Museum	2017-03-24 00:00:00	2017-04-14 00:00:00
+Jiffy Tire Kindersley	DDV	4	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	JXJ	6	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	POR	8	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	FORDF	12	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	MBD	66	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	DHT	70	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	DDC	72	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Jiffy Tire Kindersley	HDVL	77	Petersen Museum	2017-04-22 00:00:00	2017-05-13 00:00:00
+Petersen Museum - Rosetown	DDV	4	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	JXJ	6	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	POR	8	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	FORDF	12	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	MBD	66	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	DHT	70	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	DDC	72	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Petersen Museum - Rosetown	HDVL	77	Petersen Museum	2016-12-18 00:00:00	2017-01-08 00:00:00
+Rosetown - Saskatoon	DDV	4	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	JXJ	6	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	POR	8	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	FORDF	12	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	MBD	66	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	DHT	70	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	DDC	72	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Rosetown - Saskatoon	HDVL	77	Petersen Museum	2017-01-19 00:00:00	2017-02-09 00:00:00
+Saskatoon - Regina	DDV	4	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	JXJ	6	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	POR	8	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	FORDF	12	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	MBD	66	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	DHT	70	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	DDC	72	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Saskatoon - Regina	HDVL	77	Petersen Museum	2017-02-17 00:00:00	2017-03-10 00:00:00
+Regina - Prince Albert	DDV	4	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	JXJ	6	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	POR	8	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	FORDF	12	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	MBD	66	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	DHT	70	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	DDC	72	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Regina - Prince Albert	HDVL	77	Petersen Museum	2017-03-17 00:00:00	2017-04-07 00:00:00
+Prince Albert - Kindersley	DDV	4	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	JXJ	6	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	POR	8	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	FORDF	12	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	MBD	66	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	DHT	70	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	DDC	72	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00
+Prince Albert - Kindersley	HDVL	77	Petersen Museum	2017-04-15 00:00:00	2017-05-06 00:00:00

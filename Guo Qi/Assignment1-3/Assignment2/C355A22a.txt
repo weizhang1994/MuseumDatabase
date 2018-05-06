@@ -1,0 +1,103 @@
+|-------------------------------------------------------------------------------------------------|
+|----------------------------------------2a. Expanded works---------------------------------------|
+
+--I have 100 works by the end of 2a because I inserted 70 works to the database instead of 65 works.
+
+--Revise works table to include identification of whether works are: 
+--owned works or borrowed works, or works that might be potentially borrowed from some other owner
+CREATE DOMAIN workOwnership AS varchar(100);
+CREATE DOMAIN workowner AS varchar(100);
+
+ALTER TABLE Works
+	ADD COLUMN wkOwnership workOwnership,
+	ADD COLUMN wkOwner workowner;
+
+--Add 15 new works to your database and have them be long term borrowed works
+\COPY Works from 'C355A22a-1.txt' --including ownership and owners data
+
+--Add these long term borrowed works to storage
+INSERT INTO WorksLocations (
+	wlIDLetter,
+	wlIDNumber,
+	wlLocation,
+	wlStartDate,
+	wlEndDate
+)
+SELECT wkIDLetter, wkIDNumber, 'storage', '2016-10-18', NULL
+FROM Works
+WHERE wkOwnership='borrowed work';
+
+
+--Add 15 new works belonging to other museums as potential works that could be borrowed
+\COPY Works from 'C355A22a-2.txt' with NULL AS ''
+
+--Set ownership and owners for the potential works
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Los Angeles County Museum of Art '
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750053;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Huntington Library, Art Collections & Botanical Gardens'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750501;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Natural History Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749376;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='The Broad'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749367;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Getty Center'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750104;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Griffith Observatory'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749430;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Petersen Automotive Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750716;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='California Science Center'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750285;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Annenberg Space for Photography'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750787;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Hammer Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750172;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='La Brea Tar Pits and Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749413;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='MOCA Grand Ave'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749434;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Norton Simon Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750357;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Japanese American National Museum'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=750265;
+
+UPDATE Works
+	SET wkOwnership='potential work', wkOwner='Pasadena Museum of California Art'
+	WHERE wkIDLetter='nmah' AND wkIDNumber=749868;
+
+
+--Add ownership and owners for the works that belongs to the museum
+UPDATE Works
+	SET wkOwnership='owned work', wkOwner='The National Museum of American History'
+	WHERE wkOwner IS NULL;
+
+
+
+

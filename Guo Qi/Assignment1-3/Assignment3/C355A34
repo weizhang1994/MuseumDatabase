@@ -1,0 +1,139 @@
+-- Qi Guo	qig557	11158650	C355A31
+-------------------------------------------------------------------------------------------------
+----------------------------------------Expand database------------------------------------------
+-------------------------------------------------------------------------------------------------
+
+
+--Get all pks and work names for available works between 2016-11-01 and 2017-04-30 since they are all in storage
+SELECT wkIDLetter, wkIDNumber, wkName
+	FROM Works
+	WHERE wkIDNumber in (SELECT wlIDNumber
+							FROM WorksLocations
+							WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage'); 
+
+
+--Create domains for LoanedWorks table
+CREATE DOMAIN LoanedWorksInstName AS varchar(50);
+CREATE DOMAIN LoanedWorksAddress AS TEXT;
+CREATE DOMAIN LoanedWorksPhoneNumber AS varchar(15);
+CREATE DOMAIN LoanedWorksEmail AS varchar(50);
+CREATE DOMAIN LoanedWorksSDateTime AS timestamp;
+CREATE DOMAIN LoanedWorksEDateTime AS timestamp;
+
+
+--Create a new table named LoanedWorks to keep track of all loan information
+CREATE TABLE LoanedWorks(
+	lwwkIDLetter workIDletter,
+	lwwkIDNumber workIDNumber,
+	lwInstituteName LoanedWorksInstName,
+	lwAddress LoanedWorksAddress,
+	lwPhoneNumber LoanedWorksPhoneNumber,
+	lwEmail LoanedWorksEmail,
+	lwStartDateTime LoanedWorksSDateTime,
+	lwEndDateTime LoanedWorksEDateTime,
+
+	PRIMARY KEY(lwwkIDLetter, lwwkIDNumber, lwStartDateTime),
+
+	FOREIGN KEY(lwwkIDLetter, lwwkIDNumber)
+	REFERENCES Works(wkIDLetter, wkIDNumber)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE
+	);
+
+--Insert data into LoanedWorks table
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 1353079, 'Ayden Kitchen & Bar', '265 3 Ave S, Saskatoon, SK S7K 1M3', '3069542590', 'ayden@gmail.com', '2016-11-01 11:00:00', '2017-01-01 12:00:00');
+
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 749342, 'Truffles Bistro', '230 21st E, Saskatoon, SK S7K 0B9', '3063737779', 'truffles@gmail.com', '2016-12-01 11:00:00', '2017-02-01 12:00:00');
+
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 994145, 'Saskatoon Station Place', '221 Idylwyld Dr N, Saskatoon, SK S7L 6V6', '3062447777', 'station@gmail.com', '2017-01-01 11:00:00', '2017-04-01 12:00:00');
+
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 1351212, 'Mano''s Restaurant & Lounge', '1820 8 St E #200, Saskatoon, SK S7H 0T6', '3069555555', 'mano@gmail.com', '2016-11-01 11:00:00', '2017-04-01 12:00:00');
+
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 994150, 'Saboroso Brazilian Steakhouse', '340, 2600 8 St E, Saskatoon, SK S7H 0V7', '3062494454', 'saboroso@gmail.com', '2016-12-01 11:00:00', '2017-03-01 12:00:00');
+
+INSERT INTO LoanedWorks
+	VALUES ('nmah', 994148, 'Bon Temps Cafe', '223 2 Ave S, Saskatoon, SK S7K 1K8', '3062426617', 'bontemps@gmail.com', '2017-02-01 11:00:00', '2017-03-01 12:00:00');
+
+
+--Add locations to locations table
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Ayden Kitchen & Bar');
+
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Truffles Bistro');
+
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Saskatoon Station Place');
+
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Mano''s Restaurant & Lounge');
+
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Saboroso Brazilian Steakhouse');
+
+INSERT INTO Locations
+	VALUES ('on loan', '6000', '0', '600', 'true', 'Bon Temps Cafe');
+
+--Add data to WorksLocations table
+INSERT INTO WorksLocations
+	SELECT lwwkIDLetter, lwwkIDNumber, lcName, lwStartDateTime, lwEndDateTime, lcMuseum
+	FROM Locations, LoanedWorks
+	WHERE lcMuseum=lwInstituteName
+
+--Modify the datetime for these works in storage
+SELECT wlIDNumber
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-01-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=1353079;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2016-11-01 11:00:00', 'Qi''s Museum')
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-02-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=749342;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2016-12-01 11:00:00', 'Qi''s Museum')
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-04-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=994145;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2017-01-01 11:00:00', 'Qi''s Museum')
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-04-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=1351212;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2016-11-01 11:00:00', 'Qi''s Museum')
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-03-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=994150;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2016-12-01 11:00:00', 'Qi''s Museum')
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2017-03-01 12:00:00', wlEndDate='2017-02-22 11:59:59'
+	WHERE wlStartDate >= '2016-11-01' AND wlEndDate <='2017-04-30' AND wlLocation='storage' AND wlIDNumber=994148;
+
+INSERT INTO WorksLocations
+	VALUES ('nmah', '1353079', 'storage', '2017-01-02 11:59:59', '2017-02-01 11:00:00', 'Qi''s Museum')
+
+
+

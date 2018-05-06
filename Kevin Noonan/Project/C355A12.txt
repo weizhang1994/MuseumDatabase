@@ -1,0 +1,53 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #1
+
+-- Copy in the Locations file
+\copy locations FROM 'C355A12-1.txt';
+
+--Copy in the 65 works
+\copy works FROM 'C355A12-2.txt';
+
+--Copy in all items to storage
+\copy worksLocations FROM 'C355A12-3.txt';
+
+--Copy in all the exhibits that are currently taking place
+\copy exhibitions FROM 'C355A12-4.txt';
+
+--Copy in all the exhibits with their works
+\copy exhibitionsWorks FROM 'C355A12-5.txt';
+
+UPDATE worksLocations SET locRoomName = 'Lobby'
+WHERE locLetterKey = 'TLTCS'
+AND locNumberKey = 64;
+
+UPDATE worksLocations SET locRoomName = 'Lobby'
+WHERE locLetterKey = 'GALT'
+AND locNumberKey = 47;
+
+
+--Copy in Door Locations 
+\copy doors FROM 'C355A12-7.txt';
+
+--Copy in exhibition locations
+\copy exhibitionLocation FROM 'C355A12-8.txt';
+
+--Update Location
+
+UPDATE worksLocations SET locRoomName = 'Gallery A'
+FROM exhibitionsWorks
+WHERE worksLocations.locLetterKey = exhibitionsWorks.exbLetterKey
+AND worksLocations.locNumberKey = exhibitionsWorks.exbNumberKey
+AND exhibitionsWorks.exbwName = 'Old but Gold';
+
+UPDATE worksLocations SET locRoomName = 'Gallery B'
+FROM exhibitionsWorks
+WHERE worksLocations.locLetterKey = exhibitionsWorks.exbLetterKey
+AND worksLocations.locNumberKey = exhibitionsWorks.exbNumberKey
+AND exhibitionsWorks.exbwName = 'Just living life';
+
+UPDATE worksLocations SET locRoomName = 'Gallery C'
+FROM exhibitionsWorks
+WHERE worksLocations.locLetterKey = exhibitionsWorks.exbLetterKey
+AND worksLocations.locNumberKey = exhibitionsWorks.exbNumberKey
+AND exhibitionsWorks.exbwName = 'At the Raceway';
+
+

@@ -1,0 +1,6 @@
+Petersen Museum	Gallery D	Gallery B
+Petersen Museum	Storage	Lobby
+Petersen Museum	Lobby	Gallery A
+Petersen Museum	Gallery A	Gallery C
+Petersen Museum	Gallery B	Lobby
+Petersen Museum	Gallery C	Gallery B

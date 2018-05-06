@@ -1,0 +1,16 @@
+-- the purpose of this text file is to run all of the commands in order to
+-- create the database
+
+\i C355A11.txt
+\i C355A12.txt
+\i C355A21.txt
+\i C355A22a.txt
+\i C355A22b.txt
+\i C355A22c.txt
+\i C355A23.txt
+\i C355A31.txt
+\i C355A32.txt
+\i C355A33.txt
+\i C355A34.txt
+\i C355A35.txt
+\i C355P1.txt

@@ -1,0 +1,5 @@
+ALTER  TABLE Rooms ADD COLUMN availabilityDate date DEFAULT '20160701';
+INSERT INTO rooms SELECT 'Gallery D', 30, 90, 15, 25, current_date + cast('2 months' as interval);
+INSERT INTO doors SELECT 7, 'Gallery B', 'Gallery D';
+
+

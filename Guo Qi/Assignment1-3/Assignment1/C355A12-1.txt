@@ -1,0 +1,5 @@
+storage	6000	0	600
+lobby	40	2	4
+galleryA	160	7	16
+galleryB	160	7	16
+galleryC	240	14	24

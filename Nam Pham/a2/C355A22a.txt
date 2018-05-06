@@ -1,0 +1,62 @@
+
+DROP TABLE donors CASCADE;
+
+--Add a new attribute for the all_works table
+ALTER TABLE all_works ADD Claim types;
+
+--Set all of the cuurent item, which has been used from assignment 1 to be owned by the museum
+UPDATE all_works SET claim = 'OWNED';
+
+--Get the new information of the borrowed items
+\copy All_works FROM 'C355A22a-1.txt'
+
+--Get the new information of the potentially borrowed items
+\copy All_works FROM 'C355A22a-2.txt'
+
+--Make the table that have the name of the donors
+CREATE TABLE donors (
+	ItemAlpha_don iAlpha NOT NULL,
+	ItemNumber_don iNum NOT NULL,
+	Donor naming NOT NULL,
+	
+	CONSTRAINT work_donor FOREIGN KEY (ItemNumber_don, ItemAlpha_don) REFERENCES all_works(ItemNumber, ItemAlpha)
+	
+);
+
+--Insert the information of the borrowed items to the storage (not including the potentially borrowed)
+INSERT INTO works_location VALUES ('JLK', 189, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KKK', 190, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KKL', 192, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KJK', 193, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KLK', 194, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KJJ', 195, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KLL', 196, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KJL', 197, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('KLJ', 198, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LLJ', 200, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LLK', 201, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LJJ', 204, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LKK', 205, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LJK', 206, 'STORAGE', null, null);
+
+INSERT INTO works_location VALUES ('LKJ', 207, 'STORAGE', null, null);
+
+
+--The update of the current date to the works_location will make the rule to also change the date in works_move_in_date table
+UPDATE works_location SET date_in = '10/18/2016' WHERE date_in IS NULL;
+
+--Insert the information into the works_location table
+\copy donors FROM 'C355A22a-3.txt'

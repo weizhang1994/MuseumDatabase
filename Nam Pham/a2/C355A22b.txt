@@ -1,0 +1,18 @@
+
+--Delete all of the current information from the doors table
+DELETE FROM doors;
+
+--Make a new column for doors table
+ALTER TABLE doors ADD Door_name locating;
+
+--Make door_to attribite to a new foreign key
+ALTER TABLE doors ADD CONSTRAINT link_door2 FOREIGN KEY (door_to) REFERENCES galleries(name);
+
+--Make the name of the door the primary key
+ALTER TABLE doors ADD CONSTRAINT unique_name PRIMARY KEY (Door_name);
+
+--Insert the information of the new location
+INSERT INTO galleries VALUES ('Grand Hall', 1200, 15, 25);
+
+--Get the new information for all of the doors
+\copy doors FROM 'C355A22b-1.txt'

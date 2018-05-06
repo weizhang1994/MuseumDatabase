@@ -1,0 +1,165 @@
+set datestyle to MDY;
+
+DROP TABLE Works_move_in_date CASCADE;
+DROP TABLE exhibition_location CASCADE;
+DROP TABLE exhibitions_works CASCADE;
+DROP TABLE works_location CASCADE;
+DROP TABLE All_works CASCADE;
+
+DROP VIEW Part3_5 CASCADE;
+DROP VIEW Part3_4 CASCADE;
+DROP VIEW Part3_3 CASCADE;
+DROP VIEW Part3_2 CASCADE;
+DROP VIEW Part3_1 CASCADE;
+
+DROP VIEW Items_in_museum CASCADE;
+DROP VIEW all_items_in_locations CASCADE;
+DROP VIEW all_galleries_info CASCADE;
+DROP VIEW all_exhibitions CASCADE;
+
+ALTER TABLE storage DROP CONSTRAINT storage_1;
+
+ALTER TABLE lobby DROP CONSTRAINT storage_2;
+
+ALTER TABLE ex1_items DROP CONSTRAINT storage_3;
+
+ALTER TABLE ex2_items DROP CONSTRAINT storage_4;
+
+ALTER TABLE ex3_items DROP CONSTRAINT storage_5;
+
+ALTER TABLE exhibitions_info DROP CONSTRAINT ex_link_location;
+
+
+CREATE TABLE All_Works (
+	ItemAlpha iAlpha NOT NULL,
+	ItemNumber iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	PRIMARY KEY (itemNumber, itemAlpha)
+);
+
+INSERT INTO All_Works SELECT * FROM storage;
+
+INSERT INTO All_Works SELECT * FROM lobby;
+
+INSERT INTO All_Works SELECT * FROM ex1_items;
+
+INSERT INTO All_Works SELECT * FROM ex2_items;
+
+INSERT INTO All_Works SELECT * FROM ex3_items;
+
+
+
+
+CREATE TABLE Works_Location (
+	ItemAlpha_ex iAlpha NOT NULL,
+	ItemNumber_ex iNum NOT NULL,
+	Current_location locating NULL,
+	
+	PRIMARY KEY(ItemAlpha_ex, ItemNumber_ex),
+	CONSTRAINT to_works FOREIGN KEY (ItemAlpha_ex, ItemNumber_ex) REFERENCES All_Works(ItemAlpha, ItemNumber),
+	CONSTRAINT to_locations FOREIGN KEY (Current_location) REFERENCES galleries(Name)
+);
+
+INSERT INTO Works_Location
+			SELECT All_Works.ItemAlpha, All_Works.ItemNumber, Current_location
+				FROM All_works;
+
+ALTER TABLE Works_Location ADD Date_in dating;
+
+ALTER TABLE Works_Location ADD Date_out dating;
+
+UPDATE works_location SET Date_in = '6/1/2016', Date_out = null WHERE Current_Location = 'STORAGE';
+
+UPDATE works_location SET Date_in = '6/2/2016', Date_out = null WHERE Current_Location = 'LOBBY';
+
+UPDATE works_location SET Date_in = '7/2/2016', Date_out = '12/4/2016' WHERE Current_Location = 'Main Hall';
+
+UPDATE works_location SET Date_in = '8/3/2016', Date_out = '11/19/2016' WHERE Current_Location = 'Gallery No1';
+
+UPDATE works_location SET Date_in = '9/21/2016', Date_out = '1/19/2017' WHERE Current_Location = 'Gallery No2';
+
+ALTER TABLE All_Works DROP COLUMN Current_location;
+
+
+CREATE TABLE Exhibitions_works (
+	 ItemAlpha_ex iAlpha NOT NULL,
+	 ItemNumber_ex iNum NOT NULL,
+	 Ex_ID iAlpha NOT NULL,
+	 
+	 PRIMARY KEY (itemNumber_ex, itemAlpha_ex),
+	 CONSTRAINT to_works FOREIGN KEY (ItemAlpha_ex, ItemNumber_ex) REFERENCES All_Works(ItemAlpha, ItemNumber),
+	 CONSTRAINT to_exhibitions FOREIGN KEY (Ex_ID) REFERENCES Exhibitions_info(Exhibition_ID)
+	 
+);
+
+INSERT INTO exhibitions_works
+			SELECT ex1_items.itemAlpha_ex, ex1_items.itemNumber_ex, Exhibition_ID
+				FROM ex1_items,exhibitions_info
+			WHERE Current_Location = Location_name;
+			
+INSERT INTO exhibitions_works
+			SELECT ex2_items.itemAlpha_ex, ex2_items.itemNumber_ex, Exhibition_ID
+				FROM ex2_items,exhibitions_info
+			WHERE Current_Location = Location_name;
+
+INSERT INTO exhibitions_works
+			SELECT ex3_items.itemAlpha_ex, ex3_items.itemNumber_ex, Exhibition_ID
+				FROM ex3_items,exhibitions_info
+			WHERE Current_Location = Location_name;
+			
+
+
+CREATE TABLE Exhibition_location (
+	Ex_ID iAlpha NOT NULL,
+	Current_location locating NULL,
+	no_of_items capac NOT NULL,
+	
+	CONSTRAINT to_exhibitions FOREIGN KEY (Ex_ID) REFERENCES Exhibitions_info(Exhibition_ID),
+	CONSTRAINT to_locations FOREIGN KEY (Current_location) REFERENCES galleries(Name)
+);
+
+INSERT INTO Exhibition_location
+			SELECT Exhibition_ID, Location_Name, Number_of_items
+				FROM Exhibitions_info;
+
+--Drop the unique of the location
+ALTER TABLE exhibitions_info DROP CONSTRAINT exhibitions_info_location_name_key;
+
+
+ALTER TABLE medium ADD CONSTRAINT material_to_work FOREIGN KEY (ItemNumber_medium, ItemAlpha_medium) 
+						      REFERENCES All_Works(itemNumber, itemAlpha);
+						      
+CREATE TABLE Works_Move_in_date (
+	ItemAlpha iAlpha NOT NULL,
+	ItemNumber iNum NOT NULL,
+	Date_in dating NULL,
+	Date_out dating NULL,
+	Now_Location locating NOT NULL,
+	
+	CONSTRAINT to_works_location FOREIGN KEY (ItemAlpha, ItemNumber) REFERENCES Works_Location(ItemAlpha_ex, ItemNumber_ex)
+
+);
+
+\copy Works_Move_in_date FROM 'C355A21a-1.txt'
+
+UPDATE Works_Move_in_date SET date_out = null WHERE date_out = '6/1/2016';
+
+--Also change the date type of Exhibition_info from NOT NULL to NULL
+
+DROP TABLE Ex1_items CASCADE;
+DROP TABLE Ex2_items CASCADE;
+DROP TABLE Ex3_items CASCADE;
+DROP TABLE lobby CASCADE;
+DROP TABLE storage CASCADE;
+
+

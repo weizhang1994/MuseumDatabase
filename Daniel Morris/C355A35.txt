@@ -1,0 +1,64 @@
+
+
+
+
+
+DROP DOMAIN trExhibitSponsor CASCADE;
+DROP DOMAIN trExhibitAddress CASCADE;
+DROP DOMAIN trExhibitSecurity CASCADE;
+DROP DOMAIN trExhibitInsurance CASCADE;
+DROP TABLE travelingExhibitLocations CASCADE;
+
+
+CREATE DOMAIN trExhibitSponsor as varchar(20);
+CREATE DOMAIN trExhibitAddress as varchar(100);
+CREATE DOMAIN trExhibitSecurity as varchar(30);
+CREATE DOMAIN trExhibitInsurance as int4;
+
+
+CREATE TABLE travelingExhibitLocations (
+	treName exhibitName NOT NULL
+		REFERENCES Exhibitions(exName)
+			ON UPDATE CASCADE
+			ON DELETE SET NULL,
+	treSponsor trExhibitSponsor NOT NULL,
+	treAddress trExhibitAddress NOT NULL,
+	treSecurity trExhibitSecurity NOT NULL,
+	treInsurance trExhibitInsurance NOT NULL
+	
+);
+
+INSERT INTO exhibitions
+SELECT 'Saskatchewan Exhibition', 'A traveling exhibition across Saskatchewan.', current_date, current_date + 120;
+
+INSERT INTO exhibitWorks
+SELECT 'Saskatchewan Exhibition', wkIdAlpha, wkIdNum
+FROM works
+WHERE wkIdAlpha = 'SteMin' and wkIdNum = 012
+	OR wkIdAlpha = 'BurMor' and wkIdNum = 16
+	OR wkIdAlpha = 'KenNeo' and wkIdNum = 2
+	OR wkIdAlpha = 'EagNew' and wkIdNum = 5
+	OR wkIdAlpha = 'OrsNgu' and wkIdNum = 8
+	OR wkIdAlpha = 'MawNia' and wkIdNum = 994
+	OR wkIdAlpha = 'MacOpe' and wkIdNum = 6
+	OR wkIdAlpha = 'RraOve' and wkIdNum = 1
+	OR wkIdAlpha = 'BlaPar' and wkIdNum = 989
+	OR wkIdAlpha = 'NorPas' and wkIdNum = 3;
+
+
+
+
+INSERT INTO travelingExhibitLocations
+SELECT 'Saskatchewan Exhibition', 'Sponsor 1', 'Yorkton', 'Lance', 122800;
+
+INSERT INTO travelingExhibitLocations
+SELECT 'Saskatchewan Exhibition', 'Sponsor 2', 'Lumston', 'Bill', 213567;
+
+INSERT INTO travelingExhibitLocations
+SELECT 'Saskatchewan Exhibition', 'Sponsor 3', 'Regina', 'Sam', 143532;
+
+INSERT INTO travelingExhibitLocations
+SELECT 'Saskatchewan Exhibition', 'Sponsor 4', 'Moose Jaw', 'Kevin', 234111;
+
+INSERT INTO travelingExhibitLocations
+SELECT 'Saskatchewan Exhibition', 'Sponsor 5', 'Saskatoon', 'Jack', 543123;

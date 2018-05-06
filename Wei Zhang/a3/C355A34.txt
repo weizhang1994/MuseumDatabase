@@ -1,0 +1,88 @@
+-- Wei Zhang StudentNumber 11146590 NSID: wez758
+-- CMPT355 a3 part4 outgoing loans 
+
+
+drop domain if exists iaddress cascade;
+create domain iaddress as char(100) not null;
+
+drop domain if exists iphone cascade;
+create domain iphone as char(15) not null;
+
+drop domain if exists imail cascade;
+create domain imail as char(20) not null;
+
+drop domain if exists lstartdate cascade;
+create domain lstartdate as date not null;
+
+drop domain if exists lenddate cascade;
+create domain lenddate as date not null;
+
+drop table if exists loans cascade;
+create table loans(
+  museumletter mletter,
+  museumnumber mnumber,
+  insititutionName mname,
+  insititutionaddress iaddress, 
+  insititutionphone iphone,
+  insititutionemail imail,
+  loanstartdate lstartdate,
+  loanenddate lenddate,
+  primary key ( museumletter, museumnumber,insititutionphone,loanstartdate
+  ),
+  foreign key ( museumletter, museumnumber)
+  references museum
+    on update cascade
+    on delete cascade
+  );
+  
+ 
+ 
+insert into loans values
+('BN',	39,	'grape',	'320 Front Street West',	'613-555-0193',	'alr335@mail.usask.ca',	'2016-12-01',	'2017-03-01'),
+('BO',	40,	'scooby',	'1745 Broadway South',	'613-555-0157',	'ahh675@mail.usask.ca',	'2016-12-01',	'2017-03-01'),
+('BP',	41,	'george',	'232 West Street North', 	'613-555-0115',	'dlr897@mail.usask.ca',	'2016-12-01',	'2017-03-01'),
+('BQ',	42,	'bambi',	'74 Gartner Street', 	'613-555-0135',	'weh990@mail.usask.ca',	'2016-12-01',	'2017-03-01'),
+('BR',	43,	'quick',	'982 S. Johnson Street', 	'613-555-0156',	'hgn779@mail.usask.ca',	'2016-12-01',	'2017-03-01'),
+('BS',	44,	'velma',	'452 Homewood Circle',	'613-555-0110',	'jhg889@mail.usasl.ca',	'2016-12-01',	'2017-03-01');
+
+
+--insert into muslocation (museumletter, museumnumber, museumname, locationname, moveindate) 
+--select museumletter, museumnumber, museumname, locationname, '2016-12-01'
+--from muslocation 
+--where museumnumber between 39 and 44 and moveindate = '2016-11-02';
+
+--update muslocation set moveoutdate = '2016-12-01'
+--where moveindate = '2016-11-02';
+
+--update muslocation set moveouttime = '8:00:00'
+--where moveindate = '2016-11-02';
+
+--update muslocation set moveintime = '8:00:00'
+--where moveindate = '2016-12-01';
+
+--insert into location (locationname) values
+--('grape'),
+--('scoob'),
+--('george'),
+--('bambi'),
+--('quick'),
+--('velma');
+
+update muslocation set locationname = 'grape'
+where
+museumnumber = 39 and moveindate = '2016-12-01';
+update muslocation set locationname = 'scoob'
+where
+museumnumber = 40 and moveindate = '2016-12-01';
+update muslocation set locationname = 'george'
+where
+museumnumber = 41 and moveindate = '2016-12-01';
+update muslocation set locationname = 'bambi'
+where
+museumnumber = 42 and moveindate = '2016-12-01';
+update muslocation set locationname = 'quick'
+where
+museumnumber = 43 and moveindate = '2016-12-01';
+update muslocation set locationname = 'velma'
+where
+museumnumber = 44 and moveindate = '2016-12-01';

@@ -1,0 +1,62 @@
+|-------------------------------------------------------------------------------------------------|
+|--------------------------------------2b. expanded facilities------------------------------------|
+
+
+--Build a new large gallery called galleryD with a suggested minimum of 15 works and suggested maximum of 25 works
+INSERT INTO Locations (
+	lcName, lcDimension, lcMinNumWork, lcMaxNumWork
+)
+VALUES (
+	'galleryD', 250, 15, 25
+);
+
+--Added one door connection between the new gallery galleryD
+--and one of the small galleries(the one furthest from the storage facility), 
+--which is gallery B in this case
+INSERT INTO Doors (
+	drLocation1, drLocation2
+)
+VALUES (
+	'galleryB', 'galleryD'
+)
+
+--Create domain for lcIsAvailable attribute, which is a boolean
+CREATE DOMAIN locationIsAvailable boolean;
+
+--Add a new attribute to locations table to indicate whether the location is available or not
+ALTER TABLE Locations
+	ADD COLUMN lcIsAvailable locationIsAvailable;
+
+--Set rules for the new gallery that can't be used on insert or update until 2 month later
+CREATE RULE GalleryDNotAvailableOnInsert
+	AS ON INSERT to ExhibitionsLocations
+	WHERE new.elLocation='galleryD' AND new.elExStartDate<'2016-10-18'::date + interval '2 months'
+	DO INSTEAD NOTHING;
+
+CREATE RULE GalleryDNotAvailableOnUpdate
+	AS ON UPDATE to ExhibitionsLocations
+	WHERE new.elLocation='galleryD' AND new.elExStartDate<'2016-10-18'::date + interval '2 months'
+	DO INSTEAD NOTHING;
+
+
+--Set value for lcIsAvailable for all locations
+UPDATE Locations
+	SET lcIsAvailable=True
+	FROM (
+		SELECT exStartDate, exEndDate, lcName, elExhibition
+			FROM ExhibitionsLocations AS el, Exhibitions AS ex, Locations AS lc
+			WHERE el.elExhibition=ex.exName AND el.elExStartDate=ex.exStartDate AND lc.lcName=el.elLocation
+	) AS f
+	WHERE f.exStartDate > '2016-10-19' AND f.exEndDate < '2016-10-19';
+
+UPDATE Locations
+	SET lcIsAvailable=True
+	WHERE lcName='storage' OR lcName='lobby';
+
+UPDATE Locations
+	SET lcIsAvailable=False
+	WHERE lcName='galleryA' OR lcName='galleryB' OR lcName='galleryC' OR lcName='galleryD';
+
+
+
+

@@ -1,0 +1,187 @@
+
+--Insert the information of the first gallery
+INSERT into galleries (
+	name, 
+	dimension_m3,
+	min_capacity,
+	max_capacity)
+VALUES(
+	'Gallery No1',
+	320,
+	7,
+	16
+);
+
+--Insert the information of the second gallery
+INSERT into galleries (
+	name, 
+	dimension_m3,
+	min_capacity,
+	max_capacity)
+VALUES(
+	'Gallery No2',
+	600,
+	7,
+	16
+);
+
+--Insert the information of the third gallery
+INSERT into galleries (
+	name, 
+	dimension_m3,
+	min_capacity,
+	max_capacity)
+VALUES(
+	'Main Hall',
+	1000,
+	14,
+	24
+);
+
+--Insert the information of the storage
+INSERT into galleries (
+	name, 
+	dimension_m3,
+	min_capacity,
+	max_capacity)
+VALUES(
+	'STORAGE',
+	2100,
+	0,
+	600
+);
+
+--Insert the information of the lobby
+INSERT into galleries (
+	name, 
+	dimension_m3,
+	min_capacity,
+	max_capacity)
+VALUES(
+	'LOBBY',
+	280,
+	2,
+	4
+);
+
+
+--Insert the all the items into the storage table
+\copy storage FROM 'C355A112_2.txt'
+
+--Insert the materials of each items into the medium table
+\copy medium FROM 'C355A112_3.txt'
+
+--Insert the infomation of the connecting doors into the doors table
+\copy doors FROM 'C355A112_1.txt'
+
+
+
+
+--Insert the information of the first exhibition
+INSERT into Exhibitions_info (
+	exhibition_id,
+	Theme,
+	Ex_description,
+	Number_of_items,
+	start_date,
+	end_date,
+	Location_Name)
+VALUES(
+	'MUL',
+	'Multiple Art',
+	'A collection of many types of painting from different cultures. This will be held for 5 months straight',
+	16,
+	'7/2/2016',
+	'12/4/2016',
+	'Main Hall'
+);
+
+
+--Insert the information of the second exhibition
+INSERT into Exhibitions_info (
+	exhibition_id,
+	Theme,
+	Ex_description,
+	Number_of_items,
+	start_date,
+	end_date,
+	Location_Name)
+VALUES(
+	'PAY',
+	'Fun Payper work',
+	'A collection of many painting works that is look fun to watch. Children are encouraged to come',
+	9,
+	'8/3/2016',
+	'11/19/2016',
+	'Gallery No1'
+);
+
+
+--Insert the information of the third exhibition
+INSERT into Exhibitions_info (
+	exhibition_id,
+	Theme,
+	Ex_description,
+	Number_of_items,
+	start_date,
+	end_date,
+	Location_Name)
+VALUES(
+	'WEI',
+	'Weird Collection',
+	'A collection of many weird artifacts from well-known authors.',
+	10,
+	'9/21/2016',
+	'1/19/2017',
+	'Gallery No2'
+);
+
+
+
+--Insert the all the items into the lobby table
+\copy lobby FROM 'C355A112_4.txt'
+
+--Delete the items from the storage that are now in the lobby
+DELETE FROM storage 
+WHERE ItemNumber in (SELECT ItemNumber_lobby FROM lobby)
+      AND ItemAlpha in (SELECT ItemAlpha_lobby FROM lobby)
+;
+
+
+--Insert the items of the first exhibition into the Ex1_items table
+\copy Ex1_items FROM 'C355A112_5.txt'
+
+--Delete the items from the storage that are now in the first exhibition
+DELETE FROM storage 
+WHERE ItemNumber in (SELECT ItemNumber_ex FROM Ex1_items)
+      AND ItemAlpha in (SELECT ItemAlpha_ex FROM Ex1_items)
+;
+
+--Insert the items of the second exhibition into the Ex2_items table
+\copy Ex2_items FROM 'C355A112_6.txt'
+
+--Delete the items from the storage that are now in the second exhibition
+DELETE FROM storage 
+WHERE ItemNumber in (SELECT ItemNumber_ex FROM Ex2_items)
+      AND ItemAlpha in (SELECT ItemAlpha_ex FROM Ex2_items)
+;
+
+--Insert the items of the third exhibition into the Ex3_items table
+\copy Ex3_items FROM 'C355A112_7.txt'
+
+--Delete the items from the storage that are now in the third exhibition
+DELETE FROM storage 
+WHERE ItemNumber in (SELECT ItemNumber_ex FROM Ex3_items)
+      AND ItemAlpha in (SELECT ItemAlpha_ex FROM Ex3_items)
+;
+
+
+
+
+
+
+
+
+
+
+

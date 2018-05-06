@@ -1,0 +1,138 @@
+|-------------------------------------------------------------------------------------------------|
+|--------------------------1.a Ensure a good database to start with-------------------------------|
+
+
+--Modifications are listed as follow--
+
+--Removed an attribute called exLocation from table Exhibitions
+--since ExhibitionsLocations table has already covered the functionality
+--of exLocation(exhibition-location)
+ALTER TABLE Exhibitions
+	DROP COLUMN exLocation CASCADE;
+
+--Drop old primary key called exName and make a new combined primary key with exName and exStartDate
+ALTER TABLE Exhibitions
+	DROP constraint Exhibitions_pkey CASCADE;
+
+--Set a combined primary key for Exhibitions table
+ALTER TABLE Exhibitions
+	ADD PRIMARY KEY(exName, exStartDate)
+;
+
+--Add a new table called ExhibitionsLocations 
+--This table is used to keep track of all past and new exhibits in different locations. 
+CREATE TABLE ExhibitionsLocations (
+	elLocation locationName
+		REFERENCES Locations(lcName)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	elExhibition exhibitionName,
+	elExStartDate exhibitionStartDate,
+	
+	FOREIGN KEY(elExhibition, elExStartDate)
+		REFERENCES Exhibitions(exName, exStartDate)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE
+);
+
+
+
+--Add data to ExhibitionLocations table
+\copy ExhibitionsLocations FROM 'C355A21-1.txt'
+
+--Drop WorksLocations table to rebuild it
+DROP TABLE WorksLocations CASCADE;  -- NO NEED TO DROP TABLE, DELETE AFTERWARD
+
+
+--Rebuild Doors table
+DROP TABLE Doors;
+
+-- Create a Doors table
+-- This table is used to keep track of the doors between locations
+CREATE TABLE Doors (
+	drLocation1 locationName
+		REFERENCES Locations(lcName)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	drLocation2 locationName
+		REFERENCES Locations(lcName)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE
+);
+
+--Add a new table called ExhibitionsLocations to keep track of all past and new exhibits in different locations. 
+CREATE TABLE WorksLocations(
+	wlIDLetter workIDLetter,
+	wlIDNumber workIDNumber,
+	wlLocation locationName
+		REFERENCES Locations(lcName)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	wlStartDate worksLocationStartDate,
+	wlEndDate worksLocationEndDate DEFAULT NULL,
+
+	FOREIGN KEY(wlIDLetter, wlIDNumber)
+		REFERENCES Works(wkIDLetter, wkIDNumber)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+
+	PRIMARY KEY(wlIDLetter, wlIDNumber, wlLocation, wlStartDate)
+);
+\COPY WorksLocations from 'workslocations.txt' with NULL AS ''
+
+
+--Add start date and end date to exhibitionsworks
+ALTER TABLE ExhibitionsWorks
+	ADD COLUMN ewStartDate exhibitionStartDate,
+	ADD COLUMN ewEndDate exhibitionEndDate;
+
+--Add start date and end date data into ExhibitionsWorks table
+UPDATE ExhibitionsWorks(ewStartDate, ewEndDate)
+	SELECT exStartDate, exEndDate
+	FROM Exhibitions, ExhibitionsWorks
+	WHERE Exhibitions.exname=ExhibitionsWorks.ewExhibition;
+
+
+|-------------------------------------------------------------------------------------------------|
+|----------------------------------------1.b New exhibitions--------------------------------------|
+
+INSERT INTO Exhibitions (
+	exName,
+	exDescription,
+	exStartDate,
+	exEndDate
+)
+VALUES(
+	'Engraved woodblock by Native Americans',
+	'This Exhibition contains 8 works of engraved woodblock.',
+	'2017-01-01'::date +interval '5 days',
+	'2017-01-01'::date +interval '5 days' +interval '4 months'
+);
+
+INSERT INTO Exhibitions (
+	exName,
+	exDescription,
+	exStartDate,
+	exEndDate
+)
+VALUES(
+	'Photographs-a vast mosaic of the nations history',
+	'This Exhibition contains 9 works of photographs.',
+	'2017-12-20'::date +interval '5 days',
+	'2017-12-20'::date +interval '5 days' +interval '4 months'
+);
+
+INSERT INTO Exhibitions (
+	exName,
+	exDescription,
+	exStartDate,
+	exEndDate
+)
+VALUES(
+	'Paintings from all over the world',
+	'This Exhibition contains 18 works of paintings.',
+	'2016-11-11'::date +interval '5 days',
+	'2016-11-11'::date +interval '5 days' +interval '4 months'
+);
+
+

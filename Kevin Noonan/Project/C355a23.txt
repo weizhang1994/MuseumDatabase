@@ -1,0 +1,85 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #2
+
+--This file is for queries
+
+
+--1a Queries
+
+--Query for doors table
+CREATE VIEW doorsView AS SELECT drsnumber, drsopento, drscloseto
+FROM doors;
+
+--Query for exhibitionlocation
+CREATE VIEW exLocView AS SELECT exbloc, exblname
+FROM exhibitionlocation;
+
+SELECT * FROM exLocView;
+
+CREATE VIEW worksDoTview AS SELECT DISTINCT locletterkey, locnumberkey, locroomname, dateoftransfer
+FROM worksLocations;
+
+SELECT * FROM worksDoTview
+ORDER BY locroomname, dateoftransfer;
+
+
+SELECT * FROM doorsView;
+
+--1b Queries
+
+--Query for worksLocations to show dateOfTransfer
+
+CREATE VIEW worksDoTview AS SELECT DISTINCT locletterkey, locnumberkey, locroomname, dateoftransfer
+FROM worksLocations;
+
+SELECT * FROM worksDoTview;
+
+--Query for exhibition location new exhibitions
+CREATE VIEW newExhview AS SELECT exbloc, exblname
+FROM exhibitionLocation;
+
+SELECT * FROM newExhview;
+
+--Query to display the count amount in the new exhibitions
+
+CREATE VIEW exhCount AS SELECT DISTINCT e.exbName, l.exbLoc, COUNT(e.exbName) 
+FROM exhibitions AS e
+LEFT JOIN exhibitionsWorks AS c
+ON e.exbName=c.exbwName
+LEFT JOIN exhibitionLocation AS l
+ON l.exblname=e.exbname
+GROUP BY e.exbName, l.exbLoc;
+
+SELECT * FROM exhCount;
+
+--Query to display the date 5 days from the opening
+CREATE VIEW exhDate AS SELECT exbname, exbstartdate, exbenddate
+FROM exhibitions;
+
+SELECT * FROM exhDate;
+
+--2a Queries
+
+--Query to show works with new columns ownership and donor
+CREATE VIEW OwnAndDonorView AS SELECT wksletterkey, wksnumberkey, wksownership, wksdonor
+FROM works;
+
+SELECT * FROM OwnAndDonorView;
+
+--2b Queries
+
+--Query to display new Gallery with added attributes
+CREATE VIEW newGalleryview AS SELECT locroomname, locroomwidth, locroomlength, locroommin, locroommax, drsnumber, drsopento, drscloseto, locavailable
+FROM locations, doors
+WHERE drsopento = locroomname;
+
+
+SELECT * FROM newGalleryview;
+
+--2c Queries
+
+--Query to display new attribute wksCountries
+CREATE VIEW wksCountryview AS SELECT wksletterkey, wksnumberkey, wksCountry
+FROM works;
+
+SELECT * FROM wksCountryview
+ORDER BY wksnumberkey;

@@ -1,0 +1,87 @@
+INSERT INTO rooms
+	SELECT 'on loan', 0, 0, 0, 0, '20160701'; 
+
+DROP DOMAIN wkLoanIdAlpha CASCADE;
+DROP DOMAIN wkLoanIdNum CASCADE;
+DROP DOMAIN wkLoanName CASCADE;
+DROP DOMAIN wkLoanAddress CASCADE;
+DROP DOMAIN wkLoanPhoneNum CASCADE;
+DROP DOMAIN wkLoanEmail CASCADE;
+DROP DOMAIN wkLoanDate CASCADE;
+DROP TABLE workLoan CASCADE;
+
+CREATE DOMAIN wkLoanIdAlpha as text;	
+CREATE DOMAIN wkLoanIdNum as smallint;
+CREATE DOMAIN wkLoanName as varchar(30);
+CREATE DOMAIN wkLoanAddress as varchar(100);
+CREATE DOMAIN wkLoanPhoneNum as varchar(20);
+CREATE DOMAIN wkLoanEmail as varchar(100);
+CREATE DOMAIN wkLoanDate as date;
+
+
+CREATE TABLE workLoan (
+	wklIdAlpha wkLoanIdAlpha NOT NULL,
+	wklIdNum wkLoanIdNum NOT NULL,
+	wklName wkLoanName NOT NULL,
+	wklAddress wkLoanAddress NOT NULL,
+	wklPhoneNum wkLoanPhoneNum NOT NULL,
+	wklEmail wkLoanEmail NOT NULL,
+	wklStartDate wkLoanDate NOT NULL,
+	wklEndDate wkLoanDate NOT NULL,
+	CONSTRAINT fKey FOREIGN KEY (wklIdAlpha, wklIdNum)
+		REFERENCES Works(wkIdAlpha, wkIdNum)
+
+);
+
+
+INSERT INTO worksLocations
+	SELECT 'WhiUnt', 8, 'on loan', '20161108';
+INSERT INTO worksLocations
+	SELECT 'WhiUnt', 8, 'Storage', '20170416';
+
+INSERT INTO workLoan
+	SELECT 'WhiUnt', 8, 'Harvard University', 'Cambridge, MA 02138, USA', '16174951000', 'museum@harvard.edu.com', '20161108', '20170416';
+	
+INSERT INTO worksLocations
+	SELECT 'SmiAda', 8, 'on loan', '20161118';
+INSERT INTO worksLocations
+	SELECT 'SmiAda', 8, 'Storage', '20170411';
+
+INSERT INTO workLoan
+	SELECT 'SmiAda', 8, 'Tate Modern', 'Bankside, London SE1 9TG, United Kingdom', '1144015132', 'museum@tatemodern.com', '20161118', '20170411';
+
+	
+INSERT INTO worksLocations
+	SELECT 'TilTab', 11, 'on loan', '20161128';
+INSERT INTO worksLocations
+	SELECT 'TilTab', 11, 'Storage', '20170419';
+	
+INSERT INTO workLoan
+	SELECT 'TilTab', 11, 'Peterson Museum', 'California USA', '15679874567', 'pete@petersonmuseum.com', '20161128', '20170419';
+
+	
+INSERT INTO worksLocations
+	SELECT 'ValThe', 993, 'on loan', '20161111';
+INSERT INTO worksLocations
+	SELECT 'ValThe', 993, 'Storage', '20170421';
+	
+INSERT INTO workLoan
+	SELECT 'ValThe', 993, 'The Louvre', 'Paris, France', '12231244142', 'cs@louvre.com', '20161111', '20170421';
+
+	
+INSERT INTO worksLocations
+	SELECT 'BenHom', 999, 'on loan', '20161109';
+INSERT INTO worksLocations
+	SELECT 'BenHom', 999, 'Storage', '20170410';
+	
+INSERT INTO workLoan
+	SELECT 'BenHom', 999, 'National Gallery of Art', 'Washington D.C USA', '14567235698', 'contact@ngoawdc.com', '20161109', '20170410';
+	
+INSERT INTO worksLocations
+	SELECT 'ArmSpl', 9, 'on loan', '20161127';
+INSERT INTO worksLocations
+	SELECT 'ArmSpl', 9, 'Storage', '20170406';
+
+INSERT INTO workLoan
+	SELECT 'ArmSpl', 9, 'Metropolitan Museum of Art', 'New York, USA', '13087675635', 'contact@mmoa.com', '20161127', '20170406';
+

@@ -1,0 +1,147 @@
+FDD	150	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+FEE	151	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+FDE	152	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+FED	153	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GGG	154	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GGH	155	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GGI	156	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GHG	157	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GIG	158	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GHH	159	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GII	160	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GHI	161	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+GIH	162	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+HHH	163	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+HHG	164	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+HHI	165	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+AAA	100	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+AAB	101	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+AAC	102	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+ABA	103	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+ACA	104	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+ACC	106	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+ABC	107	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+ACB	108	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+BBB	109	Weird Collection	WAC gallery	2016-09-21	2017-01-19 
+BBA	110	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+CBA	126	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DDD	127	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DDE	128	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DDF	129	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DED	130	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DFD	131	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DEE	132	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+DFF	133	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+EEE	136	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+JLK	189	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KKK	190	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KKL	192	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KJK	193	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KLK	194	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KJJ	195	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KLL	196	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+KJL	197	Multiple Art	WAC gallery	2016-07-02	2016-12-04
+BAA	114	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+BCC	115	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+CCC	118	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+CCA	119	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+CCB	120	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+CAC	121	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+CBC	122	Fun Payper work	WAC gallery	2016-08-03	2016-11-19
+EDE	139	Weird Collection	WAC gallery	2016-09-21	2017-01-19 
+EFE	140	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+EDD	141	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+EFF	142	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+EDF	143	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+EFD	144	Weird Collection	WAC gallery	2016-09-21	2017-01-19
+HGI	170	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+AAA	100	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KLJ	198	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+LLJ	200	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+LLK	201	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+LJJ	204	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+LKK	205	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+AAB	101	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+JLK	189	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KKK	190	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KKL	192	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KJK	193	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KLK	194	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KJJ	195	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KLL	196	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+KJL	197	Grand book collection	WAC gallery	2017-01-24	2017-06-24
+FFF	145	Media Collection	WAC gallery	2016-11-24	2017-03-25
+FFE	147	Media Collection	WAC gallery	2016-11-24	2017-03-25
+FDF	148	Media Collection	WAC gallery	2016-11-24	2017-03-25
+FEF	149	Media Collection	WAC gallery	2016-11-24	2017-03-25
+HGG	168	Media Collection	WAC gallery	2016-11-24	2017-03-25
+HII	169	Media Collection	WAC gallery	2016-11-24	2017-03-25
+BAA	114	Media Collection	WAC gallery	2016-11-24	2017-03-25
+EED	137	Media Collection	WAC gallery	2016-11-24	2017-03-25
+EEF	138	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DEF	134	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DFF	133	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DEE	132	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DFD	131	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DED	130	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DDF	129	Media Collection	WAC gallery	2016-11-24	2017-03-25
+DDE	128	Media Collection	WAC gallery	2016-11-24	2017-03-25 
+BCC	115	Grand Art	WAC gallery	2016-12-09	2017-03-10
+HHI	165	Grand Art	WAC gallery	2016-12-09	2017-03-10
+HHG	164	Grand Art	WAC gallery	2016-12-09	2017-03-10
+HHH	163	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GIH	162	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GHI	161	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GII	160	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GHH	159	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GIG	158	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GHG	157	Grand Art	WAC gallery	2016-12-09	2017-03-10 
+GGI	156	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GGH	155	Grand Art	WAC gallery	2016-12-09	2017-03-10
+GGG	154	Grand Art	WAC gallery	2016-12-09	2017-03-10
+FED	153	Grand Art	WAC gallery	2016-12-09	2017-03-10
+FDE	152	Grand Art	WAC gallery	2016-12-09	2017-03-10
+FEE	151	Grand Art	WAC gallery	2016-12-09	2017-03-10
+FDD	150	Grand Art	WAC gallery	2016-12-09	2017-03-10
+EEE	136	Grand Art	WAC gallery	2016-12-09	2017-03-10
+DDD	127	Grand Art	WAC gallery	2016-12-09	2017-03-10
+CBA	126	Grand Art	WAC gallery	2016-12-09	2017-03-10
+CBB	124	Grand Art	WAC gallery	2016-12-09	2017-03-10
+CAB	125	Grand Art	WAC gallery	2016-12-09	2017-03-10
+LJK	206	Grand Art	WAC gallery	2016-12-09	2017-03-10
+LKJ	207	Grand Art	WAC gallery	2016-12-09	2017-03-10
+IGH	179	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+IHG	180	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+JJJ	181	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+JJK	182	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+JJL	183	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+LJL	202	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+LKL	203	Traveling exhibition	WAC gallery	2016-11-25	2016-12-16
+IGH	179	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+IHG	180	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+JJJ	181	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+JJK	182	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+JJL	183	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+LJL	202	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+LKL	203	Traveling exhibition	WAC gallery	2016-12-23	2017-01-13
+IGH	179	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+IHG	180	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+JJJ	181	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10 
+JJK	182	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+JJL	183	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+LJL	202	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+LKL	203	Traveling exhibition	WAC gallery	2017-01-21	2017-02-10
+IGH	179	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+IHG	180	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+JJJ	181	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+JJK	182	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+JJL	183	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+LJL	202	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+LKL	203	Traveling exhibition	WAC gallery	2017-02-16	2017-03-09
+IGH	179	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03
+IHG	180	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03
+JJJ	181	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03
+JJK	182	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03 
+JJL	183	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03
+LJL	202	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03
+LKL	203	Traveling exhibition	WAC gallery	2017-03-18	2017-04-03

@@ -1,0 +1,5 @@
+Storage	40	120	0	600
+Lobby	60	30	2	4
+Gallery A	30	40	7	16
+Gallery B	30	40	7	16
+Gallery C	60	50	14	24

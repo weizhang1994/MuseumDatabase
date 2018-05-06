@@ -1,0 +1,353 @@
+--Assignment #3 | Kevin Noonan | krn871 | 11138394
+
+--Insert 15 new works into the works table
+
+INSERT INTO works (
+SELECT 'MCCC',
+		96,
+		'Mercury Convertible Coupe Custom',
+		'To create this cars sleek look its customizer Rulon McGregor lowere the hieght of both the windshield and side windows.',
+		'Economy Car',
+		'4-Speed Manual',
+		'Ford',
+		'V8 Engine',
+		1939,
+		1994,
+		80000 ,
+		'owner',
+		(null),
+		'USA'
+);
+
+INSERT INTO works (
+SELECT 'FDSR',
+		97,
+		'Ford Doane Spencer Roadster',
+		'The roadster was originally modified by Doane Spencer, a frequent contributor to Road and Custom magazine',
+		'Sports Car',
+		'4-Speed Manual',
+		'Ford',
+		'V8 Engine',
+		1932,
+		2004,
+		200000,
+		'owner',
+		(null),
+		'USA'
+);
+
+INSERT INTO works (
+SELECT 'VBS',
+		98,
+		'Vincent Black Shadow',
+		'The fastest motorcylce of its era, the high-performance Vincent Black Shadow evolved from the touring-oriented Rapide.',
+		'Motorcycle',
+		'3-Speed Manual',
+		'Vincent HRD',
+		'V2 Engine',
+		1948,
+		2003,
+		100000,
+		'owner',
+		(null),
+		'USA'
+);
+
+INSERT INTO works (
+SELECT 'DDVN',
+		99,
+		'Davis Divan',
+		'After World War II, Los Angeles-based entrepenuer Gary Davis built a radically engineered car with aircraft-inspired styling.',
+		'Concept Car',
+		'4-Speed Manual',
+		'Gary Davis',
+		'Flat-4',
+		 1948,
+		 1983,
+		 500000,
+		'owner',
+		(null),
+		'USA'
+);
+
+INSERT INTO works (
+SELECT 'FES',
+		100,
+		'Fiat 8V Supersonic',
+		'The nimble Fiat Supersonic was powered by a two-liter aluminum V-8 engine which Fiat named the 8V because of a mistaken belief.',
+		'Sports Car',
+		'5-Speed Manual',
+		'Fiat',
+		'V8 Engine',
+		 1953,
+		 2002,
+		 120000,
+		'owner',
+		(null),
+		'ITALY'
+
+);
+
+INSERT INTO works (
+SELECT 'TBV',
+		101,
+		'Triumph Bonneville',
+		'Triumph first used the Bonneville name in 1959 to commemorate its high-speed runs at Utahs Bonneville Salt Flats',
+		'Motorcycle',
+		'4-Speed Manual',
+		'Triumph Engineering',
+		'2-Stroke Engine',
+		 1964,
+		 2010,
+		 80000,
+		'owner',
+		(null),
+		'USA'
+
+);
+
+INSERT INTO works (
+SELECT 'MM',
+		102,
+		'Munich Mammut',
+		'Founder Friedel Munch developed the Mammut(German for "mammoth") to be the fastest and most powerful motorcycle of its time',
+		'Motorcycle',
+		'5-Speed Manual',
+		'Munch',
+		'I4 Engine',
+		 1968,
+		 1992,
+		 200000,
+		'owner',
+		(null),
+		'GERMANY'
+
+);
+
+INSERT INTO works (
+SELECT 'ARGT',
+		103,
+		'Alfa Romeo Giulia TZ',
+		'The Giulia TZ was developed in 1964 for Autodelta, a company seeking to return Alfa Reomeo to racing after it left motorsports in the 1950s.',
+		'Sports Car',
+		'5-Speed Manual',
+		'Alfa Romeo',
+		'V8 Engine',
+		 1964,
+		 2004,
+		 400000,
+		'owner',
+		(null),
+		'ITALY'
+
+);
+
+INSERT INTO works (
+SELECT 'HCB',
+		104,
+		'Honda CB750',
+		'Upon its introduction the Honda CB750 was the most advanced motorcycle the company had ever built.',
+		'Motorcycle',
+		'5-Speed Manual',
+		'Honda',
+		'I4 Engine',
+		 1969,
+		 2010,
+		 80000,
+		'owner',
+		(null),
+		'USA'
+
+);
+
+INSERT INTO works (
+SELECT 'HSE',
+		105,
+		'Harvester Scout 80',
+		'International Harvester started building farming trucks and pickups in 1907, but offerted the Scout 80 in 1961 as a more civilized competitor to the jeep CJ.',
+		'Economy Car',
+		'4-Speed Manual',
+		'International Harvester',
+		'I4 Engine',
+		 1961,
+		 2004,
+		 40000,
+		'owner',
+		(null),
+		'USA'
+
+);
+
+INSERT INTO works (
+SELECT 'PNGW',
+		106,
+		'Porsche 917K Gulf Weyer',
+		'This Porsche factory team 917 won the maiden race for the iconic 917 model in August 1969 at Osterreichring. ',
+		'Race Car',
+		'6-Speed Manual',
+		'Porsche',
+		'V8 Engine',
+		 1969,
+		 2008,
+		 400000,
+		'owner',
+		(null),
+		'GERMANY'
+
+);
+
+INSERT INTO works (
+SELECT 'PDDC',
+		107,
+		'Peugot 302 DS Darlmat Cabriolet',
+		'The coachwork for this vehicle was designed by aerodynamic specialist Georges paulin and built by Pourtout in 1936. ',
+		'Race Car',
+		'5-Speed Manual',
+		'Peugot SA',
+		'Straight-4 Engine',
+		 1937,
+		 2006,
+		 250000,
+		'owner',
+		(null),
+		'FRANCE'
+
+);
+
+INSERT INTO works (
+SELECT 'CVT',
+		108,
+		'Crocker V-twin',
+		'During the 1930s, Crocker motorcycles were ranked amont the best-performing motorcycles in America.',
+		'Motorcycle',
+		'3-Speed Manual',
+		'Crocker',
+		'V2-Engine',
+		 1936,
+		 2012,
+		 120000,
+		'owner',
+		(null),
+		'USA'
+
+);
+
+INSERT INTO works (
+SELECT 'VCR',
+		109,
+		'Voision C57 Roadster',
+		'Built prior to Figonis collaboration with Ovidio Falaschi, this roadster is one of the few surviving Voisin cars toi be bodied outside of the factory. ',
+		'Sports Car',
+		'3-Speed Manual',
+		'Voisin',
+		'I4-Engine',
+		 1934,
+		 2010,
+		 1000000,
+		'owner',
+		(null),
+		'FRANCE'
+
+);
+
+INSERT INTO works (
+SELECT 'DEMB',
+		110,
+		'Detroit Electric Model 61 Brougham',
+		'The Detroit Electric was manufactured by the Anderson Electric Car Company from 1906 to approximately 1939, longer than any other electric car',
+		'Concept Car',
+		'2-Speed Manual',
+		'Anderson Electric',
+		'V2 Engine',
+		 1915,
+		 2005,
+		 500000,
+		'owner',
+		(null),
+		'USA'
+
+);
+
+--Update new purchased works to storage
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20161025'
+FROM works
+WHERE wksletterkey = 'MCCC' AND wksnumberkey = 96
+OR wksletterkey = 'FDSR' AND wksnumberkey = 97
+OR wksletterkey = 'VBS' AND wksnumberkey = 98
+OR wksletterkey = 'DDVN' AND wksnumberkey = 99
+OR wksletterkey = 'FES' AND wksnumberkey = 100
+OR wksletterkey = 'TBV' AND wksnumberkey = 101
+OR wksletterkey = 'MM' AND wksnumberkey = 102
+OR wksletterkey = 'ARGT' AND wksnumberkey = 103
+OR wksletterkey = 'HCB' AND wksnumberkey = 104
+OR wksletterkey = 'HSE' AND wksnumberkey = 105
+OR wksletterkey = 'PNGW' AND wksnumberkey = 106
+OR wksletterkey = 'PDDC' AND wksnumberkey = 107
+OR wksletterkey = 'CVT' AND wksnumberkey = 108
+OR wksletterkey = 'VCR' AND wksnumberkey = 109
+OR wksletterkey = 'DEMB' AND wksnumberkey = 110;
+
+--Update dates to correct dates in the works column
+
+ALTER TABLE works DROP COLUMN wksdateofaquisition;
+
+ALTER TABLE works ADD COLUMN wksdateofaquisition date;
+
+UPDATE works SET wksdateofaquisition = '20150521'
+WHERE wksNumberKey BETWEEN 1 and 65;
+
+UPDATE works SET wksdateofaquisition = '20160724'
+WHERE wksNumberKey BETWEEN 66 and 95;
+
+UPDATE works SET wksdateofaquisition = '20161025'
+WHERE wksNumberKey BETWEEN 96 and 110;
+
+--Update decollected works
+
+INSERT into locations(
+SELECT 'Sold', 0, 0, 0, 0, '20161021' 
+);
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Sold', '20161021'
+FROM works
+WHERE wksletterkey = 'FORDGT' AND wksnumberkey = 60
+OR wksletterkey = 'FDSR' AND wksnumberkey = 97
+OR wksletterkey = 'VBS' AND wksnumberkey = 98;
+
+UPDATE works SET wksdonor = 'PETERSON MUSEUM'
+WHERE wksownership = 'owner';
+
+--CREATE OWNERS TABLE
+-- This table keeps track of the owners of works by the owners name
+-- work key letter code, and date of aquisition
+
+
+DROP TABLE Owners CASCADE;
+DROP DOMAIN ownName CASCADE;
+DROP DOMAIN ownWorksL CASCADE;
+DROP DOMAIN ownWorksN CASCADE;
+DROP DOMAIN ownAcq CASCADE;
+
+CREATE DOMAIN ownName AS varchar(50);
+CREATE DOMAIN ownWorksL AS char(10);
+CREATE DOMAIN ownWorksN AS Integer;
+CREATE DOMAIN ownAcq AS date;
+
+CREATE TABLE Owners(
+		ownersName ownName,
+		ownersWorksL ownWorksL NOT NULL,
+		ownersWorksN ownWorksN NOT NULL,
+		ownersAcq ownAcq NOT NULL,
+		CONSTRAINT ownKey FOREIGN KEY (ownersWorksL, ownersWorksN)
+		REFERENCES works(wksLetterKey, wksNumberKey)
+);
+
+--Update owners table with information
+
+INSERT INTO owners
+SELECT wksdonor, wksletterkey, wksnumberkey, wksdateofaquisition
+FROM works;
+

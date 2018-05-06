@@ -1,0 +1,160 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #1
+
+-- Create Works table
+-- This table keeps track of the works
+-- of the Peterson Automotive Museum
+
+DROP TABLE Works CASCADE;
+DROP DOMAIN workLetter CASCADE;
+DROP DOMAIN workNumber CASCADE;
+DROP DOMAIN NameOfCar CASCADE;
+DROP DOMAIN workDesc CASCADE;
+DROP DOMAIN workBody CASCADE;
+DROP DOMAIN workTrans CASCADE;
+DROP DOMAIN workManu CASCADE;
+DROP DOMAIN workEngine CASCADE;
+DROP DOMAIN workDoC CASCADE;
+DROP DOMAIN workDoA CASCADE;
+DROP DOMAIN workValue CASCADE;
+
+CREATE DOMAIN workLetter AS char(10);
+CREATE DOMAIN workNumber AS Integer;
+CREATE DOMAIN NameOfCar AS varchar(50);
+CREATE DOMAIN workDesc AS varchar(500);
+CREATE DOMAIN workBody AS varchar(50);
+CREATE DOMAIN workTrans AS varchar(50);
+CREATE DOMAIN workManu AS varchar(50);
+CREATE DOMAIN workEngine AS varchar(30);
+CREATE DOMAIN workDoC AS int4;
+CREATE DOMAIN workDoA AS int4;
+CREATE DOMAIN workValue AS int4;
+
+
+CREATE TABLE Works (
+		wksLetterKey workLetter, 
+		wksNumberKey workNumber, 
+		wksCarName NameOfCar NOT NULL, 
+		wksDescription workDesc NOT NULL, 
+		wksBodyType workBody NOT NULL, 
+		wksTransType workTrans NOT NULL, 
+		wksManufacturer workManu NOT NULL, 
+		wksEngine workEngine NOT NULL, 
+		wksDateOfCompletion workDoC NOT NULL, 
+		wksDateOfAquisition workDoA NOT NULL, 
+		wksInsuranceValue workValue NOT NULL,
+		PRIMARY KEY (wksLetterKey, wksNumberKey)
+);
+
+
+
+--Create Locations table
+-- This table keeps track of the Locations 
+-- and galleries of the museum
+
+DROP TABLE Locations CASCADE;
+DROP DOMAIN locaName CASCADE;
+DROP DOMAIN locaWidth CASCADE;
+DROP DOMAIN locaLength CASCADE;
+DROP DOMAIN suggestMin CASCADE;
+DROP DOMAIN suggestMax CASCADE;
+
+CREATE DOMAIN locaName AS varchar(20);
+CREATE DOMAIN locaWidth AS int4;
+CREATE DOMAIN locaLength AS int4;
+CREATE DOMAIN suggestMin AS int4;
+CREATE DOMAIN suggestMax AS int4;
+
+CREATE TABLE Locations (
+		locRoomName locaName NOT NULL PRIMARY KEY,
+		locRoomWidth locaWidth NOT NULL, 
+		locRoomLength locaLength NOT NULL, 
+		locRoomMin suggestMin NOT NULL, 
+		locRoomMax suggestMax NOT NULL
+);
+
+
+
+--Create Exhibitions Table this
+-- table keeps track of the Exhibitions
+-- and descriptions of the exhibitions in the musuem
+
+DROP TABLE Exhibitions CASCADE;
+DROP DOMAIN exName CASCADE;
+DROP DOMAIN exDesc CASCADE;
+DROP DOMAIN exStart CASCADE;
+DROP DOMAIN exEnd CASCADE;
+
+CREATE DOMAIN exName AS varchar(50);
+CREATE DOMAIN exDesc AS varchar(300);
+CREATE DOMAIN exStart AS date;
+CREATE DOMAIN exEnd AS date;
+
+CREATE TABLE Exhibitions ( 
+		exbName exName NOT NULL PRIMARY KEY, 
+		exbDesc exDesc NOT NULL,
+		exbStartDate exStart NOT NULL,
+		exbEndDate exEnd NOT NULL
+);
+
+
+--Create All Items in storage table
+--says that all items from the works are 
+--in storage
+
+DROP TABLE worksLocations CASCADE;
+
+CREATE TABLE worksLocations (
+		locLetterKey workLetter NOT NULL,	
+		locNumberKey workNumber NOT NULL,
+		locRoomName locaName
+			REFERENCES locations,	
+		CONSTRAINT wksKey FOREIGN KEY (locLetterKey, locNumberKey)
+		REFERENCES works(wksLetterKey, wksNumberKey)
+					
+);
+
+--Create a table to show off the current exhibits
+--This will have 9, 10 and 16 works respectably
+
+DROP TABLE exhibitionsWorks CASCADE;
+
+CREATE TABLE exhibitionsWorks (
+		exbwName exName
+			REFERENCES exhibitions,
+		exbLetterKey workLetter NOT NULL, 
+		exbNumberKey workNumber NOT NULL,
+		CONSTRAINT exbKey FOREIGN KEY (exbLetterKey, exbNumberKey)
+		REFERENCES works(wksLetterKey, wksNumberKey)
+);
+
+DROP TABLE doors CASCADE;
+
+DROP DOMAIN doorNumber CASCADE;
+DROP DOMAIN doorOpensTo CASCADE;
+DROP DOMAIN doorClosesTo CASCADE;
+CREATE DOMAIN doorNumber AS int2;
+CREATE DOMAIN doorOpensTo AS varchar(50);
+CREATE DOMAIN doorClosesTo AS varchar(50);
+
+CREATE TABLE doors (
+		drsNumber doorNumber NOT NULL,
+		drsOpenTo doorOpensTo 
+			REFERENCES Locations,
+		drsCloseTo doorClosesTo
+			REFERENCES Locations,
+		PRIMARY KEY(drsNumber)
+);
+
+DROP TABLE exhibitionLocation;
+DROP DOMAIN exLoc CASCADE;
+
+CREATE DOMAIN exLoc AS varchar(50);
+
+CREATE TABLE exhibitionLocation (
+		exbLoc exLoc NOT NULL,
+		exbLName exName NOT NULL,
+		CONSTRAINT exbLocKey FOREIGN KEY (exbLName)
+		REFERENCES exhibitions(exbName)
+
+);
+

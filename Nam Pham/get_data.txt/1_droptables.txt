@@ -1,0 +1,38 @@
+-- Drop all tables if exist
+Drop Table IF EXISTS ns_Institutions cascade;
+
+
+Drop Table IF EXISTS ns_Works cascade;
+
+
+Drop Table IF EXISTS ns_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions_locations cascade;
+
+
+Drop Table IF EXISTS ns_Transactions cascade;
+
+
+Drop Table IF EXISTS ns_Works_Ownership cascade;
+
+
+Drop Table IF EXISTS ns_Works_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Works_Value cascade;
+
+
+Drop Table IF EXISTS ns_Works_State cascade;
+
+
+Drop Table IF EXISTS ns_Works_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_works_media cascade;
+
+
+Drop Table IF EXISTS ns_Locations_Doors cascade;

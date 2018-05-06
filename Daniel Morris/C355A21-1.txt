@@ -1,0 +1,35 @@
+Dalmation	LeeThe	012
+Dalmation	WloAro	013
+Dalmation	HeaUnt	003
+Dalmation	HeaUnt	005
+Dalmation	YatBra	006
+Dalmation	NixUnt	988
+Dalmation	PurPir	996
+Dalmation	SteMin	012
+Through the Eye of the Lens	ParCam	972
+Through the Eye of the Lens	YanThe	976
+Through the Eye of the Lens	YanJoe	979
+Through the Eye of the Lens	YanDis	981
+Through the Eye of the Lens	MofSom	989
+Through the Eye of the Lens	SteDro	002
+Through the Eye of the Lens	WymCom	008
+Through the Eye of the Lens	RinPre	011
+Through the Eye of the Lens	MunMan	015
+Early 2000s Works	PicDes	000
+Early 2000s Works	MayBru	000
+Early 2000s Works	GlaSto	000
+Early 2000s Works	MofInv	000
+Early 2000s Works	MayArt	000
+Early 2000s Works	RraOve	001
+Early 2000s Works	KenNeo	002
+Early 2000s Works	NorPas	003
+Early 2000s Works	KeeMic	004
+Early 2000s Works	KeeIan	004
+Early 2000s Works	KeeEdd	004
+Early 2000s Works	KeeGeo	004
+Early 2000s Works	OweSun	005
+Early 2000s Works	ManExo	005
+Early 2000s Works	WatApr	005
+Early 2000s Works	HarDog	006
+Early 2000s Works	MacOpe	006
+Early 2000s Works	WhiTau	007

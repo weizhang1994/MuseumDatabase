@@ -1,0 +1,110 @@
+AC	63	Petersen Museum	2-Stroke Engine
+ALC	14	Petersen Museum	V6 Engine
+ARG	71	Petersen Museum	I4 Engine
+ARGT	103	Petersen Museum	V8 Engine
+BEB	23	Petersen Museum	V12 Engine
+BENZ	58	Petersen Museum	One-Cylinder Engine
+BMB	86	Petersen Museum	V8 Engine
+BMWRS	91	Petersen Museum	V2 Engine
+BSEI	62	Petersen Museum	I6 Engine
+BTA	15	Petersen Museum	Straight-8 Engine
+BTC	35	Petersen Museum	Straight-8 Engine
+BTCA	92	Petersen Museum	I8 Engine
+BTRS	17	Petersen Museum	V8 Engine
+BVO	51	Petersen Museum	4-Stroke Engine
+CBSR	89	Petersen Museum	M-12 Engine
+CCDV	37	Petersen Museum	V8 Engine
+CCI	5	Petersen Museum	V8 Engine
+CHB	18	Petersen Museum	V8 Engine
+CHVI	68	Petersen Museum	V8 Engine
+CIPP	34	Petersen Museum	V8 Engine
+CISC	43	Petersen Museum	L4 Engine
+CPC	2	Petersen Museum	V8 Engine
+CSC	31	Petersen Museum	V8 Engine
+CVT	108	Petersen Museum	V2-Engine
+DCA	44	Petersen Museum	V8 Engine
+DDC	20	Petersen Museum	V8 Engine
+DDC	72	Petersen Museum	V8 Engine
+DDMC	54	Petersen Museum	V6 Engine
+DDS	46	Petersen Museum	Straight-8 Engine
+DDSZ	22	Petersen Museum	V8 Engine
+DDT	53	Petersen Museum	V10 Engine
+DDV	4	Petersen Museum	V10 Engine
+DDVN	99	Petersen Museum	Flat-4
+DEMB	110	Petersen Museum	V2 Engine
+DHC	74	Petersen Museum	Straight-6 Engine
+DHT	70	Petersen Museum	I6 Engine
+DLHO	93	Petersen Museum	Straight-6 Engine
+DMSJ	10	Petersen Museum	Straight-8 Engine
+DSJ	56	Petersen Museum	V8 Engine
+FB	25	Petersen Museum	V12 Engine
+FCB	94	Petersen Museum	Straight-4 Engine
+FDSR	97	Petersen Museum	V8 Engine
+FES	100	Petersen Museum	V8 Engine
+FGL	41	Petersen Museum	V8 Engine
+FGT	1	Petersen Museum	V8 Engine
+FGTSI	16	Petersen Museum	V8 Engine
+FMASW	38	Petersen Museum	L4 Engine
+FMMS	50	Petersen Museum	V12 Engine
+FORDF	12	Petersen Museum	V8 Engine
+FORDGT	24	Petersen Museum	V8 Engine
+FORDGT	60	Petersen Museum	V6 Engine
+FORDM	9	Petersen Museum	L4 Engine
+FR	79	Petersen Museum	V8 Engine
+FUR	78	Petersen Museum	V2 Engine
+GALT	47	Petersen Museum	V2 Engine
+GMEV	81	Petersen Museum	Alternating Current
+GMEV	90	Petersen Museum	PEM Fuel Cell
+HCB	104	Petersen Museum	I4 Engine
+HDKHRM	61	Petersen Museum	2-Stroke Engine
+HDMJ	76	Petersen Museum	V2 Engine
+HDT	73	Petersen Museum	V2 Engine
+HDVL	77	Petersen Museum	V2 Engine
+HDX	75	Petersen Museum	I4 Engine
+HSE	105	Petersen Museum	I4 Engine
+HST	32	Petersen Museum	L4 Engine
+HUDW	27	Petersen Museum	I6 Engine
+JXJ	6	Petersen Museum	V6 Engine
+JXKR	57	Petersen Museum	V8 Engine
+JXKSS	59	Petersen Museum	XK6 Engine
+KWSN	82	Petersen Museum	Supercharged I4 Engine
+LDR	55	Petersen Museum	V6 Engine
+LSS	3	Petersen Museum	Straight-8 Engine
+MBD	66	Petersen Museum	V8 Engine
+MBS	29	Petersen Museum	V8 Engine
+MBW	42	Petersen Museum	Straight-8 Engine
+MCC	95	Petersen Museum	V8 Engine
+MCCC	96	Petersen Museum	V8 Engine
+MCD	80	Petersen Museum	V8 Engine
+MERR	28	Petersen Museum	L4 Engine
+MERTF	33	Petersen Museum	V6 Engine
+MJ	36	Petersen Museum	V8 Engine
+MLF	84	Petersen Museum	V12 Engine
+MLP	39	Petersen Museum	V8 Engine
+MM	102	Petersen Museum	I4 Engine
+MT	40	Petersen Museum	L4 Engine
+MTQS	69	Petersen Museum	V6 Engine
+NASHH	21	Petersen Museum	I6 Engine
+OLW	30	Petersen Museum	V8 Engine
+OYMIII	11	Petersen Museum	V8 Engine
+PASA	48	Petersen Museum	V12 Engine
+PDDC	107	Petersen Museum	Straight-4 Engine
+PKT	52	Petersen Museum	Flat-6
+PLE	7	Petersen Museum	V6 Engine
+PM	49	Petersen Museum	Flat-6
+PNGW	106	Petersen Museum	V8 Engine
+POR	8	Petersen Museum	Flat-6
+PORC	13	Petersen Museum	L4 Engine
+PRSN	87	Petersen Museum	Flat-6
+RFCO	67	Petersen Museum	V2 Engine
+RRT	85	Petersen Museum	I4 Engine
+SFRS	83	Petersen Museum	Flat-4
+SME	65	Petersen Museum	V2 Engine
+TBV	101	Petersen Museum	2-Stroke Engine
+TLGS	45	Petersen Museum	Straight-6 Engine
+TLTCS	64	Petersen Museum	I6 Engine
+VBS	98	Petersen Museum	V2 Engine
+VCR	109	Petersen Museum	I4-Engine
+VOLKB	26	Petersen Museum	H4 Engine
+VOLKT	19	Petersen Museum	B4 Engine
+WFW	88	Petersen Museum	V8 Engine

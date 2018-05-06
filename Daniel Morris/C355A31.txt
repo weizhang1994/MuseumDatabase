@@ -1,0 +1,300 @@
+UPDATE worksLocations
+SET locMoveDate = '20161019'
+WHERE locMoveDate = current_date;
+
+
+INSERT INTO worksLocations
+SELECT locIdAlpha, locIdNum, 'Storage', wkAcqDate
+FROM works, worksLocations
+WHERE locIdAlpha = wkIdAlpha
+	AND locIdNum = wkIdNum
+	AND locMoveDate = '20160701';
+
+DELETE FROM worksLocations
+WHERE locName = 'Storage'
+	AND locMoveDate = '20160701';
+	
+UPDATE worksLocations
+SET locMoveDate = '20160715'
+WHERE locName = 'Gallery A'
+	AND locMoveDate = '20160701';
+	
+UPDATE worksLocations
+SET locMoveDate = '20160816'
+WHERE locName = 'Gallery B'
+	AND locMoveDate = '20160701';
+	
+UPDATE worksLocations
+SET locMoveDate = '20160909'
+WHERE locName = 'Gallery C'
+	AND locMoveDate = '20160701';
+
+UPDATE worksLocations
+SET locMoveDate = '20110305'
+WHERE locName = 'Lobby'
+	AND locMoveDate = '20160701'
+	AND locIdAlpha = 'KngUnt';
+	
+UPDATE worksLocations
+SET locMoveDate = '20151011'
+WHERE locName = 'Lobby'
+	AND locMoveDate = '20160701'
+	AND locIdAlpha = 'OrsNgu';
+	
+
+SELECT exName AS "Exhibition Name",
+	exStart AS "Start Date",
+	exEnd AS "End Date",
+	rmSuggMax AS "Suggested Max",
+	COUNT(ewName) AS "Number of Works"
+	FROM Exhibitions, Rooms, ExhibitLocations, ExhibitWorks
+	WHERE 
+		ewName = exName
+		AND exLocName = exName
+		AND rmName = exLocLoc
+		GROUP BY exName, rmSuggMax;
+		
+		
+--adding 7 worksLocations for filling Back to the 80s exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery A', '20161028'
+	FROM works
+	WHERE wkIdAlpha = 'AngBic' AND wkIdNum = 8
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BelWor' AND wkIdNum = 2
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170413'
+	FROM works
+	WHERE wkIdAlpha = 'AngBic' AND wkIdNum = 8
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BelWor' AND wkIdNum = 2
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11;
+		
+--adding 7 exhibitWorks for filling Back to the 80s exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Back to the 80s', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'AngBic' AND wkIdNum = 8
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BelWor' AND wkIdNum = 2
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11;
+
+		
+--adding 6 worksLocations for filling Life In Three Dimentions exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery B', '20161028'
+	FROM works
+	WHERE wkIdAlpha = 'YanThe' AND wkIdNum = 976
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11
+		OR wkIdAlpha = 'ParCam' AND wkIdNum = 972
+		OR wkIdAlpha = 'MayBru' AND wkIdNum = 0
+		OR wkIdAlpha = 'MayArt' AND wkIdNum = 0
+		OR wkIdAlpha = 'KenNeo' AND wkIdNum = 2;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170119'
+	FROM works
+	WHERE wkIdAlpha = 'YanThe' AND wkIdNum = 976
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11
+		OR wkIdAlpha = 'ParCam' AND wkIdNum = 972
+		OR wkIdAlpha = 'MayBru' AND wkIdNum = 0
+		OR wkIdAlpha = 'MayArt' AND wkIdNum = 0
+		OR wkIdAlpha = 'KenNeo' AND wkIdNum = 2;
+		
+--adding 6 exhibitWorks for filling Life In Three Dimentions exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Life in Three Dimentions', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'YanThe' AND wkIdNum = 976
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11
+		OR wkIdAlpha = 'ParCam' AND wkIdNum = 972
+		OR wkIdAlpha = 'MayBru' AND wkIdNum = 0
+		OR wkIdAlpha = 'MayArt' AND wkIdNum = 0
+		OR wkIdAlpha = 'KenNeo' AND wkIdNum = 2;
+
+--adding 8 worksLocations for filling Its a Colourful World exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery C', '20161028'
+	FROM works
+	WHERE wkIdAlpha = 'ArmSpl' AND wkIdNum = 9
+		OR wkIdAlpha = 'BenHom' AND wkIdNum = 999
+		OR wkIdAlpha = 'TipCro' AND wkIdNum = 15
+		OR wkIdAlpha = 'ArmUnt' AND wkIdNum = 998
+		OR wkIdAlpha = 'BenUnt' AND wkIdNum = 989
+		OR wkIdAlpha = 'BelUzv' AND wkIdNum = 6
+		OR wkIdAlpha = 'WilCru' AND wkIdNum = 11
+		OR wkIdAlpha = 'BorStr' AND wkIdNum = 9;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170919'
+	FROM works
+	WHERE wkIdAlpha = 'ArmSpl' AND wkIdNum = 9
+		OR wkIdAlpha = 'BenHom' AND wkIdNum = 999
+		OR wkIdAlpha = 'TipCro' AND wkIdNum = 15
+		OR wkIdAlpha = 'ArmUnt' AND wkIdNum = 998
+		OR wkIdAlpha = 'BenUnt' AND wkIdNum = 989
+		OR wkIdAlpha = 'BelUzv' AND wkIdNum = 6
+		OR wkIdAlpha = 'WilCru' AND wkIdNum = 11
+		OR wkIdAlpha = 'BorStr' AND wkIdNum = 9;
+		
+--adding 8 exhibitWorks for filling Its a Colourful World exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Its a Colourful World', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'ArmSpl' AND wkIdNum = 9
+		OR wkIdAlpha = 'BenHom' AND wkIdNum = 999
+		OR wkIdAlpha = 'TipCro' AND wkIdNum = 15
+		OR wkIdAlpha = 'ArmUnt' AND wkIdNum = 998
+		OR wkIdAlpha = 'BenUnt' AND wkIdNum = 989
+		OR wkIdAlpha = 'BelUzv' AND wkIdNum = 6
+		OR wkIdAlpha = 'WilCru' AND wkIdNum = 11
+		OR wkIdAlpha = 'BorStr' AND wkIdNum = 9;
+		
+--adding 7 worksLocations for filling Through the Eye of the Lens exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery B', '20170120'
+	FROM works
+	WHERE wkIdAlpha = 'DwyUnt' AND wkIdNum = 995
+		OR wkIdAlpha = 'HalGiv' AND wkIdNum = 996
+		OR wkIdAlpha = 'MorCol' AND wkIdNum = 7
+		OR wkIdAlpha = 'WhiUnt' AND wkIdNum = 8
+		OR wkIdAlpha = 'SmiAda' AND wkIdNum = 8
+		OR wkIdAlpha = 'NikHan' AND wkIdNum = 9
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170619'
+	FROM works
+	WHERE wkIdAlpha = 'DwyUnt' AND wkIdNum = 995
+		OR wkIdAlpha = 'HalGiv' AND wkIdNum = 996
+		OR wkIdAlpha = 'MorCol' AND wkIdNum = 7
+		OR wkIdAlpha = 'WhiUnt' AND wkIdNum = 8
+		OR wkIdAlpha = 'SmiAda' AND wkIdNum = 8
+		OR wkIdAlpha = 'NikHan' AND wkIdNum = 9
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11;
+		
+--adding 7 exhibitWorks for filling Through the Eye of the Lens exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Through the Eye of the Lens', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'DwyUnt' AND wkIdNum = 995
+		OR wkIdAlpha = 'HalGiv' AND wkIdNum = 996
+		OR wkIdAlpha = 'MorCol' AND wkIdNum = 7
+		OR wkIdAlpha = 'WhiUnt' AND wkIdNum = 8
+		OR wkIdAlpha = 'SmiAda' AND wkIdNum = 8
+		OR wkIdAlpha = 'NikHan' AND wkIdNum = 9
+		OR wkIdAlpha = 'MesSof' AND wkIdNum = 11;
+
+--adding 8 worksLocations for filling Dalmation exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery A', '20170414'
+	FROM works
+	WHERE wkIdAlpha = 'ValThe' AND wkIdNum = 993
+		OR wkIdAlpha = 'McmYou' AND wkIdNum = 984
+		OR wkIdAlpha = 'MawNia' AND wkIdNum = 988
+		OR wkIdAlpha = 'NixSel' AND wkIdNum = 988
+		OR wkIdAlpha = 'MarRin' AND wkIdNum = 989
+		OR wkIdAlpha = 'WatSel' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11
+		OR wkIdAlpha = 'AngBic' AND wkIdNum = 8;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170813'
+	FROM works
+	WHERE wkIdAlpha = 'ValThe' AND wkIdNum = 993
+		OR wkIdAlpha = 'McmYou' AND wkIdNum = 984
+		OR wkIdAlpha = 'MawNia' AND wkIdNum = 988
+		OR wkIdAlpha = 'NixSel' AND wkIdNum = 988
+		OR wkIdAlpha = 'MarRin' AND wkIdNum = 989
+		OR wkIdAlpha = 'WatSel' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11
+		OR wkIdAlpha = 'AngBic' AND wkIdNum = 8;
+		
+--adding 8 exhibitWorks for filling Dalmation exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Dalmation', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'ValThe' AND wkIdNum = 993
+		OR wkIdAlpha = 'McmYou' AND wkIdNum = 984
+		OR wkIdAlpha = 'MawNia' AND wkIdNum = 988
+		OR wkIdAlpha = 'NixSel' AND wkIdNum = 988
+		OR wkIdAlpha = 'MarRin' AND wkIdNum = 989
+		OR wkIdAlpha = 'WatSel' AND wkIdNum = 989
+		OR wkIdAlpha = 'SelBes' AND wkIdNum = 11
+		OR wkIdAlpha = 'AngBic' AND wkIdNum = 8;
+		
+		
+--adding 6 worksLocations for filling Early 2000s Works exhibition
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Gallery C', '20170920'
+	FROM works
+	WHERE wkIdAlpha = 'TilTab' AND wkIdNum = 11
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'KenThe' AND wkIdNum = 9;
+		
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20170418'
+	FROM works
+	WHERE wkIdAlpha = 'TilTab' AND wkIdNum = 11
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'KenThe' AND wkIdNum = 9;
+		
+--adding 6 exhibitWorks for filling Early 2000s Works exhibition
+
+INSERT INTO exhibitWorks
+	SELECT 'Early 2000s Works', wkIdAlpha, wkIdNum
+	FROM works
+	WHERE wkIdAlpha = 'TilTab' AND wkIdNum = 11
+		OR wkIdAlpha = 'ArmEmp' AND wkIdNum = 9
+		OR wkIdAlpha = 'ArmSec' AND wkIdNum = 995
+		OR wkIdAlpha = 'BarInh' AND wkIdNum = 6
+		OR wkIdAlpha = 'BlaPar' AND wkIdNum = 989
+		OR wkIdAlpha = 'KenThe' AND wkIdNum = 9;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+SELECT exName AS "Exhibition Name",
+	exStart AS "Start Date",
+	exEnd AS "End Date",
+	rmSuggMax AS "Suggested Max",
+	COUNT(ewName) AS "Number of Works"
+	FROM Exhibitions, Rooms, ExhibitLocations, ExhibitWorks
+	WHERE 
+		ewName = exName
+		AND exLocName = exName
+		AND rmName = exLocLoc
+		GROUP BY exName, rmSuggMax;

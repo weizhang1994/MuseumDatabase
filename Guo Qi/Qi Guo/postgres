@@ -1,0 +1,619 @@
+--Part D
+----------------------------------
+--------Institutions table--------
+----------------------------------
+--Since Institutions table contains all the institution information regarding to works in Works table, 
+--all information in my Owners table and LoanedWorks table now need to be moved to Institutions table
+--In my LoanedWorks table, I inserted some restaurant information instead of museum information. 
+--So I'll add six new rows with museum information to Institutions table.
+--I need to add my museum information to Institutions table as well.
+INSERT into ns_Institutions (
+	ns_in_inName, ns_in_email, ns_in_phoneNumber, ns_in_streetAddress, ns_in_city, ns_in_countrySubdivision, ns_in_country, ns_in_postalCode
+)
+VALUES
+('Homer Simpson', 'homersimpson@gmail.com', '(613) 990-1985', '380 Sussex Dr', 'Ottawa', 'ON', 'Canada', 'K1N 9N4'),
+('SpongeBob SquarePants', 'spongebob@gmail.com', '+1 877-877-6037', '85 Israel Asper Way', 'Winnipeg', 'MB', 'Canada', 'R3C 0L5'),
+('Eric Cartman', 'ericcartman@gmail.com', '(613) 782-8914', '30 Bank St', 'Ottawa', 'ON', 'Canada', 'K1A 0G9'),
+('Daffy Duck', 'daffyduck@gmail.com', '(819) 776-7000', '100 Rue Laurier', 'Gatineau', 'QC', 'Canada', 'K1A 0M8'),
+('Porky Pig', 'porkypig@gmail.com', '(613) 234-4570', '1 Canal Ln', 'Ottawa', 'ON', 'Canada', 'K1P 5P6'),
+('Mr. Magoo', 'magoo@gmail.com', '(613) 234-4570', '1 Canal Ln', 'Ottawa', 'ON', 'Canada', 'K1P 5P6'),
+('Betty Boop', 'bettyboop@gmail.com', '(613) 996-5115', '395 Wellington St', 'Ottawa', 'ON', 'Canada', 'K1A 0N4'),
+('George Jetson', 'georgejetson@gmail.com', '(905) 679-4183', '9280 Airport Rd', 'Mount Hope', 'ON', 'Canada', 'L0R 1W0'),
+('Bugs Bunny', 'bugsbunny@gmail.com', '(306)599-5321', '55 Centre Ave', 'Rosetown', 'SK', 'Canada', 'S5G 2H5'),
+('Mickey Mouse', 'mickeymouse@gmail.com', '(250) 356-7226', '675 Belleville St', 'Victoria', 'BC', 'Canada', 'V8W 9W2'),
+('Bart Simpson', 'bartsimpson@gmail.com', '(613) 990-8257', '380 Sussex Dr', 'Ottawa', 'ON', 'Canada', 'K1N 9N4'),
+('Fred Flintstone', 'fredflintstone@gmail.com', '(519) 660-5275', '701 Oxford St E', 'London', 'ON', 'Canada', 'N5Y 4T7'),
+('The Grinch', 'thefrinch@gmail.com', '+1-613-555-0109', '2100 Cabot St', 'Ottawa', 'ON', 'Canada', 'K1H 6K1'),
+('Popeye', 'popeye@gmail.com', '(416) 979-6648', '317 Dundas St W', 'Toronto', 'ON', 'Canada', 'M5T 1G4'),
+('Wile E. Coyote', 'wilecoyote@gmail.com', '(613) 965-7223', '220 RCAF Rd', 'Astra', 'ON', 'Canada', 'K0K 3W0'),
+('MOCA Grand Ave', 'mocagrandave@gmail.com', '(613) 832-1249', '270 Pinhey Point Rd', 'Dunrobin', 'ON', 'Canada', 'K0A 1T0'),
+('Norton Simon Museum', 'nortonsimonmuseum@gmail.com', '(705) 748-9153', '910 Monaghan Rd', 'Peterborough', 'ON', 'Canada', 'K9J 5K4'),
+('Japanese American National Museum', 'japanusnationalmuseum@gmail.com', '(613) 993-8200', '1 Sussex Dr', 'Ottawa', 'ON', 'Canada', 'K1A 0A1'),
+('Pasadena Museum of California Art', 'pasadena@gmail.com', '(613) 580-9638', '16 Rowley Ave', 'Nepean', 'ON', 'Canada', 'K2G 1L9'),
+('Los Angeles County Museum of Art', 'losangelescountry@gmail.com', '(819) 776-8200', '100 Rue Laurier', 'Gatineau', 'QC', 'Canada', 'K1A 0M8'),
+('Art Collections & Botanical Gardens', 'huntington@gmail.com', '+1-901-542-8688', '1151 Oxford Rd', 'San Marino', 'CA', 'United States', '91108'),
+('Natural History Museum', 'natural@gmail.com', '+1-716-699-2897', 'Cromwell Rd', 'Kensington', 'CA', 'United States', '20895'),
+('The Broad','thebroad@gmail.com', '+1 213-232-6200', '221 S Grand Ave', 'Los Angeles', 'CA', 'United States', '90012'),
+('Getty Center', 'gettycenter@gmail.com', '+1 310-440-7300', '1200 Getty Center Dr', 'Los Angeles', 'CA', 'United States', '90049'),
+('California Science Center', 'California@gmail.com', '+1 323-724-3623', '700 Exposition Park Dr', 'Los Angeles', 'CA', 'United States', '90037'),
+('Griffith Observatory', 'Griffith@gmail.com', ' +1 213-473-0800', '2800 E Observatory Rd', 'Los Angeles', 'CA', 'United States', '90027'),
+('Petersen Automotive Museum', 'petersen@gmail.com', '+1 323-930-2277', '6060 Wilshire Blvd', 'Los Angeles', 'CA', 'United States', '90036'),
+('Annenberg Space for Photography', 'annenberg@gmail.com', '+1 213-403-3000', '2000 Avenue of the Stars 10', 'Los Angeles', 'CA', 'United States', '90067'),
+('Hammer Museum', 'hammermuseum@gmail.com', '+1 310-443-7000', '10899 Wilshire Blvd', 'Los Angeles', 'CA', 'United States', '90024'),
+('La Brea Tar Pits and Museum', 'labreatarpits@gmail.com', '+1 323-857-6300', '5801 Wilshire Blvd', 'Los Angeles', 'CA', 'United States', '90036'),
+('Qi''s Museum', 'qiguomuseum@gmail.com', '(306)555-8888', '110 Science Place', 'Saskatoon', 'SK', 'Canada', 'S7N 5C5'),
+('Canadian Museum of History', 'canadianmuseumofhistory@gmail.com', '(306) 776-7000', '100 Rue Laurier', 'Regina', 'SK', 'Canada', 'S7H 0M8'),
+('Rockcliffe Flying Club', 'rockcliffe@gmail.com', '(306) 993-2010', '11 Aviation Pkwy', 'Swift Current', 'SK', 'Canada', 'S3N 2X5'),
+('Canada Science and Technology Museum', 'canadianscitech@gmail.com', '(306) 991-3044', '1867 St Laurent Blvd', 'North Battleford', 'SK', 'Canada', 'S0H 5A3'),
+('Canadian War Museum', 'canadianwarmuseum@gmail.com', '(306) 555-5621', '1 Vimy Pl', 'Prince Albert', 'SK', 'Canada', 'S1A 0M8'),
+('Canada Agriculture Museum', 'canadianagriculturemuseum@gmail.com', '(306) 991-3044', '901 Prince of Wales Dr', 'Moose Jaw', 'SK', 'Canada', 'K2C 3K1'),
+('Canadian Museum of Nature', 'canadianmuseumofnature@gmail.com', '(306) 566-4700', '240 McLeod St', 'Yorkton', 'SK', 'Canada', 'K2P 2R1');
+
+----------------------------------
+------------Works table-----------
+----------------------------------
+--There are some newly added attributes in team Works table, namely, institution name, team members' type, subtype and custom type(theme, subject, culture, colour, car type, transmission).
+--In my old Works table, type attribute is the same as subject attribute in team Works table; 
+--subtype attribute is the same as culture attribute in team Works table;
+--character attribute is the same as theme attribute in team Works table.
+--Some of the attributes in team Works table having different names as my Works table. So I need to transfer data in wkIDLetter, wkIDNumber, wkName, wkAuthor, wkCompletionDate, wkAcquisitionDate, wkDescription from my Works table 
+--to wk_IDAlpha, wk_IDNumeric, wk_wkName, wk_creator, wk_coDate, wk_acDate, wk_wkDescription in new team Works table.
+--Insurance value and ownership are dealt with in different tables, which will be talked about in detail below, so there is no need to transfter data in that two attributes to team Works table.
+
+INSERT INTO ns_Works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName, ns_wk_wkName, ns_wk_creator, ns_wk_coDate, ns_wk_acDate, ns_wk_wkDescription, ns_wk_theme, ns_wk_subject, ns_wk_culture, ns_wk_colour, ns_wk_carType, ns_wk_transmission)
+	SELECT wkIDLetter, wkIDNumber, 'Qi''s Museum', wkName, wkAuthor, wkCompletionDate, wkAcquisitionDate, wkDescription, wkCharacter, wkType, wkSubType, NULL, NULL, NULL
+	FROM Works;
+
+--Update potential borrowed works acquisation date to null as those works are not in museum yet
+UPDATE ns_Works
+	SET ns_wk_acDate=NULL
+	FROM (
+		SELECT wkIDLetter, wkIDNumber, wkOwnership, wkAcquisitionDate
+		FROM Works
+		WHERE wkOwnership='potential work') AS result
+	WHERE result.wkIDNumber=ns_wk_IDNumeric AND result.wkOwnership='potential work';
+
+
+--Update acquisition date to 2016-10-25 for purchased works in ns_works table
+UPDATE ns_works
+SET ns_wk_acDate='2016-10-25'
+FROM (select wlidnumber, wlstartdate from worksLocations where wlStartDate='2016-10-25 11:59:59') AS result
+WHERE result.wlIDNumber=ns_wk_IDNumeric;
+
+--Update acquisition date to 2016-10-18 for long term borrowed works
+UPDATE ns_works
+SET ns_wk_acDate='2016-10-18'
+FROM (select wlIDNumber, wlStartDate, ns_wk_acDate from ns_works, workslocations where wlStartDate='2016-10-18 11:59:59' and wlIDNumber=ns_wk_IDNumeric) AS result
+WHERE result.wlIDNumber=ns_wk_IDNumeric; 
+
+----------------------------------
+---------Works_Media table--------
+----------------------------------
+--There is a wm_inName attribute in team Works_Media table, which is the institution name. 
+--So I need to update ns_Works_Media table with all old data from my Media table along with "Qi's Museum" for wm_inName attribute.
+--I didn't set any primary keys to my Media table so I didn't realize there are two duplicate rows of data.
+--So I have to use distinct keyword to get unique data from my Media table.
+INSERT INTO ns_Works_Media(ns_wm_IDAlpha, ns_wm_IDNumeric, ns_wm_inName, ns_wm_material)
+	SELECT DISTINCT meIDLetter, meIDNumber, 'Qi''s Museum', meMaterial
+	FROM Media;
+
+
+----------------------------------
+---------Works_State table--------
+----------------------------------
+--There are three new attributes in team Works_State table. ws_state keeps track of the state of each work. 
+--It can be stolen, damaged, restoration, in good condition. wk_wsStartDate and wk_wsEndDate are temporal information for each work state.
+--Currently, all works in my museum are in good condition. So I put works acquisition date as wk_wsStartDate and keep wk_wsEndDate as null. 
+INSERT INTO ns_Works_State(ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName, ns_ws_wsStartDate, ns_ws_state, ns_ws_wsEndDate)
+	SELECT ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName, ns_wk_acDate, 'in good condition', NULL
+	FROM ns_Works;
+
+--update end date for three sold works
+UPDATE ns_Works_State
+	SET ns_ws_wsEndDate='2016-10-21'
+	WHERE ns_ws_IDNumeric in (SELECT wkIDNumber
+								FROM works
+								WHERE wkOwnership='sold work');
+
+----------------------------------
+---------Works_Value table--------
+----------------------------------
+--This is a new table keeping track of the changes in Works insurance value. So I just use old insurance value info from my Works table
+--and use works acquisition date as works value start date. Works value end dates are null since there are no changes to any works value yet. 
+INSERT INTO ns_Works_Value(ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName, ns_wv_startDate, ns_wv_InsuranceValue, ns_wv_enddate)
+	SELECT ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName, ns_wk_acDate, wkInsuranceValue, NULL
+	FROM ns_Works AS nsw, Works AS w
+	WHERE nsw.ns_wk_IDAlpha=w.wkIDLetter AND nsw.ns_wk_IDNumeric=w.wkIDNumber;
+
+--update end date for three sold works
+UPDATE ns_Works_Value
+	SET ns_wv_enddate='2016-10-21'
+	WHERE ns_wv_IDNumeric in (SELECT wkIDNumber
+								FROM works
+								WHERE wkOwnership='sold work');
+
+
+
+
+----------------------------------
+--------Locations table-----------
+----------------------------------
+--Remove all locations regarding on-loan as those data will be recorded in transactions table
+
+--Query WorksLocations table to get available date for each locations (ns_lc_availabilityDate for galleryD might be 2016-12-09)
+--Add 5+6 travelling exhibition locations to this table
+--Add 6 loaned works
+
+INSERT INTO ns_Locations(ns_lc_lcName, ns_lc_inName, ns_lc_length, ns_lc_height, ns_lc_width, ns_lc_minNumWorks, ns_lc_maxNumWorks, ns_lc_availabilityDate, ns_lc_sponsor, ns_lc_security, ns_lc_insurance, ns_lc_StreetAddress, ns_lc_city, ns_lc_countrySubdivision, ns_lc_country, ns_lc_postalCode)
+	SELECT lcName, lcMuseum, 
+		(CASE lcDimension
+			WHEN 6000 THEN 80
+			WHEN 40 THEN 10
+			WHEN 160 THEN 20
+			WHEN 240 THEN 30
+			WHEN 250 THEN 30 END) AS ns_lc_length,
+		5,
+		(CASE lcDimension
+			WHEN 6000 THEN 75
+			WHEN 40 THEN 5
+			WHEN 160 THEN 8
+			WHEN 240 THEN 8
+			WHEN 250 THEN 9 END) AS ns_lc_width,
+		lcMinNumWork, lcMaxNumWork, 
+		NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+	FROM Locations
+	WHERE lcName <> 'on loan' and lcMuseum = 'Qi''s Museum';
+
+--Get Locations availablity date by query WorksLocations table to latest date that works were moved out 
+--(ns_lc_availabilityDate for galleryD is 2016-12-09 as it is two months from the moment I did assignment 2)
+UPDATE ns_Locations
+SET ns_lc_availabilityDate='2017-05-06'
+WHERE ns_lc_lcName='galleryA';
+
+UPDATE ns_Locations
+SET ns_lc_availabilityDate='2017-07-25'
+WHERE ns_lc_lcName='galleryB';
+
+UPDATE ns_Locations
+SET ns_lc_availabilityDate='2017-02-16'
+WHERE ns_lc_lcName='galleryC';
+
+UPDATE ns_Locations
+SET ns_lc_availabilityDate='2016-12-09'
+WHERE ns_lc_lcName='galleryD';
+
+--Add 6 locations with on-loan locations information
+INSERT INTO ns_Locations(ns_lc_lcName, ns_lc_inName, ns_lc_length, ns_lc_height, ns_lc_width, ns_lc_minNumWorks, ns_lc_maxNumWorks, ns_lc_availabilityDate, ns_lc_sponsor, ns_lc_security, ns_lc_insurance, ns_lc_StreetAddress, ns_lc_city, ns_lc_countrySubdivision, ns_lc_country, ns_lc_postalCode)
+	VALUES ('Canadian Museum of History', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '100 Rue Laurier', 'Regina', 'SK', 'Canada', 'S7H 0M8'),
+			('Rockcliffe Flying Club', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '11 Aviation Pkwy', 'Swift Current', 'SK', 'Canada', 'S3N 2X5'),
+			('Canada Science and Technology Museum', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '1867 St Laurent Blvd', 'North Battleford', 'SK', 'Canada', 'S0H 5A3'),
+			('Canadian War Museum', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '1 Vimy Pl', 'Prince Albert', 'SK', 'Canada', 'S1A 0M8'),
+			('Canada Agriculture Museum', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '901 Prince of Wales Dr', 'Moose Jaw', 'SK', 'Canada', 'K2C 3K1'),
+			('Canadian Museum of Nature', 'Qi''s Museum', null, null, null, null, null, null, null, null, null, '240 McLeod St', 'Yorkton', 'SK', 'Canada', 'K2P 2R1');
+
+
+--Add 11 new rows regarding travelling exhibitions
+INSERT INTO ns_Locations(ns_lc_lcName, ns_lc_inName, ns_lc_length, ns_lc_height, ns_lc_width, ns_lc_minNumWorks, ns_lc_maxNumWorks, ns_lc_availabilityDate, ns_lc_sponsor, ns_lc_security, ns_lc_insurance, ns_lc_StreetAddress, ns_lc_city, ns_lc_countrySubdivision, ns_lc_country, ns_lc_postalCode)
+	VALUES ('Saskatoon - Regina', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Regina', 'Qi''s Museum', null, null, null, null, null, null, 'Sean Copeland', 'Deborah Marsh', 1952261, '100 Rue Laurier', 'Regina', 'SK', 'Canada', 'S7H 0M8'),
+			('Regina - Swift Current', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Swift Current', 'Qi''s Museum', null, null, null, null, null, null, 'Beverly Manning', 'Pauline Sharp', 1952261, '11 Aviation Pkwy', 'Swift Current', 'SK', 'Canada', 'S3N 2X5'),
+			('Swift Current - North Battleford', 'Qi''s Museum', null, null, null, null, null, null, 'Sylvia Gray', 'Firdos Emilio', 1952261, null, null, null, null, null),
+			('North Battleford', 'Qi''s Museum', null, null, null, null, null, null, 'Melvin Sandoval', 'Terri Lyons', 1952261, '1867 St Laurent Blvd', 'North Battleford', 'SK', 'Canada', 'S0H 5A3'),
+			('North Battleford - Prince Albert', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Prince Albert', 'Qi''s Museum', null, null, null, null, null, null, 'Bertha Reid', 'Gwen Webb', 1952261, '1 Vimy Pl', 'Prince Albert', 'SK', 'Canada', 'S1A 0M8'),
+			('Prince Albert - Yorkton', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Yorkton', 'Qi''s Museum', null, null, null, null, null, null, 'Betty Lane', 'Mable Strickland', 1952261, '240 McLeod St', 'Yorkton', 'SK', 'Canada', 'K2P 2R1'),
+			('Yorkton - Saskatoon', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null);
+
+----------------------------------
+-------Exhibitions table----------
+----------------------------------
+--Move all data from old Exhibitions table
+INSERT INTO ns_Exhibitions(ns_ex_exName, ns_ex_exStartDate, ns_ex_inName, ns_ex_isTraveling, ns_ex_exDescription, ns_ex_exEndDate)
+	SELECT exName, exStartDate, 'Qi''s Museum', False, exDescription, exEndDate
+	FROM Exhibitions;
+
+--Add 1 travelling exhibitions
+INSERT INTO ns_Exhibitions(ns_ex_exName, ns_ex_exStartDate, ns_ex_inName, ns_ex_isTraveling, ns_ex_exDescription, ns_ex_exEndDate)
+	VALUES ('Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', True, 'The history of the medium of wood engraving evolved from the oldest printing technique, woodcut—which goes back to the fifteenth century', '2017-03-08');
+
+----------------------------------
+----------Doors table-------------
+----------------------------------
+--There is no changes needed for my Doors table, so I just add all data from Doors to ns_Locations_Doors table.
+INSERT INTO ns_Locations_Doors(ns_ld_inName, ns_ld_lcName1, ns_ld_lcName2)
+	SELECT drlcMuseum, drLocation1, drLocation2
+	FROM doors;
+
+----------------------------------
+-----WorksExhibitions table-------
+----------------------------------
+
+INSERT INTO ns_Works_Exhibitions(ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate, ns_we_exEndDate)
+	SELECT ewIDLetter, ewIDNumber, ewExhibition, 'Qi''s Museum', ewStartDate, ewEndDate
+	FROM ExhibitionsWorks;
+
+--Add 5 works from travelling exhibitions
+INSERT INTO ns_Works_Exhibitions(ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate, ns_we_exEndDate)
+	VALUES 
+	 ('nmah', 750233, 'Engraved Woodblocks Exhibitions', 'Qi''s Museum', '2016-10-26', '2017-03-08'),
+	 ('nmah', 750280, 'Engraved Woodblocks Exhibitions', 'Qi''s Museum', '2016-10-26', '2017-03-08'),
+	 ('nmah', 750359, 'Engraved Woodblocks Exhibitions', 'Qi''s Museum', '2016-10-26', '2017-03-08'),
+	 ('nmah', 749473, 'Engraved Woodblocks Exhibitions', 'Qi''s Museum', '2016-10-26', '2017-03-08'),
+	 ('nmah', 749520, 'Engraved Woodblocks Exhibitions', 'Qi''s Museum', '2016-10-26', '2017-03-08');
+
+
+
+----------------------------------
+---ExhibitionsLocations table-----
+----------------------------------
+--Add 5+6 rows for travelling exhibitions
+INSERT INTO ns_exhibitions_locations(ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName, ns_el_travelingStartDate, ns_el_travelingEndDate, ns_el_exEndDate)
+	SELECT elLocation, elExhibition, elExStartDate, ellcMuseum, null, null, elExEndDate
+	FROM ExhibitionsLocations;
+
+
+
+--Add 11 rows for travelling exhibitions along with information regarding exhibition moving from one place to another
+INSERT INTO ns_exhibitions_locations(ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName, ns_el_travelingStartDate, ns_el_travelingEndDate, ns_el_exEndDate)
+	VALUES ('Saskatoon - Regina', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-10-26', '2016-11-02', '2017-03-08'),
+		   ('Regina', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-02', '2016-11-23', '2017-03-08'),
+		   ('Regina - Swift Current', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-23', '2016-11-30', '2017-03-08'),
+		   ('Swift Current', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-30', '2016-12-21', '2017-03-08'),
+		   ('Swift Current - North Battleford', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-12-21', '2016-12-28', '2017-03-08'),
+		   ('North Battleford', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-12-28', '2017-01-04', '2017-03-08'),
+		   ('North Battleford - Prince Albert', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-01-04', '2017-01-11', '2017-03-08'),
+		   ('Prince Albert', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-01-11', '2017-02-01', '2017-03-08'),
+		   ('Prince Albert - Yorkton', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-02-01', '2017-02-08', '2017-03-08'),
+		   ('Yorkton', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-02-08', '2017-03-01', '2017-03-08'),
+		   ('Yorkton - Saskatoon', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-03-01', '2017-03-08', '2017-03-08');
+
+
+
+----------------------------------
+-----WorksOwnships table----------
+----------------------------------
+--Should be at least same number of rows as works table
+--Add 15 rows regarding old ownership for those 15 purchased works from Art Collections & Botanical Gardens
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', wkIDLetter, wkIDNumber, 'Art Collections & Botanical Gardens', wkAcquisitionDate, '2016-10-25'
+	FROM Works, ns_Works
+	WHERE ns_wk_acDate='2016-10-25' AND ns_wk_IDNumeric=wkIDNumber;
+
+--Add 15 rows regarding new ownerhship for those 15 purchased works, which means that ns_wo_inNameOwner should be 'Qi's Museum'
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', wkIDLetter, wkIDNumber, 'Qi''s Museum', '2016-10-25', NULL
+	FROM Works, ns_Works
+	WHERE ns_wk_acDate='2016-10-25' AND ns_wk_IDNumeric=wkIDNumber;
+
+--Add 15 rows regarding 15 long term borrowed works
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', ns_wk_IDAlpha, ns_wk_IDNumeric, ownName, '2016-10-18', NULL
+	FROM ns_Works, owners
+	WHERE ns_wk_acDate='2016-10-18' AND ns_wk_IDNumeric=ownwkIDNumber;
+
+--Add 15 rows regarding 15 potential borrowed works (set start date as 2016-12-04)
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', ns_wk_IDAlpha, ns_wk_IDNumeric, ownName, '2016-12-04', NULL
+	FROM ns_Works, owners
+	WHERE ns_wk_acDate is null AND ns_wk_IDNumeric=ownwkIDNumber;
+
+--Add 3 rows regarding sold works to keep track of ownership before it was sold(set start date to acdate and end date to 2016-10-21)
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', ns_wk_IDAlpha, ns_wk_IDNumeric, 
+	(CASE ns_wk_IDNumeric 
+		WHEN 556193 THEN 'Norton Simon Museum'
+		WHEN 750870 THEN 'Japanese American National Museum'
+		WHEN 750804 THEN 'Pasadena Museum of California Art'
+		END) AS ownName, 
+	ns_wk_acDate, '2016-10-21'
+	FROM ns_Works, owners, works
+	WHERE ns_wk_IDNumeric=ownwkIDNumber AND ns_wk_IDNumeric=wkIDNumber AND wkOwnership='sold work';
+
+--Add 3 rows regarding sold works to keep track of ownership after it was sold(set start date to 2016-10-21 and end date to null-10-21)
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', ns_wk_IDAlpha, ns_wk_IDNumeric, 
+	(CASE ns_wk_IDNumeric 
+		WHEN 556193 THEN 'Norton Simon Museum'
+		WHEN 750870 THEN 'Japanese American National Museum'
+		WHEN 750804 THEN 'Pasadena Museum of California Art'
+		END) AS ownName, 
+	'2016-10-21', null
+	FROM ns_Works, owners, works
+	WHERE ns_wk_IDNumeric=ownwkIDNumber AND ns_wk_IDNumeric=wkIDNumber AND wkOwnership='sold work';
+
+--Add all other owned works (69 works)
+INSERT INTO ns_Works_Ownership(ns_wo_inName, ns_wo_idAlpha, ns_wo_idNumeric, ns_wo_inNameOwner, ns_wo_woStartDate, ns_wo_woEndDate)
+	SELECT 'Qi''s Museum', wkIDLetter, wkIDNumber, 'Qi''s Museum', wkAcquisitionDate, null
+	FROM Works, ns_Works
+	WHERE wkOwnership='owned work' AND ns_wk_IDNumeric=wkIDNumber AND wkIDNumber not in (
+		SELECT ns_wo_idNumeric from ns_Works_Ownership);
+
+----------------------------------
+-----Transactions table-----------
+----------------------------------
+--Add 15 rows regarding 15 purchased works
+INSERT INTO ns_Transactions(ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate, ns_tr_trType, ns_tr_IDAlphaOther, ns_tr_ns_IDNumericOther)
+	SELECT 'Qi''s Museum', 'Qi''s Museum', 'Art Collections & Botanical Gardens', ns_wk_IDAlpha, ns_wk_IDNumeric, '2016-10-25', 'buy', NULL, NULL
+	FROM ns_Works
+	WHERE ns_wk_acDate='2016-10-25';
+
+--Add 15 rows regarding 15 long term borrowed works
+INSERT INTO ns_Transactions(ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate, ns_tr_trType, ns_tr_IDAlphaOther, ns_tr_ns_IDNumericOther)
+	SELECT 'Qi''s Museum', 'Qi''s Museum', ownName, ns_wk_IDAlpha, ns_wk_IDNumeric, '2016-10-18', 'borrow in', NULL, NULL
+	FROM ns_Works, owners
+	WHERE ns_wk_acDate='2016-10-18' AND ns_wk_IDNumeric=ownwkIDNumber;
+
+
+--Add 3 rows regarding sold works
+INSERT INTO ns_Transactions(ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate, ns_tr_trType, ns_tr_IDAlphaOther, ns_tr_ns_IDNumericOther)
+	SELECT 'Qi''s Museum', 
+		(CASE ns_wk_IDNumeric 
+		WHEN 556193 THEN 'Norton Simon Museum'
+		WHEN 750870 THEN 'Japanese American National Museum'
+		WHEN 750804 THEN 'Pasadena Museum of California Art'
+		END) AS Receiver,
+	'Qi''s Museum', ns_wk_IDAlpha, ns_wk_IDNumeric, '2016-10-21', 'sell', NULL, NULL
+	FROM ns_Works, owners, works
+	WHERE ns_wk_IDNumeric=ownwkIDNumber AND ns_wk_IDNumeric=wkIDNumber AND wkOwnership='sold work';
+
+--Add 6 rows regarding on-loan works
+--lend out
+INSERT INTO ns_Transactions(ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate, ns_tr_trType, ns_tr_IDAlphaOther, ns_tr_ns_IDNumericOther)
+VALUES
+('Qi''s Museum', 'Canadian Museum of History', 'Qi''s Museum', 'nmah', 750415, '2016-11-01 11:59:59', 'lend out', null, null),
+('Qi''s Museum', 'Rockcliffe Flying Club', 'Qi''s Museum', 'nmah', 750419, '2016-12-01 11:59:59', 'lend out', null, null),
+('Qi''s Museum', 'Canada Science and Technology Museum', 'Qi''s Museum', 'nmah', 750503, '2017-01-01 11:59:59', 'lend out', null, null),
+('Qi''s Museum', 'Canadian War Museum', 'Qi''s Museum', 'nmah', 750514, '2017-02-01 11:59:59', 'lend out', null, null),
+('Qi''s Museum', 'Canada Agriculture Museum', 'Qi''s Museum', 'nmah', 749374, '2017-03-01 11:59:59', 'lend out', null, null),
+('Qi''s Museum', 'Canadian Museum of Nature', 'Qi''s Museum', 'nmah', 749469, '2017-04-01 11:59:59', 'lend out', null, null);
+
+--Add 6 rows regarding on-loan works
+--lend in
+INSERT INTO ns_Transactions(ns_tr_inName, ns_tr_inNameGiver, ns_tr_inNameReceiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate, ns_tr_trType, ns_tr_IDAlphaOther, ns_tr_ns_IDNumericOther)
+VALUES
+('Qi''s Museum', 'Canadian Museum of History', 'Qi''s Museum', 'nmah', 750415, '2017-07-01 11:59:59', 'lend in', null, null),
+('Qi''s Museum', 'Rockcliffe Flying Club', 'Qi''s Museum', 'nmah', 750419, '2017-07-01 11:59:59', 'lend in', null, null),
+('Qi''s Museum', 'Canada Science and Technology Museum', 'Qi''s Museum', 'nmah', 750503, '2017-07-01 11:59:59', 'lend in', null, null),
+('Qi''s Museum', 'Canadian War Museum', 'Qi''s Museum', 'nmah', 750514, '2017-07-01 11:59:59', 'lend in', null, null),
+('Qi''s Museum', 'Canada Agriculture Museum', 'Qi''s Museum', 'nmah', 749374, '2017-07-01 11:59:59', 'lend in', null, null),
+('Qi''s Museum', 'Canadian Museum of Nature', 'Qi''s Museum', 'nmah', 749469, '2017-07-01 11:59:59', 'lend in', null, null);
+
+
+
+
+----------------------------------
+-----WorksLocations table---------
+----------------------------------
+--Update the initial start date for works location to acquisition date when location is in storage
+
+
+
+--Add 3 rows regarding sold works
+INSERT INTO ns_Works_Locations(ns_wl_lcName, ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlStartDateTime, ns_wl_wlEndDateTime)
+	SELECT 'storage', wkIDLetter, wkIDNumber, 'Qi''s Museum', '2015-01-01 11:59:59', '2016-10-21 11:59:59'
+	FROM works
+	WHERE wkOwnership='sold work';
+
+--Get all pks and work names for available works between 2016-11-01 and 2017-04-30 and they should are all in storage
+SELECT ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_wlStartDateTime, ns_wl_wlEndDateTime, ns_wk_wkName
+	FROM ns_Works_Locations, ns_Works
+	WHERE ns_wl_IDAlpha=ns_wk_IDAlpha AND ns_wl_IDNumeric=ns_wk_IDNumeric 
+			AND ns_wl_wlEndDateTime is null
+			AND ns_wl_LcName='storage'
+	ORDER BY ns_wl_wlStartDateTime ASC; 
+
+
+--Add 12 rows regarding on-loan works to keep track of its lending out and returning
+INSERT INTO ns_Works_Locations(ns_wl_inName, ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_wlStartDateTime, ns_wl_wlEndDateTime, ns_wl_lcName)
+	VALUES 
+('Qi''s Museum', 'nmah', 750415, '2016-11-01 11:59:59', '2017-07-01 11:59:59', 'Canadian Museum of History'),		
+('Qi''s Museum', 'nmah', 750415, '2017-07-01 11:59:59', null, 'storage'),				
+
+('Qi''s Museum', 'nmah', 750419, '2016-12-01 11:59:59', '2017-07-01 11:59:59', 'Rockcliffe Flying Club'),
+('Qi''s Museum', 'nmah', 750419, '2017-07-01 11:59:59', null, 'storage'),
+
+('Qi''s Museum', 'nmah', 750503, '2017-01-01 11:59:59', '2017-07-01 11:59:59', 'Canada Science and Technology Museum'),
+('Qi''s Museum', 'nmah', 750503, '2017-07-01 11:59:59', null, 'storage'),
+
+('Qi''s Museum', 'nmah', 750514, '2017-02-01 11:59:59', '2017-07-01 11:59:59', 'Canadian War Museum'), 
+('Qi''s Museum', 'nmah', 750514, '2017-07-01 11:59:59', null, 'storage'),
+
+('Qi''s Museum', 'nmah', 749374, '2017-03-01 11:59:59', '2017-07-01 11:59:59', 'Canada Agriculture Museum'),
+('Qi''s Museum', 'nmah', 749374, '2017-07-01 11:59:59', null, 'storage'),
+
+('Qi''s Museum', 'nmah', 749469, '2017-04-01 11:59:59', '2017-07-01 11:59:59', 'Canadian Museum of Nature'), 
+('Qi''s Museum', 'nmah', 749469, '2017-07-01 11:59:59', null, 'storage');
+
+
+--Update 6 rows regarding end date for on-loan works
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2016-11-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=750415;
+
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2016-12-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=750419;
+
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2017-01-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=750503;
+
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2017-02-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=750514;
+
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2017-03-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=749374;
+
+UPDATE ns_Works_Locations
+SET ns_wl_wlEndDateTime='2017-04-01 11:59:59'
+WHERE ns_wl_wlStartDateTime='2016-10-25 11:59:59' AND ns_wl_IDNumeric=749469;
+
+
+
+
+--Add 55 rows regarding travelling exhibitions
+INSERT INTO ns_Works_Exhibitions(ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate, ns_we_exEndDate)
+	SELECT DISTINCT ns_we_IDAlpha, ns_we_IDNumeric, ns_we_inName, '2016-10-26', '2016-11-02', 'Saskatoon - Regina'
+	FROM ns_Works_Locations, ns_Works_Exhibitions
+	WHERE ns_we_IDNumeric in (SELECT ns_we_IDNumeric
+								FROM ns_Works_Exhibitions
+								WHERE ns_we_exName='Engraved Woodblocks Exhibitions')
+	AND ns_we_IDAlpha in (SELECT ns_we_IDAlpha
+								FROM ns_Works_Exhibitions
+								WHERE ns_we_exName='Engraved Woodblocks Exhibitions');
+
+
+INSERT INTO ns_Works_Locations(ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlStartDateTime, ns_wl_wlEndDateTime, ns_wl_lcName)
+	VALUES
+		('nmah', 750233, 'Qi''s Museum', '2016-10-26 11:59:59', '2016-11-02 11:59:59', 'Saskatoon - Regina'),
+		 ('nmah', 750280, 'Qi''s Museum', '2016-10-26 11:59:59', '2016-11-02 11:59:59', 'Saskatoon - Regina'),
+		 ('nmah', 749520, 'Qi''s Museum', '2016-10-26 11:59:59', '2016-11-02 11:59:59', 'Saskatoon - Regina'),
+		 ('nmah', 750359, 'Qi''s Museum', '2016-10-26 11:59:59', '2016-11-02 11:59:59', 'Saskatoon - Regina'),
+		 ('nmah', 749473, 'Qi''s Museum', '2016-10-26 11:59:59', '2016-11-02 11:59:59', 'Saskatoon - Regina'),
+
+ 		 ('nmah', 750359, 'Qi''s Museum', '2016-11-02 11:59:59', '2016-11-23 11:59:59', 'Regina'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2016-11-02 11:59:59', '2016-11-23 11:59:59', 'Regina'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2016-11-02 11:59:59', '2016-11-23 11:59:59', 'Regina'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2016-11-02 11:59:59', '2016-11-23 11:59:59', 'Regina'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2016-11-02 11:59:59', '2016-11-23 11:59:59', 'Regina'),
+
+ 		 ('nmah', 749520, 'Qi''s Museum', '2016-11-23 11:59:59', '2016-11-30 11:59:59', 'Regina - Swift Current'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2016-11-23 11:59:59', '2016-11-30 11:59:59', 'Regina - Swift Current'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2016-11-23 11:59:59', '2016-11-30 11:59:59', 'Regina - Swift Current'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2016-11-23 11:59:59', '2016-11-30 11:59:59', 'Regina - Swift Current'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2016-11-23 11:59:59', '2016-11-30 11:59:59', 'Regina - Swift Current'),
+
+ 		 ('nmah', 749520, 'Qi''s Museum', '2016-11-30 11:59:59', '2016-12-21 11:59:59', 'Swift Current'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2016-11-30 11:59:59', '2016-12-21 11:59:59', 'Swift Current'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2016-11-30 11:59:59', '2016-12-21 11:59:59', 'Swift Current'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2016-11-30 11:59:59', '2016-12-21 11:59:59', 'Swift Current'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2016-11-30 11:59:59', '2016-12-21 11:59:59', 'Swift Current'),
+
+ 		 ('nmah', 749473, 'Qi''s Museum', '2016-12-21 11:59:59', '2016-12-28 11:59:59', 'Swift Current - North Battleford'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2016-12-21 11:59:59', '2016-12-28 11:59:59', 'Swift Current - North Battleford'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2016-12-21 11:59:59', '2016-12-28 11:59:59', 'Swift Current - North Battleford'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2016-12-21 11:59:59', '2016-12-28 11:59:59', 'Swift Current - North Battleford'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2016-12-21 11:59:59', '2016-12-28 11:59:59', 'Swift Current - North Battleford'),
+
+ 		 ('nmah', 749520, 'Qi''s Museum', '2016-12-28 11:59:59', '2017-01-04 11:59:59', 'North Battleford'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2016-12-28 11:59:59', '2017-01-04 11:59:59', 'North Battleford'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2016-12-28 11:59:59', '2017-01-04 11:59:59', 'North Battleford'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2016-12-28 11:59:59', '2017-01-04 11:59:59', 'North Battleford'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2016-12-28 11:59:59', '2017-01-04 11:59:59', 'North Battleford'),
+
+ 		 ('nmah', 750359, 'Qi''s Museum', '2017-01-04 11:59:59', '2017-01-11 11:59:59', 'North Battleford - Prince Albert'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2017-01-04 11:59:59', '2017-01-11 11:59:59', 'North Battleford - Prince Albert'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2017-01-04 11:59:59', '2017-01-11 11:59:59', 'North Battleford - Prince Albert'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2017-01-04 11:59:59', '2017-01-11 11:59:59', 'North Battleford - Prince Albert'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2017-01-04 11:59:59', '2017-01-11 11:59:59', 'North Battleford - Prince Albert'),
+
+ 		 ('nmah', 750280, 'Qi''s Museum', '2017-01-11 11:59:59', '2017-02-01 11:59:59', 'Prince Albert'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2017-01-11 11:59:59', '2017-02-01 11:59:59', 'Prince Albert'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2017-01-11 11:59:59', '2017-02-01 11:59:59', 'Prince Albert'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2017-01-11 11:59:59', '2017-02-01 11:59:59', 'Prince Albert'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2017-01-11 11:59:59', '2017-02-01 11:59:59', 'Prince Albert'),
+
+ 		 ('nmah', 749520, 'Qi''s Museum', '2017-02-01 11:59:59', '2017-02-08 11:59:59', 'Prince Albert - Yorkton'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2017-02-01 11:59:59', '2017-02-08 11:59:59', 'Prince Albert - Yorkton'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2017-02-01 11:59:59', '2017-02-08 11:59:59', 'Prince Albert - Yorkton'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2017-02-01 11:59:59', '2017-02-08 11:59:59', 'Prince Albert - Yorkton'),
+ 		 ('nmah', 749473, 'Qi''s Museum', '2017-02-01 11:59:59', '2017-02-08 11:59:59', 'Prince Albert - Yorkton'),
+
+ 		 ('nmah', 749473, 'Qi''s Museum', '2017-02-08 11:59:59', '2017-03-01 11:59:59', 'Yorkton'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2017-02-08 11:59:59', '2017-03-01 11:59:59', 'Yorkton'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2017-02-08 11:59:59', '2017-03-01 11:59:59', 'Yorkton'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2017-02-08 11:59:59', '2017-03-01 11:59:59', 'Yorkton'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2017-02-08 11:59:59', '2017-03-01 11:59:59', 'Yorkton'),
+
+ 		 ('nmah', 749473, 'Qi''s Museum', '2017-03-01 11:59:59', '2017-03-08 11:59:59', 'Yorkton - Saskatoon'),
+ 		 ('nmah', 750359, 'Qi''s Museum', '2017-03-01 11:59:59', '2017-03-08 11:59:59', 'Yorkton - Saskatoon'),
+ 		 ('nmah', 750280, 'Qi''s Museum', '2017-03-01 11:59:59', '2017-03-08 11:59:59', 'Yorkton - Saskatoon'),
+ 		 ('nmah', 750233, 'Qi''s Museum', '2017-03-01 11:59:59', '2017-03-08 11:59:59', 'Yorkton - Saskatoon'),
+ 		 ('nmah', 749520, 'Qi''s Museum', '2017-03-01 11:59:59', '2017-03-08 11:59:59', 'Yorkton - Saskatoon');
+
+
+
+--get all travelling exhibition works id
+SELECT ns_we_IDNumeric
+	FROM ns_Works_Exhibitions
+	WHERE ns_we_exName='Engraved Woodblocks Exhibitions';
+
+
+
+----------------------------------
+---ExhibitionsLocations table-----
+----------------------------------
+--Add 5+6 rows for travelling exhibitions
+INSERT INTO ns_exhibitions_locations(ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName, ns_el_travelingStartDate, ns_el_travelingEndDate, ns_el_exEndDate)
+	SELECT elLocation, elExhibition, elExStartDate, ellcMuseum, null, null, elExEndDate
+	FROM ExhibitionsLocations;
+
+
+	VALUES ('Saskatoon - Regina', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Regina', 'Qi''s Museum', null, null, null, null, null, null, 'Sean Copeland', 'Deborah Marsh', 1952261, '100 Rue Laurier', 'Regina', 'SK', 'Canada', 'S7H 0M8'),
+			('Regina - Swift Current', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Swift Current', 'Qi''s Museum', null, null, null, null, null, null, 'Beverly Manning', 'Pauline Sharp', 1952261, '11 Aviation Pkwy', 'Swift Current', 'SK', 'Canada', 'S3N 2X5'),
+			('Swift Current - North Battleford', 'Qi''s Museum', null, null, null, null, null, null, 'Sylvia Gray', 'Firdos Emilio', 1952261, null, null, null, null, null),
+			('North Battleford', 'Qi''s Museum', null, null, null, null, null, null, 'Melvin Sandoval', 'Terri Lyons', 1952261, '1867 St Laurent Blvd', 'North Battleford', 'SK', 'Canada', 'S0H 5A3'),
+			('North Battleford - Prince Albert', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Prince Albert', 'Qi''s Museum', null, null, null, null, null, null, 'Bertha Reid', 'Gwen Webb', 1952261, '1 Vimy Pl', 'Prince Albert', 'SK', 'Canada', 'S1A 0M8'),
+			('Prince Albert - Yorkton', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null),
+			('Yorkton', 'Qi''s Museum', null, null, null, null, null, null, 'Betty Lane', 'Mable Strickland', 1952261, '240 McLeod St', 'Yorkton', 'SK', 'Canada', 'K2P 2R1'),
+			('Yorkton - Saskatoon', 'Qi''s Museum', null, null, null, null, null, null, null, null, 1952261, null, null, null, null, null);
+
+
+
+--Add 11 rows for travelling exhibitions along with information regarding exhibition moving from one place to another
+INSERT INTO ns_exhibitions_locations(ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName, ns_el_travelingStartDate, ns_el_travelingEndDate, ns_el_exEndDate)
+	VALUES ('Saskatoon - Regina', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-10-26', '2016-11-02', '2017-03-01'),
+	       ('Regina', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-02', '2016-11-23', '2017-03-01'),
+	       ('Regina - Swift Current', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-23', '2016-11-30', '2017-03-01'),
+	       ('Swift Current', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-11-30', '2016-12-21', '2017-03-01'),
+	       ('Swift Current - North Battleford', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-12-21', '2016-12-28', '2017-03-01'),
+	       ('North Battleford', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2016-12-28', '2017-01-04', '2017-03-01'),
+	       ('North Battleford - Prince Albert', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-01-04', '2017-01-11', '2017-03-01'),
+	       ('Prince Albert', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-01-11', '2017-02-01', '2017-03-01'),
+	       ('Prince Albert - Yorkton', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-02-01', '2017-02-08', '2017-03-01'),
+	       ('Yorkton', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-02-08', '2017-03-01', '2017-03-01'),
+		   ('Yorkton - Saskatoon', 'Engraved Woodblocks Exhibitions', '2016-10-26', 'Qi''s Museum', '2017-03-01', '2017-03-08', '2017-03-01');
+
+
+
+--Export 
+
+ \copy ns_exhibitions           to 'ns_exhibitions2';   
+ \copy ns_exhibitions_locations to 'ns_exhibitions_locations2';   
+ \copy ns_institutions          to 'ns_institutions2';   
+ \copy ns_locations             to 'ns_locations2';   
+ \copy ns_locations_doors       to 'ns_locations_doors2';   
+ \copy ns_transactions          to 'ns_transactions2';   
+ \copy ns_works                 to 'ns_works2';   
+ \copy ns_works_exhibitions     to 'ns_works_exhibitions2';   
+ \copy ns_works_locations       to 'ns_works_locations2';   
+ \copy ns_works_media           to 'ns_works_media2';   
+ \copy ns_works_ownership       to 'ns_works_ownership2';   
+ \copy ns_works_state           to 'ns_works_state2';   
+ \copy ns_works_value           to 'ns_works_value2';   
+
+ psql -U cmpt355_team06 -d cmpt355_team06 -h edjo.usask.ca
+
+--Import
+ \copy institutions          from 'ns_institutions2';   
+ \copy works                 from 'ns_works2'; 
+ \copy locations             from 'ns_locations2'; 
+ \COPY exhibitions from 'ns_exhibitions2';
+ \copy exhibitions_locations from 'ns_exhibitions_locations2';   
+ \copy locations_doors       from 'ns_locations_doors2';   
+ \copy transactions          from 'ns_transactions2';   
+ \copy works_ownership       from 'ns_works_ownership2';
+ \copy works_locations       from 'ns_works_locations2';  
+ \copy works_value           from 'ns_works_value2';  
+ \copy works_state           from 'ns_works_state2';   
+ \copy works_exhibitions     from 'ns_works_exhibitions2';   
+ \copy works_media           from 'ns_works_media2';   
+   
+ 

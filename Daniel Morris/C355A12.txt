@@ -1,0 +1,71 @@
+-- Daniel Morris
+-- ddm855
+-- 11188831
+
+-- Populating Works Table
+
+\copy Works FROM 'C355A12-1.txt'
+
+-- Populating Media Table
+
+\copy Media FROM 'C355A12-2.txt'
+
+-- Populating Locations Table
+
+\copy Rooms FROM 'C355A12-3.txt'
+
+-- Populating Exhibitions Table
+
+\copy Exhibitions FROM 'C355A12-4.txt'
+
+-- Populating Exhibitions Works Table
+
+\copy ExhibitWorks FROM 'C355A12-5.txt'
+
+-- Populating WorksLocations Table
+
+\copy WorksLocations FROM 'C355A12-6.txt'
+
+-- Populating Doors Table
+
+\copy Doors FROM 'C355A12-7.txt'
+
+-- Populating Exhibit Locations Table
+
+\copy ExhibitLocations FROM 'C355A12-8.txt'
+
+
+
+UPDATE WorksLocations
+SET locName = 'Gallery A'
+FROM ExhibitWorks
+WHERE WorksLocations.locIdAlpha = ExhibitWorks.ewIdAlpha
+AND WorksLocations.locIdNum = ExhibitWorks.ewIdNum
+AND ExhibitWorks.ewName = 'Back to the 80s';
+
+UPDATE WorksLocations
+SET locName = 'Gallery B'
+FROM ExhibitWorks
+WHERE WorksLocations.locIdAlpha = ExhibitWorks.ewIdAlpha
+AND WorksLocations.locIdNum = ExhibitWorks.ewIdNum
+AND ExhibitWorks.ewName = 'Life in Three Dimentions';
+
+UPDATE WorksLocations
+SET locName = 'Gallery C'
+FROM ExhibitWorks
+WHERE WorksLocations.locIdAlpha = ExhibitWorks.ewIdAlpha
+AND WorksLocations.locIdNum = ExhibitWorks.ewIdNum
+AND ExhibitWorks.ewName = 'Its a Colourful World';
+
+
+
+
+
+
+
+
+
+
+
+
+

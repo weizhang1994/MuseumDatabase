@@ -1,0 +1,12 @@
+ON LOAN	WAC gallery	0	0	0	0	0	\N	\N	\N	0	\N	\N	\N	\N	\N 
+Gallery No1	WAC gallery	8	10	4	7	16	2017-03-26	\N	\N	0	\N	\N	\N	\N	\N
+Gallery No2	WAC gallery	15	10	4	7	16	2017-06-25	\N	\N	0	\N	\N	\N	\N	\N 
+Main Hall	WAC gallery	25	10	4	14	24	2017-03-11	\N	\N	0	\N	\N	\N	\N	\N 
+STORAGE	WAC gallery	21	10	10	0	600	\N	\N	\N	0	\N	\N	\N	\N	\N 
+LOBBY	WAC gallery	7	10	4	2	4	\N	\N	\N	0	\N	\N	\N	\N	\N 
+Grand Hall	WAC gallery	30	10	4	15	25	2016-12-02	\N	\N	0	\N	\N	\N	\N	\N 
+Humboldt	WAC gallery	0	0	0	0	0	\N	Humboldt Museum	Charles Hummberbag	1700	602 Main St	Humboldt	Saskatchewan	Canada	S0K 2A0
+Regina	WAC gallery	0	0	0	0	0	\N	Royal Saskatchewan Museum	Harry Winsdor	1899	2445 Albert St	Regina	Saskatchewan	Canada	S4P 4W7
+Moose Jaw	WAC gallery	0	0	0	0	0	\N	Moose Jaw Museum & Art Gallery	Mike Wood	1750	461 Langdon Cresent	Moose Jaw	Saskatchewan	Canada	S6H 0X6
+Swift Current	WAC gallery	0	0	0	0	0	\N	Swift Current Museum	Mike Wood	1700	44 Robert St W	Swift Current	Saskatchewan	Canada	S9H 4M9
+Kindersley	WAC gallery	0	0	0	0	0	\N	Kindersley Plains Museum	Billy Nike	1699	7 HWY	Kindersley	Saskatchewan	Canada	S8K 1M1

@@ -1,0 +1,58 @@
+--Add data to the Location table
+--Added 70 works to the collection of the museum
+\copy Locations FROM 'C355A12-1.txt'
+
+--Add data to the Doorconnections table
+\copy Doorconnections FROM 'C355A12-2.txt'
+
+--Add data to the Works table
+\copy Works FROM 'works.txt'
+
+--Add data to the Media table
+\copy Media FROM 'media.txt'
+
+--Add data to the Locations table
+\copy Locations FROM 'C355A12-1.txt'
+
+--Add data to the WorksLocation table
+--Place all items initially in storage facility.
+\copy WorksLocations FROM 'C355A12-3.txt'
+
+--Add data to Exhibitions table
+--Create three exhibitions that are currently taking place
+\copy Exhibitions FROM 'C355A12-4.txt'
+
+
+
+--Add data to ExhibitionWorks table
+-- Place selected items in three exhibitions
+\copy ExhibitionsWorks FROM 'C355A12-5.txt'
+\copy ExhibitionsWorks FROM 'C355A12-6.txt'
+\copy ExhibitionsWorks FROM 'C355A12-7.txt'
+
+-- Assign two special works to be displayed in the lobby.
+UPDATE WorksLocations SET wlLocation='lobby'
+	where wlIDLetter='nmah' AND wlIDNumber=749024;
+
+UPDATE WorksLocations SET wlLocation='lobby'
+	where wlIDLetter='nmah' AND wlIDNumber=749281;
+
+-- Assign the exhibitions to locations
+UPDATE Exhibitions SET exlocation='galleryA'
+	where exname='Photographs-a vast mosaic of the nation''s history';
+
+UPDATE Exhibitions SET exlocation='galleryC'
+	where exname='Utensils from the 18th century';
+
+UPDATE Exhibitions SET exlocation='galleryB'
+	where exname='Paintings tell stories';
+
+-- Update the location of all works that are now in exhibitions
+UPDATE WorksLocations
+SET wlLocation = f.elLocation
+FROM(
+	SELECT ew.ewIDLetter, ew.ewIDNumber, el.elLocation 
+		FROM Exhibitions AS e, ExhibitionsWorks AS ew, ExhibitionsLocations AS el
+		where e.exName = ew.ewExhibition AND e.exName = el.elExhibition
+) AS f
+where wlIDLetter=f.ewIDLetter AND wlIDNumber=f.ewIDNumber;

@@ -1,0 +1,63 @@
+
+
+\i '11_Insert_exhibition_location.txt'
+
+INSERT INTO ns_locations_doors(ns_ld_inname,
+			       ns_ld_lcname1,
+			       ns_ld_lcname2) 
+	SELECT  'WAC gallery',
+		door_from,
+		door_to
+	FROM doors;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

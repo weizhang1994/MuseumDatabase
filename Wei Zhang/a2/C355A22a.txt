@@ -1,0 +1,39 @@
+-- Wei Zhang wez758 11146590
+-- Part 2: Evolve the database
+
+
+-- 2a. expaned works
+DROP DOMAIN IF EXISTS mBelong CASCADE;
+CREATE DOMAIN mBelong AS varchar(30);
+
+ALTER TABLE museum drop COLUMN IF EXISTS museumBelong;
+ALTER TABLE museum ADD COLUMN museumBelong mBelong;
+
+ --Add 15 new works to database and have them be long time borrowed works 
+-- Add 15 new works belonging to other museums as potential works that could be borrowed
+\copy museum from 'museum.txt';
+
+--Create report about this part
+drop view museum if EXISTS;
+create view museum as 
+select * from museum;
+
+Select * from
+museum;
+
+DROP DOMAIN IF EXISTS donorN CASCADE;
+CREATE DOMAIN donorN AS varchar(30) not null;
+drop table if EXISTS donors;
+create table donors(
+	museumLetter mLetter,
+	museumNumber mNumber,
+	donorsName donorN,
+        PRIMARY KEY(museumLetter, museumNumber, donorsName),	
+        FOREIGN KEY (museumLetter, museumNumber)
+        REFERENCES museum
+			ON UPDATE CASCADE
+			ON DELETE CASCADE);
+	
+\copy donors from 'doners.txt';	
+	
+	

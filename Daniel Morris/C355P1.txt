@@ -1,0 +1,1324 @@
+
+
+-- fixing start and end date pf exhibit "Early 2000s Works"
+UPDATE exhibitions
+SET exStart = '20170923'
+WHERE exName = 'Early 2000s Works';
+UPDATE exhibitions
+SET exEnd = '20171223'
+WHERE exName = 'Early 2000s Works';
+
+--fixing workOwner table
+DELETE FROM workOwner
+WHERE wkoName = 'MCA';
+
+INSERT INTO workOwner
+  SELECT 'MCA', wkIdAlpha, wkIdNum, wkAcqDate
+    FROM works
+      WHERE wkBorrowStatus = 'Owned';
+
+-- fixing date of acquisition for borrowed works
+
+
+
+UPDATE works
+SET wkAcqDate = '20160619'
+WHERE wkBorrowStatus = 'Borrowed';
+    
+UPDATE workOwner
+SET wkoDate = '20160619'
+WHERE wkoDate = '20161019';
+    
+-- deleting works from exhibitWorks to fix broken data
+DELETE FROM exhibitWorks
+  WHERE (ewIdAlpha = 'AngBic' AND ewIdNum = 8 AND ewName = 'Aboriginal Exhibition')
+	OR (ewIdAlpha = 'SelBes' AND ewIdNum = 11 AND ewName = 'Back to the 80s')
+	OR (ewIdAlpha = 'MarRin' AND ewIdNum = 989 AND ewName = 'Back to the 80s')
+	OR (ewIdAlpha = 'MayBru' AND ewIdNum = 0 AND ewName = 'Life in Three Dimentions')
+	OR (ewIdAlpha = 'YatBra' AND ewIdNum = 6 AND ewName = 'Life in Three Dimentions')
+	OR (ewIdAlpha = 'MorCol' AND ewIdNum = 7 AND ewName = 'Aboriginal Exhibition')
+	OR (ewIdAlpha = 'MarEdw' AND ewIdNum = 8 AND ewName = 'Its a Colourful World')
+	OR (ewIdAlpha = 'KenNeo' AND ewIdNum = 2 AND ewName = 'Its a Colourful World')
+	OR (ewIdAlpha = 'KenNeo' AND ewIdNum = 2 AND ewName = 'Life in Three Dimentions')
+	OR (ewIdAlpha = 'BlaPar' AND ewIdNum = 989 AND ewName = 'Back to the 80s')
+	OR (ewIdAlpha = 'MofSom' AND ewIdNum = 989 AND ewName = 'Back to the 80s')
+	OR (ewIdAlpha = 'YanDis' AND ewIdNum = 981 AND ewName = 'Through the Eye of the Lens')
+	OR (ewIdAlpha = 'WymCom' AND ewIdNum = 8 AND ewName = 'Its a Colourful World');
+
+	
+	
+--reassigning works to the traveling exhibition:
+
+DELETE FROM exhibitWorks
+WHERE ewName = 'Saskatchewan Exhibition';
+
+INSERT INTO exhibitWorks VALUES
+('Saskatchewan Exhibition', 'DeaWhe', 2),
+('Saskatchewan Exhibition', 'DonUnt', 5),
+('Saskatchewan Exhibition', 'DwyNon', 994),
+('Saskatchewan Exhibition', 'DwyRec', 996),
+('Saskatchewan Exhibition', 'DwySpe', 15),
+('Saskatchewan Exhibition', 'DwySqu', 10),
+('Saskatchewan Exhibition', 'DwyWal', 2),
+('Saskatchewan Exhibition', 'EagNew', 5),
+('Saskatchewan Exhibition', 'EagTan', 12);
+	
+	
+	
+DELETE FROM exhibitWorks
+WHERE ewIdAlpha = 'MarRin'
+AND ewIdNum = 989;
+	
+DELETE FROM exhibitWorks
+WHERE ewIdAlpha = 'NelWal'
+AND ewIdNum = 12;
+	
+
+-- remaking worksLocations table...
+
+-- deleting work locations
+DELETE FROM worksLocations
+  WHERE locName != 'Lobby';
+  
+-- inserting works when they first entered the museum
+INSERT INTO worksLocations
+  SELECT wkIdAlpha, wkIdNum, 'Storage', wkAcqDate
+    FROM works
+      WHERE wkIdAlpha != 'KngUnt' AND wkIdAlpha != 'OrsNgu'
+      AND wkBorrowStatus != 'Potentially Borrowed';
+
+-- inserting the works that got sold    
+
+INSERT INTO worksLocations
+	SELECT 'MarRin', 989, 'Sold', '20161021';
+	
+
+INSERT INTO worksLocations
+	SELECT 'NelWal', 12, 'Sold', '20161021';
+
+INSERT INTO worksLocations
+	SELECT 'BirUnt', 5, 'Sold', '20161021';
+	
+	
+--inserting works into exhibitions 3 days before exhibition starts
+INSERT INTO worksLocations
+  SELECT ewIdAlpha, ewIdNum, exlocLoc, exStart - 3
+    FROM exhibitWorks, exhibitLocations, exhibitions
+      WHERE exLocName = exName
+	AND ewName = exName;
+
+--inserting works into storage 1 day after exhibition ends
+INSERT INTO worksLocations
+  SELECT ewIdAlpha, ewIdNum, 'Storage', exEnd + 1
+    FROM exhibitWorks, exhibitLocations, exhibitions
+      WHERE exLocName = exName
+	AND ewName = exName;
+	
+	
+	
+	
+
+ALTER TABLE rooms ALTER COLUMN rmName TYPE varchar(30);
+
+ALTER TABLE rooms ALTER rmWidth DROP NOT NULL;
+ALTER TABLE rooms ALTER rmlength DROP NOT NULL;
+ALTER TABLE rooms ALTER rmsuggmin DROP NOT NULL;
+ALTER TABLE rooms ALTER rmsuggmax DROP NOT NULL;
+
+INSERT INTO rooms
+VALUES ('Harvard University', null, null, null, null, null),
+('Tate Modern', null, null, null, null, null),
+('Peterson Museum', null, null, null, null, null),
+('The Louvre', null, null, null, null, null),
+('National Gallery of Art', null, null, null, null, null),
+('Metropolitan Museum of Art', null, null, null, null, null);
+
+
+DELETE FROM rooms
+WHERE rmName = 'on loan';
+
+
+
+
+
+UPDATE rooms
+SET availabilityDate = null, rmWidth = null, rmLength = null, rmSuggMin = null, rmSuggMax = null
+WHERE rmName = 'Lobby' OR rmName = 'Storage' OR rmName = 'Sold';
+
+UPDATE rooms
+SET availabilityDate = '20171223'
+WHERE rmName = 'Gallery C';
+
+UPDATE rooms
+SET availabilityDate = '20170918'
+WHERE rmName = 'Gallery B';
+
+UPDATE rooms
+SET availabilityDate = '20170812'
+WHERE rmName = 'Gallery A';
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+-- CHANGING TEMPORAL TYPE OF worksLocations:
+
+
+ALTER TABLE worksLocations ADD COLUMN locEndDate Timestamp;
+ALTER TABLE worksLocations ADD COLUMN orderNumber smallint;
+
+-- setting the orderNumber column
+UPDATE worksLocations SET orderNumber = v_worksLocations.rn
+FROM
+(
+	SELECT locIdAlpha, locIdNum, locMoveDate, row_number() over (ORDER BY (locIdAlpha, locMoveDate)) AS rn
+	FROM worksLocations
+) AS v_worksLocations
+WHERE worksLocations.locMoveDate = v_worksLocations.locMoveDate
+AND worksLocations.locIdAlpha = v_worksLocations.locIdAlpha
+AND worksLocations.locIdNum = v_worksLocations.locIdNum;
+
+-- creating a temp table as a copy of worksLocations
+CREATE TABLE tempWorksLocations AS SELECT * FROM worksLocations;
+ALTER TABLE tempWorksLocations RENAME locIdAlpha TO tlocIdAlpha;
+ALTER TABLE tempWorksLocations RENAME locIdNum TO tlocIdNum;
+ALTER TABLE tempWorksLocations RENAME orderNumber TO torderNumber;
+ALTER TABLE tempWorksLocations RENAME locMoveDate TO tlocMoveDate;
+ALTER TABLE tempWorksLocations RENAME locEndDate TO tlocEndDate;
+
+--adding the locEndDate to the worksLocations table using the temp table and the order numbers
+UPDATE worksLocations
+SET locEndDate = tlocMoveDate
+FROM tempWorksLocations
+WHERE orderNumber = torderNumber - 1
+AND locIdAlpha = tlocIdAlpha
+AND locIdNum = tlocIdNum;
+
+DROP TABLE tempWorksLocations;
+
+ALTER TABLE worksLocations DROP COLUMN orderNumber;
+
+ALTER TABLE worksLocations RENAME locMoveDate TO locStartDate;
+
+ALTER TABLE worksLocations ALTER COLUMN locName TYPE varchar(58);
+
+
+
+
+
+
+UPDATE workLoan		SET wklIDAlpha = 'CooUnt', wklIDNum = 1		WHERE wklIDAlpha = 'WhiUnt' AND wklIDNum = 8;
+
+UPDATE workLoan		SET wklIDAlpha = 'CulPir', wklIDNum = 4		WHERE wklIDAlpha = 'BenHom' AND wklIDNum = 999;
+
+UPDATE workLoan		SET wklIDAlpha = 'DanIts', wklIDNum = 9		WHERE wklIDAlpha = 'ValThe' AND wklIDNum = 993;
+
+UPDATE workLoan		SET wklIDAlpha = 'DavPor', wklIDNum = 991	WHERE wklIDAlpha = 'SmiAda' AND wklIDNum = 8 AND wklname = 'Tate Modern';
+
+UPDATE workLoan		SET wklIDAlpha = 'DeaFor', wklIDNum = 1		WHERE wklIDAlpha = 'ArmSpl' AND wklIDNum = 9;
+
+UPDATE workLoan		SET wklIDAlpha = 'DeaTra', wklIDNum = 3		WHERE wklIDAlpha = 'TilTab' AND wklIDNum = 11;
+
+
+
+UPDATE worksLocations SET locEndDate = wklStartDate
+FROM workLoan
+WHERE locIdAlpha = wklIdAlpha
+AND locIdNum = wklIdNum
+AND locStartDate = '20161025';
+
+INSERT INTO worksLocations
+SELECT wklIdAlpha, wklIdNum, wklname, wklStartDate, wklEndDate
+FROM workLoan;
+
+INSERT INTO worksLocations
+SELECT wklIdAlpha, wklIdNum, 'Storage', wklEndDate, null
+FROM workLoan;
+
+
+
+
+
+
+
+
+-- Drop Institutions table domains
+DROP DOMAIN IF EXISTS ns_inName cascade;
+DROP DOMAIN IF EXISTS ns_email cascade;
+DROP DOMAIN IF EXISTS ns_phoneNumber cascade;
+DROP DOMAIN IF EXISTS ns_streetAddress cascade;
+DROP DOMAIN IF EXISTS ns_city cascade;
+DROP DOMAIN IF EXISTS ns_countrySubdivision cascade;
+DROP DOMAIN IF EXISTS ns_country cascade;
+DROP DOMAIN IF EXISTS ns_postalCode cascade;
+
+
+-- Drop Works table domains:
+DROP DOMAIN IF EXISTS ns_IDAlpha cascade;
+DROP DOMAIN IF EXISTS ns_IDNumeric cascade;
+DROP DOMAIN IF EXISTS ns_wkName cascade;
+DROP DOMAIN IF EXISTS ns_creator cascade;
+DROP DOMAIN IF EXISTS ns_coDate cascade;
+DROP DOMAIN IF EXISTS ns_acDate cascade;
+DROP DOMAIN IF EXISTS ns_wkDescription cascade;
+DROP DOMAIN IF EXISTS ns_theme cascade;
+DROP DOMAIN IF EXISTS ns_subject cascade;
+DROP DOMAIN IF EXISTS ns_culture cascade;
+DROP DOMAIN IF EXISTS ns_colour cascade;
+DROP DOMAIN IF EXISTS ns_carType cascade;
+DROP DOMAIN IF EXISTS ns_transmission cascade;
+
+
+--Drop Locations table domains:
+DROP DOMAIN IF EXISTS ns_lcName cascade;
+DROP DOMAIN IF EXISTS ns_length cascade;
+DROP DOMAIN IF EXISTS ns_height cascade;
+DROP DOMAIN IF EXISTS ns_width cascade;
+DROP DOMAIN IF EXISTS ns_minNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_maxNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_availabilityDate cascade;
+DROP DOMAIN IF EXISTS ns_sponsor cascade;
+DROP DOMAIN IF EXISTS ns_security cascade;
+DROP DOMAIN IF EXISTS ns_insurance cascade;
+
+
+-- Drop Exhibitions table domains:
+DROP DOMAIN IF EXISTS ns_exName cascade;
+DROP DOMAIN IF EXISTS ns_exStartDate cascade;
+DROP DOMAIN IF EXISTS ns_isTraveling cascade;
+DROP DOMAIN IF EXISTS ns_exDescription cascade;
+DROP DOMAIN IF EXISTS ns_exEndDate cascade;
+
+
+-- Drop Exhibitions_ location table domains:
+DROP DOMAIN IF EXISTS ns_travelingStartDate cascade;
+DROP DOMAIN IF EXISTS ns_travelingEndDate cascade;
+
+
+-- Drop Transactions table domains
+DROP DOMAIN IF EXISTS ns_trDate cascade;
+DROP DOMAIN IF EXISTS ns_trType cascade;
+
+
+--Drop Works_Ownership table domains
+DROP DOMAIN IF EXISTS ns_woStartDate cascade;
+DROP DOMAIN IF EXISTS ns_woEndDate cascade;
+
+
+--Drop Works_Locations table domains:
+DROP DOMAIN IF EXISTS ns_wlStartDateTime cascade;
+DROP DOMAIN IF EXISTS ns_wlEndDateTime cascade;
+
+
+-- Drop Works_Value table domains:
+DROP DOMAIN IF EXISTS ns_wvStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wvEndDate cascade;
+
+
+-- Drop Works_State domains:
+DROP DOMAIN IF EXISTS ns_state cascade;
+DROP DOMAIN IF EXISTS ns_wsStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wsEndDate cascade;
+
+
+-- Drop Works_Exhibitions domain:
+--No new domain
+
+
+-- Drop Media table domains:
+DROP DOMAIN IF EXISTS ns_material cascade;
+
+
+
+
+
+
+
+
+
+
+-- Institutions table domains
+CREATE DOMAIN ns_inName as varchar(50) ;
+CREATE DOMAIN ns_email as varchar(100);
+CREATE DOMAIN ns_phoneNumber as varchar(20);
+CREATE DOMAIN ns_streetAddress as varchar(50);
+CREATE DOMAIN ns_city as varchar(60);
+CREATE DOMAIN ns_countrySubdivision as varchar(20);
+CREATE DOMAIN ns_country as varchar(20);
+CREATE DOMAIN ns_postalcode as varchar(50);
+
+
+
+
+-- Works table domains:
+CREATE DOMAIN ns_IDAlpha as varchar(10);
+CREATE DOMAIN ns_IDNumeric as smallint;
+CREATE DOMAIN ns_wkName as varchar(200);
+CREATE DOMAIN ns_creator as varchar(50);
+CREATE DOMAIN ns_coDate as date;
+CREATE DOMAIN ns_acDate as date;
+CREATE DOMAIN ns_wkDescription as text;
+CREATE DOMAIN ns_theme as varchar(50);
+CREATE DOMAIN ns_subject as varchar(50);
+CREATE DOMAIN ns_culture as varchar(50);
+CREATE DOMAIN ns_colour as varchar(50);
+CREATE DOMAIN ns_carType as varchar(50);
+CREATE DOMAIN ns_transmission as varchar(50);
+
+
+
+
+-- Locations table domains:
+CREATE DOMAIN ns_lcName as varchar(58);
+CREATE DOMAIN ns_length as real;
+CREATE DOMAIN ns_height as real;
+CREATE DOMAIN ns_width as real;
+CREATE DOMAIN ns_minNumWorks smallint;
+CREATE DOMAIN ns_maxNumWorks smallint;
+CREATE DOMAIN ns_availabilityDate as date;
+CREATE DOMAIN ns_sponsor as varchar(50);
+CREATE DOMAIN ns_security as varchar(50);
+CREATE DOMAIN ns_insurance as integer;
+
+
+
+
+-- Exhibitions table domains:
+CREATE DOMAIN ns_exName as varchar(100);
+CREATE DOMAIN ns_isTraveling  as boolean;
+CREATE DOMAIN ns_exStartDate as date;
+CREATE DOMAIN ns_exDescription as text;
+CREATE DOMAIN ns_exEndDate as date;
+
+
+
+
+-- Exhibitions_ location table domains:
+CREATE DOMAIN ns_travelingStartDate as date;
+CREATE DOMAIN ns_travelingEndDate as date;
+
+
+
+
+-- Transactions table domains
+CREATE DOMAIN ns_trDate as date;
+CREATE DOMAIN ns_trType as varchar(20);
+
+
+
+
+-- Works_Ownership table domains
+CREATE DOMAIN ns_woStartDate as date;
+CREATE DOMAIN ns_woEndDate as date;
+
+
+
+
+-- Works_Locations table domains:
+CREATE DOMAIN ns_wlStartDateTime as timestamp;
+CREATE DOMAIN ns_wlEndDateTime as timestamp;
+
+
+
+
+-- Works_Value table domains:
+CREATE DOMAIN ns_wvStartDate as date;
+CREATE DOMAIN ns_wvEndDate as date;
+
+
+
+
+-- Works_State domains:
+CREATE DOMAIN ns_state as varchar(30);
+CREATE DOMAIN ns_wsStartDate as date;
+CREATE DOMAIN ns_wsEndDate as date;
+
+
+
+
+-- Works_Exhibitions domain:
+--No new domain
+
+
+
+
+-- Media table domains:
+CREATE DOMAIN ns_material as varchar(100);
+
+
+
+
+
+
+-- Drop all tables if exist
+Drop Table IF EXISTS ns_Institutions cascade;
+
+
+Drop Table IF EXISTS ns_Works cascade;
+
+
+Drop Table IF EXISTS ns_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_Exhibitions_locations cascade;
+
+
+Drop Table IF EXISTS ns_Transactions cascade;
+
+
+Drop Table IF EXISTS ns_Works_Ownership cascade;
+
+
+Drop Table IF EXISTS ns_Works_Locations cascade;
+
+
+Drop Table IF EXISTS ns_Works_Value cascade;
+
+
+Drop Table IF EXISTS ns_Works_State cascade;
+
+
+Drop Table IF EXISTS ns_Works_Exhibitions cascade;
+
+
+Drop Table IF EXISTS ns_Works_Media cascade;
+
+
+Drop Table IF EXISTS ns_Locations_Doors cascade;
+
+
+
+
+
+
+
+
+
+
+-- There are 4 main tables, 7 temporal tables, 2 secondary tables
+
+
+
+
+-- 4 main TABLES
+-- (1) Institutions
+CREATE TABLE ns_institutions (
+        ns_in_inName                       ns_inName                    NOT NULL,
+    
+        ns_in_email                           ns_email                      NULL,
+        ns_in_phoneNumber                  ns_phoneNumber    NULL,
+        ns_in_streetAddress                ns_streetAddress     NULL,
+        ns_in_city                                     ns_city                          NULL,
+        ns_in_countrySubdivision           ns_countrySubdivision                       NULL,
+        ns_in_country                      ns_country                       NULL,
+        ns_in_postalCode                   ns_postalCode         NULL,
+    
+        PRIMARY KEY (  ns_in_InName )
+);
+
+
+
+
+-- (2) Works
+CREATE TABLE ns_works (
+        ns_wk_IDAlpha                    ns_IDAlpha                     NOT NULL,
+        ns_wk_IDNumeric                 ns_IDNumeric             NOT NULL,
+        ns_wk_inName                    ns_inName                 NOT NULL,
+    
+        ns_wk_wkName                    ns_wkName               NULL,
+        ns_wk_creator                   ns_creator                     NULL,
+        ns_wk_coDate                    ns_coDate                   NULL,
+        ns_wk_acDate                    ns_acDate                     NULL,
+        ns_wk_wkDescription                ns_wkDescription    NULL,
+        ns_wk_theme                     ns_theme                    NULL,
+        ns_wk_subject                     ns_subject                      NULL,
+        ns_wk_culture                ns_culture                      NULL,
+        ns_wk_colour                     ns_colour                     NULL,
+        ns_wk_carType                     ns_carType                    NULL,
+        ns_wk_transmission                 ns_transmission      NULL,
+
+
+
+
+   
+   CHECK ( ns_wk_coDate <  ns_wk_acDate),
+    
+        PRIMARY KEY (ns_wk_IDAlpha, ns_wk_IDNumeric,   ns_wk_inName),
+    
+        FOREIGN KEY ( ns_wk_inName)
+          REFERENCES ns_Institutions( ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (3) Locations
+CREATE TABLE ns_locations (
+
+
+        ns_lc_lcName                       ns_lcName                         NOT NULL,
+        ns_lc_inName                         ns_inName                         NOT NULL,
+            
+        ns_lc_length                        ns_length                             NULL,
+        ns_lc_height                        ns_height                             NULL,
+        ns_lc_width                        ns_width                             NULL,
+        ns_lc_minNumWorks        ns_minNumWorks                 NULL,
+        ns_lc_maxNumWorks        ns_maxNumWorks                 NULL,
+        ns_lc_availabilityDate           ns_availabilityDate                 NULL,
+        ns_lc_sponsor                    ns_sponsor                     NULL,
+        ns_lc_security                        ns_security                     NULL,
+        ns_lc_insurance                     ns_insurance                 NULL,
+        ns_lc_StreetAddress            ns_streetAddress                 NULL,
+        ns_lc_city                         ns_city                                 NULL,
+        ns_lc_countrySubdivision              ns_countrySubdivision                      NULL,
+        ns_lc_country                         ns_country                      NULL,
+        ns_lc_postalCode               ns_postalCode                       NULL,
+
+
+        PRIMARY KEY (ns_lc_lcName, ns_lc_inName),
+    
+        FOREIGN KEY (ns_lc_inName)
+            REFERENCES ns_institutions( ns_in_inName)
+                                ON UPDATE CASCADE    
+                                   ON DELETE CASCADE
+);
+-- (4) Exhibitions
+CREATE TABLE ns_exhibitions (
+
+
+        ns_ex_exName                   ns_exName               NOT NULL,
+        ns_ex_exStartDate             ns_exStartDate          NOT NULL,
+        ns_ex_inName                     ns_inName             NOT NULL,
+    
+        ns_ex_isTraveling                 ns_isTraveling              NOT NULL,
+        ns_ex_exDescription                ns_exDescription          NULL,
+        ns_ex_exEndDate              ns_exEndDate         NULL,
+    
+        PRIMARY KEY ( ns_ex_exName  , ns_ex_exStartDate ,   ns_ex_inName ),
+    
+        FOREIGN KEY ( ns_ex_inName )
+            REFERENCES ns_institutions(ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--The 7 TEMPORAL TABLES
+
+
+-- (5) Transactions
+CREATE TABLE ns_Transactions (
+
+
+        ns_tr_inName                    ns_inName                  NOT NULL,
+        ns_tr_inNameReceiver         ns_inName                 NOT NULL,
+ns_tr_inNameGiver             ns_inName                 NOT NULL,
+        ns_tr_IDAlpha                     ns_IDAlpha                  NOT NULL,
+        ns_tr_IDNumeric                     ns_IDNumeric              NOT NULL,
+ns_tr_trDate                         ns_trDate                  NOT NULL,
+    
+        ns_tr_trType                         ns_trType                 NULL,
+        ns_tr_IDAlphaOther             ns_IDAlpha                 NULL,
+        ns_tr_ns_IDNumericOther         ns_IDNumeric            NULL,
+    
+        PRIMARY KEY (ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate  ),
+    
+FOREIGN KEY (ns_tr_inName, ns_tr_IDAlpha , ns_tr_IDNumeric )
+
+
+
+
+REFERENCES ns_works(ns_wk_inName, ns_wk_IDAlpha,
+ns_wk_IDNumeric )
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY (ns_tr_inNameReceiver)
+REFERENCES ns_institutions(ns_in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+
+
+FOREIGN KEY (ns_tr_inNameGiver)
+REFERENCES ns_institutions(ns_in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- (6) Works-Ownership
+CREATE TABLE ns_works_Ownership (
+        ns_wo_inName                     ns_inName               NOT NULL,
+        ns_wo_IDAlpha                     ns_IDAlpha               NOT NULL,
+        ns_wo_IDNumeric             ns_IDNumeric          NOT NULL,
+        ns_wo_inNameOwner             ns_inName              NOT NULL,
+        ns_wo_woStartDate             ns_woStartDate          NOT NULL,
+
+
+
+
+        ns_wo_woEndDate             ns_woEndDate            NULL,
+    
+        PRIMARY KEY (ns_wo_inName, ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_woStartDate,ns_wo_inNameOwner ),
+                
+        FOREIGN KEY (ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_inName)  
+                            REFERENCES ns_Works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                     ON UPDATE CASCADE    
+                 ON DELETE CASCADE,
+        FOREIGN KEY (ns_wo_inNameOwner )
+REFERENCES ns_Institutions(ns_in_inName)
+ ON UPDATE CASCADE    
+ ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (7) Works-Locations
+CREATE TABLE ns_works_Locations (
+
+
+
+
+        ns_wl_lcName                      ns_lcName                      NOT NULL,
+        ns_wl_IDAlpha                     ns_IDAlpha                     NOT NULL,
+        ns_wl_IDNumeric                   ns_IDNumeric                   NOT NULL,
+        ns_wl_inName                      ns_inName                      NOT NULL,
+        ns_wl_wlStartDateTime           ns_wlStartDateTime           NOT NULL,
+    
+        ns_wl_wlEndDateTime             ns_wlEndDateTime               NULL,
+    
+        PRIMARY KEY (ns_wl_lcName,ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlStartDateTime),
+    
+        FOREIGN KEY ( ns_wl_inName ,ns_wl_IDAlpha, ns_wl_IDNumeric)
+          REFERENCES ns_works(ns_wk_inName, ns_wk_IDAlpha, ns_wk_IDNumeric )
+
+
+
+
+
+
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY (ns_wl_lcName, ns_wl_inName)
+REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+
+
+
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (8) Works-Exhibitions
+CREATE TABLE ns_Works_Exhibitions (
+
+
+
+
+        ns_we_IDAlpha             ns_IDAlpha             NOT NULL,
+        ns_we_IDNumeric             ns_IDNumeric        NOT NULL,
+        ns_we_exName             ns_exName             NOT NULL,
+        ns_we_inName             ns_inName              NOT NULL,
+        ns_we_exStartDate             ns_exStartDate         NOT NULL,
+
+
+
+
+        ns_we_exEndDate             ns_exEndDate         NULL,
+    
+        PRIMARY KEY (ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate),
+        FOREIGN KEY (ns_we_IDAlpha, ns_we_IDNumeric, ns_we_inName) REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY (ns_we_exName,  ns_we_inName ,  ns_we_exStartDate ) REFERENCES ns_exhibitions(ns_ex_exName, ns_ex_inName, ns_ex_exStartDate)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (9) Exhibitions-Locations
+CREATE TABLE ns_exhibitions_Locations (
+    
+ns_el_lcName ns_lcName NOT NULL,
+ns_el_exName ns_exName NOT NULL,
+        ns_el_exStartDate ns_exStartDate NOT NULL,
+ns_el_inName ns_inName NOT NULL,
+
+
+
+
+        ns_el_travelingStartDate ns_travelingStartDate NULL,
+        ns_el_travelingEndDate ns_travelingEndDate NULL,
+        ns_el_exEndDate ns_exEndDate NULL,
+    
+        PRIMARY KEY (ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName),
+        FOREIGN KEY (ns_el_lcName, ns_el_inName)
+REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY (ns_el_exName, ns_el_exStartDate, ns_el_inName)
+REFERENCES ns_exhibitions(ns_ex_exName, ns_ex_exStartDate,    
+ns_ex_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (10) Works-Value
+CREATE TABLE ns_works_Value (
+        ns_wv_IDAlpha            ns_IDAlpha              NOT NULL,
+        ns_wv_IDNumeric               ns_IDNumeric          NOT NULL,
+        ns_wv_inName             ns_inName             NOT NULL,
+        ns_wv_startDate             ns_wvStartDate             NOT NULL,
+       
+        ns_wv_InsuranceValue         ns_insurance   NULL,
+        ns_wv_enddate             ns_wvEndDate   NULL,
+    
+        PRIMARY KEY (ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName,  ns_wv_startDate),
+        FOREIGN KEY (ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName)
+                     REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- (11) Works-State
+CREATE TABLE ns_Works_State (
+        ns_ws_IDAlpha         ns_IDAlpha             NOT NULL,
+        ns_ws_IDNumeric         ns_IDNumeric          NOT NULL,
+        ns_ws_inName         ns_inName              NOT NULL,
+ns_ws_wsStartDate         ns_wsStartDate         NOT NULL,
+    
+ns_ws_state             ns_state             NULL,
+        ns_ws_wsEndDate         ns_wsEndDate         NULL,
+    
+        PRIMARY KEY (ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName, ns_ws_wsStartDate),
+        FOREIGN KEY (ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName)
+REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric,
+ns_wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+--The last 2 secondary TABLES
+
+
+-- (12) Works-Media
+CREATE TABLE ns_works_media (
+        ns_wm_IDAlpha         ns_IDAlpha              NOT NULL,
+        ns_wm_IDNumeric        ns_IDNumeric          NOT NULL,
+        ns_wm_inName          ns_inName              NOT NULL,
+                ns_wm_material            ns_material             NOT NULL,
+    
+        PRIMARY KEY (ns_wm_IDAlpha, ns_wm_IDNumeric, ns_wm_inName, ns_wm_material),
+        FOREIGN KEY (ns_wm_IDAlpha, ns_wm_IDNumeric , ns_wm_inName)          
+                   REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric,
+ns_wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (13) Locations-Doors
+CREATE TABLE ns_Locations_Doors (
+
+
+        ns_ld_inName         ns_inName              NOT NULL,
+        ns_ld_lcName1         ns_lcName             NOT NULL,
+        ns_ld_lcName2         ns_lcName             NOT NULL,
+    
+        PRIMARY KEY (ns_ld_inName, ns_ld_lcName1, ns_ld_lcName2),
+        FOREIGN KEY (ns_ld_lcName1, ns_ld_inName)
+REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE,
+        FOREIGN KEY (ns_ld_lcName2, ns_ld_inName)
+REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- inserting data to ns_institutions table
+
+
+INSERT INTO ns_institutions
+SELECT 'MCA', 'mca@yahoo.ca', '930219554', '143 Edgar Ave', 'Sydney', 'AN', 'Australia', '392327';
+
+INSERT INTO ns_institutions VALUES
+('Daffy Duck', 'Daffy@yahoo.ca', '127063055', '16 Winston St', 'London', 'HS', 'USA', '220186'),
+('Bart Simpson', 'Bart@yahoo.ca', '428063260', '4 Edgar Ave', 'Oxford', 'HA', 'England', '938364'),
+('Peter Griffen', 'Peter@yahoo.ca', '219237927', '71 Levi St', 'Springfield', 'EV', 'USA', '276208'),
+('Spongebob', 'Spongebob@yahoo.ca', '247374817', '754 Orson St', 'London', 'JE', 'USA', '695754'),
+('Patrick', 'Patrick@yahoo.ca', '779495935', '237 Bert Ave', 'Oslo', 'DJ', 'USA', '352514'),
+('Franklin', 'Franklin@yahoo.ca', '620073437', '43 Bull St', 'Amsterdam', 'EH', 'USA', '509561'),
+('Mickey Mouse', 'Mickey@yahoo.ca', '756503658', '75 Ethar Ave', 'Springfield', 'FS', 'England', '800596'),
+('Dexter', 'Dexter@yahoo.ca', '610270640', '4 Opera St', 'Oslo', 'JD', 'Australia', '987151'),
+('Mario', 'Mario@yahoo.ca', '350896578', '346 Barl St', 'Springfield', 'JR', 'USA', '195832'),
+('Tweetie Pie', 'Tweetie@yahoo.ca', '781201298', '23 Noper Ave', 'London', 'GK', 'USA', '521287'),
+('Donald Duck', 'Donald@yahoo.ca', '144038098', '48 Fickel St', 'Springfield', 'SR', 'England', '668330'),
+('British Museum', 'British@yahoo.ca', '249156285', '543 Poler St', 'Amsterdam', 'HD', 'USA', '803573'),
+('Tate Modern', 'Tate@yahoo.ca', '974355364', '345 Harst St', 'Oslo', 'KT', 'USA', '289679'),
+('National Gallery of Art USA', 'nga@yahoo.ca', '126996426', '575 Crest Ave', 'Boston', 'MR', 'Australia', '322706'),
+('Somerset House', 'Somerset@yahoo.ca', '850768169', '4434 Nether St', 'London', 'KR', 'USA', '648953'),
+('National Gallery of Victoria', 'ngv@yahoo.ca', '384490881', '4434 Ount Ave', 'Oxford', 'YH', 'Australia', '134279'),
+('Shanghai Museum', 'Shanghai@yahoo.ca', '156007639', '865 Berner St', 'Oslo', 'DT', 'USA', '344298'),
+('National Museum of Scotland', 'ngs@yahoo.ca', '254790828', '453 Martha Ave', 'Lancaster', 'LH', 'USA', '894496'),
+('Moscow Kremlin', 'Moscow@yahoo.ca', '237178387', '456 Matridad St', 'Springfield', 'DG', 'England', '922928'),
+('Van Gogh Museum', 'Gogh@yahoo.ca', '883246973', '754 Vietnam St', 'Amsterdam', 'KT', 'USA', '293992'),
+('Saatchi Gallery', 'Saatchi@yahoo.ca', '404468191', '457 Moder St', 'Oslo', 'DJ', 'USA', '193556'),
+('Grand Palais', 'Palais@yahoo.ca', '372125037', '3556 Killer St', 'Springfield', 'SF', 'USA', '372820'),
+('Tokyo National Museum', 'tnm@yahoo.ca', '902561897', '435 Yuster Ave', 'Boston', 'FF', 'England', '446893'),
+('Tate Britain', 'Tateb@yahoo.ca', '962130862', '654 Peter St', 'Oxford', 'KR', 'USA', '224485'),
+('Doge''s Palace', 'Doge@yahoo.ca', '955189855', '342 Kevin Ave', 'Amsterdam', 'GF', 'USA', '988777'),
+('Dora', 'Dora@yahoo.ca', '803914456', '564 Morder St', 'Boston', 'LT', 'Australia', '740049'),
+('Goofy', 'Goofy@yahoo.ca', '462388960', '456 Carter St', 'Sydney', 'DG', 'USA', '995295'),
+('Bugs Bunny', 'Bugs@yahoo.ca', '510255401', '853 Oldest Ave', 'Lancaster', 'JL', 'USA', '871815'),
+('Scooby Doo', 'Scooby@yahoo.ca', '224493243', '86 Zima St', 'Oslo', 'AN', 'Australia', '465692'),
+('Harvard Museum', 'HarvardM@yahoo.ca', '744585108', '3436 Solar St', 'Lancaster', 'KR', 'England', '979546'),
+('Harvard University', 'HarvardU@yahoo.ca', '299133313', '23 Colm St', 'Sydney', 'DG', 'USA', '871099'),
+('Peterson Museum', 'Peterson@yahoo.ca', '829285313', '4 James Ave', 'Boston', 'KY', 'Australia', '186969'),
+('The Louvre', 'Louvre@yahoo.ca', '804626548', '654 Davis Ave', 'Amsterdam', 'KD', 'USA', '631548'),
+('National Gallery of Art', 'nga@yahoo.ca', '584897286', '325 Donald St', 'Lancaster', 'FS', 'USA', '678921'),
+('Metropolitan Museum of Art', 'Metropolitan@yahoo.ca', '696317932', '6 Trump St', 'Oxford', 'GJ', 'England', '518869'),
+('Unknown', null, null, null, null, null, null, null);
+
+
+
+
+-- inserting data to ns_works table
+
+INSERT INTO ns_works
+SELECT wkIdAlpha, wkIdNum, 'MCA', wkName, wkArtist, wkCompDate, wkAcqDate, wkDesc, NULL, wkType, NULL, wkSubType, NULL, NULL
+FROM works;
+
+UPDATE ns_works
+SET ns_wk_culture = 'Australian Aboriginal'
+FROM works
+WHERE ns_wk_IDAlpha = wkIdAlpha
+AND ns_wk_IDNumeric = wkIdNum
+AND wkIsAboriginal = 'Yes';
+
+
+
+
+-- inserting data into ns_Works_Value table
+
+INSERT INTO ns_works_value
+SELECT wkIdAlpha, wkIdNum, 'MCA', wkAcqDate, wkValue
+FROM works;
+
+
+-- inserting data into ns_Works_State
+
+INSERT INTO ns_Works_State
+SELECT wkIdAlpha, wkIdNum, 'MCA', wkAcqDate, 'Good Condidtion'
+FROM works;
+
+
+
+
+-- inserting data into ns_Works_Media
+
+INSERT INTO ns_Works_Media
+SELECT DISTINCT medIdAlpha, medIdNum, 'MCA', medMedia
+FROM media;
+
+
+
+
+-- inserting data into ns_ownership table
+
+INSERT INTO ns_works_Ownership
+SELECT 'MCA', wkIdAlpha, wkIdNum, wkoName, wkAcqDate, null
+FROM works, workOwner
+WHERE wkIdAlpha = wkoIdAlpha
+AND wkIdNum = wkoIdNum
+AND wkoName = 'MCA';
+
+INSERT INTO ns_works_Ownership
+SELECT 'MCA', wkIdAlpha, wkIdNum, wkoName, wkoDate, null
+FROM works, workOwner
+WHERE wkIdAlpha = wkoIdAlpha
+AND wkIdNum = wkoIdNum
+AND wkoName != 'MCA';
+
+
+
+
+
+
+
+
+
+
+
+-- inserting data into ns_Transactions table
+
+
+INSERT INTO ns_Transactions
+SELECT DISTINCT 'MCA', 'MCA', ns_in_inname, ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_acdate, 'Buy'
+FROM ns_works, ns_institutions
+WHERE ns_wk_acdate = '20161025'
+AND ns_in_inname = 'Mario';
+
+INSERT INTO ns_Transactions
+SELECT 'MCA', 'MCA', ns_wo_inNameOwner, ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_woStartDate, 'Borrow In', null, null
+FROM ns_works_Ownership, works
+WHERE ns_wo_IDAlpha = wkIdAlpha
+AND ns_wo_IDNumeric = wkIdNum
+AND wkBorrowStatus = 'Borrowed';
+
+INSERT INTO ns_Transactions
+SELECT 'MCA', wklName, 'MCA', wklIdAlpha, wklIdNum, wklStartDate, 'Lend Out'
+FROM workLoan;
+
+
+INSERT INTO ns_Transactions
+SELECT 'MCA', 'MCA', wklName, wklIdAlpha, wklIdNum, wklEndDate, 'Lend In'
+FROM workLoan;
+
+INSERT INTO ns_Transactions
+SELECT 'MCA', 'Unknown', 'MCA', locIdAlpha, locIdNum, locStartDate, 'Sold'
+FROM worksLocations
+WHERE locName = 'Sold';
+
+
+
+
+
+
+-- inserting data into ns_Locations
+
+INSERT INTO ns_Locations
+SELECT rmName, 'MCA', rmLength, 10, rmWidth, rmSuggMin, rmSuggMax, availabilityDate
+FROM rooms;
+
+UPDATE ns_Locations
+SET ns_lc_height = null
+WHERE ns_lc_lcname = 'Harvard University'
+OR ns_lc_lcname = 'Tate Modern'
+OR ns_lc_lcname = 'Peterson Museum'
+OR ns_lc_lcname = 'The Louvre'
+OR ns_lc_lcname = 'National Gallery of Art'
+OR ns_lc_lcname = 'Metropolitan Museum of Art';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '101 Oliver Place', ns_lc_city = 'Cambridge', ns_lc_countrysubdivision = 'MA', ns_lc_country = 'USA', ns_lc_postalcode = '013410'
+WHERE ns_lc_lcname = 'Harvard University';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '101 James Place', ns_lc_city = 'London', ns_lc_countrysubdivision = 'LO', ns_lc_country = 'England', ns_lc_postalcode = 'LS26OWE'
+WHERE ns_lc_lcname = 'Tate Modern';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '34 8th St', ns_lc_city = 'Pheonix', ns_lc_countrysubdivision = 'AZ', ns_lc_country = 'USA', ns_lc_postalcode = '023310'
+WHERE ns_lc_lcname = 'Peterson Museum';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '34 Bonjour Ave', ns_lc_city = 'Paris', ns_lc_countrysubdivision = 'PA', ns_lc_country = 'France', ns_lc_postalcode = 'A4G9OWW'
+WHERE ns_lc_lcname = 'The Louvre';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '90 101th Ave', ns_lc_city = 'Miami', ns_lc_countrysubdivision = 'FL', ns_lc_country = 'USA', ns_lc_postalcode = '013721'
+WHERE ns_lc_lcname = 'National Gallery of Art';
+
+UPDATE ns_Locations
+SET ns_lc_streetaddress = '45 981th St', ns_lc_city = 'London', ns_lc_countrysubdivision = 'LO', ns_lc_country = 'England', ns_lc_postalcode = 'LS35OEE'
+WHERE ns_lc_lcname = 'Metropolitan Museum of Art';
+
+
+
+
+
+INSERT INTO ns_Locations
+VALUES ('Sydney - Yorkton', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+('KalTire Yorkton', 'MCA', null, null, null, null, null, null, 'KalTire Sponsor Society', 'Lance', 3000000, '32 Logan Ave', 'Yorkton', 'SK', 'Canada', 'S4B4A5'),
+('Yorkton - Lumston', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+('Town Hall Lumston', 'MCA', null, null, null, null, null, null, 'Lumston Sponsor Society', 'Bill', 5000000, '13 Author St', 'Lumston', 'SK', 'Canada', 'S6A4B3'),
+('Lumston - Regina', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+('Costco Regina', 'MCA', null, null, null, null, null, null, 'Costco Sponsor Society', 'Sam', 7000000, '1001 Prince of Wales Dr', 'Regina', 'SK', 'Canada', 'S2R9A5'),
+('Regina - Moose Jaw', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+('Tunnels Moose Jaw', 'MCA', null, null, null, null, null, null, 'Moose Jaw Tunnels Sponsor Society', 'Kevin', 3000000, '32 Burtha Ave', 'Moose Jaw', 'SK', 'Canada', 'S4B1H7'),
+('Moose Jaw - Saskatoon', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+('U of S Saskatoon', 'MCA', null, null, null, null, null, null, 'U of S Sponsor Society', 'Jack', 1000000, '101 Innovation Place', 'Saskatoon', 'SK', 'Canada', 'S4B9A1'),
+('Saskatoon - Sydney', 'MCA', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+
+
+
+
+
+
+
+
+
+
+
+-- inserting data into ns_exhibitions
+
+INSERT INTO ns_exhibitions
+SELECT exName, exStart, 'MCA', false, exDesc, exEnd
+FROM Exhibitions;
+
+UPDATE ns_exhibitions
+SET ns_ex_isTraveling = true
+WHERE ns_ex_exname = 'Saskatchewan Exhibition';
+
+
+
+
+
+
+-- inserting data into ns_exhibitions_Locations
+
+INSERT INTO ns_exhibitions_Locations
+SELECT exlocloc, exLocName, exStart, 'MCA', null, null, exEnd
+FROM exhibitLocations, exhibitions
+WHERE exlocName = exName;
+
+INSERT INTO ns_exhibitions_Locations
+VALUES ('Sydney - Yorkton', 'Saskatchewan Exhibition', '20161204', 'MCA', '20161127', '20161204', '20170403'), 
+('KalTire Yorkton', 'Saskatchewan Exhibition', '20161204', 'MCA', '20161204', '20170101', '20170403'), 
+('Yorkton - Lumston', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170101', '20170108', '20170403'), 
+('Town Hall Lumston', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170108', '20170201', '20170403'),
+('Lumston - Regina', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170201', '20170208', '20170403'), 
+('Costco Regina', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170208', '20170301', '20170403'), 
+('Regina - Moose Jaw', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170301', '20170308', '20170403'), 
+('Tunnels Moose Jaw', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170308', '20170313', '20170403'),
+('Moose Jaw - Saskatoon', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170313', '20170320', '20170403'), 
+('U of S Saskatoon', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170320', '20170403', '20170403'),
+('Saskatoon - Sydney', 'Saskatchewan Exhibition', '20161204', 'MCA', '20170403', '20170410', '20170403');
+
+
+-- inserting data into ns_exhibitions_Works
+
+
+
+INSERT INTO ns_Works_Exhibitions
+SELECT ewIdAlpha, ewIdNum, ewName, 'MCA', exStart, exEnd
+FROM exhibitions, exhibitWorks
+WHERE exName = ewName;
+
+
+-- inserting data into ns_Locations_Doors
+
+INSERT INTO ns_Locations_Doors
+SELECT 'MCA', doorRm1, doorRm2
+FROM doors;
+
+
+
+
+
+-- inserting data into ns_works_Locations
+
+INSERT INTO ns_works_Locations
+SELECT locName, locIdAlpha, locIdNum, 'MCA', locStartDate, locEndDate
+FROM worksLocations;
+
+
+
+UPDATE ns_works_Locations
+SET ns_wl_wlenddatetime = ns_we_exstartdate
+FROM ns_Works_Exhibitions, ns_Works
+WHERE ns_wl_idalpha = ns_we_idalpha
+AND ns_wl_idnumeric = ns_we_idnumeric
+AND ns_wl_wlstartdatetime = ns_wk_acdate
+AND ns_wl_idalpha = ns_wk_idalpha
+AND ns_wl_idnumeric = ns_wk_idnumeric;
+
+
+INSERT INTO ns_works_Locations
+SELECT ns_el_lcname, ns_we_idAlpha, ns_we_IDNumeric, 'MCA', ns_el_travelingStartDate, ns_el_travelingEndDate
+FROM ns_exhibitions_Locations, ns_Works_Exhibitions, ns_exhibitions
+WHERE ns_el_exName = ns_ex_exName
+AND ns_el_exStartDate = ns_ex_exStartDate
+AND ns_we_exname = ns_ex_exName
+AND ns_we_exStartDate = ns_ex_exStartDate
+AND ns_ex_isTraveling = true;
+
+INSERT INTO ns_works_Locations
+SELECT 'Storage', ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlEndDateTime
+FROM ns_Works_Locations
+WHERE ns_wl_lcName = 'Saskatoon - Sydney';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

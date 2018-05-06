@@ -1,0 +1,140 @@
+DwyUnt	995	Organza fabric
+DwyUnt	995	Pins
+GilCar	998	Ink
+GilCar	998	Carbon
+GilCar	998	Paper
+GlaSto	0	Digital Video
+GreEll	11	Synthetic polymer paint
+GreEll	11	Wall
+HalGiv	996	Soap
+HalGiv	996	Type C photograph
+HalGiv	996	Found objects
+HarDog	6	Digital Video
+HeaUnt	5	Oil
+HeaUnt	5	Composition board
+HeaUnt	3	Oil
+HeaUnt	3	Composition board
+JohAsa	15	Pen 
+JohAsa	15	Collage
+JohAsa	15	Fibre-tipped Markers
+JohAsa	15	Gouache
+JohAsa	15	Paper
+JohAsa	15	Frame
+KeeEdd	4	Charcoal
+KeeEdd	4	Paper
+KeeGeo	4	Charcoal
+KeeGeo	4	Paper
+KeeIan	4	Charcoal
+KeeIan	4	Paper
+KeeMic	4	Charcoal
+KeeMic	4	Paper
+KenNeo	2	Neon
+KenNeo	2	Composite board
+KenNeo	2	Synthetic polymer paint
+KenThe	9	Digital Video
+KngUnt	995	Acrylic
+KngUnt	995	Paper
+KovSer	999	Oil
+KovSer	999	Plywood
+LeeThe	12	Paper 
+MacOpe	6	Digital Video
+ManExo	5	Perspex
+ManExo	5	Resin
+ManExo	5	Carpet
+ManExo	5	Wood
+ManExo	5	Acrylic paint
+MarEdw	8	Tinted and painted plaster
+MarRin	989	Oil
+MarRin	989	Canvas
+MawNia	988	Ochres
+MawNia	988	Synthetic polymer
+MawNia	988	Bark
+MayArt	0	Gelatin Silver fibre print
+MayBru	0	Gelatin Silver fibre print
+McmYou	984	Colour photo screenprint
+MesSof	11	Urethane rubber
+MesSof	11	Found object
+MesSof	11	Timber
+MofInv	0	Photo
+MofInv	0	Silkscreen
+MofSom	989	Photo
+MofSom	989	Frame
+MorCol	7	Paper Mache
+MorCol	7	Ink
+MorCol	7	Wood
+MunMan	15	Photographic paint
+MunMan	15	Wood
+NelWal	12	Oil
+NelWal	12	Liquin
+NelWal	12	Linen
+NikHan	9	Resin
+NikHan	9	Pigment
+NixSel	988	Wood
+NixUnt	988	Ink
+NixUnt	988	Pencil
+NixUnt	988	Fibre-tipped Pen
+NorPas	3	Digital Video
+OrsNgu	8	Lithograph
+OrsNgu	8	Paper
+OweSun	5	Synthetic polymer paint
+OweSun	5	Wall
+ParCam	972	Chromogenic print
+PicDes	0	Chromogenic print
+PicDes	0	Frame
+PurPir	996	Woodblock Print
+PurPir	996	Ricepaper
+RayTou	13	Digital Video
+RinPre	11	Frame
+RinPre	11	Poster
+RraOve	1	Chromogenic print
+RraOve	1	Frame
+SanHac	8	Oil
+SanHac	8	Enamel
+SanHac	8	Linen
+SanIts	10	Nylon Organza
+SanIts	10	Cotton Thread
+SanIts	10	Glass beads
+SelBes	11	Digital Video
+SmiAda	8	Synthetic polymer paint
+SmiAda	8	Aircraft plywood
+SmiAda	8	Polyester
+SteDro	2	Toned geletin silver print
+SteDro	2	Frame
+SteMin	12	Digital Video
+TemCor	995	wood 
+TemCor	995	Synthetic Fur
+TemCor	995	Synthetic polymer paint
+TilTab	11	Acrylic
+TilTab	11	Gouache
+TilTab	11	288 Canvas Boards
+TipCro	15	Screenprint
+ValThe	993	Silk
+ValThe	993	Electric Motor
+ValThe	993	Foam
+ValThe	993	Brass Rod
+ValThe	993	Stainless steel cable
+ValThe	993	wood 
+ValThe	993	poem
+WatApr	5	Artist Book
+WatApr	5	16 etchings with chine coll
+WatSel	989	Oil
+WatSel	989	Ink
+WatSel	989	Animal Glue
+WatSel	989	Linen
+WhiUnt	8	Polymer Clay
+WilCru	11	Digital Video
+WilCru	11	Televisions
+WilCru	11	Wooden Pallets
+WilCru	11	Polymer Paint
+WloAro	13	Pigment Marker
+WloAro	13	Acrylic
+WloAro	13	MDF
+YanDis	981	Ink
+YanDis	981	Gelatin Silver
+YanJoe	979	Ink
+YanJoe	979	Gelatin Silver
+YanThe	976	Paper
+YatBra	6	Paper
+YatBra	6	Wire
+YatBra	6	Paint
+YatBra	6	Pen

@@ -1,0 +1,12 @@
+lobby	galleryA
+lobby	galleryB
+lobby	storage
+storage	lobby
+galleryA	lobby
+galleryA	galleryB
+galleryA	galleryC
+galleryB	lobby
+galleryB	galleryA
+galleryB	galleryC
+galleryC	galleryA
+galleryC	galleryB

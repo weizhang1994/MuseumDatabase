@@ -1,0 +1,74 @@
+-- Wei Zhang
+-- Assignment3.Part2: Evolving collection 
+
+
+BEGIN;
+
+-- CREATE RULE locationmus AS ON INSERT TO museum
+--     DO ALSO INSERT INTO muslocation VALUES (
+-- 	new.museumletter,
+-- 	new.museumNumber,
+-- 	new.museumName,
+-- 	'storage',
+-- 	'2016-10-25');
+
+	
+-- INSERT INTO museum VALUES
+--     ('DU',	95,	'Tomb figurine of a flautist',	'Excavated in 1973 from Jin tomb at Xifengcun, Jiaozuo, Henan Province
+-- ',	'toy',	'mask',	'Zhiqi Zhu',	'Clay',	'1949',	'2016-10-25',	2300,	'purchased',	FALSE);
+
+
+--INSERT INTO museum VALUES
+--    ('DV',	96,	'Tomb figurine', 	'Height 36.5 cm,Excavated in 1973 from Jin tomb at Xifengcun, Jiaozuo, Henan Province
+--',	'toy',	'mask',	'Yetong Liu',	'Clay',	1988,	'2016-10-25',	5891,	'purchased',	FALSE);
+
+
+--INSERT INTO museum VALUES
+--('DW',	97,	'foreigner on a green', 	'Height of figure 41.6 cm, Height of camel 113 cm, Length 88.7 cm',	'toy',	'mask',	'Qi Guo',	'Clay',	1991,	'2016-10-25',	7243,	'purchased',	FALSE),
+--('DX',	98,	'woman in foreigners'' dress',	'This figurine was made in a mould using kaolin giving a clean white result',	'toy',	'mask',	'Sam Luo',	'Clay',	1989,	'2016-10-25',	2364,	'purchased',	FALSE),
+--('DY',	99,	'woman holding a tray',	'Excavated in 1957 from tomb at Xianyutinghui tomb, Xian, Shaanxi Province',	'toy',	'mask',	'Jiawei Zang',	'Clay',	1957,	'2016-10-25',	8794,	'purchased',	FALSE),
+--('DZ',	100,	'warrior with braided',	'Excavated in 1956 from tomb No. 241 at Zhoujiadawan, Wuhan, Hubei Province',	'toy',	'mask',	'Zhuang Liu',	'Clay',	1970,	'2016-10-25',	9392,	'purchased',	FALSE),
+--('EA',	101,	'horsewoman',	'Excavated in 1956 from Boyushan, Wuhan, Hubei Province',	'toy',	'mask',	'Xiaoyu Yu',	'Clay',	1981,	'2016-10-25',	6846,	'purchased',	FALSE),
+--('EB',	102,	'lute player',	'the colouring has remained bright. There were two lute players made with basically the same figure',	'vase',	'dyed',	'Fei Sun',	'Pottery',	1981,	'2016-10-25',	3167,	'purchased',	TRUE),
+--('EC',	103,	'seated woman',	'Excavated in 1953 from Xian, Shaanxi province',	'vase',	'undyed',	'York Sun',	'Pottery',	1981,	'2016-10-25',	4293,	'purchased',	FALSE),
+--('ED',	104,	'Basin with a fish pattern',	'Made from fine red clay it has a wide lip and, on the inside, black painted decorations of two opposing faces and two fish',	'decoration',	'puppet',	'Lu Gan',	'Clay',	1981,	'2016-10-25',	2056,	'purchased',	TRUE),
+--('EE',	105,	'fish and a stone axe',	'the white made pigment having been pressed on to form the pictures of a stork, fish and stone axe',	'decoration',	'puppet',	'Yanying Xu',	'stone',	1980,	'2016-10-25',	7407,	'purchased',	TRUE),
+--('EF',	106,	'Jade dragon',	 'It has a long extended snout, protruding tear-shaped oval eyes, an upturned nose made with a flat end and two nostrils',	'decoration',	'puppet',	'Shuyi Zhang',	'stone',	1970,	'2016-10-25',	9739,	'purchased',	TRUE),
+--('EG',	107,	'Guojizibai water vessel',	'Rectangular shaped made with rounded corners, it has a square lip, deep belly with a flat bottom and four rectangular feet', 	'decoration',	'puppet',	'Vivian Chen',	'stone',	1987,	'2016-10-25',	3742,	'purchased',	TRUE),
+--('EH',	108,	'Da Yu',	'This cauldron has a made circular body, a restrained mouth, wide flat lip made with protruding rim and a pair of upright ear handles',	'decoration',	'puppet',	'Jianbin Huang',	'stone',	1984,	'2016-10-25',	4684,	'purchased',	TRUE),
+--('EI',	109,	'Houmuwu square cauldron',	'This piece, which was called Simuwu, is a rectangular vessel made with a protruding rim and thick square lip', 	'decoration',	'puppet',	'Faye Mai',	'stone',	1984,	'2016-10-25',	9098,	'purchased',	TRUE);
+		
+drop domain if exists mPrice cascade;		
+create domain mPrice as smallint; 
+drop table if exists museumsale;
+Create table museumsale	(
+museumletter mletter,
+museumNumber mnumber,
+museumpurPrice mPrice,
+museumsalePrice mPrice,
+primary key (museumletter, museumnumber),
+foreign key (museumletter, museumnumber)
+references museum
+  on update cascade
+  on delete cascade
+);
+
+insert into museumsale values
+('CQ', 65, 3000, 4000),
+('CR', 66, 3500, 4200),
+('CS', 67, 3800, 4500),
+('DU',	95, 4300,0),
+('DV',	96, 7800,0),
+('DW',	97,5682,0),	
+('DX',	98,5643,0),	
+('DY',	99,9820,0),	
+('DZ',	100,6658,0),	
+('EA',	101,2366,0),	
+('EB',	102,7899,0),	
+('EC',	103,3450,0),	
+('ED',	104,3759,0),	
+('EE',	105,4500,0),	
+('EF',	106,3578,0),	
+('EG',	107,3950,0),
+('EH',	108,4578,0),		
+('EI',	109,3498,0);

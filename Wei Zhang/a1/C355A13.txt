@@ -1,0 +1,49 @@
+ 
+-- Wei Zhang #11146590 wez758 C355A13.txt
+
+
+--Part1:: Produce for the head of the museum a list of all works that are currently in storage
+--The items in storage after 3 picked 37 items for exhibition, there are 65-37=28 items left in storage 
+ DROP VIEW IF EXISTS storageUpdate CASCADE;
+ CREATE VIEW storageUpdate AS
+  SELECT *
+  FROM 	storageInitial
+  WHERE museumNumber > 36;
+  
+-- Create a view for the head of museum a list of all works that are currently in storage
+ DROP VIEW IF EXISTS headMuseumStorage CASCADE;
+ CREATE VIEW headMuseumStorage AS
+  SELECT museumLetter, museumNumber, museumName, museumInsurance
+  FROM storageUpdate;
+  
+
+--Part2 :: Produce for the public a list of all exhibitions
+ DROP VIEW IF EXISTS exhibitionPublic CASCADE;
+ CREATE VIEW exhibitionPublic AS
+  SELECT exhibitionName, exhibitionDescription, exhibitionLocation, exhibitionNWorks
+  FROM exhibition;
+ 
+
+--Part3 :: Produce a list of public available data in each of exhibitions sorted by exhibition 
+ DROP VIEW IF EXISTS publicExhWork CASCADE;
+ CREATE VIEW publicExhWork AS
+  SELECT museumName, exhibitionName
+  FROM exhibitionSummary;
+  
+  
+--Part4 :: Produce for the curator a listing of works sorted by when they are available for
+--use in a new exhibition and by classification and by name of works
+ DROP VIEW IF EXISTS curatorView CASCADE;
+ CREATE VIEW curatorView AS
+
+  SELECT museumType, museumSubtype, museumName, exhibitionEndDate
+  FROM
+  exhibitionSummary, exhibitionView;
+  
+
+--Part5.produce for the curator a listing of the ampount of additional works
+--that could be added to each exhibit based on the unused capacity of the galleries
+ DROP VIEW IF EXISTS CuratorAddView CASCADE;
+ CREATE VIEW CuratorAddView AS
+  SELECT exhibitionName, exhibitionAWorks
+  FROM exhibition;

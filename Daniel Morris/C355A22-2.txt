@@ -1,0 +1,88 @@
+AngBic	8	Steel
+AngBic	8	Aluminum
+AngBic	8	Rubber
+AngBic	8	Paint
+ArmEmp	9	Cast polyurethane
+ArmEmp	9	Pigment
+ArmSec	995	wood 
+ArmSec	995	Metal
+ArmSec	995	Ceramics
+ArmSec	995	Plastic
+ArmSec	995	Paper Mache
+ArmSec	995	Polystyrene
+ArmSec	995	Cotton  
+ArmSpl	9	Cast polyurethane
+ArmSpl	9	Cast Pewter
+ArmSpl	9	Cast Earthenware
+ArmSpl	9	Pigment
+ArmUnt	998	Synthetic polymer
+ArmUnt	998	Bound Pigment
+ArmUnt	998	Glass  
+BarInh	6	Ink
+BarInh	6	Acrylic
+BarInh	6	Silk
+BarInh	6	Cotton  
+BauAut	11	Plastic
+BauAut	11	Electronics
+BauAut	11	Paper
+BedCam	4	Ochres
+BedCam	4	Pigment
+BedCam	4	Linen
+BelUzv	6	Digital Video
+BelWor	2	Acrylic
+BelWor	2	Gravel
+BelWor	2	Canvas
+BelWor	2	Ink
+BelWor	2	Polypropelene
+BelWor	2	Satin
+BenHom	999	Acrylic
+BenHom	999	Linen
+BenUnt	989	Oil
+BenUnt	989	Synthetic polymer paint
+BenUnt	989	Canvas
+BirUnt	5	Polyurethane
+BirUnt	5	Synthetic polymer paint
+BirUnt	5	Fiberglass
+BirUnt	5	Acrylic
+BlaPar	989	Oil
+BlaPar	989	Sand
+BlaPar	989	Collage
+BlaPar	989	Lint
+BlaPar	989	Pigmented Gesso
+BlaPar	989	Linen
+BorStr	9	Oil
+BorStr	9	Canvas
+BoyUnt	14	Oil
+BoyUnt	14	Glue
+BoyUnt	14	Linen
+BoyWec	6	Oil
+BoyWec	6	Canvas
+BraCru	5	Inkjet print
+BraCru	5	Frame
+BraRan	990	Diorite mining cores
+BraRan	990	Gravel
+BraRan	990	Pavement
+BraRan	990	Speakers
+BraRan	990	Microphone stands
+BraRan	990	Computer
+BraRan	990	Tuning Forks
+BraThe	5	Inkjet print
+BraThe	5	Frame
+BraTop	5	Inkjet print
+BraTop	5	Frame
+BriHea	11	Digital Video
+BurMor	16	Kurrajong
+BurMor	16	Pigment
+BurSys	968	Print
+BusIns	987	Oil
+BusIns	987	Canvas
+BusThe	994	Oil
+BusThe	994	Canvas
+ClePer	14	Digital Video
+CleThe	9	Digital Video
+FraEve	14	Varnish
+FraEve	14	Lighter fluid
+FraEve	14	Anodised plexiglass
+FraEve	14	Wood
+WonJil	15	Natural Ochres
+WonJil	15	Paper

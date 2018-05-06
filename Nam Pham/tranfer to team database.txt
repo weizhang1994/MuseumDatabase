@@ -1,0 +1,27 @@
+
+\copy ns_institutions FROM 'Nam_institutions.txt'
+
+\copy ns_works FROM 'Nam_works.txt'
+
+\copy ns_locations FROM 'Nam_locations.txt'
+
+\copy ns_exhibitions FROM 'Nam_exhibitions.txt'
+
+
+\copy ns_exhibitions_locations FROM 'Nam_exhibitions_locations.txt'
+
+\copy ns_locations_doors FROM 'Nam_doors.txt'
+
+
+
+\copy ns_works_exhibitions FROM 'Nam_works_exhibitions.txt'
+
+\copy ns_works_locations FROM 'Nam_works_locations.txt'
+
+\copy ns_works_media FROM 'Nam_works_media.txt'
+
+--\copy ns_works_ownership FROM 'Nam_ownership.txt'
+
+\copy ns_works_state FROM 'Nam_works_state.txt'
+
+\copy ns_works_value FROM 'Nam_works_value.txt'

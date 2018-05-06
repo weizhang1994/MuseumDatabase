@@ -1,0 +1,178 @@
+AAA	100	gouache
+AAA	100	paper
+AAB	101	photographs
+AAB	101	paint
+AAB	101	pasteboard
+AAC	102	tempera
+AAC	102	paper
+ABA	103	black lacquer spray paint
+ABA	103	paper
+ACA	104	ball point pen
+ACA	104	paper
+ACA	104	photograph
+ACA	104	paint
+ACA	104	newsprint
+ACC	106	acrylic
+ACC	106	string
+ACC	106	paper
+ABC	107	cut paper
+ACB	108	Chinese rice paper eaten by snails
+ACB	108	paperboard
+ACB	108	glass
+BBB	109	paint
+BBB	109	paper
+BBA	110	ink
+BBA	110	paper
+BBC	111	ink
+BBC	111	paper
+BAB	112	gouache
+BAB	112	paper
+BCB	113	graphite
+BCB	113	gouache
+BCB	113	paper
+BAA	114	graphite
+BAA	114	ink
+BAA	114	paint
+BAA	114	vintage magazine print
+BCC	115	graphite
+BCC	115	paper
+BAC	116	"digital animation (color, sound) transferred to DVD"
+BAC	116	watercolor
+BAC	116	paper
+BCA	117	"7 channel video projection (color, sound) "
+CCC	118	carbon
+CCC	118	aluminum
+CCC	118	plastic
+CCC	118	lacquer
+CCA	119	polyester
+CCA	119	paint
+CCB	120	letterpress
+CCB	120	paper bag
+CAC	121	screenprint
+CAC	121	paper
+CAC	121	wood
+CAC	121	silver foil
+CBC	122	boxing gloves
+CBC	122	metallic gold thread
+CBC	122	satin
+CBB	124	wooden sled
+CBB	124	felt
+CBB	124	fabric straps
+CBB	124	flashlights
+CBB	124	fat
+CBB	124	oil paint
+CBB	124	string
+CAB	125	mixed media
+CBA	126	aluminum
+CBA	126	steel
+CBA	126	wire
+CBA	126	plexiglass
+CBA	126	mixed media
+CBA	126	paper
+DDD	127	color photograph
+DDD	127	vinyl
+DDD	127	audio cassette tape 
+DDE	128	ink
+DDE	128	graphite
+DDE	128	acrylic
+DDE	128	commercial screenprint
+DDE	128	photographs
+DDE	128	paper
+DDE	128	frames
+DDF	129	colored hammocks
+DDF	129	35mm slides
+DDF	129	audio disc 
+DED	130	offset lithograph
+DED	130	paper
+DFD	131	offset lithograph
+DFD	131	paper
+DEE	132	offset lithograph ink
+DEE	132	paper
+DEE	132	black-and-white photographs
+DFF	133	mimeograph
+DFF	133	paper
+DEF	134	offset lithograph 
+DEF	134	paper
+EEE	136	offset lithograph
+EEE	136	paper
+EED	137	offset lithograph
+EED	137	paper
+EED	137	rubber stamp
+EEF	138	offset lithograph
+EEF	138	paper
+EDE	139	offset lithograph
+EDE	139	paper
+EFE	140	offset lithograph
+EFE	140	paper
+EDD	141	offset lithograph
+EDD	141	paper
+EFF	142	offset lithograph
+EFF	142	paper
+EDF	143	offset lithograph
+EDF	143	paper
+EFD	144	offset lithograph
+EFD	144	paper
+EFD	144	mimeograph
+EFD	144	ballpoint
+FFF	145	offset lithograph
+FFF	145	paper
+FFE	147	photogravure
+FFE	147	paper
+FDF	148	oil
+FDF	148	canvas
+FEF	149	egg tempera
+FEF	149	composition board
+FDD	150	wood
+FDD	150	casein
+FEE	151	screenprint
+FEE	151	canvas
+FEE	151	iron frame 
+FDE	152	oil
+FDE	152	graphite
+FDE	152	tissue paper mounted to mirror-polished stainless steel 
+FED	153	oil
+FED	153	canvas
+GGG	154	acrylic
+GGG	154	glitter
+GGG	154	canvas
+GGH	155	acrylic lacquer 
+GGH	155	canvas
+GGI	156	oil
+GGI	156	canvas
+GHG	157	oil
+GHG	157	wood panel
+GIG	158	aluminum leaf
+GIG	158	acrylic
+GIG	158	plywood panel 
+GHH	159	oil
+GHH	159	canvas
+GII	160	oil
+GII	160	automotive lacquer
+GII	160	dry pigment 
+GII	160	Japanese paper 
+GII	160	cloth
+GII	160	Masonite
+GHI	161	oil
+GHI	161	canvas
+GIH	162	oil
+GIH	162	linen
+HHH	163	oil
+HHH	163	canvas
+HHG	164	oil
+HHG	164	canvas
+HHI	165	oil
+HHI	165	acrylic
+HHI	165	paper collage
+HHI	165	glitter
+HHI	165	polyester resin
+HHI	165	map pins
+HHI	165	elephant dung
+HHI	165	linen
+HIH	167	oil
+HIH	167	canvas
+HGG	168	oil
+HGG	168	Masonite
+HII	169	hand-colored screenprint 
+HII	169	paper
+HGI	170	offset lithograph 
+HGI	170	paper

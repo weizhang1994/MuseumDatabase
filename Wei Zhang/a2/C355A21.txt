@@ -1,0 +1,73 @@
+-- Wei Zhang #student: 11146590 NSID:wez758
+-- assignment2 part1 b. new exhibitions
+
+-- Part 1.a Make changes ro assignment 1. See detailed changes information from assignment 1.
+
+-- Part 1b. Put all works after exhibitions to the storage  
+INSERT INTO musLocation VALUES
+('AA',  0,      'Children''s Song',			'storage',      '2016-11-02'),
+('AB',	1,	'Life on the Grassland',	 	'storage',	'2016-11-02'),
+('AC',	2,	'Steel Captal Is Boiling',	 	'storage',	'2016-11-02'),
+('AD',	3,	'Cold Fall',	                 	'storage',	'2016-11-02'),
+('AE',	4,	'Pumpkin',	                 	'storage',	'2016-11-02'),
+('AF',	5,	'Back basket',	                 	'storage',	'2016-11-02'),
+('AG',	6,	'Water wagon',	                 	'storage',	'2016-11-02'),
+('AH',	7,	'To Urumqi',	                 	'storage',	'2016-11-02'),
+('AI',	8,	'Norgay',	                	'storage',	'2016-11-02'),
+('AO',	14,	'Bright Moon and Red candle',		'storage',	'2016-11-02'),
+('AP',	15,	'The Fish in the Black Lacquer Plate',	'storage',	'2016-11-02'),
+('AU',	20,	'Goat jug',				'storage',	'2016-11-02'),
+('AV',	21,	'Round and square bottle',		'storage',	'2016-11-02'),
+('AW',	22,	'Green flow and dragon bottle',		'storage',	'2016-11-02'),
+('AX',	23,	'Iron figured lotus bottle',		'storage',	'2016-11-02'),
+('AY',	24,	'Double-ear yellow glazed bottle',	'storage',	'2016-11-02'),
+('AZ',	25,	'Fish jug',				'storage',	'2016-11-02'),
+('BA',	26,	'White pocelain and green flower',	'storage',	'2016-11-02'),
+('BB',	27,	'Wax stand in white glazed lion',	'storage',	'2016-11-02'),
+('BC',	28,	'Small jug with green flower and five pieces',	'storage',	'2016-11-02'),
+('BD',	29,	'Pagoda jug',				'storage',	'2016-11-02'),
+('BI',	34,	'Statue of Xiang Xiuli',		'storage',	'2016-11-02'),
+('BJ',	35,	'Son',					'storage',	'2016-11-02'),
+('BK',	36,	'Washerwoman',				'storage',	'2016-11-02'),
+('BL',	37,	'Statue of ZhuDe',			'storage',	'2016-11-02'),
+('BM',	38,	'Statue of Xu Beihong',			'storage',	'2016-11-02'),
+('BN',	39,	'Soul of White Mountain',		'storage',	'2016-11-02'),
+('BO',	40,	'Timeless Run',				'storage',	'2016-11-02'),
+('BP',	41,	'Rock Lion',				'storage',	'2016-11-02'),
+('BQ',	42,	'Go Forward',				'storage',	'2016-11-02'),
+('BR',	43,	'Human Body',				'storage',	'2016-11-02'),
+('BS',	44,	'Used to Be 18 Years Old',		'storage',	'2016-11-02'),
+('BT',	45,	'Favorite',				'storage',	'2016-11-02'),
+('BU',	46,	'Tough Years',				'storage',	'2016-11-02'),
+('BV',	47,	'Farmer and Snake',			'storage',	'2016-11-02');
+
+-- create report for this part.
+SELECT * FROM musLocation;
+
+-- on the next day 2016-11-02, works are taken from starage to the location of new exhibitions
+-- on the fifth day after the end of the previous exhibit the new exhibit begin
+\copy musLocation from 'musLocation.txt';
+
+-- create report for this part
+create view muslocationView as
+select * from muslocation;
+
+-- plan the 3 new exhibitions and update accordingly
+\copy exhibition from 'exhibition.txt';
+\copy exhLocation from 'exhLocation.txt';
+\copy musexhibition from 'musExhibition.txt';
+
+--create reports for this part 
+create view exhibitionView as 
+select * from 
+exhibition;
+
+create view exhLocationView as
+select * from 
+exhLocation;
+
+create view musexhibition A 
+SELECT * FROM
+musExhibition;
+
+

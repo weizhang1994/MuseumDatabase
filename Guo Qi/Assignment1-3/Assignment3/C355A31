@@ -1,0 +1,532 @@
+-- Qi Guo	qig557	11158650	C355A31
+-------------------------------------------------------------------------------------------------
+----------------------------------------Fixes----------------------------------------------------
+-------------------------------------------------------------------------------------------------
+--Add ewExhibition, ewStartDate and ewEndDate in ExhibitionsWorks as foreign keys to Exhibitions table
+ALTER TABLE ExhibitionsWorks
+	ADD FOREIGN KEY (ewExhibition, ewStartDate)
+	REFERENCES Exhibitions(exName, exStartDate)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE;
+
+
+
+--Add end date attribute to ExhibitionsLocations table
+
+ALTER TABLE ExhibitionsLocations
+	ADD COLUMN elExEndDate exhibitionEndDate
+;
+
+--Add data to elExEndDate column
+UPDATE ExhibitionsLocations
+	SET elExEndDate=exEndDate
+	FROM Exhibitions
+	WHERE ExhibitionsLocations.elExhibition=Exhibitions.exName;
+
+
+--Add an owners table for owners' information
+CREATE TABLE Owners(
+	ownwkIDLetter workIDletter,
+	ownwkIDNumber workIDNumber,
+	ownName workOwner,
+
+	FOREIGN KEY(ownwkIDLetter, ownwkIDNumber)
+	REFERENCES Works(wkIDLetter, wkIDNumber)
+			ON UPDATE CASCADE
+			ON DELETE CASCADE
+);
+
+--Add data to owner table
+--Since there are already data in Works table, 
+--I just copy data from Works to Owners
+INSERT INTO Owners(ownwkIDLetter, ownwkIDNumber, ownName)
+	SELECT wkIDLetter, wkIDNumber, wkOwner
+	FROM Works
+;
+
+--Remove wkOwner column from Works table
+ALTER TABLE Works
+	DROP COLUMN wkOwner CASCADE;
+
+-- DETAIL:  view worksview depends on table works column wkowner
+-- view databaseworksview depends on table works column wkowner
+-- view borrowedworksview depends on table works column wkowner
+-- view ownedworksview depends on table works column wkowner
+-- view potentialworksview depends on table works column wkowner
+-- view workswithnewattributeview depends on table works column wkowner
+-- view worksnovaluefornewattributeview depends on table works column wkowner
+-- HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+
+--Add museum attribute to Locations table
+--Copy locations table and exhibtionslocations table to two temp tables
+Select * into LocationsTemp from Locations;
+Select * into ExhibitionsLocationsTemp from ExhibitionsLocations;
+Select * into WorksLocationsTemp from WorksLocations;
+Select * into DoorsTemp from Doors;
+
+--Add museum attribute to locations table
+CREATE DOMAIN museumName AS varchar(50);
+ALTER TABLE Locations
+	ADD COLUMN lcMuseum museumName;
+
+ALTER TABLE Locations
+	ALTER COLUMN lcMuseum SET NOT NULL;
+
+--Drop PK in Locations table so that I can add a combination of pks to the table afterwards
+ALTER TABLE Locations
+	DROP constraint Locations_pkey CASCADE;
+
+-- ERROR:  cannot drop constraint locations_pkey on table locations because other objects depend on it
+-- DETAIL:  
+-- constraint doors_drlocation1_fkey on table doors depends on index locations_pkey
+-- constraint doors_drlocation2_fkey on table doors depends on index locations_pkey
+-- constraint workslocations_wllocation_fkey on table workslocations depends on index locations_pkey
+-- constraint exhibitionslocations_ellocation_fkey on table exhibitionslocations depends on index locations_pkey
+-- HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+
+
+--Add data to museum attribute in Locations table
+UPDATE Locations
+	SET lcMuseum='Qi''s Museum'
+	WHERE lcName is NOT NULL;
+
+--Add primary keys to Locations table
+ALTER TABLE Locations
+	ADD PRIMARY KEY(lcName, lcMuseum);
+
+--Add a new attribute regarding Museum to Doors, WorksLocations, ExhibitionsLocations tables
+--so that these tables can use this attribute as a foreign key to Locations table
+ALTER TABLE Doors
+	ADD COLUMN drlcMuseum museumName;
+
+UPDATE Doors
+	SET drlcMuseum='Qi''s Museum'
+	WHERE drLocation1 is NOT NULL;
+
+
+ALTER TABLE WorksLocations
+	ADD COLUMN wllcMuseum museumName;
+
+UPDATE WorksLocations
+	SET wllcMuseum='Qi''s Museum'
+	WHERE wlIDLetter is NOT NULL;
+
+
+ALTER TABLE ExhibitionsLocations
+	ADD COLUMN ellcMuseum museumName;
+
+UPDATE ExhibitionsLocations
+	SET ellcMuseum='Qi''s Museum'
+	WHERE elExhibition is NOT NULL;
+
+--Add foreign keys to Doors, WorksLocations, ExhibitionsLocations tables referencing Locations table
+ALTER TABLE Doors
+	ADD FOREIGN KEY (drlcMuseum, drLocation1)
+	REFERENCES Locations(lcMuseum, lcName)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE;
+
+ALTER TABLE WorksLocations
+	ADD FOREIGN KEY (wllcMuseum, wlLocation)
+	REFERENCES Locations(lcMuseum, lcName)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE;
+
+
+ALTER TABLE ExhibitionsLocations
+	ADD FOREIGN KEY (ellcMuseum, elLocation)
+	REFERENCES Locations(lcMuseum, lcName)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE;
+
+
+
+-------------------------------------------------------------------------------------------------
+----------------------------------------Routine Maintenance--------------------------------------
+-------------------------------------------------------------------------------------------------
+--1. expanding your current exhibitions
+--produce a report of all current and future exhibitions 
+--including the name of the exhibiton, the dates it is happening (starting and ending dates), 
+--the maximum recommended capacity of the locations it is using, and the current number of works planned for it
+
+-------------------------------------------------------------------------------------------------
+
+--Get all borrowed works and owned works from Works table
+CREATE VIEW WorksInMuseum
+	AS SELECT *
+		FROM Works
+		WHERE wkOwnership='borrowed work' OR wkOwnership='owned work'
+		ORDER BY wkOwnership;
+
+
+--Create a view to get all the works not used
+CREATE VIEW WorksHaveNotBeenUsed 
+	AS SELECT wkidletter, wkidnumber, wkname, wktype, wksubtype, wkauthor, 
+			  wkcompletiondate, wkacquisitiondate, wkinsurancevalue, wkdescription, wkownership, wkcharacter
+		FROM WorksInMuseum
+		WHERE wkIDNumber not in (
+			SELECT ewIDNumber
+			FROM ExhibitionsWorks) and wkIDNumber not in (749024, 749281)
+		ORDER BY wkType;
+
+SELECT wkidletter, wkidnumber, wkname, wktype, wksubtype, wkauthor, 
+		wkcompletiondate, wkacquisitiondate, wkinsurancevalue, wkdescription, wkownership, wkcharacter
+	FROM WorksHaveNotBeenUsed;
+
+-------------------------------------------------------------------------------------------------
+----------------------------------------Routine Maintenance--------------------------------------
+-------------------------------------------------------------------------------------------------
+--1. expanding your current exhibitions
+--*****************************************************--
+--produce a report of all current and future exhibitions 
+--including the name of the exhibiton, the dates it is happening (starting and ending dates), 
+--the maximum recommended capacity of the locations it is using, and the current number of works planned for it
+--*****************************************************--
+
+CREATE VIEW ExhibitionsInfo
+	AS SELECT DISTINCT elExhibition, elExStartDate, elExEndDate, lcmaxnumwork, (SELECT 
+																					COUNT(*)
+																					FROM
+																						ExhibitionsWorks
+																					WHERE
+																						elExhibition=ewExhibition
+																							AND
+																						elExStartDate=ewStartDate
+																							AND
+																						elExEndDate=ewEndDate) 
+																				AS currentNumberOfWorks
+	FROM
+		ExhibitionsLocations, Locations, ExhibitionsWorks
+	WHERE
+		elLocation=lcName AND elExhibition=ewExhibition AND elExStartDate=ewStartDate AND elExEndDate=ewEndDate
+	ORDER BY elExStartDate;
+
+SELECT elExhibition, elExStartDate, elExEndDate, lcmaxnumwork, currentNumberOfWorks
+	FROM ExhibitionsInfo;
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that are under way
+--********************************************************************************************************--
+--Add works to galleryA with exhibition named 'Photographs-a vast mosaic of the nations history' that starts from 2016-07-07
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryA', '2016-10-28', '2017-01-01', 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlIDNumber in (
+			1353085,
+			 552748,
+			 552734,
+			1813318,
+			 552761,
+			1351212,
+			 749342
+			);
+
+--Update WorksLocations
+--Add end date for data above (move above works from storage to galleryA)
+UPDATE WorksLocations
+	SET wlEndDate='2016-10-28'
+	WHERE wlLocation='storage' AND wlIDNumber in (
+			1353085,
+			 552748,
+			 552734,
+			1813318,
+			 552761,
+			1351212,
+			 749342
+			);
+
+
+--Add data to ExhibitionsWorks with above data
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Photographs-a vast mosaic of the nation''s history', wlIDLetter, wlIDNumber, '2016-07-07', '2017-01-01'
+	FROM Workslocations
+	WHERE wlLocation='galleryA' AND wlIDNumber in (
+			1353085,
+			 552748,
+			 552734,
+			1813318,
+			 552761,
+			1351212,
+			 749342
+			);
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that are under way
+--********************************************************************************************************--
+--Add works to galleryB with exhibition named 'Paintings tell stories' that starts from 2016-08-08
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryB', '2016-10-28', '2017-02-20', 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlIDNumber in (
+			749030,
+			749145,
+			749273,
+			749072,
+			749360,
+			556192
+			);
+
+--Update WorksLocations
+--Add end date for data above (move above works from storage to galleryA)
+UPDATE WorksLocations
+	SET wlEndDate='2016-10-28'
+	WHERE wlLocation='storage' AND wlIDNumber in (
+			749030,
+			749145,
+			749273,
+			749072,
+			749360,
+			556192
+			);
+
+
+--Add data to ExhibitionsWorks with above data
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Paintings tell stories', wlIDLetter, wlIDNumber, '2016-08-08', '2017-02-20'
+	FROM Workslocations
+	WHERE wlLocation='galleryB' AND wlIDNumber in (
+			749030,
+			749145,
+			749273,
+			749072,
+			749360,
+			556192
+			);
+
+
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that are under way
+--********************************************************************************************************--
+--Add works to galleryC with exhibition named 'Utensils from the 18th century' that starts from 2016-09-09
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryC', '2016-10-28', '2016-11-11', 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlIDNumber in (
+			556194,
+			556190,
+			556195,
+			556598,
+			994152,
+			994139,
+			994566,
+			994153
+			);
+
+--Update WorksLocations
+--Add end date for data above (move above works from storage to galleryA)
+UPDATE WorksLocations
+	SET wlEndDate='2016-10-28'
+	WHERE wlLocation='storage' AND wlIDNumber in (
+			556194,
+			556190,
+			556195,
+			556598,
+			994152,
+			994139,
+			994566,
+			994153
+			);
+
+
+--Add data to ExhibitionsWorks with above data
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Utensils from the 18th century', wlIDLetter, wlIDNumber, '2016-09-09', '2016-11-11'
+	FROM Workslocations
+	WHERE wlLocation='galleryC' AND wlIDNumber in (
+			556194,
+			556190,
+			556195,
+			556598,
+			994152,
+			994139,
+			994566,
+			994153
+			);
+
+--Add data from galleryC back to storage on the next day of the exhibition end date
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'storage', '2016-11-12', NULL, 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlLocation='galleryC' AND wlIDNumber in (
+			556194,
+			556190,
+			556195,
+			556598,
+			994152,
+			994139,
+			994566,
+			994153
+			);
+
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that have not started yet
+--********************************************************************************************************--
+--Add works to galleryA with exhibition named 'Engraved woodblock by Native Americans' that starts from 2017-01-06
+CREATE VIEW WorkslocationsBackUp
+	AS SELECT * from Workslocations;
+
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryA', '2017-01-03', '2017-05-06', 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlLocation='storage' AND wlIDNumber  in (
+	     993649,
+	     993606,
+	     993447,
+	     993448,
+	     993445,
+	     993457,
+	     993455,
+	     993456);
+
+--Update WorksLocations
+--Add end date for data above (move above works from storage to galleryA)
+UPDATE WorksLocations
+	SET wlEndDate='2017-01-03'
+	WHERE wlLocation='storage' AND wlEndDate is NULL AND wlIDNumber in (
+	     993649,
+	     993606,
+	     993447,
+	     993448,
+	     993445,
+	     993457,
+	     993455,
+	     993456);
+
+
+
+--Add data to ExhibitionsWorks with above data
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Engraved woodblock by Native Americans', wlIDLetter, wlIDNumber, '2017-01-06', '2017-05-06'
+	FROM Workslocations
+	WHERE wlLocation='galleryA' AND wlIDNumber in (
+	     993649,
+	     993606,
+	     993447,
+	     993448,
+	     993445,
+	     993457,
+	     993455,
+	     993456);
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that have not started yet
+--********************************************************************************************************--
+--Add works to galleryB with exhibition named 'Photographs-a vast mosaic of the nation's history' that starts from 2017-02-25
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryB', '2017-02-22', '2017-07-25', 'Qi''s Museum'
+		FROM WorksLocations
+		WHERE wlLocation='galleryA' AND wlIDNumber in (
+			1353085,
+			 552748,
+			 552734,
+			1813318,
+			 552761,
+			1351212,
+			 749342);
+
+
+--Update WorksLocations and ExhibitionsWorks tables correspondingly
+--Move works from galleryA to storage when exhibition in galleryA ends
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'storage', '2017-01-02', '2017-02-22', 'Qi''s Museum'
+		FROM WorksLocations
+		WHERE wlLocation='galleryA' AND wlIDNumber in (
+		1353085,
+		 552748,
+		 552734,
+		1813318,
+		 552761,
+		1351212,
+		 749342);
+
+
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Photographs-a vast mosaic of the nation''s history', wlIDLetter, wlIDNumber, '2017-02-25', '2017-07-25'
+	FROM Workslocations
+	WHERE wlLocation='galleryB' AND wlIDNumber in (		
+		1353085,
+		 552748,
+		 552734,
+		1813318,
+		 552761,
+		1351212,
+		 749342);
+
+
+
+
+
+--********************************************************************************************************--
+--Process updates to add works to expand the exhibitions for exhibitions that have not started yet
+--********************************************************************************************************--
+--Add works to galleryC with exhibition named 'Paintings from all over the world' that starts from 2016-11-16
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryC', '2016-11-13', '2017-02-16', 'Qi''s Museum' 
+		FROM WorksLocations
+		WHERE wlLocation='galleryC' AND wlIDNumber in (
+		     993449,
+		     994539,
+		     994148,
+		     994150,
+		     994145,
+		     994147
+		);
+
+--Update WorksLocations
+--Add end date for data above (move above works from storage to galleryA)
+UPDATE WorksLocations
+	SET wlEndDate='2016-11-13'
+	WHERE wlLocation='storage' AND wlIDNumber in (
+		993449,
+	    994539,
+	    994148,
+	    994150,
+	    994145,
+	    994147
+	);
+
+
+--Add data to ExhibitionsWorks with above data
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Paintings from all over the world', wlIDLetter, wlIDNumber, '2016-11-16', '2017-02-16'
+	FROM Workslocations
+	WHERE wlLocation='galleryC' AND wlEndDate='2017-02-16' AND wlIDNumber in (
+		993449,
+	    994539,
+	    994148,
+	    994150,
+	    994145,
+	    994147
+	);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

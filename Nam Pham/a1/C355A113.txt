@@ -1,0 +1,131 @@
+
+--This will print out all the items that are currently in the storage, not including the ones in the
+--lobby and all 3 exhibitions
+CREATE VIEW Part3_1
+	AS SELECT 
+		ItemAlpha,
+		ItemNumber,
+		Name AS "Name",
+		Insurance_Value_$ AS "Value"
+	FROM
+		storage
+;
+
+SELECT 
+	*
+FROM
+	Part3_1
+;
+
+
+
+--This will print out all of the information of the 3 exhibitions (not including the detail of theirs items)
+CREATE VIEW Part3_2
+	AS SELECT
+		Theme AS "Exhibition Theme",
+		Ex_Description AS "Description",
+		Location_Name AS "Location",
+		Number_of_items AS "Number of Items"
+	FROM
+		Exhibitions_info
+;
+
+SELECT 
+	*
+FROM
+	Part3_2
+;
+
+
+
+
+--This will cause multiple rows for each item because the medium table has multiple rows for each item. This view
+--will be sorted by the name of the exhibitions and the name of theirs items.
+CREATE VIEW Part3_3
+	AS SELECT
+		ItemAlpha,
+		ItemNumber,
+		Name AS "Name",
+		Description AS "Description",
+		Type AS "Type",
+		Sub_type AS "Sub-Type",
+		Author AS "Author",
+		Date_Complete AS "Complete date",
+		Date_Acquisition AS "Accquisition date",
+		Insurance_Value_$ AS "Value",
+		Theme AS "Exhibition Theme",
+		Materials "Material(s)",
+		Current_location "Location"
+	FROM
+		all_items_in_locations,
+		medium,
+		Exhibitions_info
+	WHERE
+		Current_location <> 'STORAGE' AND Current_location <> 'LOBBY' AND
+		all_items_in_locations.ItemAlpha = ItemAlpha_medium AND
+		all_items_in_locations.ItemNumber = ItemNumber_medium AND
+		Current_location = Location_Name
+	ORDER BY
+		 Theme,
+		 Name
+;
+
+SELECT 
+	*
+FROM
+	Part3_3
+;
+
+
+
+--The items have empty day means they are in the storage and are always avaiable. The only 2 items not in this list 
+--are the ones in the lobby. This table will be sorted by the days the items is avaiable and theirs classification
+CREATE VIEW Part3_4
+	AS SELECT 
+		ItemAlpha,
+		ItemNumber,
+		Name AS "Name",
+		Type AS "Type",
+		Sub_type AS "Sub-type",
+		(SELECT End_Date 
+			FROM Exhibitions_info 
+			WHERE Location_name = Current_location) AS "Day that its old exhibition end"
+	FROM
+		all_items_in_locations
+	WHERE
+		Current_location <> 'LOBBY'
+	ORDER BY
+		"Day that its old exhibition end",
+		Type,
+		Sub_type
+;
+
+SELECT 
+	*
+FROM
+	Part3_4
+;
+
+
+--The table will print out the number of items that still can be add into the gallery, based on its max capacity.
+CREATE VIEW Part3_5
+	AS SELECT
+		Theme AS "Exhibition Theme",
+		Name AS "Location",
+		Max_capacity- Number_of_items AS "Number of additional works"
+	FROM
+		Exhibitions_info,
+		galleries
+	WHERE
+		Location_Name = Name
+;
+
+SELECT 
+	*
+FROM
+	Part3_5
+;
+
+
+
+

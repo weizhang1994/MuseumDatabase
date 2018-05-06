@@ -1,0 +1,27 @@
+
+\copy institutions from 'w_institutions';
+\copy works from 'w_works';
+\copy works_media from 'w_works_media';
+\copy works_media from 'addmedia';
+\copy works_state from 'w_works_state';
+\copy works_value from 'w_works_value';
+\copy exhibitions from 'w_exhibitions';
+\copy locations from 'w_locations';
+\copy locations_doors from 'w_locations_doors';
+\copy works_locations from 'w_works_locations';
+\copy exhibitions_locations from 'w_exhibitions_locations';
+\copy transactions from 'w_transactions';
+\copy works_ownership from 'w_works_ownership';
+\copy works_exhibitions from 'w_works_exhibitions';
+
+
+
+select count (*) from institutions; 
+select count (*) from works; 
+select count (*) from exhibitions;
+select count (*) from exhibitions; 
+select count (*) from exhibitions; 
+select count (*) from exhibitions; 
+select count (*) from exhibitions; 
+select count (*) from exhibitions; 
+select count (*) from exhibitions; 

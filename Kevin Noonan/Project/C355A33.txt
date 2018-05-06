@@ -1,0 +1,207 @@
+--Assignment #3 | Kevin Noonan | krn871 | 11138394
+
+--Fix the null values in worksLocations
+UPDATE worksLocations SET dateoftransfer = '20150521'
+WHERE dateoftransfer IS NULL;
+
+--Create a timestamp on the date of transfer column to keep track of time
+
+ALTER TABLE workslocations ALTER COLUMN dateoftransfer TYPE TIMESTAMP;
+
+--Create three new exhibitions that take place before 2016-07-12
+
+--CREATING NICE TO LOOK AT exhibition
+
+INSERT INTO exhibitions(
+SELECT 'Nice to look at!', 'A look at the cars that catch everyones eyes.', '20151210', '20160318');
+
+--CREATING EVERYDAY CASUAL exhibition
+
+INSERT INTO exhibitions(
+SELECT 'Everyday Casual', 'A look at the cars that served everyone a purpose', '20160116', '20160509');
+
+--CREATING ONLY SEEN IN MOVIES exhibition
+
+INSERT INTO exhibitions(
+SELECT 'Only Seen In Movies', 'A look at the cars in everyones favourite movies.', '20160310', '20160710');
+
+--Update exhbitionLocation
+INSERT INTO exhibitionLocation(
+SELECT 'Gallery A', 'Nice to look at!');
+
+INSERT INTO exhibitionLocation(
+SELECT 'Gallery B', 'Everyday Casual');
+
+INSERT INTO exhibitionLocation(
+SELECT 'Gallery C', 'Only Seen In Movies');
+
+--Inserting cars in the exhibitions
+
+--Nice to look at! | Gallery A | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Nice to look at!', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'LSS' AND wksnumberkey = 3
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27;
+
+--Everyday Casual | Gallery B | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Everyday Casual', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'CPC' AND wksnumberkey = 2
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37;
+
+--Only Seen In Movies| Gallery C | Max 24
+
+INSERT into exhibitionsworks
+SELECT 'Only Seen In Movies', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'OYMIII' AND wksnumberkey = 11
+OR wksletterkey = 'VOLKB' AND wksnumberkey = 26
+OR wksletterkey = 'FGL' AND wksnumberkey = 41
+OR wksletterkey = 'PASA' AND wksnumberkey = 48
+OR wksletterkey = 'PKT' AND wksnumberkey = 52
+OR wksletterkey = 'DDMC' AND wksnumberkey = 54
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'JXKR' AND wksnumberkey = 57;
+
+
+--Putting Cars back into Galleries with timestamps
+
+--Nice to look at! | Gallery A | Max 16
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery A', '20151205 06:00:00' 
+FROM works
+WHERE wksletterkey = 'LSS' AND wksnumberkey = 3
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27;
+
+--Everyday Casual | Gallery B | Max 16
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery B', '20160111 06:00:00'
+FROM works
+WHERE wksletterkey = 'CPC' AND wksnumberkey = 2
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37;
+
+--Only Seen In Movies| Gallery C | Max 24
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery C', '20160305 06:00:00'
+FROM works
+WHERE wksletterkey = 'OYMIII' AND wksnumberkey = 11
+OR wksletterkey = 'VOLKB' AND wksnumberkey = 26
+OR wksletterkey = 'FGL' AND wksnumberkey = 41
+OR wksletterkey = 'PASA' AND wksnumberkey = 48
+OR wksletterkey = 'PKT' AND wksnumberkey = 52
+OR wksletterkey = 'DDMC' AND wksnumberkey = 54
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'JXKR' AND wksnumberkey = 57;
+
+
+
+--Putting Cars back into Storage with timestamps
+
+--Nice to look at! | Gallery A | Max 16
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20160319'
+FROM works
+WHERE wksletterkey = 'LSS' AND wksnumberkey = 3
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27;
+
+--Everyday Casual | Gallery B | Max 16
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20160510'
+FROM works
+WHERE wksletterkey = 'CPC' AND wksnumberkey = 2
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37;
+
+--Only Seen In Movies| Gallery C | Max 24
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20160711'
+FROM works
+WHERE wksletterkey = 'OYMIII' AND wksnumberkey = 11
+OR wksletterkey = 'VOLKB' AND wksnumberkey = 26
+OR wksletterkey = 'FGL' AND wksnumberkey = 41
+OR wksletterkey = 'PASA' AND wksnumberkey = 48
+OR wksletterkey = 'PKT' AND wksnumberkey = 52
+OR wksletterkey = 'DDMC' AND wksnumberkey = 54
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'JXKR' AND wksnumberkey = 57;
+
+--Update storage times to 06:00:00
+
+UPDATE workslocations SET dateoftransfer = dateoftransfer + time '6:00'
+where locroomname = 'Storage';
+
+--Queries
+
+--Query for showing the period between Nov 1st 2015 and Nov 1st 2016
+
+CREATE VIEW locList AS SELECT locletterkey, locnumberkey, locroomname, dateoftransfer 
+FROM worksLocations
+WHERE dateoftransfer BETWEEN '20151101' AND '20161101'
+AND locletterkey = 'BEB' ;
+
+SELECT * FROM locList
+ORDER BY dateoftransfer;
+
+--Query for all works in an exhbition between two dates
+
+CREATE VIEW dateList AS SELECT DISTINCT w.wkscarname, e.exbwname, l.dateoftransfer 
+FROM exhibitionsworks AS e
+LEFT JOIN works AS w
+ON e.exbletterkey = w.wksletterkey
+LEFT JOIN workslocations as l
+ON w.wksletterkey = l.locletterkey
+WHERE e.exbwname = 'Nice to look at!'
+AND l.dateoftransfer BETWEEN '20151101' AND '20161101';
+
+
+SELECT * FROM dateList
+ORDER BY wkscarname, dateoftransfer;
+
+--Query for all exhbitions that make use of a location between two dates
+
+CREATE VIEW exhList AS SELECT DISTINCT l.exbloc, e.exbname, e.exbstartdate, e.exbenddate,(e.exbenddate + 1) AS "closed for changing exhbitions"
+FROM exhibitions AS e
+LEFT JOIN exhibitionlocation AS l
+ON l.exblname = e.exbname
+WHERE e.exbstartdate BETWEEN '20151101' AND '20161101'
+AND e.exbenddate BETWEEN '20151101' AND '20161101'
+AND l.exbloc = 'Gallery A';
+
+SELECT * FROM exhList;
+

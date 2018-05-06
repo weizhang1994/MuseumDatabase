@@ -1,0 +1,507 @@
+|-------------------------------------------------------------------------------------------------|
+|---------------------------------------1a verification-------------------------------------------|
+
+-- Here is a view based on table Exhibitions without one of the old attribute exLocation
+CREATE VIEW ExhibitionsView
+	AS SELECT
+		exName,
+		exDescription,
+		exStartDate,
+		exEndDate
+	FROM 
+		Exhibitions;
+
+SELECT
+		exName,
+		exDescription,
+		exStartDate,
+		exEndDate,
+	FROM 
+		ExhibitionsView;
+
+--Here is the updated combined primary keys: exName and exStartDate
+\d Exhibitions;
+
+--Here is a view based on a new table ExhibitionsLocations
+CREATE VIEW ExhibitionsLocationsView
+	AS SELECT
+		elLocation,
+		elExhibition,
+		elExStartDate
+	FROM 
+		ExhibitionsLocations;
+
+SELECT
+		elLocation,
+		elExhibition,
+		elExStartDate
+	FROM 
+		ExhibitionsLocationsView;
+
+
+--Here is a view based on table WorksLocations with two new attributes wlStartDate and wlEndDate
+--and a combined primary key of wlIDNumber, wlIDLetter, wlLocation, wlStartDate
+\d WorksLocations
+
+CREATE VIEW WorksLocationsView
+	AS SELECT
+		wlIDLetter,
+		wlIDNumber,
+		wlLocation,
+		wlStartDate,
+		wlEndDate
+	FROM 
+		WorksLocations;
+
+SELECT
+		wlIDLetter,
+		wlIDNumber,
+		wlLocation,
+		wlStartDate,
+		wlEndDate
+	FROM 
+		WorksLocationsView;
+
+
+--Here is a view based on table Doors without redundant data
+CREATE VIEW DoorsView
+	AS SELECT
+		drLocation1,
+		drLocation2
+	FROM 
+		Doors;
+
+SELECT
+		drLocation1,
+		drLocation2
+	FROM 
+		DoorsView;
+
+
+
+--Here is a view based on ExhibitionsWorks table with two new attributes: start date and end date
+CREATE VIEW ExhibitionsWorksView
+	AS SELECT
+		ewExhibition,
+		ewIDLetter,
+		ewIDNumber,
+		ewStartDate,
+		ewEndDate
+	FROM 
+		ExhibitionsWorks;
+
+SELECT
+		ewExhibition,
+		ewIDLetter,
+		ewIDNumber,
+		ewStartDate,
+		ewEndDate
+	FROM 
+		ExhibitionsWorksView;
+
+
+|-------------------------------------------------------------------------------------------------|
+|---------------------------------------1b verification-------------------------------------------|
+CREATE VIEW ExhibitionsWithNewData
+	AS SELECT
+		exName,
+		exDescription,
+		exStartDate,
+		exEndDate
+	FROM 
+		Exhibitions;
+
+SELECT
+		exName,
+		exDescription,
+		exStartDate,
+		exEndDate
+	FROM 
+		ExhibitionsWithNewData;
+
+
+|-------------------------------------------------------------------------------------------------|
+|---------------------------------------2a verification-------------------------------------------|
+
+--Here is a view of Works with newly added 30 works
+CREATE VIEW WorksView
+	AS SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works;
+
+--Query all works in database and get 100 works as output (because I had 70 works rather than 65 works from Assignment 1)
+CREATE VIEW DatabaseWorksView
+	AS SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+FROM
+	Works;
+
+SELECT 	
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works;
+
+--Query borrowed work and get 15 works as output
+CREATE VIEW BorrowedWorksView
+	AS SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='borrowed work';
+
+SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='borrowed work';
+
+--Query potential work and get 15 works as output
+CREATE VIEW PotentialWorksView
+	AS SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='potential work';
+
+SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='potential work';
+
+--Query owned work and get 100-15-15=70 works as output
+CREATE VIEW OwnedWorksView
+	AS SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='owned work';
+
+SELECT 
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkOwnership='owned work';
+
+--Query all works in museum and get 85 works as output
+CREATE VIEW WorksInMuseumView
+	AS SELECT
+		wlIDLetter,
+		wlIDNumber,
+		wlLocation,
+		wlStartDate,
+		wlEndDate
+	FROM 
+		WorksLocations;
+
+SELECT
+		wlIDLetter,
+		wlIDNumber,
+		wlLocation,
+		wlStartDate,
+		wlEndDate
+	FROM 
+		WorksLocationsView;
+
+
+|-------------------------------------------------------------------------------------------------|
+|---------------------------------------2b verification-------------------------------------------|
+
+--Here is a view with newly added gallery, galleryD
+CREATE VIEW LocationsView
+	AS SELECT
+		lcName,
+		lcDimension,
+		lcMinnumWork,
+		lcMaxNumWork,
+		lcIsAvailable
+	FROM 
+		Locations;
+
+SELECT
+		lcName,
+		lcDimension,
+		lcMinnumWork,
+		lcMaxNumWork,
+		lcIsAvailable
+	FROM 
+		LocationsView;
+
+--galleryD is set with min of 15 works and max of 25 works and is not available now
+CREATE VIEW GalleryDView
+	AS SELECT
+		lcName,
+		lcDimension,
+		lcMinnumWork,
+		lcMaxNumWork,
+		lcIsAvailable
+	FROM 
+		LocationsView
+	WHERE
+		lcName='galleryD';
+
+SELECT
+		lcName,
+		lcDimension,
+		lcMinnumWork,
+		lcMaxNumWork,
+		lcIsAvailable
+	FROM 
+		GalleryDView;
+
+--galleryD has only one door connecting to one of the small galleries
+--the one furthest from the storage facility
+CREATE VIEW GalleryDDoorsConnections
+	AS (SELECT
+			drLocation1, drLocation2
+		FROM 
+			Doors
+		WHERE
+			drLocation2='galleryD'
+	)
+	UNION
+	(
+		SELECT
+			drLocation1, drLocation2
+		FROM 
+			Doors
+		WHERE
+			drLocation1='galleryD'
+	);
+
+SELECT
+		drLocation1, drLocation2
+	FROM
+		GalleryDDoorsConnections;
+
+--Added rules to restrict inserting or updating data in ExhibitionsLocations regarding galleryD
+--This can be tested by adding a data to ExhibitoinsLocations and choose galleryD as the location
+INSERT INTO ExhibitionsLocations (
+	elLocation, elExhibition, elExStartDate
+)
+VALUES (
+	'galleryD', 'test exhibition', '2016-11-11'
+);
+--And 'INSERT 0 0' is returned, which means that nothing is inserted because of the rules
+
+
+|-------------------------------------------------------------------------------------------------|
+|---------------------------------------2c verification-------------------------------------------|
+
+--Here is a view of lexemes frequency with three attributes word, ndoc, nentry
+CREATE VIEW LexemesFrequency
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works');
+
+SELECT 
+	word, ndoc, nentry
+	FROM LexemesFrequency;
+
+
+
+--Here is a view of lexemes frequency with three attributes word, ndoc, nentry and sorted in order of number of different items that the word appears in
+CREATE VIEW SortedLexemesFrequencyByEntry
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works')
+	ORDER BY ts_stat.ndoc DESC;
+
+SELECT
+	word, ndoc, nentry
+	FROM SortedLexemesFrequencyByEntry;
+
+
+--Here is a view of lexemes frequency sorted in alphabetic order of the words
+CREATE VIEW SortedLexemesFrequencyByWords
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works')
+	ORDER BY ts_stat.word ASC;
+
+SELECT
+	word, ndoc, nentry
+	FROM SortedLexemesFrequencyByWords;
+
+--Here is a view of Works with newly added attribute 'characteristic'
+CREATE VIEW WorksWithNewAttributeView
+	AS SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works;
+
+SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+FROM
+	WorksWithNewAttributeView;
+
+--There are 9 rows having no characteristic
+CREATE VIEW WorksNoValueForNewAttributeView
+	AS SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+	FROM 
+		Works
+	WHERE
+		wkCharacter IS NULL;
+
+SELECT
+		wkIDLetter, 
+		wkIDNumber, 
+		wkName, 
+		wkType, 
+		wkSubType, 
+		wkAuthor, 
+		wkCompletionDate, 
+		wkAcquisitionDate, 
+		wkInsuranceValue, 
+		wkDescription,
+		wkOwnership,
+		wkOwner,
+		wkCharacter
+FROM
+	WorksNoValueForNewAttributeView;

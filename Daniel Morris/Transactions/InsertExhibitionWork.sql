@@ -1,0 +1,1 @@
+INSERT INTO works_exhibitions VALUES (${Letter ID||||String||pk ds=10 dt=VARCHAR}$, ${Number ID||||Integer||pk unformatted ds=11 dt=INTEGER}$, ${Exhibition||||String||pk ds=100 dt=VARCHAR}$, ${Instution||||String||pk ds=50 dt=VARCHAR}$, ${Start Date||||Date||pk ds=13 dt=DATE}$, ${End Date||||Date||nullable ds=13 dt=DATE}$)

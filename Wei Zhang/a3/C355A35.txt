@@ -1,0 +1,64 @@
+  --Wei Zhang Studentnumber = 11146590 NSID:wez758
+  --CMPT355 A3 part5 travelling echibition
+
+ insert into location ('locationname) values (''traveling');
+
+ drop domain if exists tlocation cascade;
+ create domain tlocation as char('30);
+
+ alter table exhlocation add column tempLocation tlocation;
+
+
+ drop domain if exists spname cascade;
+ create domain spname as char('30);
+
+ drop domain if exists taddress cascade;
+ create domain taddress as char('50);
+
+ drop domain if exists sename cascade;
+ create domain sename as char('30);
+
+ drop domain if exists tInsurance cascade;
+ create domain tInsurance as char('30);
+
+ drop table if exists tempExhlocation cascade;
+ create table tempExhlocation ('
+   exhibitionname ename,
+   exhibitionstartdate esdate,
+   locationname lname,
+   templocation tlocation,
+   sponsorName spname,
+   tempaddress taddress,
+   securityName seName,
+   tempInsurance tinsurance,
+  
+   primary key (' exhibitionName, exhibitionstartdate, locationname,templocation),
+   foreign key (' exhibitionName, exhibitionstartdate, locationname)
+   references exhlocation
+     on update cascade
+     on delete cascade
+   );
+  
+ insert into exhibition values 
+ (''The first traveling', 'The first exhibition of travelling exhibition in sa'SK',atchewan', '2016-11-01', '2016-11-22', 'traveling',5,0, '8:00:00'),
+ (''The first traveling', 'The first exhibition of travelling exhibition in sa'SK',atchewan', '2016-11-29', '2016-12-20', 'traveling',5,0, '8:00:00'),
+ (''The first traveling', 'The first exhibition of travelling exhibition in sa'SK',atchewan', '2016-12-27', '2017-01-17', 'traveling',5,0, '8:00:00'),
+ (''The first traveling', 'The first exhibition of travelling exhibition in sa'SK',atchewan', '2017-01-24', '2017-02-14', 'traveling',5,0, '8:00:00'),
+ (''The first traveling', 'The first exhibition of travelling exhibition in sa'SK',atchewan', '2017-02-21', '2017-03-14', 'traveling',5,0, '8:00:00');
+
+
+
+
+ insert into exhlocation values
+ (''The first traveling', '2016-11-01', '2016-11-22', 'traveling', '8:00:00', 'Regina'),
+ (''The first traveling', '2016-11-29', '2016-12-20', 'traveling', '8:00:00', 'Estevan'),
+ (''The first traveling', '2016-12-27', '2017-01-17', 'traveling', '8:00:00', 'Humboldt'),
+ (''The first traveling', '2017-01-24', '2017-02-14', 'traveling', '8:00:00', 'Melfort'),
+ (''The first traveling', '2017-02-21', '2017-03-14', 'traveling', '8:00:00', 'Warman');
+  
+insert into tempExhlocation values 
+ (''The first traveling', '2016-11-01', 'traveling', 'Regina', 'Sheldon', '1652 Nelson Street', 'Sameul', 29300),
+ (''The first traveling', '2016-11-29', 'traveling', 'Estevan', 'Sheldon', '1966 Hazy Rise', 'Sameul', 29300),
+ (''The first traveling', '2016-12-27', 'traveling', 'Humboldt', 'Sheldon', '5770 Green Maze', 'Sameul', 29300),
+ (''The first traveling', '2017-01-24', 'traveling', 'Melfort', 'Sheldon', '6769 Sleepy Mount', 'Sameul', 29300),
+ (''The first traveling', '2017-02-21', 'traveling', 'Warman', 'Sheldon', '7270 Cinder Quail Landing', 'Sameul', 29300);

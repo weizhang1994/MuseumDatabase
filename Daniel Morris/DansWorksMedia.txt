@@ -1,0 +1,264 @@
+NikHan	9	MCA	Pigment
+ManExo	5	MCA	Perspex
+BedCam	4	MCA	Ochres
+TemCor	995	MCA	Synthetic Fur
+ValThe	993	MCA	Foam
+GilCar	998	MCA	Paper
+NixUnt	988	MCA	Pencil
+BenUnt	989	MCA	Synthetic polymer paint
+BelWor	2	MCA	Acrylic
+LeeThe	12	MCA	Paper 
+CleThe	9	MCA	Digital Video
+DeaTra	3	MCA	Polaroid
+MawNia	988	MCA	Ochres
+SmiAda	8	MCA	Polyester
+DwySqu	10	MCA	Plastic
+MunMan	15	MCA	Wood
+HeaUnt	3	MCA	Composition board
+ArmEmp	9	MCA	Cast polyurethane
+CooUnt	1	MCA	Satin Cover
+JohAsa	15	MCA	Pen 
+JohAsa	15	MCA	Gouache
+BauAut	11	MCA	Electronics
+BorStr	9	MCA	Oil
+BoyUnt	14	MCA	Glue
+EagNew	5	MCA	Paper
+DwyUnt	995	MCA	Organza fabric
+KeeMic	4	MCA	Paper
+BlaPar	989	MCA	Lint
+RayTou	13	MCA	Digital Video
+ArmUnt	998	MCA	Bound Pigment
+DwyRec	996	MCA	Wood
+BraThe	5	MCA	Inkjet print
+KeeIan	4	MCA	Paper
+DeaWhe	2	MCA	Print
+WhiUnt	8	MCA	Polymer Clay
+SteDro	2	MCA	Frame
+BirUnt	5	MCA	Polyurethane
+WilCru	11	MCA	Televisions
+MarRin	989	MCA	Oil
+DavPor	991	MCA	Screenprint
+BarInh	6	MCA	Ink
+BriHea	11	MCA	Digital Video
+KeeGeo	4	MCA	Paper
+ArmSec	995	MCA	Metal
+DwyNon	994	MCA	Nail Polish
+WatSel	989	MCA	Oil
+MorCol	7	MCA	Paper Mache
+SteDro	2	MCA	Toned geletin silver print
+SanIts	10	MCA	Glass beads
+ArmUnt	998	MCA	Synthetic polymer
+KenThe	9	MCA	Digital Video
+DwySpe	15	MCA	Acrylic
+BelWor	2	MCA	Canvas
+AngBic	8	MCA	Rubber
+OrsNgu	8	MCA	Lithograph
+WloAro	13	MCA	Acrylic
+BraRan	990	MCA	Computer
+NelWal	12	MCA	Oil
+GlaSto	0	MCA	Digital Video
+DanIts	9	MCA	Mirror Clips
+YatBra	6	MCA	Paper
+ArmSpl	9	MCA	Cast Pewter
+ArmSec	995	MCA	wood 
+ArmSpl	9	MCA	Cast polyurethane
+WilCru	11	MCA	Polymer Paint
+MawNia	988	MCA	Synthetic polymer
+KenNeo	2	MCA	Synthetic polymer paint
+KngUnt	995	MCA	Paper
+BenUnt	989	MCA	Oil
+BirUnt	5	MCA	Synthetic polymer paint
+PicDes	0	MCA	Chromogenic print
+DwySqu	10	MCA	Wood
+YanThe	976	MCA	Paper
+ManExo	5	MCA	Carpet
+NorPas	3	MCA	Digital Video
+OrsNgu	8	MCA	Paper
+SmiAda	8	MCA	Synthetic polymer paint
+CulPir	4	MCA	Canvas
+DwyRec	996	MCA	Wool
+TilTab	11	MCA	288 Canvas Boards
+BurMor	16	MCA	Kurrajong
+ValThe	993	MCA	poem
+ArmSec	995	MCA	Plastic
+HeaUnt	5	MCA	Oil
+BelWor	2	MCA	Ink
+BusIns	987	MCA	Canvas
+FraEve	14	MCA	Varnish
+WatSel	989	MCA	Linen
+ArmSec	995	MCA	Cotton  
+SanIts	10	MCA	Cotton Thread
+NixUnt	988	MCA	Ink
+BlaPar	989	MCA	Collage
+BraTop	5	MCA	Inkjet print
+BoyWec	6	MCA	Oil
+BusThe	994	MCA	Canvas
+CulPir	4	MCA	Polymer Paint
+ArmSec	995	MCA	Ceramics
+ArmSpl	9	MCA	Cast Earthenware
+TemCor	995	MCA	wood 
+DeaWhe	2	MCA	Polaroid Frame
+RinPre	11	MCA	Frame
+NelWal	12	MCA	Linen
+ValThe	993	MCA	Stainless steel cable
+KeeEdd	4	MCA	Paper
+FraEve	14	MCA	Lighter fluid
+CooUnt	1	MCA	Book
+JohAsa	15	MCA	Paper
+PicDes	0	MCA	Frame
+AngBic	8	MCA	Paint
+BraRan	990	MCA	Pavement
+BenHom	999	MCA	Acrylic
+FraEve	14	MCA	Anodised plexiglass
+WonJil	15	MCA	Paper
+MorCol	7	MCA	Ink
+TemCor	995	MCA	Synthetic polymer paint
+BedCam	4	MCA	Pigment
+BirUnt	5	MCA	Fiberglass
+HalGiv	996	MCA	Type C photograph
+BraCru	5	MCA	Frame
+WilCru	11	MCA	Digital Video
+McmYou	984	MCA	Colour photo screenprint
+MesSof	11	MCA	Urethane rubber
+TilTab	11	MCA	Gouache
+BarInh	6	MCA	Acrylic
+GilCar	998	MCA	Ink
+ManExo	5	MCA	Wood
+BlaPar	989	MCA	Oil
+DwyNon	994	MCA	Ink
+KeeMic	4	MCA	Charcoal
+NikHan	9	MCA	Resin
+YatBra	6	MCA	Paint
+DonUnt	5	MCA	Wool
+SteMin	12	MCA	Digital Video
+HalGiv	996	MCA	Found objects
+ValThe	993	MCA	wood 
+GilCar	998	MCA	Carbon
+BelWor	2	MCA	Gravel
+PurPir	996	MCA	Woodblock Print
+WatApr	5	MCA	16 etchings with chine coll
+NelWal	12	MCA	Liquin
+BelWor	2	MCA	Satin
+SanHac	8	MCA	Linen
+MarRin	989	MCA	Canvas
+ParCam	972	MCA	Chromogenic print
+DwyRec	996	MCA	Plasterboard
+BirUnt	5	MCA	Acrylic
+CooUnt	1	MCA	Ink on Paper
+ArmSec	995	MCA	Paper Mache
+BelWor	2	MCA	Polypropelene
+NixUnt	988	MCA	Fibre-tipped Pen
+ValThe	993	MCA	Silk
+YanDis	981	MCA	Ink
+KngUnt	995	MCA	Acrylic
+KovSer	999	MCA	Oil
+WatSel	989	MCA	Animal Glue
+WilCru	11	MCA	Wooden Pallets
+BarInh	6	MCA	Cotton  
+TipCro	15	MCA	Screenprint
+DwyUnt	995	MCA	Pins
+MofInv	0	MCA	Photo
+KovSer	999	MCA	Plywood
+ValThe	993	MCA	Electric Motor
+ArmEmp	9	MCA	Pigment
+MarEdw	8	MCA	Tinted and painted plaster
+BraCru	5	MCA	Inkjet print
+BoyUnt	14	MCA	Oil
+DwyWal	2	MCA	Aluminum
+BarInh	6	MCA	Silk
+SelBes	11	MCA	Digital Video
+RinPre	11	MCA	Poster
+FraEve	14	MCA	Wood
+WloAro	13	MCA	MDF
+KeeGeo	4	MCA	Charcoal
+YanJoe	979	MCA	Ink
+BorStr	9	MCA	Canvas
+MofSom	989	MCA	Frame
+WatApr	5	MCA	Artist Book
+BraTop	5	MCA	Frame
+EagNew	5	MCA	Oil Pastel
+MayBru	0	MCA	Gelatin Silver fibre print
+WloAro	13	MCA	Pigment Marker
+AngBic	8	MCA	Aluminum
+MorCol	7	MCA	Wood
+BurSys	968	MCA	Print
+BurMor	16	MCA	Pigment
+BenHom	999	MCA	Linen
+ClePer	14	MCA	Digital Video
+KeeIan	4	MCA	Charcoal
+HeaUnt	5	MCA	Composition board
+BoyWec	6	MCA	Canvas
+BusThe	994	MCA	Oil
+YatBra	6	MCA	Pen
+JohAsa	15	MCA	Frame
+BedCam	4	MCA	Linen
+KenNeo	2	MCA	Neon
+YanJoe	979	MCA	Gelatin Silver
+DwyWal	2	MCA	Fabric
+PurPir	996	MCA	Ricepaper
+BraRan	990	MCA	Diorite mining cores
+DwySqu	10	MCA	Textile
+DwyWal	2	MCA	Plastic
+RraOve	1	MCA	Chromogenic print
+YatBra	6	MCA	Wire
+CulPir	4	MCA	Gouache
+JohAsa	15	MCA	Collage
+ManExo	5	MCA	Acrylic paint
+MesSof	11	MCA	Timber
+DwyRec	996	MCA	Carpet
+GreEll	11	MCA	Synthetic polymer paint
+BlaPar	989	MCA	Linen
+ArmSec	995	MCA	Polystyrene
+BraRan	990	MCA	Speakers
+MacOpe	6	MCA	Digital Video
+DeaFor	1	MCA	Digital Video
+MofInv	0	MCA	Silkscreen
+BelUzv	6	MCA	Digital Video
+ValThe	993	MCA	Brass Rod
+BlaPar	989	MCA	Pigmented Gesso
+SanIts	10	MCA	Nylon Organza
+ArmUnt	998	MCA	Glass  
+MofSom	989	MCA	Photo
+MunMan	15	MCA	Photographic paint
+TilTab	11	MCA	Acrylic
+SanHac	8	MCA	Oil
+SanHac	8	MCA	Enamel
+BraRan	990	MCA	Microphone stands
+GreEll	11	MCA	Wall
+HalGiv	996	MCA	Soap
+BraRan	990	MCA	Gravel
+DwySqu	10	MCA	Polymer Paint
+YanDis	981	MCA	Gelatin Silver
+WonJil	15	MCA	Natural Ochres
+ManExo	5	MCA	Resin
+OweSun	5	MCA	Wall
+DwySpe	15	MCA	Wall
+HarDog	6	MCA	Digital Video
+BraRan	990	MCA	Tuning Forks
+AngBic	8	MCA	Steel
+DwyNon	994	MCA	Printed Paper
+DeaTra	3	MCA	Print
+RraOve	1	MCA	Frame
+MayArt	0	MCA	Gelatin Silver fibre print
+BlaPar	989	MCA	Sand
+DwyWal	2	MCA	Resin
+OweSun	5	MCA	Synthetic polymer paint
+BenUnt	989	MCA	Canvas
+HeaUnt	3	MCA	Oil
+ArmSpl	9	MCA	Pigment
+BauAut	11	MCA	Plastic
+BraThe	5	MCA	Frame
+KeeEdd	4	MCA	Charcoal
+BauAut	11	MCA	Paper
+JohAsa	15	MCA	Fibre-tipped Markers
+KenNeo	2	MCA	Composite board
+BusIns	987	MCA	Oil
+DavPor	991	MCA	Paper
+BoyUnt	14	MCA	Linen
+WatSel	989	MCA	Ink
+MesSof	11	MCA	Found object
+MawNia	988	MCA	Bark
+SmiAda	8	MCA	Aircraft plywood
+NixSel	988	MCA	Wood
+DanIts	9	MCA	Mirror
+DwySqu	10	MCA	Wall

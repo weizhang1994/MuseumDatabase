@@ -1,0 +1,7 @@
+WAC gallery	STORAGE	LOBBY
+WAC gallery	Gallery No1	LOBBY
+WAC gallery	Gallery No2	LOBBY
+WAC gallery	Main Hall	Gallery No1
+WAC gallery	Main Hall	Gallery No2
+WAC gallery	Gallery No1	Gallery No2
+WAC gallery	Grand Hall	Gallery No1

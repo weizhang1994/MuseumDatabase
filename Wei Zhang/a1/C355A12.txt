@@ -1,0 +1,87 @@
+-- Wei Zhang NSID wez758 #11146590
+-- C355A12.txt for assignment 1
+
+
+SET datestyle to MDY;
+
+
+-- Part1 :: Add data to the locations(include three galleries, lobby, 
+-- storage and connecting doors
+
+-- insert 5 location names and physical dimension in location table
+DELETE FROM location;
+INSERT INTO location VALUES('storage', (30, 30, 5), 0, 600),
+			    ('lobby', (30,20,5), 2, 4),
+			    ('galleryA', (10,10,5), 7, 16),
+			    ('galleryB', (10,15,5), 7, 16),
+			    ('galleryC', (20,20,5), 14, 24); 
+
+				    
+-- insert connected doors into table locationDoor table
+DELETE FROM locationDoor;
+INSERT INTO locationDoor VALUES('storage', 'lobby'),
+			       ('lobby', 'storage'),
+			       ('lobby', 'galleryA'),
+			       ('lobby', 'galleryB'),
+			       ('galleryA', 'lobby'),
+			       ('galleryA', 'galleryB'),
+			       ('galleryA', 'galleryC'),
+			       ('galleryB', 'lobby'),
+			       ('galleryB', 'galleryA'),
+			       ('galleryB', 'galleryC'),
+			       ('galleryC', 'galleryA'),
+			       ('galleryC', 'galleryB');
+			   
+
+--Part2 :: Add 65 works from the text file to musuem database
+DELETE FROM museum;
+\copy museum from 'CMPT355partA';
+
+
+--Part3 :: Place all items initially in museum's storage facilility
+DELETE FROM musLocation;
+\copy muslocation FROM 'muslocation';
+
+
+--Part4 :: Create 3 exhibitions with data in C355A12-1 file and add this data in exhibition table
+DELETE FROM exhibition;
+\copy exhibition from 'C355A12-1.txt';
+
+
+--Part5 :: Place the selected items in these 3 exhibitions
+DELETE FROM musexhibition;
+\copy musexhibition from 'musexhibition';
+
+
+--Part6 :: Assign 2 special works in the lobby
+
+
+--Part7 :: Assign the exhibitions to locations 
+DELETE FROM exhlocation;
+\copy exhlocation from 'exhlocation'
+
+
+--Part 8:: update the works in location
+DELETE FROM muslocation;
+\copy muslocation from 'muslocation_2';
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	
+  

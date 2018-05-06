@@ -1,0 +1,81 @@
+
+
+\i '9_Insert_works_location.txt'
+
+
+ALTER TABLE exhibitions_works ADD COLUMN ex_name ns_exName;
+--ALTER TABLE exhibitions_works ADD COLUMN ex_Startdate date;
+--ALTER TABLE exhibitions_works ADD COLUMN ex_Enddate date;
+
+UPDATE exhibitions_works SET ex_Name = (SELECT theme FROM exhibitions_info WHERE exhibition_id = ex_id),
+			     ex_startDate = ( SELECT start_date FROM exhibitions_info WHERE exhibition_id = ex_id), 
+			     ex_EndDate = ( SELECT end_date FROM exhibitions_info WHERE exhibition_id = ex_id);
+
+			     
+INSERT INTO ns_works_exhibitions(ns_we_idalpha,
+				 ns_we_idnumeric,
+				 ns_we_exname,
+				 ns_we_inname,
+				 ns_we_exstartdate,
+				 ns_we_exenddate) 
+	SELECT itemalpha_ex,
+	       itemnumber_ex,
+	       ex_name,
+	       'WAC gallery',
+	       ex_startdate,
+	       ex_enddate
+	FROM exhibitions_works;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

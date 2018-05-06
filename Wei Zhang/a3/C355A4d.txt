@@ -1,0 +1,14 @@
+-- Making the neccesary changes X.d
+-- create rule that will autamaticallt add new information into exhibiition related table
+
+CREATE RULE locationexh AS ON INSERT TO exhibition
+     DO ALSO INSERT INTO exhlocation 
+     (exhibitionname,exhibitionstartdate,exhibitionenddate,locationname,moveintime)
+     values
+     (
+ 	new.exhibitionname,
+ 	new.exhibitionstartdate,
+ 	new.exhibitionenddate,
+	new.exhibitionlocation,
+	new.moveintime
+     ); 

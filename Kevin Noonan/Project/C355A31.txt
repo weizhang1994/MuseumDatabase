@@ -1,0 +1,258 @@
+--Assignment #3 | Kevin Noonan | krn871 | 11138394
+
+--query for report of all current and future exhibitions
+--This includes name of exhibition, start and end dates, max capacity and current number of works planned
+
+CREATE VIEW exhReport AS SELECT DISTINCT c.exblName, e.exbstartdate, e.exbenddate, l.locroommax, COUNT(w.exbwName) 
+FROM exhibitionlocation AS c
+LEFT JOIN locations AS l
+ON l.locroomname=c.exbloc
+LEFT JOIN exhibitions AS e 
+ON c.exblname=e.exbname
+LEFT JOIN exhibitionsworks AS w
+ON w.exbwname=c.exblname
+GROUP BY c.exblname, e.exbstartdate, e.exbenddate, l.locroommax;
+
+SELECT * FROM exhReport ORDER BY exbstartdate, exbenddate;
+
+--Inserting exhibitions to fill up the current and future exhibitions.
+
+--Old but Gold | Gallery A | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Old but Gold', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'FORDM' AND wksnumberkey = 9
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Just living life | Gallery B | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Just living life', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'MLP' AND wksnumberkey = 39
+OR wksletterkey = 'HDMJ' AND wksnumberkey = 76
+OR wksletterkey = 'MT' AND wksnumberkey = 40
+OR wksletterkey = 'MCD' AND wksnumberkey = 80;
+
+--At the Raceway | Gallery C | Max 24
+
+INSERT into exhibitionsworks
+SELECT 'At the Raceway', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'ARG' AND wksnumberkey = 71
+OR wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HDX' AND wksnumberkey = 75
+OR wksletterkey = 'DDS' AND wksnumberkey = 46
+OR wksletterkey = 'HDT' AND wksnumberkey = 73
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'FMMS' AND wksnumberkey = 50;
+
+--Cars of Inventors| Gallery A | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Cars of Inventors', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'MBD' AND wksnumberkey = 66
+OR wksletterkey = 'DHT' AND wksnumberkey = 70
+OR wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'HDVL' AND wksnumberkey = 77
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'DDC' AND wksnumberkey = 72
+OR wksletterkey = 'FORDF' AND wksnumberkey = 12;
+
+--Hogs of the Road | Gallery B | Max 16
+
+INSERT into exhibitionsworks
+SELECT 'Hogs of the Road', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'DHC' AND wksnumberkey = 74
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27
+OR wksletterkey = 'MTQS' AND wksnumberkey = 69
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Millionaires Day Out | Gallery C | Max 24
+
+INSERT into exhibitionsworks
+SELECT 'Millionaires Day Out', wksletterkey, wksnumberkey
+FROM works
+WHERE wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'CIPP' AND wksnumberkey = 34
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37
+OR wksletterkey = 'RFCO' AND wksnumberkey = 67;
+
+
+--Update locations for Old but Gold
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery A', '20161028'
+FROM works
+WHERE wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'FORDM' AND wksnumberkey = 9
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Update locations for Just living Life
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery B', '20161028'
+FROM works
+WHERE wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'MLP' AND wksnumberkey = 39
+OR wksletterkey = 'HDMJ' AND wksnumberkey = 76
+OR wksletterkey = 'MT' AND wksnumberkey = 40
+OR wksletterkey = 'MCD' AND wksnumberkey = 80;
+
+--Update locations for At the Raceway
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery C', '20161028'
+FROM works
+WHERE wksletterkey = 'ARG' AND wksnumberkey = 71
+OR wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HDX' AND wksnumberkey = 75
+OR wksletterkey = 'DDS' AND wksnumberkey = 46
+OR wksletterkey = 'HDT' AND wksnumberkey = 73
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'FMMS' AND wksnumberkey = 50;
+
+--SEND BACK TO STORAGE
+
+--Update locations for Old but Gold
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20161223'
+FROM works
+WHERE wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'FORDM' AND wksnumberkey = 9
+OR wksletterkey = 'ALC' AND wksnumberkey = 14
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'NASHH' AND wksnumberkey = 21
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Update locations for Just living Life
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20170206'
+FROM works
+WHERE wksletterkey = 'BEB' AND wksnumberkey = 23
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'MLP' AND wksnumberkey = 39
+OR wksletterkey = 'HDMJ' AND wksnumberkey = 76
+OR wksletterkey = 'MT' AND wksnumberkey = 40
+OR wksletterkey = 'MCD' AND wksnumberkey = 80;
+
+--Update locations for At the Raceway
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20170407'
+FROM works
+WHERE wksletterkey = 'ARG' AND wksnumberkey = 71
+OR wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HDX' AND wksnumberkey = 75
+OR wksletterkey = 'DDS' AND wksnumberkey = 46
+OR wksletterkey = 'HDT' AND wksnumberkey = 73
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'DSJ' AND wksnumberkey = 56
+OR wksletterkey = 'FMMS' AND wksnumberkey = 50;
+
+
+
+--Update locations for Cars of Inventors
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery A', '20161224'
+FROM works
+WHERE wksletterkey = 'MBD' AND wksnumberkey = 66
+OR wksletterkey = 'DHT' AND wksnumberkey = 70
+OR wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'HDVL' AND wksnumberkey = 77
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'DDC' AND wksnumberkey = 72
+OR wksletterkey = 'FORDF' AND wksnumberkey = 12;
+
+--Update locations for Hogs of the Road
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery B', '20170207'
+FROM works
+WHERE wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'DHC' AND wksnumberkey = 74
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27
+OR wksletterkey = 'MTQS' AND wksnumberkey = 69
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Update locations for Millionaires Day Out
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery C', '20170408'
+FROM works
+WHERE wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'CIPP' AND wksnumberkey = 34
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37
+OR wksletterkey = 'RFCO' AND wksnumberkey = 67;
+
+--SEND BACK TO STORAGE
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery A', '20170428'
+FROM works
+WHERE wksletterkey = 'MBD' AND wksnumberkey = 66
+OR wksletterkey = 'DHT' AND wksnumberkey = 70
+OR wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'HDVL' AND wksnumberkey = 77
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'DDC' AND wksnumberkey = 72
+OR wksletterkey = 'FORDF' AND wksnumberkey = 12;
+
+--Update locations for Hogs of the Road
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery B', '20170711'
+FROM works
+WHERE wksletterkey = 'BTRS' AND wksnumberkey = 17
+OR wksletterkey = 'CHB' AND wksnumberkey = 18
+OR wksletterkey = 'VOLKT' AND wksnumberkey = 19
+OR wksletterkey = 'DHC' AND wksnumberkey = 74
+OR wksletterkey = 'HUDW' AND wksnumberkey = 27
+OR wksletterkey = 'MTQS' AND wksnumberkey = 69
+OR wksletterkey = 'MBS' AND wksnumberkey = 29;
+
+--Update locations for Millionaires Day Out
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Gallery C', '20170712'
+FROM works
+WHERE wksletterkey = 'CSC' AND wksnumberkey = 31
+OR wksletterkey = 'HST' AND wksnumberkey = 32
+OR wksletterkey = 'CHVI' AND wksnumberkey = 68
+OR wksletterkey = 'CIPP' AND wksnumberkey = 34
+OR wksletterkey = 'CCDV' AND wksnumberkey = 37
+OR wksletterkey = 'RFCO' AND wksnumberkey = 67;
+

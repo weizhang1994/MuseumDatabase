@@ -1,0 +1,84 @@
+ALTER TABLE worksLocations ALTER COLUMN locMoveDate TYPE TIMESTAMP;
+
+INSERT INTO Exhibitions
+	SELECT 'Old but Gold', 'A collection of the museums oldest artwork.', '20150912', '20160713';
+	
+INSERT INTO Exhibitions
+	SELECT 'Cowboy Exhibition', 'A collection of the museums cowboy artwork.', '20151013', '20160814';
+	
+INSERT INTO Exhibitions
+	SELECT 'Aboriginal Exhibition', 'A collection of the museums aboriginal artwork.', '20151119', '20160907';
+	
+INSERT INTO exhibitLocations
+	SELECT 'Old but Gold', 'Gallery A';
+	
+INSERT INTO exhibitLocations
+	SELECT 'Cowboy Exhibition', 'Gallery B';
+	
+INSERT INTO exhibitLocations
+	SELECT 'Aboriginal Exhibition', 'Gallery C';
+	
+INSERT INTO exhibitWorks
+	SELECT 'Old but Gold', wkIdAlpha, wkIdNum
+	FROM works
+		WHERE wkIdAlpha = 'BurSys' AND wkIdNum = 968
+			OR wkIdAlpha = 'ParCam' AND wkIdNum = 972
+			OR wkIdAlpha = 'YanThe' AND wkIdNum = 976
+			OR wkIdAlpha = 'YanJoe' AND wkIdNum = 979
+			OR wkIdAlpha = 'YanDis' AND wkIdNum = 981
+			OR wkIdAlpha = 'ValThe' AND wkIdNum = 993
+			OR wkIdAlpha = 'McmYou' AND wkIdNum = 984;
+			
+INSERT INTO exhibitWorks
+	SELECT 'Cowboy Exhibition', wkIdAlpha, wkIdNum
+	FROM works
+		WHERE wkIdAlpha = 'MarRin' AND wkIdNum = 989
+			OR wkIdAlpha = 'WatApr' AND wkIdNum = 5
+			OR wkIdAlpha = 'WloAro' AND wkIdNum = 13
+			OR wkIdAlpha = 'SmiAda' AND wkIdNum = 8
+			OR wkIdAlpha = 'MayArt' AND wkIdNum = 0
+			OR wkIdAlpha = 'JohAsa' AND wkIdNum = 15
+			OR wkIdAlpha = 'BauAut' AND wkIdNum = 11;
+			
+INSERT INTO exhibitWorks
+	SELECT 'Aboriginal Exhibition', wkIdAlpha, wkIdNum
+	FROM works
+		WHERE wkIdAlpha = 'SelBes' AND wkIdNum = 11
+			OR wkIdAlpha = 'AngBic' AND wkIdNum = 8
+			OR wkIdAlpha = 'YatBra' AND wkIdNum = 6
+			OR wkIdAlpha = 'MayBru' AND wkIdNum = 0
+			OR wkIdAlpha = 'BedCam' AND wkIdNum = 4
+			OR wkIdAlpha = 'MorCol' AND wkIdNum = 7
+			OR wkIdAlpha = 'GilCar' AND wkIdNum = 998;
+			
+INSERT INTO worksLocations
+	SELECT ewIdAlpha, ewIdNum, exlocLoc, exStart - 3 + time '8:00'
+	FROM exhibitWorks, exhibitLocations, exhibitions
+		WHERE ewName = exName
+			AND exLocName = exName
+			AND (exName = 'Old but Gold' OR exName = 'Cowboy Exhibition' OR exName = 'Aboriginal Exhibition');
+			
+INSERT INTO worksLocations
+	SELECT ewIdAlpha, ewIdNum, 'Storage', exEnd + 1 + time '8:00'
+	FROM exhibitWorks, exhibitLocations, exhibitions
+		WHERE ewName = exName
+			AND exLocName = exName
+			AND (exName = 'Old but Gold' OR exName = 'Cowboy Exhibition' OR exName = 'Aboriginal Exhibition');
+			
+SELECT locIdAlpha, locIdNum, locName, locMoveDate
+FROM worksLocations
+WHERE (locIdAlpha = 'SelBes' OR locIdAlpha = 'RayTou' OR locIdAlpha = 'SanHac')
+AND locMoveDate BETWEEN '20151101' AND '20161101'
+ORDER BY locIdAlpha, locMoveDate;
+
+SELECT ewidAlpha, ewIdNum
+FROM exhibitions, exhibitWorks
+WHERE ((exStart BETWEEN '20151101' AND '20161101') OR (exEnd BETWEEN '20151101' AND '20161101'))
+AND ewName = exName
+AND ewName = 'Its a Colourful World';
+
+SELECT exName
+FROM exhibitions, exhibitLocations
+WHERE ((exStart BETWEEN '20151101' AND '20161101') OR (exEnd BETWEEN '20151101' AND '20161101'))
+AND exlocLoc = 'Gallery C'
+AND exName = exlocName;

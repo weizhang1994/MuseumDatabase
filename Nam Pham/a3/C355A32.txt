@@ -1,0 +1,281 @@
+
+--Create the rule so that when we purchase the item, it will automatically add to the system
+CREATE RULE purchase AS ON INSERT TO all_works WHERE new.claim <> 'POTENTIAL BORROWED'
+	DO ALSO INSERT INTO works_location VALUES (new.itemalpha,
+						   new.itemnumber,
+						   'STORAGE',
+						   '10/25/2016',
+						   null);
+
+CREATE RULE purchase2 AS ON INSERT TO works_location 
+	DO ALSO INSERT INTO works_move_in_date VALUES (new.itemalpha_ex,
+						       new.itemnumber_ex,
+						       new.date_in,
+						       new.date_out,
+						       new.current_location);
+
+INSERT INTO all_works VALUES (
+				'IGI',
+				175,
+				'Der Teufel von Berlin (The Devil from Berlin)',
+				'A devil like figure emerging from a black and white photographic image of a group of men playing tug-of-war',
+				'Prints',
+				'Edition Prints',
+				'Sigmar Polke',
+				'10/7/2001',
+				'1/4/2003',
+				260,
+				'OWNED',
+				'black');
+
+
+INSERT INTO all_works VALUES (
+				'IHI',
+				176,
+				'Eisberg (Iceberg)',
+				'An abstract image divided into three parts printed on Agfa polyester film',
+				'Prints',
+				'Edition Prints',
+				'Sigmar Polke',
+				'1/9/2000',
+				'7/7/2007',
+				300,
+				'OWNED',
+				'print');
+
+INSERT INTO all_works VALUES (
+				'IGG',
+				177,
+				'Flags I',
+				'An image of two U.S. flags vertical in orientation side by side. The left image is red, white and blue. The right image is red, cream, and blue. A screenprint from twenty one screens.',
+				'Prints',
+				'Edition Prints',
+				'Jasper Johns',
+				'8/20/1973',
+				'10/16/1988',
+				230,
+				'OWNED',
+				'image');
+
+INSERT INTO all_works VALUES (
+				'IHH',
+				178,
+				'Kulturschablone (Culture Template)',
+				'Black screenprinted shapes, die-cut revealling portions of two magazine ads mounted on a second sheet. Unique edition in that each print has different advertisements.',
+				'Prints',
+				'Edition Prints',
+				'Sigmar Polke',
+				'5/3/1998',
+				'7/11/2000',
+				200,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'IGH',
+				179,
+				'Jots and Tittles',
+				'Each print contains and image with related text; see element sizes for image description and text.',
+				'Prints',
+				'Edition Prints',
+				'Raymond Pettibon',
+				'11/8/1998',
+				'12/14/1999',
+				400,
+				'OWNED',
+				'image');
+
+INSERT INTO all_works VALUES (
+				'IHG',
+				180,
+				'Queen of the Night',
+				'An image of a man on one knee looking up at a standing woman, who has one arm raised.',
+				'Prints',
+				'Edition Prints',
+				'Maurice Sendak',
+				'2/22/2002',
+				'4/14/2004',
+				300,
+				'OWNED',
+				'image');
+
+INSERT INTO all_works VALUES (
+				'JJJ',
+				181,
+				'Savarin',
+				'A print produced on the occcassion of Johns exhibition at the Whitney.',
+				'Prints',
+				'Edition Prints',
+				'Jasper Johns',
+				'9/23/1977',
+				'12/4/2005',
+				140,
+				'OWNED',
+				'print');
+
+INSERT INTO all_works VALUES (
+				'JJK',
+				182,
+				'The Seasons (Spring)',
+				'An image of two partial figures in center of print. R side images of pairs of sillohueted profiles facing one another forming a vase in the space between the profiles. L side a semicircle containing an arm and hand partially obscuring a rabbit. An intaglio print from five copper plates.',
+				'Prints',
+				'Edition Prints',
+				'Jasper Johns',
+				'12/15/1987',
+				'1/18/1988',
+				180,
+				'OWNED',
+				'print');
+
+INSERT INTO all_works VALUES (
+				'JJL',
+				183,
+				'Arrivals',
+				'Black print on white paper. An announcement, addressed to Jeff Berner, stamped, and postmarked on TL reverse, for Arrivals, a happening that occurred at an unused airstrip in Nassau, NY, April 1968.',
+				'Prints',
+				'Posters',
+				'Allan Kaprow',
+				'4/12/1968',
+				'7/27/1989',
+				100,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'JKJ',
+				184,
+				'7th Annual New York Avant Garde Festival on Two Islands',
+				'Black print on green map of New York City background, folded in quarters, poster for the 7th Annual Avant Garde Festival, organized by Charlotte Moorman. Festival took place on Ward Island & Mill Rock Island, Sept. 9 - Oct. 4, 1969. Poster designed by Jim McWilliams. On reverse lower quadrant stamp, post marks, return address, and attached label addressed to Jeff Berner',
+				'Prints',
+				'Posters',
+				'Jim McWilliams',
+				'9/9/1969',
+				'7/27/1989',
+				185,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'JKK',
+				186,
+				'Crisis and Nervous Depression',
+				'Black letterpress on white paper. Announcement in English for an event at Total Art Gallery, Nice, with spaces to fill in date and time.',
+				'Prints',
+				'Posters',
+				'Ben Vautier',
+				'6/4/1963',
+				'7/8/1989',
+				155,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'JLL',
+				187,
+				'Fluxfest Presents: 12! Big Names!',
+				'Poster for an event, April 21 at 80 Wooster, designed by George Maciunas. Black printing on white paper.',
+				'Prints',
+				'Posters',
+				'George Maciunas',
+				'4/21/1974',
+				'11/19/1989',
+				115,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'JKL',
+				188,
+				'Fluxfest',
+				'Black print on green paper; paper is watermarked with a round seal with a sailboat in the center, surrounding the sailboat are the words ""American Trust Co. Since 1854, the entire sheet has horizontal watermark lines. The poster announces Fluxfest, a festival in two parts, at Longshoreman Hall, San Francisco, Mar. 31, 1967. Folded',
+				'Prints',
+				'Posters',
+				'Jeff Berner',
+				'3/30/1967',
+				'12/1/1989',
+				115,
+				'OWNED',
+				'black');
+
+INSERT INTO all_works VALUES (
+				'LJL',
+				202,
+				'Kuktca',
+				'A handbound copy of ""Kuktca"" by Antonin Macek with 17 holes in it (all holes may not have been shot) contanined in a wood frame with plexiglass glazing',
+				'Books',
+				'Short story',
+				'Milan Knizak',
+				'7/11/1972',
+				'8/9/1989',
+				'155',
+				'OWNED',
+				'copy');
+
+INSERT INTO all_works VALUES (
+				'LKL',
+				203,
+				'Quelques',
+				'A paperback booklet with pages held together by fasteners. A handwritten message to Berner from Vautier is on the last page. The text is in French.',
+				'Books',
+				'Novel',
+				'Ben Vautier',
+				'10/2/1970',
+				'12/28/1989',
+				230,
+				'OWNED',
+				'text');
+
+
+--Create the rule so that when we sold the item, it take the item out of the system
+CREATE RULE sold AS ON UPDATE TO all_works WHERE new.claim = 'SOLD'
+	DO ALSO UPDATE works_location SET date_out = '10/21/2016'
+					WHERE new.itemalpha = itemalpha_ex AND
+					      date_out IS NULL;
+     
+--CREATE RULE sold2 AS ON UPDATE TO all_works WHERE new.claim = 'SOLD'
+--	DO ALSO UPDATE works_move_in_date SET date_out = '10/21/2016'
+--					WHERE new.itemalpha = itemalpha_ex AND
+--					      date_out IS NULL;
+
+UPDATE all_works SET claim = 'SOLD' WHERE itemalpha = 'BBC' AND itemnumber = 111;
+
+UPDATE all_works SET claim = 'SOLD' WHERE itemalpha = 'BAB' AND itemnumber = 112;
+
+UPDATE all_works SET claim = 'SOLD' WHERE itemalpha = 'BCB' AND itemnumber = 113;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

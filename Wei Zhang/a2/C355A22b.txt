@@ -1,0 +1,9 @@
+ 
+-- Wei Zhang
+--Part2b. Insert new galleryD with s suggested minimum of 15 works and suggested maximum of 25 works
+insert into location values
+('galleryD', (20,25,5), 15, 25);
+-- The galleryD only connect to the galleryA. Hence also iinsert new rows into locationdoor
+insert into locationdoor values
+('galleryA', 'galleryD'),
+('galleryD', 'galleryA');

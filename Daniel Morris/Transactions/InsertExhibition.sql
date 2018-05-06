@@ -1,0 +1,1 @@
+INSERT INTO exhibitions VALUES (${Exhibition Name||||String||pk ds=100 dt=VARCHAR}$, ${Start Date||||Date||pk ds=13 dt=DATE}$, ${Institution||||String||pk ds=50 dt=VARCHAR}$, null, ${Description||||String||nullable ds=2147483647 dt=VARCHAR}$, ${End Date||||Date||nullable ds=13 dt=DATE}$)

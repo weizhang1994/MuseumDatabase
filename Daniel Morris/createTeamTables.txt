@@ -1,0 +1,751 @@
+-- Drop Institutions table domains
+DROP DOMAIN IF EXISTS inName cascade;
+DROP DOMAIN IF EXISTS email cascade;
+DROP DOMAIN IF EXISTS phoneNumber cascade;
+DROP DOMAIN IF EXISTS streetAddress cascade;
+DROP DOMAIN IF EXISTS city cascade;
+DROP DOMAIN IF EXISTS countrySubdivision cascade;
+DROP DOMAIN IF EXISTS country cascade;
+DROP DOMAIN IF EXISTS postalCode cascade;
+
+
+-- Drop Works table domains:
+DROP DOMAIN IF EXISTS IDAlpha cascade;
+DROP DOMAIN IF EXISTS IDNumeric cascade;
+DROP DOMAIN IF EXISTS wkName cascade;
+DROP DOMAIN IF EXISTS creator cascade;
+DROP DOMAIN IF EXISTS coDate cascade;
+DROP DOMAIN IF EXISTS acDate cascade;
+DROP DOMAIN IF EXISTS wkDescription cascade;
+DROP DOMAIN IF EXISTS theme cascade;
+DROP DOMAIN IF EXISTS subject cascade;
+DROP DOMAIN IF EXISTS culture cascade;
+DROP DOMAIN IF EXISTS colour cascade;
+DROP DOMAIN IF EXISTS carType cascade;
+DROP DOMAIN IF EXISTS transmission cascade;
+
+
+--Drop Locations table domains:
+DROP DOMAIN IF EXISTS lcName cascade;
+DROP DOMAIN IF EXISTS length cascade;
+DROP DOMAIN IF EXISTS height cascade;
+DROP DOMAIN IF EXISTS width cascade;
+DROP DOMAIN IF EXISTS minNumWorks cascade;
+DROP DOMAIN IF EXISTS maxNumWorks cascade;
+DROP DOMAIN IF EXISTS availabilityDate cascade;
+DROP DOMAIN IF EXISTS sponsor cascade;
+DROP DOMAIN IF EXISTS security cascade;
+DROP DOMAIN IF EXISTS insurance cascade;
+
+
+-- Drop Exhibitions table domains:
+DROP DOMAIN IF EXISTS exName cascade;
+DROP DOMAIN IF EXISTS exStartDate cascade;
+DROP DOMAIN IF EXISTS isTraveling cascade;
+DROP DOMAIN IF EXISTS exDescription cascade;
+DROP DOMAIN IF EXISTS exEndDate cascade;
+
+
+-- Drop Exhibitions_ location table domains:
+DROP DOMAIN IF EXISTS travelingStartDate cascade;
+DROP DOMAIN IF EXISTS travelingEndDate cascade;
+
+
+-- Drop Transactions table domains
+DROP DOMAIN IF EXISTS trDate cascade;
+DROP DOMAIN IF EXISTS trType cascade;
+
+
+--Drop Works_Ownership table domains
+DROP DOMAIN IF EXISTS woStartDate cascade;
+DROP DOMAIN IF EXISTS woEndDate cascade;
+
+
+--Drop Works_Locations table domains:
+DROP DOMAIN IF EXISTS wlStartDateTime cascade;
+DROP DOMAIN IF EXISTS wlEndDateTime cascade;
+
+
+-- Drop Works_Value table domains:
+DROP DOMAIN IF EXISTS wvStartDate cascade;
+DROP DOMAIN IF EXISTS wvEndDate cascade;
+
+
+-- Drop Works_State domains:
+DROP DOMAIN IF EXISTS state cascade;
+DROP DOMAIN IF EXISTS wsStartDate cascade;
+DROP DOMAIN IF EXISTS wsEndDate cascade;
+
+
+-- Drop Works_Exhibitions domain:
+--No new domain
+
+
+-- Drop Media table domains:
+DROP DOMAIN IF EXISTS material cascade;
+
+
+
+
+
+
+
+
+
+
+-- Institutions table domains
+CREATE DOMAIN inName as varchar(50) ;
+CREATE DOMAIN email as varchar(100);
+CREATE DOMAIN phoneNumber as varchar(20);
+CREATE DOMAIN streetAddress as varchar(50);
+CREATE DOMAIN city as varchar(60);
+CREATE DOMAIN countrySubdivision as varchar(20);
+CREATE DOMAIN country as varchar(20);
+CREATE DOMAIN postalcode as varchar(50);
+
+
+
+
+-- Works table domains:
+CREATE DOMAIN IDAlpha as varchar(10);
+CREATE DOMAIN IDNumeric as integer;
+CREATE DOMAIN wkName as varchar(200);
+CREATE DOMAIN creator as varchar(50);
+CREATE DOMAIN coDate as date;
+CREATE DOMAIN acDate as date;
+CREATE DOMAIN wkDescription as text;
+CREATE DOMAIN theme as varchar(50);
+CREATE DOMAIN subject as varchar(50);
+CREATE DOMAIN culture as varchar(50);
+CREATE DOMAIN colour as varchar(50);
+CREATE DOMAIN carType as varchar(50);
+CREATE DOMAIN transmission as varchar(50);
+
+
+
+
+-- Locations table domains:
+CREATE DOMAIN lcName as varchar(58);
+CREATE DOMAIN length as real;
+CREATE DOMAIN height as real;
+CREATE DOMAIN width as real;
+CREATE DOMAIN minNumWorks smallint;
+CREATE DOMAIN maxNumWorks smallint;
+CREATE DOMAIN availabilityDate as date;
+CREATE DOMAIN sponsor as varchar(50);
+CREATE DOMAIN security as varchar(50);
+CREATE DOMAIN insurance as integer;
+
+
+
+
+-- Exhibitions table domains:
+CREATE DOMAIN exName as varchar(100);
+CREATE DOMAIN isTraveling  as boolean;
+CREATE DOMAIN exStartDate as date;
+CREATE DOMAIN exDescription as text;
+CREATE DOMAIN exEndDate as date;
+
+
+
+
+-- Exhibitions_ location table domains:
+CREATE DOMAIN travelingStartDate as date;
+CREATE DOMAIN travelingEndDate as date;
+
+
+
+
+-- Transactions table domains
+CREATE DOMAIN trDate as date;
+CREATE DOMAIN trType as varchar(20);
+
+
+
+
+-- Works_Ownership table domains
+CREATE DOMAIN woStartDate as date;
+CREATE DOMAIN woEndDate as date;
+
+
+
+
+-- Works_Locations table domains:
+CREATE DOMAIN wlStartDateTime as timestamp;
+CREATE DOMAIN wlEndDateTime as timestamp;
+
+
+
+
+-- Works_Value table domains:
+CREATE DOMAIN wvStartDate as date;
+CREATE DOMAIN wvEndDate as date;
+
+
+
+
+-- Works_State domains:
+CREATE DOMAIN state as varchar(30);
+CREATE DOMAIN wsStartDate as date;
+CREATE DOMAIN wsEndDate as date;
+
+
+
+
+-- Works_Exhibitions domain:
+--No new domain
+
+
+
+
+-- Media table domains:
+CREATE DOMAIN material as varchar(100);
+
+
+
+
+
+
+-- Drop all tables if exist
+Drop Table IF EXISTS Institutions cascade;
+
+
+Drop Table IF EXISTS Works cascade;
+
+
+Drop Table IF EXISTS Locations cascade;
+
+
+Drop Table IF EXISTS Exhibitions cascade;
+
+
+Drop Table IF EXISTS Exhibitions_locations cascade;
+
+
+Drop Table IF EXISTS Transactions cascade;
+
+
+Drop Table IF EXISTS Works_Ownership cascade;
+
+
+Drop Table IF EXISTS Works_Locations cascade;
+
+
+Drop Table IF EXISTS Works_Value cascade;
+
+
+Drop Table IF EXISTS Works_State cascade;
+
+
+Drop Table IF EXISTS Works_Exhibitions cascade;
+
+
+Drop Table IF EXISTS Works_Media cascade;
+
+
+Drop Table IF EXISTS Locations_Doors cascade;
+
+
+
+
+
+
+
+
+
+
+-- There are 4 main tables, 7 temporal tables, 2 secondary tables
+
+
+
+
+-- 4 main TABLES
+-- (1) Institutions
+CREATE TABLE institutions (
+        in_inName                       inName                    NOT NULL,
+    
+        in_email                           email                      NULL,
+        in_phoneNumber                  phoneNumber    NULL,
+        in_streetAddress                streetAddress     NULL,
+        in_city                                     city                          NULL,
+        in_countrySubdivision           countrySubdivision                       NULL,
+        in_country                      country                       NULL,
+in_postalCode                   postalCode         NULL,
+    
+        PRIMARY KEY (  in_InName )
+);
+
+
+
+
+-- (2) Works
+CREATE TABLE works (
+        wk_IDAlpha                    IDAlpha                     NOT NULL,
+        wk_IDNumeric                 IDNumeric             NOT NULL,
+        wk_inName                    inName                 NOT NULL,
+    
+        wk_wkName                    wkName               NULL,
+        wk_creator                   creator                     NULL,
+        wk_coDate                    coDate                   NULL,
+        wk_acDate                    acDate                     NULL,
+        wk_wkDescription                wkDescription    NULL,
+        wk_theme                     theme                    NULL,
+        wk_subject                     subject                      NULL,
+        wk_culture                culture                      NULL,
+        wk_colour                     colour                     NULL,
+        wk_carType                     carType                    NULL,
+        wk_transmission                 transmission      NULL,
+
+
+
+
+   
+   CHECK ( wk_coDate <  wk_acDate),
+    
+        PRIMARY KEY (wk_IDAlpha, wk_IDNumeric,   wk_inName),
+    
+        FOREIGN KEY ( wk_inName)
+          REFERENCES Institutions( in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (3) Locations
+CREATE TABLE locations (
+
+
+        lc_lcName                       lcName                         NOT NULL,
+        lc_inName                         inName                         NOT NULL,
+            
+        lc_length                        length                             NULL,
+        lc_height                        height                             NULL,
+        lc_width                        width                             NULL,
+        lc_minNumWorks        minNumWorks                 NULL,
+        lc_maxNumWorks        maxNumWorks                 NULL,
+        lc_availabilityDate           availabilityDate                 NULL,
+        lc_sponsor                    sponsor                     NULL,
+        lc_security                        security                     NULL,
+        lc_insurance                     insurance                 NULL,
+        lc_StreetAddress            streetAddress                 NULL,
+        lc_city                         city                                 NULL,
+        lc_countrySubdivision              countrySubdivision                      NULL,
+        lc_country                         country                      NULL,
+        lc_postalCode               postalCode                       NULL,
+
+
+        PRIMARY KEY (lc_lcName, lc_inName),
+    
+        FOREIGN KEY (lc_inName)
+            REFERENCES institutions( in_inName)
+                                ON UPDATE CASCADE    
+                                   ON DELETE CASCADE
+);
+-- (4) Exhibitions
+CREATE TABLE exhibitions (
+
+
+        ex_exName                   exName               NOT NULL,
+        ex_exStartDate             exStartDate          NOT NULL,
+        ex_inName                     inName             NOT NULL,
+    
+        ex_isTraveling                 isTraveling              NULL,
+        ex_exDescription                exDescription          NULL,
+        ex_exEndDate              exEndDate         NULL,
+    
+        PRIMARY KEY ( ex_exName  , ex_exStartDate ,   ex_inName ),
+    
+        FOREIGN KEY ( ex_inName )
+            REFERENCES institutions(in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--The 7 TEMPORAL TABLES
+
+
+-- (5) Transactions
+CREATE TABLE Transactions (
+
+
+        tr_inName                    inName                  NOT NULL,
+        tr_inNameReceiver         inName                 NOT NULL,
+tr_inNameGiver             inName                 NOT NULL,
+        tr_IDAlpha                     IDAlpha                  NOT NULL,
+        tr_IDNumeric                     IDNumeric              NOT NULL,
+tr_trDate                         trDate                  NOT NULL,
+    
+        tr_trType                         trType                 NULL,
+        tr_IDAlphaOther             IDAlpha                 NULL,
+        tr_ns_IDNumericOther         IDNumeric            NULL,
+    
+        PRIMARY KEY (tr_inName, tr_inNameReceiver, tr_inNameGiver, tr_IDAlpha, tr_IDNumeric, tr_trDate  ),
+    
+FOREIGN KEY (tr_inName, tr_IDAlpha , tr_IDNumeric )
+
+
+
+
+REFERENCES works(wk_inName, wk_IDAlpha,
+wk_IDNumeric )
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY (tr_inNameReceiver)
+REFERENCES institutions(in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+
+
+FOREIGN KEY (tr_inNameGiver)
+REFERENCES institutions(in_inName)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- (6) Works-Ownership
+CREATE TABLE works_Ownership (
+        wo_inName                     inName               NOT NULL,
+        wo_IDAlpha                     IDAlpha               NOT NULL,
+        wo_IDNumeric             IDNumeric          NOT NULL,
+        wo_inNameOwner             inName              NOT NULL,
+        wo_woStartDate             woStartDate          NOT NULL,
+
+
+
+
+        wo_woEndDate             woEndDate            NULL,
+    
+        PRIMARY KEY (wo_inName, wo_IDAlpha, wo_IDNumeric, wo_woStartDate,wo_inNameOwner ),
+                
+        FOREIGN KEY (wo_IDAlpha, wo_IDNumeric, wo_inName)  
+                            REFERENCES Works(wk_IDAlpha, wk_IDNumeric, wk_inName)
+                     ON UPDATE CASCADE    
+                 ON DELETE CASCADE,
+        FOREIGN KEY (wo_inNameOwner )
+REFERENCES Institutions(in_inName)
+ ON UPDATE CASCADE    
+ ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (7) Works-Locations
+CREATE TABLE works_Locations (
+
+
+
+
+        wl_lcName                      lcName                      NOT NULL,
+        wl_IDAlpha                     IDAlpha                     NOT NULL,
+        wl_IDNumeric                   IDNumeric                   NOT NULL,
+        wl_inName                      inName                      NOT NULL,
+        wl_wlStartDateTime           wlStartDateTime           NOT NULL,
+    
+        wl_wlEndDateTime             wlEndDateTime               NULL,
+    
+        PRIMARY KEY (wl_lcName,wl_IDAlpha, wl_IDNumeric, wl_inName, wl_wlStartDateTime),
+    
+        FOREIGN KEY ( wl_inName ,wl_IDAlpha, wl_IDNumeric)
+          REFERENCES works(wk_inName, wk_IDAlpha, wk_IDNumeric )
+
+
+
+
+
+
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+FOREIGN KEY (wl_lcName, wl_inName)
+REFERENCES locations(lc_lcName, lc_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+
+
+
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (8) Works-Exhibitions
+CREATE TABLE Works_Exhibitions (
+
+
+
+
+        we_IDAlpha             IDAlpha             NOT NULL,
+        we_IDNumeric             IDNumeric        NOT NULL,
+        we_exName             exName             NOT NULL,
+        we_inName             inName              NOT NULL,
+        we_exStartDate             exStartDate         NOT NULL,
+
+
+
+
+        we_exEndDate             exEndDate         NULL,
+    
+        PRIMARY KEY (we_IDAlpha, we_IDNumeric, we_exName, we_inName, we_exStartDate),
+        FOREIGN KEY (we_IDAlpha, we_IDNumeric, we_inName) REFERENCES works(wk_IDAlpha, wk_IDNumeric, wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY (we_exName,  we_inName , we_exStartDate ) REFERENCES exhibitions(ex_exName, ex_inName, ex_exStartDate)
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (9) Exhibitions-Locations
+CREATE TABLE exhibitions_Locations (
+    
+el_lcName lcName NOT NULL,
+el_exName exName NOT NULL,
+        el_exStartDate exStartDate NOT NULL,
+el_inName inName NOT NULL,
+
+
+
+
+        el_travelingStartDate travelingStartDate NULL,
+        el_travelingEndDate travelingEndDate NULL,
+        el_exEndDate exEndDate NULL,
+    
+        PRIMARY KEY (el_lcName, el_exName, el_exStartDate, el_inName),
+        FOREIGN KEY (el_lcName, el_inName)
+REFERENCES locations(lc_lcName, lc_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE,
+        FOREIGN KEY (el_exName, el_exStartDate, el_inName)
+REFERENCES exhibitions(ex_exName, ex_exStartDate,    
+ex_inName)
+                 ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- (10) Works-Value
+CREATE TABLE works_Value (
+        wv_IDAlpha            IDAlpha              NOT NULL,
+        wv_IDNumeric               IDNumeric          NOT NULL,
+        wv_inName             inName             NOT NULL,
+        wv_startDate             wvStartDate             NOT NULL,
+       
+        wv_InsuranceValue         insurance   NULL,
+        wv_enddate             wvEndDate   NULL,
+    
+        PRIMARY KEY (wv_IDAlpha, wv_IDNumeric, wv_inName,  wv_startDate),
+        FOREIGN KEY (wv_IDAlpha, wv_IDNumeric, wv_inName)
+                     REFERENCES works(wk_IDAlpha, wk_IDNumeric, wk_inName)
+                                   ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+-- (11) Works-State
+CREATE TABLE Works_State (
+        ws_IDAlpha         IDAlpha             NOT NULL,
+        ws_IDNumeric         IDNumeric          NOT NULL,
+        ws_inName         inName              NOT NULL,
+ws_wsStartDate         wsStartDate         NOT NULL,
+    
+ws_state             state             NULL,
+        ws_wsEndDate         wsEndDate         NULL,
+    
+        PRIMARY KEY (ws_IDAlpha, ws_IDNumeric, ws_inName, ws_wsStartDate),
+        FOREIGN KEY (ws_IDAlpha, ws_IDNumeric, ws_inName)
+REFERENCES works(wk_IDAlpha, wk_IDNumeric,
+wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+--The last 2 secondary TABLES
+
+
+-- (12) Works-Media
+CREATE TABLE works_media (
+        wm_IDAlpha         IDAlpha              NOT NULL,
+        wm_IDNumeric        IDNumeric          NOT NULL,
+        wm_inName          inName              NOT NULL,
+                wm_material            material             NOT NULL,
+    
+        PRIMARY KEY (wm_IDAlpha, wm_IDNumeric, wm_inName, wm_material),
+        FOREIGN KEY (wm_IDAlpha, wm_IDNumeric , wm_inName)          
+                   REFERENCES works(wk_IDAlpha, wk_IDNumeric, wk_inName)
+ON UPDATE CASCADE    
+                            ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (13) Locations-Doors
+CREATE TABLE Locations_Doors (
+
+
+        ld_inName         inName              NOT NULL,
+        ld_lcName1         lcName             NOT NULL,
+        ld_lcName2         lcName             NOT NULL,
+    
+        PRIMARY KEY (ld_inName, ld_lcName1, ld_lcName2),
+        FOREIGN KEY (ld_lcName1, ld_inName)
+REFERENCES locations(lc_lcName, lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE,
+        FOREIGN KEY (ld_lcName2, ld_inName)
+REFERENCES locations(lc_lcName, lc_inName)
+ON UPDATE CASCADE    
+                          ON DELETE CASCADE
+);

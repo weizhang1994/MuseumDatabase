@@ -1,0 +1,66 @@
+
+\i '7_Insert_locations.txt'
+
+
+INSERT INTO ns_exhibitions(ns_ex_exname,
+			   ns_ex_exstartdate,
+			   ns_ex_inname,
+			   ns_ex_istraveling,
+			   ns_ex_exdescription,
+			   ns_ex_exenddate) 
+	SELECT theme,
+	       start_date,
+	       'WAC gallery',
+	       false,
+	       ex_description,
+	       end_date 
+	FROM exhibitions_info
+	WHERE theme <> 'Traveling exhibition';
+
+
+INSERT INTO ns_exhibitions(ns_ex_exname,
+			   ns_ex_exstartdate,
+			   ns_ex_inname,
+			   ns_ex_istraveling,
+			   ns_ex_exdescription,
+			   ns_ex_exenddate) 
+	SELECT theme,
+	       start_date,
+	       'WAC gallery',
+	       true,
+	       ex_description,
+	       end_date 
+	FROM exhibitions_info
+	WHERE theme = 'Traveling exhibition';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

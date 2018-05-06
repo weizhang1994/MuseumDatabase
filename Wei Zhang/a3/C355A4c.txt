@@ -1,0 +1,21 @@
+-- Wei Zhang Assignment3 X.c Creating the guest exhibition
+-- Plan a special guest exhibition of 18 works(that are not currently in my database) that will
+-- come availble on Feb 13,2013
+
+
+ CREATE RULE locationexh AS ON INSERT TO exhibition
+     DO ALSO INSERT INTO exhlocation 
+     (exhibitionname,exhibitionstartdate,exhibitionenddate,locationname,moveintime)
+     values
+     (
+ 	new.exhibitionname,
+ 	new.exhibitionstartdate,
+ 	new.exhibitionenddate,
+	new.exhibitionlocation,
+	new.moveintime
+     );
+
+
+
+insert into exhibition values
+('specialexhibition1', 'the first guest exhibition that take place on gallery C','2013-02-13','2013-03-13','galleryC',18,6,'8:00:00');

@@ -1,0 +1,93 @@
+nmah	1131483	Drum Mountain Center	Painting	Japanese	Ujihara, Akio	1945-08-27	2014-12-31	4482661	storage	This painting based on Drum Mountainsin, which was made in 1945.
+nmah	1131478	Manzanar no Yuki	Painting	Japanese	Ujihara, Akio	1943-12-24	2013-12-31	1576861	storage	The name for this work is Manzanar No Yuki, which translates to "Manzanar Snow".
+nmah	1131479	Manzanar War Relocation Ctr.	Painting	Japanese	Ujihara, Akio	1943-12-12	2002-12-31	3275967	storage	This work describes Manzanar War Relocation Ctr., which was made in 1942.
+nmah	1131484	Mess Hall	Painting	Japanese	Ujihara, Akio	1944-03-01	2001-12-31	3837263	storage	This painting is about Mess Hall made in 1944.
+nmah	1131481	Out Skirt - Manzanar	Painting	Japanese	Ujihara, Akio	1944-01-16	2009-12-31	3281576	storage	This work was made in 1944 by Akio Ujihara.
+nmah	1131468	Topaz Camp	Painting	Japanese	Asaeda, Toshio	1943-12-31	2015-12-31	1962883	storage	Drawn in Topaz War Relocation Center, Utah. Although Akio Ujihara donated this watercolor along with others, this particular painting was done by Toshio Asaeda.
+nmah	1131477	Topaz Mountain	Painting	Japanese	Ujihara, Akio	1943-12-31	2015-12-31	251171	storage	This painting was made on Topaz Mountain in 1943.
+nmah	1002043	Alhambra, Hall of the Ambassadors	Painting	Spanish	Ferris, Stephen James	2001-12-31	2014-12-31	1115610	galleryB	An unsigned exterior view of the Hall of the Ambassadors in the Alhambra complex of Granada, Spain. In another watercolor, the view serves as a frame for a story in the making. See GA*14539.
+nmah	1002040	Casa de Mariano	Painting	Spanish	Ferris, Stephen James	1881-12-31	2002-12-31	2536355	galleryB	Stephen Ferris based his print Casa de Mariano on the drawing, but added details to the print like a donkey poking its head through the window and a woman spinning in the doorway of the cave.
+nmah	1002041	House of Pilate, Seville	Painting	Spanish	Ferris, Stephen James	1881-12-31	2009-12-31	4632485	galleryB	Stephen Ferris identified this unsigned watercolor as the House of Pilate (Casa de Pilatos) in Seville, Spain. The palace was built in the sixteenth century and today is the official residence of the Dukes of Medinaceli.
+nmah	1002037	Moorish Arcade with Figures	Painting	Spanish	Ferris, Stephen James	1999-12-31	2009-12-31	2236326	galleryB	Although this watercolor and pencil drawing is unsigned, it closely resembles others signed by Stephen Ferris. For similar subject matter see Alhambra Hall of the Ambassadors, GA*14544.
+nmah	1002047	Moorish Gate, Granada	Painting	Spanish	Ferris, Stephen James	1881-12-31	2014-12-31	2015990	galleryB	Stephen Ferriss watercolor view Justicia, Granada shows the Alhambras Gate of Justice (Puerta de la Justicia) painted during the artists 1881 visit to Spain. In a letter to Sylvester R. Koehler, later Curator of Graphic Arts at the Smithsonian, Ferris, deeply moved by his experiences.
+nmah	1002050	Seville, Spain	Painting	Spanish	Ferris, Stephen James	1881-12-31	2009-12-31	2231045	galleryB	Ferris painted the watercolor and graphite view of an unidentified building in Seville during his 1881 visit to southern Spain. 
+nmah	1002042	Spanish Vase	Painting	Spanish	Ferris, Stephen James	1881-12-31	1995-12-31	3751926	galleryB	While in Gibraltar in 1881, Stephen Ferris made this signed and dated watercolor.
+nmah	1002036	Thumbnail Sketches of Market People, Southern Spain	Painting	Spanish	Ferris, Stephen James	1881-12-31	2001-12-31	2288093	galleryB	Varied individuals in ink, pencil and watercolor on this signed sheet are from the streets of Gibraltar.
+nmah	1002044	View in the Alhambra, Spain	Painting	Spanish	Ferris, Stephen James	1881-12-31	1999-12-31	2807023	galleryB	Stephen Ferris sketched and painted this pencil and watercolor view of buildings in the Alhambra complex of Granada, Spain, in 1881. This is not a finished view but a work in progress. 
+nmah	1002048	Well at the Alhambra	Painting	Spanish	Ferris, Stephen James	1881-12-31	2015-12-31	2023774	galleryB	Unsigned watercolor made in Granada, Spain, where Ferris visited with his son Gerome in 1881. A wrought-iron device similar to a crown appears above the well.
+nmah	1131482	Deep Snow Topaz	Painting	Japanese	Ujihara, Akio	1944-03-15	1991-12-31	4727601	storage	This painting is about the heavy snow in Topaz,  which was made in 1944.
+
+
+
+SELECT * from WorksLocations
+	WHERE wlIDNumber in ('1131483',
+						'1131478',
+						'1131479',
+						'1131484',
+						'1131481',
+						'1131468',
+						'1131477',
+						'1002043',
+						'1002040',
+						'1002041',
+						'1002037',
+						'1002047',
+						'1002050',
+						'1002042',
+						'1002036',
+						'1002044',
+						'1002048',
+						'1131482');
+
+SELECT * from WorksLocations 
+	WHERE   wlIDLetter='nmah' AND wlIDNumber='1131483',
+			wlIDLetter='nmah' AND wlIDNumber='1131478',
+			wlIDLetter='nmah' AND wlIDNumber='1131479',
+			wlIDLetter='nmah' AND wlIDNumber='1131484',
+			wlIDLetter='nmah' AND wlIDNumber='1131481',
+			wlIDLetter='nmah' AND wlIDNumber='1131468',
+			wlIDLetter='nmah' AND wlIDNumber='1131477',
+			wlIDLetter='nmah' AND wlIDNumber='1002043',
+			wlIDLetter='nmah' AND wlIDNumber='1002040',
+			wlIDLetter='nmah' AND wlIDNumber='1002041',
+			wlIDLetter='nmah' AND wlIDNumber='1002037',
+			wlIDLetter='nmah' AND wlIDNumber='1002047',
+			wlIDLetter='nmah' AND wlIDNumber='1002050',
+			wlIDLetter='nmah' AND wlIDNumber='1002042',
+			wlIDLetter='nmah' AND wlIDNumber='1002036',
+			wlIDLetter='nmah' AND wlIDNumber='1002044',
+			wlIDLetter='nmah' AND wlIDNumber='1002048',
+			wlIDLetter='nmah' AND wlIDNumber='1131482';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

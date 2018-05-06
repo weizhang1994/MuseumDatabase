@@ -1,0 +1,144 @@
+
+
+\i '8_Insert_exhibitions.txt'
+
+DELETE FROM works_move_in_date WHERE date_out IS NULL AND time_out IS NOT NULL;
+--ALTER TABLE works_move_in_date ADD combine_time_in timestamp;
+--ALTER TABLE works_move_in_date ADD combine_time_out timestamp;
+
+--CREATE VIEW look3 AS SELECT * FROM works_move_in_date ORDER BY itemnumber, date_in;
+
+
+UPDATE works_move_in_date SET combine_time_in = '2016-06-01 09:15:12' WHERE date_in = '2016-06-01' AND time_in = '09:15:12'; 
+UPDATE works_move_in_date SET combine_time_in = ' 2016-09-21 18:30:00' WHERE date_in = ' 2016-09-21' AND time_in = '18:30:00';
+UPDATE works_move_in_date SET combine_time_in = ' 2017-01-20 0:0:00' WHERE date_in = '2017-01-20';
+UPDATE works_move_in_date SET combine_time_in = '2017-01-21 0:0:00' WHERE date_in = '2017-01-21';
+UPDATE works_move_in_date SET combine_time_in = '2017-03-03 0:0:00' WHERE date_in = '2017-03-03';
+UPDATE works_move_in_date SET combine_time_in = '2017-02-19 0:0:00' WHERE date_in = '2017-02-19';
+UPDATE works_move_in_date SET combine_time_in = '2016-06-01 09:12:23' WHERE date_in = '2016-06-01' AND time_in = '09:12:23'; 
+UPDATE works_move_in_date SET combine_time_in = '2016-10-28 13:00:00' WHERE date_in = '2016-10-28' AND time_in = '13:00:00';
+UPDATE works_move_in_date SET combine_time_in = '2016-11-21 15:0:00' WHERE date_in = '2016-11-21';
+UPDATE works_move_in_date SET combine_time_in = ' 2016-12-06  0:0:00' WHERE date_in = '2016-12-06';
+UPDATE works_move_in_date SET combine_time_in = '2016-06-02 10:19:08' WHERE date_in = '2016-06-02' AND time_in = '10:19:08'; 
+UPDATE works_move_in_date SET combine_time_in = '2016-08-03 18:00:00' WHERE date_in = '2016-08-03' AND time_in = '18:00:00';
+UPDATE works_move_in_date SET combine_time_in = ' 2016-11-20 0:0:00' WHERE date_in = '2016-11-20';
+UPDATE works_move_in_date SET combine_time_in = '2016-07-02 20:00:00' WHERE date_in = '2016-07-02' AND time_in = '20:00:00';
+UPDATE works_move_in_date SET combine_time_in = ' 2016-12-05 0:0:00' WHERE date_in = '2016-12-05';
+UPDATE works_move_in_date SET combine_time_in = '2016-10-25 07:12:00' WHERE date_in = '2016-10-25' AND time_in = '07:12:00';
+UPDATE works_move_in_date SET combine_time_in = '2016-10-27 10:30:00' WHERE date_in = '2016-10-27' AND time_in = '10:30:00'; 
+UPDATE works_move_in_date SET combine_time_in = ' 2017-02-04 0:0:00' WHERE date_in = '2017-02-04';
+UPDATE works_move_in_date SET combine_time_in = '2016-10-29 11:30:00' WHERE date_in = '2016-10-29' AND time_in = '11:30:00';
+UPDATE works_move_in_date SET combine_time_in = ' 2016-11-25 12:0:00' WHERE date_in = '2016-11-25'; 
+UPDATE works_move_in_date SET combine_time_in = ' 2016-12-23 00:0:00' WHERE date_in = '2016-12-23';
+UPDATE works_move_in_date SET combine_time_in = ' 2017-02-16 00:0:00' WHERE date_in = '2017-02-16';
+UPDATE works_move_in_date SET combine_time_in = ' 2017-03-18 00:0:00' WHERE date_in = '2017-03-18';
+UPDATE works_move_in_date SET combine_time_in = ' 2016-10-18 08:25:18' WHERE date_in = ' 2016-10-18' AND time_in = '08:25:18'; 
+
+
+UPDATE works_move_in_date SET combine_time_out = '2016-09-21 18:30:00' WHERE date_out = '2016-09-21' AND time_out = '18:30:00'; 
+UPDATE works_move_in_date SET combine_time_out = '2017-01-19 00:00:00' WHERE date_out = '2017-01-19';
+UPDATE works_move_in_date SET combine_time_out = '2017-01-21 00:00:00' WHERE date_out = '2017-01-21';
+UPDATE works_move_in_date SET combine_time_out = '2017-06-24 00:00:00' WHERE date_out = '2017-06-24';
+UPDATE works_move_in_date SET combine_time_out = '2017-03-03 00:00:00' WHERE date_out = '2017-03-03'; 
+UPDATE works_move_in_date SET combine_time_out = '2017-05-09 00:00:00' WHERE date_out = '2017-05-09';
+UPDATE works_move_in_date SET combine_time_out = '2017-02-19 00:00:00' WHERE date_out = '2017-02-19';
+UPDATE works_move_in_date SET combine_time_out = '2017-02-19 00:00:00' WHERE date_out = '2017-07-11';
+UPDATE works_move_in_date SET combine_time_out = '2016-10-21 18:01:09' WHERE date_out = '2016-10-21' AND time_out = '18:01:09'; 
+UPDATE works_move_in_date SET combine_time_out = '2017-03-25 00:00:00' WHERE date_out = '2017-03-25';
+UPDATE works_move_in_date SET combine_time_out = '2016-10-28 13:00:00' WHERE date_out = '2016-10-28' AND time_out = '13:00:00'; 
+UPDATE works_move_in_date SET combine_time_out = '2016-11-19 15:00:00' WHERE date_out = '2016-11-19';
+UPDATE works_move_in_date SET combine_time_out = '2017-03-10 00:00:00' WHERE date_out = '2017-03-10';
+UPDATE works_move_in_date SET combine_time_out = '2016-06-02 10:19:08' WHERE date_out = '2016-06-02' AND time_out = '10:19:08';
+UPDATE works_move_in_date SET combine_time_out = '2016-12-06 00:00:00' WHERE date_out = '2016-12-06';
+UPDATE works_move_in_date SET combine_time_out = '2016-08-03 18:00:00' WHERE date_out = '2016-08-03' AND time_out = '18:00:00'; 
+UPDATE works_move_in_date SET combine_time_out = '2016-11-21 14:00:00' WHERE date_out = '2016-11-21';
+UPDATE works_move_in_date SET combine_time_out = '2016-07-02 20:00:00' WHERE date_out = '2016-07-02' AND time_out = '20:00:00';
+UPDATE works_move_in_date SET combine_time_out = '2016-12-04 00:00:00' WHERE date_out = '2016-12-04';
+UPDATE works_move_in_date SET combine_time_out = '2016-10-27 10:30:00' WHERE date_out = '2016-10-27' AND time_out = '10:30:00';
+UPDATE works_move_in_date SET combine_time_out = '2017-01-22 00:00:00' WHERE date_out = '2017-01-22';
+UPDATE works_move_in_date SET combine_time_out = '2017-02-04 00:00:00' WHERE date_out = '2017-02-04';
+UPDATE works_move_in_date SET combine_time_out = '2017-05-10 00:00:00' WHERE date_out = '2017-05-10'; 
+UPDATE works_move_in_date SET combine_time_out = '2016-10-29 11:30:00' WHERE date_out = '2016-10-29' AND time_out = '11:30:00';
+UPDATE works_move_in_date SET combine_time_out = '2017-02-26 00:00:00' WHERE date_out = '2017-02-26';
+UPDATE works_move_in_date SET combine_time_out = '2016-11-25 07:00:00' WHERE date_out = '2017-11-25';
+UPDATE works_move_in_date SET combine_time_out = '2017-04-04 00:00:00' WHERE date_out = '2017-04-04';
+UPDATE works_move_in_date SET combine_time_out = '2016-11-23 12:00:00' WHERE date_out = '2016-11-23';
+UPDATE works_move_in_date SET combine_time_out = '2016-12-16 00:00:00' WHERE date_out = '2016-12-16';
+UPDATE works_move_in_date SET combine_time_out = '2017-1-13 00:00:00' WHERE date_out = '2017-01-13';
+UPDATE works_move_in_date SET combine_time_out = '2017-2-10 00:00:00' WHERE date_out = '2017-02-10';
+UPDATE works_move_in_date SET combine_time_out = '2017-3-9 00:00:00' WHERE date_out = '2017-03-9'; 
+UPDATE works_move_in_date SET combine_time_out = '2017-4-3 00:00:00' WHERE date_out = '2017-04-3'; 
+
+
+INSERT INTO ns_works_locations (ns_wl_lcname, 
+				ns_wl_idalpha,
+				ns_wl_idnumeric,
+				ns_wl_inname,
+				ns_wl_wlstartdatetime,
+				ns_wl_wlenddatetime) 
+			SELECT cur_location,
+			       itemalpha,
+			       itemnumber,
+			       'WAC gallery',
+			       combine_time_in,
+			       combine_time_out
+		FROM works_move_in_date;
+
+
+
+
+--SELECT * FROM look3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

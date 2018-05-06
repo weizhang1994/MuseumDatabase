@@ -1,0 +1,288 @@
+-- Qi Guo	qig557	11158650	C355A31
+-------------------------------------------------------------------------------------------------
+----------------------------------------Recording History----------------------------------------
+-------------------------------------------------------------------------------------------------
+
+--Alter domain exhibitionStartDate and exhibitionEndDate
+CREATE DOMAIN exhibitionSDate AS date
+	CHECK (VALUE >= '2000-01-01');
+CREATE DOMAIN exhibitionEDate AS date
+	CHECK (VALUE > '2000-01-01');
+
+ALTER TABLE Exhibitions
+	Alter column exstartdate Type exhibitionSDate;
+
+ALTER TABLE Exhibitions
+	Alter column exenddate Type exhibitionEDate;
+
+ALTER TABLE ExhibitionsLocations
+	Alter column elexstartdate Type exhibitionSDate;
+
+ALTER TABLE ExhibitionsLocations
+	Alter column elexenddate Type exhibitionEDate;
+
+ALTER TABLE ExhibitionsWorks
+	Alter column ewstartdate Type exhibitionSDate;
+
+ALTER TABLE ExhibitionsWorks
+	Alter column ewenddate Type exhibitionEDate;
+
+
+--Alter domain for wlstartdate and wlenddate for WorksLocations from date type to timestamp type
+CREATE DOMAIN worksLocationSDateTime AS timestamp
+	CHECK (VALUE >= '2000-01-01 0:00:00');
+CREATE DOMAIN worksLocationEDateTime AS timestamp
+	CHECK (VALUE > '2000-01-01 0:00:00');
+
+ALTER TABLE WorksLocations
+	Alter column wlstartdate Type worksLocationSDateTime;
+
+ALTER TABLE WorksLocations
+	Alter column wlenddate Type worksLocationEDateTime;
+
+--Add three one/room exhibitions that occurred prior to 2016-07-07
+INSERT INTO Exhibitions
+VALUES('Photographs from Mexico', 'This Exhibition contains 7 works of photographs.', '2015-12-22', '2016-02-22');
+
+INSERT INTO Exhibitions
+VALUES('Photographs from Mexico', 'This Exhibition contains 7 works of photographs.', '2016-02-27', '2016-04-27');
+
+INSERT INTO Exhibitions
+VALUES('Photographs from Mexico', 'This Exhibition contains 7 works of photographs.', '2016-05-02', '2016-07-02');
+
+--Add data to exhibitionsworks table
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Photographs from Mexico', wlIDLetter, wlIDNumber, '2015-12-22', '2016-02-22'
+	FROM Workslocations
+	WHERE wlLocation='galleryA' and wlIDNumber in(
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Photographs from Mexico', wlIDLetter, wlIDNumber, '2016-02-27', '2016-04-27'
+	FROM Workslocations
+	WHERE wlLocation='galleryA' and wlIDNumber in(
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO ExhibitionsWorks(ewExhibition, ewIDLetter, ewIDNumber, ewStartDate, ewEndDate)
+	SELECT 'Photographs from Mexico', wlIDLetter, wlIDNumber, '2016-05-02', '2016-07-02'
+	FROM Workslocations
+	WHERE wlLocation='galleryA' and wlIDNumber in(
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+
+--Add data to exhibitioinslocations table
+INSERT INTO ExhibitionsLocations(elLocation, elExhibition, elExStartDate, elExEndDate, ellcMuseum)
+	SELECT lcName, exName, exStartDate, exEndDate, lcMuseum
+	FROM Exhibitions, Locations
+	WHERE exStartDate='2015-12-22' AND lcName='galleryA';
+
+INSERT INTO ExhibitionsLocations(elLocation, elExhibition, elExStartDate, elExEndDate, ellcMuseum)
+	SELECT lcName, exName, exStartDate, exEndDate, lcMuseum
+	FROM Exhibitions, Locations
+	WHERE exStartDate='2016-02-27' AND lcName='galleryA';
+
+INSERT INTO ExhibitionsLocations(elLocation, elExhibition, elExStartDate, elExEndDate, ellcMuseum)
+	SELECT lcName, exName, exStartDate, exEndDate, lcMuseum
+	FROM Exhibitions, Locations
+	WHERE exStartDate='2016-05-02' AND lcName='galleryA';
+
+
+
+--Add data to WorksLocations
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'storage', '2016-02-23 11:59:59', '2016-02-24 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'storage', '2016-04-28 11:59:59', '2016-04-29 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'storage', '2016-07-03 11:59:59', '2016-07-04 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryA', '2016-02-24 11:59:59', '2016-04-27 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT  wlIDLetter, wlIDNumber, 'galleryA', '2016-04-29 11:59:59', '2016-07-02 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlStartDate='2016-02-24 11:59:59' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wlIDLetter, wlIDNumber, 'galleryA', '2016-07-04 11:59:59', '2017-01-01 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlStartDate='2016-02-24 11:59:59' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT  wlIDLetter, wlIDNumber, 'storage', '2015-01-01 11:59:59', '2015-12-22 11:59:59', wllcMuseum
+	FROM Locations, WorksLocations
+	WHERE lcName='galleryA' AND wlLocation='galleryA' AND wlStartDate='2016-02-24 11:59:59' AND wlIDNumber in (
+			1353076,
+			1353082,
+			1353078,
+			1353077,
+			1353081,
+			1353084,
+			1353079
+		);
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2015-01-01 11:59:59', wlEndDate='2016-08-08 11:59:59', wlLocation='storage'
+	WHERE wlStartDate='2016-08-08 11:59:59' AND wlLocation='galleryB';
+
+
+UPDATE WorksLocations
+	SET wlStartDate='2015-01-01 11:59:59', wlEndDate='2016-09-09 11:59:59', wlLocation='storage'
+	WHERE wlStartDate='2016-09-09 11:59:59' AND wlLocation='galleryC';
+
+--Queries
+--Produce a query that lists the different locations that a given work was/is/will be in between two dates
+CREATE VIEW OneWorkInDiffLocations
+	AS SELECT
+		wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate
+		FROM WorksLocations
+		WHERE wlStartDate >= '2015-11-01' AND wlEndDate <='2016-11-01' AND wlIDNumber=1353076
+		ORDER BY wlStartDate;
+
+SELECT * from OneWorkInDiffLocations;
+
+
+--Produce a query that lists all the works found in an exhibition between two dates
+CREATE VIEW WorksInGalleryA
+	AS SELECT
+		ewExhibition, ewStartDate, ewEndDate
+		FROM ExhibitionsWorks
+		WHERE ewStartDate >= '2015-11-01' AND ewEndDate <='2016-11-01'
+		ORDER BY ewStartDate, ewExhibition;
+SELECT * from WorksInGalleryA;
+
+--Produce a query that lists all the exhibitions that make use of a location between two dates
+
+CREATE VIEW ExhibitionsSharingSameLocation
+	AS SELECT
+		elLocation, elExhibition, elExStartDate, elExEndDate
+		FROM ExhibitionsLocations
+		WHERE elexStartDate >= '2015-11-01' AND elexEndDate <='2016-11-01'
+		ORDER BY elExStartDate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

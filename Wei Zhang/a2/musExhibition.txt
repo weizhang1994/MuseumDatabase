@@ -1,0 +1,35 @@
+AA	0	Children's Song,the water painting use water colour creates a peaceful and gentle childhood dream by great artist Huang in 1984	Mind and Pictures	2016-11-06	2017-02-06
+AB	1	Life on the Grassland,The water painting creates wavy hills and smoke under the blue sky forms a poetic atmosphere by Han in 1945	Mind and Pictures	2016-11-06	2017-02-06
+AC	2	Steel Captal Is Boiling describe industrial field with watercolor paintings by Li in 1956	Mind and Pictures	2016-11-06	2017-02-06
+AD	3	Cold Fall,reflecting the shape of the trees in front of the windows used watercolour by Liu in 1989	Mind and Pictures	2016-11-06	2017-02-06
+AE	4	Pumpkin,this water painting use watercolour shows warm purple as its background by Li in 1953	Mind and Pictures	2016-11-06	2017-02-06
+AF	5	Back basket,this water painting use water colour describe the back basket and the plants by Pang in 1946 	Mind and Pictures	2016-11-06	2017-02-06
+AG	6	Water wagon, the water painting use water colour shows beautiful and peaceful grassland of hometown by Wu in 1980	Mind and Pictures	2016-11-06	2017-02-06
+AH	7	To Urumqi, this print reveals the contradiction between people and nature animals by Ai in 1954	Mind and Pictures	2016-11-06	2017-02-06
+AI	8	Norgay,this print shows the purple-gray color deepened the sentimentalism of the animal character by Ai in 1985	Mind and Pictures	2016-11-06	2017-02-06
+AJ	9	Son of Poor Peasant,this print described two young men with animals caught up the red army to join the army by Cai in 1964	Mind and Pictures	2016-11-06	2017-02-06
+AK	10	Volcano Country, this print shows the conflicts between depression, and desire twisted together with spring and volcano with animals by Cao in 1986	Mind and Pictures	2016-11-06	2017-02-06
+AL	11	A Thunder on a Plain print shows the brick wall and the cup and the doll on the table are full of the flavor of animals' life by Chang 1939	Mind and Pictures	2016-11-06	2017-02-06
+AM	12	Horse, this print drawed on carves showing concise, bright, and most of them are in light color with a little area of blackness in the center by Chang in 1930	Mind and Pictures	2016-11-06	2017-02-06
+AN	13	this print 'The Port of Hong Kong', The lamppost with the traces of colonization stands straight in the portand animals by Chen in 1942	Mind and Pictures	2016-11-06	2017-02-06
+AO	14	this lacquer painting 'Bright Moom and Red candle'the scene of an old returned overseas Chinese meeting his first old wife by Chen in 1989	Mind and Pictures	2016-11-06	2017-02-06
+AP	15	The Fish in the Black Lacquer Plate, this lacquer painting has the flavor of classic oil painting by Cheng in 1994	Mind and Pictures	2016-11-06	2017-02-06
+AQ	16	Children's Song,the water painting use water colour creates a peaceful and gentle childhood dream by great artist Huang in 1984	Mind and Pictures	2016-11-06	2017-02-06
+AR	17	Life on the Grassland,The water painting creates wavy hills and smoke under the blue sky forms a poetic atmosphere by Han in 1945	Mind and Pictures	2016-11-06	2017-02-06
+BU	46	This sculpture describe the time in tough years, it shows the optimism spirit of revolution and belief of success in wars period made by Pan in 1957	Decoration Fifth	2016-11-06	2017-04-06
+BV	47	Farmer and Snake, this sculpture is made by Su in 1970. The sculptor portrays the kind behavior of the farmer with honest and simple figure	Decoration Fifth	2016-11-06	2017-04-06
+BY	50	Five-poison tiger-figured shoes, this costume was made byfabric with very bright, beautiful silk like feeling.	Decoration Fifth	2016-11-06	2017-04-06
+BZ	51	Golden-fish insole is made as a traditionally costume. The hood is a simple piece of triangular cloth which is colored made by fabric.	Decoration Fifth	2016-11-06	2017-04-06
+CA	52	Corset,Parallel vertical collars with parallel diagonal lapels, which overlaped together. This colourful consume was made by Wu using fabric in 1980	Decoration Fifth	2016-11-06	2017-04-06
+CB	53	Changing face, as a chinese puppet was made by pieces of the leather, and adorned with painted clothes	Decoration Fifth	2016-11-06	2017-04-06
+CC	54	This chinese puppet made as a General, it made light penetrating through a translucent sheet of cloth.	Decoration Fifth	2016-11-06	2017-04-06
+CD	55	This chinese puppet made as Liu Bei it combines the urbanization and modern forms of entertainment	Decoration Fifth	2016-11-06	2017-04-06
+CE	56	This very traditional but still popular puppet 'Zhang Fei' create a tradition that became the heart of communities used by wood	Decoration Fifth	2016-11-06	2017-04-06
+CF	57	This kite 'Blessed marriage' was made by paper, it lends itself admirably to decoration made by Fei Baoling in 1990	Implication of China	2016-11-06	2017-03-06
+CG	58	Crane and deer in the spring, this kite reduces weight and ensures strength made by Fei Baolin in 1990	Implication of China	2016-11-06	2017-03-06
+CK	59	Door gods,a bird kite with wings and legs that are moving like real one	Implication of China	2016-11-06	2017-03-06
+CL	60	Dragon head. This kite was made by paper looks like mythical animals like dragons	Implication of China	2016-11-06	2017-03-06
+CM	61	Deer deity, this colourful mask mainly used by purple, the purple can represent justice and sophistication	Implication of China	2016-11-06	2017-03-06
+CN	62	This mask 'General Huang Tianhua' mainly made by black also indicates impartiality and integrity.	Implication of China	2016-11-06	2017-03-06
+CO	63	This mask 'General Guan Yu' made by blue on wood can show stubbornness, astuteness and fierceness	Implication of China	2016-11-06	2017-03-06
+CP	64	This mask 'Tibetan opera mask' made by yellow can also mean evil, hypocritical, ambitious or sly.	Implication of China	2016-11-06	2017-03-06

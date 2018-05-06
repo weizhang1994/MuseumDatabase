@@ -1,0 +1,116 @@
+|-------------------------------------------------------------------------------------------------|
+|----------------------------2c. more detailed information on items-------------------------------|
+
+
+--Query the description attribute of all the records in your database to
+--identify all the different words that are found in it.
+CREATE VIEW LexemesFrequency
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works');
+
+--Sort in order of number of different items that the word appears in (to identify the most important words)
+CREATE VIEW SortedLexemesFrequencyByEntry
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works')
+	ORDER BY ts_stat.ndoc DESC;
+
+--Sort in alphabetic order of the words
+CREATE VIEW SortedLexemesFrequencyByWords
+	AS SELECT word, ndoc, nentry from ts_stat('select to_tsvector(wkDescription) from Works')
+	ORDER BY ts_stat.word ASC;
+
+
+--Identify the "best" new attribute (or set of attributes) that you could add to the database to represent the most important characteristic of the works that is not currently represented by its own attribute(s)
+--Print is the word that appears the most(40) but it is one of the subtypes for the works table, so it can't be chosen as a new attribute.
+--'engraved' and 'woodblock' are two words that appear 32 times and electrotype appears 7 times. It makes sense to put them together to come up with a new attribute of 'printing technique'
+--'photograph' appears 16 times so that it can a new attribute
+--'watercolor' appears 11 times so a new attribute called 'painting method' can be added
+--'bottle' and 'glass' appear 10 times, 'jar' appears 8 times so that a new attribute called 'container' can be added as another new attribute
+--'woman' appears 3 times, 'ambassador' appears 2 times, 'bracero' appears 10 times, 'man' appears once, 'men' appears once, 'boy' appears once so they can be combined as 'people'
+--'quilt' appears 6 times so a new attribute called 'ornamentation' can be added
+
+
+--Add the attribute(s) to Works table
+CREATE DOMAIN workCharacteristic AS varchar(50);
+ALTER TABLE Works
+	ADD COLUMN wkCharacter workCharacteristic;
+
+--Update the records for each item to include appropriate value(s) for the attribute(s)
+--9 rows are left to be null by the end of this part since no common characteristics can be found other than those has already been added as attribute
+
+--Add 'printing technique' to works table if the description contains woodblock or engraved or electrotype
+--39 rows added
+UPDATE Works 
+	SET wkCharacter='printing technique'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('woodblock | engraved | electrotype')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter;
+
+
+--Add 'photograph' to works table if the description contains photograph and wkCharacter attribute is empty(to avoid overlapping from the above query result)
+--12 rows added
+UPDATE Works 
+	SET wkCharacter='photograph'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('photograph')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter IS NULL;
+
+--Add 'painting method' to works table if the description contains watercolor and wkCharacter attribute is empty(to avoid overlapping from the above query result)
+--11 rows added
+UPDATE Works 
+	SET wkCharacter='watercolor'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('watercolor')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter IS NULL;
+
+
+--Add 'container' to works table if the description contains bottle, class or jar and wkCharacter attribute is empty(to avoid overlapping from the above query result)
+--10 rows added
+UPDATE Works 
+	SET wkCharacter='container'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('bottle | class | jar')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter IS NULL;
+
+--Add 'people' to works table if the description contains woman, ambassador or bracero or men or boy and wkCharacter attribute is empty(to avoid overlapping from the above query result)
+--3 rows added
+UPDATE Works 
+	SET wkCharacter='people'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('woman | ambassador | bracero | men | boy | man')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter IS NULL;
+
+--Add 'ornamentation' to works table if the description contains quilt and wkCharacter attribute is empty(to avoid overlapping from the above query result)
+--6 rows added
+UPDATE Works 
+	SET wkCharacter='ornamentation'
+	FROM(
+		Select wkIDNumber, wkIDLetter, wkDescription 
+			From Works
+			WHERE to_tsvector(wkDescription) @@ to_tsquery('quilt')
+	) AS f
+	where Works.wkIDLetter=f.wkIDLetter AND Works.wkIDNumber=f.wkIDNumber AND Works.wkCharacter IS NULL;
+
+
+--consider what further changes might be useful to make (but you don't need to make them - only to report them)
+1. It would be efficient if we could filter the query from the description attribute of all the records in the database to
+identify all the different words that are found in it so that we can get rid of invalid data such as single letters or
+numbers, before making decision for new attributes. 
+
+2. There would be less redundant codes for the update table part if we could use a conditional expression like CASE.
+
+3. If we set a trigger to find the lexemes frequency and update the works table accordingly when new works are added or old work descriptions are updated,
+we don't need to worry about manually find new attribute or update works table from time to time.

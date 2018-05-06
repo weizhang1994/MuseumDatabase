@@ -1,0 +1,11 @@
+Multiple Art	2016-07-02	WAC gallery	f	A collection of many types of painting from different cultures. This will be held for 5 months straight	2016-12-04
+Fun Payper work	2016-08-03	WAC gallery	f	A collection of many painting works that is look fun to watch. Children are encouraged to come	2016-11-19
+Weird Collection	2016-09-21	WAC gallery	f	A collection of many weird artifacts from well-known authors.	2017-01-19
+Grand book collection	2017-01-24	WAC gallery	f	The exhibition that show the collection of books from many popular author.	2017-06-24
+Media Collection	2016-11-24	WAC gallery	f	Contain many media from the 20th century, people are allowed to buy	2017-03-25
+Grand Art	2016-12-09	WAC gallery	f	Contain new art from the famous artist, the bid will not be held for this event	2017-03-10
+Traveling exhibition	2016-11-25	WAC gallery	t	The traveling exhibition which is used for promote the musem in the province	2016-12-16
+Traveling exhibition	2016-12-23	WAC gallery	t	The traveling exhibition which is used for promote the musem in the province	2017-01-13
+Traveling exhibition	2017-01-21	WAC gallery	t	The traveling exhibition which is used for promote the musem in the province	2017-02-10
+Traveling exhibition	2017-02-16	WAC gallery	t	The traveling exhibition which is used for promote the musem in the province	2017-03-09
+Traveling exhibition	2017-03-18	WAC gallery	t	The traveling exhibition which is used for promote the musem in the province	2017-04-03

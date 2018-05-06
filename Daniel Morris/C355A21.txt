@@ -1,0 +1,63 @@
+
+
+
+INSERT INTO Exhibitions
+	SELECT 'Dalmation', 'A collection of works only using the colours black and white.', exend + 5, exend + cast('4 months' as interval)
+	FROM Exhibitions
+	WHERE exName = 'Back to the 80s';
+INSERT INTO Exhibitions
+	SELECT 'Through the Eye of the Lens', 'A collection of the protography.', exend + 5, exend + cast('5 months' as interval)
+	FROM Exhibitions
+	WHERE exName = 'Life in Three Dimentions';
+INSERT INTO Exhibitions
+	SELECT 'Early 2000s Works', 'A collection of works created between 2000 and 2006.', exend + 5, exend  + cast('3 months' as interval)
+	FROM Exhibitions
+	WHERE exName = 'Life in Three Dimentions';
+	
+\copy ExhibitWorks FROM 'C355A21-1.txt'
+
+INSERT INTO exhibitLocations
+	SELECT 'Dalmation', exLocLoc
+	FROM exhibitLocations
+	Where exLocName = 'Back to the 80s';
+INSERT INTO exhibitLocations
+	SELECT 'Through the Eye of the Lens', exLocLoc
+	FROM exhibitLocations
+	Where exLocName = 'Life in Three Dimentions';
+INSERT INTO exhibitLocations
+	SELECT 'Early 2000s Works', exLocLoc
+	FROM exhibitLocations
+	Where exLocName = 'Its a Colourful World';
+	
+	
+--\copy ExhibitLocations FROM 'C355A21-3.txt'
+
+
+
+DROP DOMAIN workMoveDate CASCADE;
+CREATE DOMAIN workMoveDate as date;
+
+ALTER  TABLE WorksLocations ADD COLUMN locMoveDate date DEFAULT '20160701';
+
+
+
+
+-- putting works into storage day after their exhibit is done
+
+INSERT INTO worksLocations
+	SELECT ewIdAlpha, ewIdNum, 'Storage', exend + 1
+		FROM exhibitions, exhibitLocations, exhibitWorks
+		WHERE ewName = exName
+		AND exLocName = exName;
+		
+		
+-- putting works into their new exhibits
+
+INSERT INTO worksLocations
+	SELECT ewIdAlpha, ewIdNum, exLocLoc, exStart - 3
+		FROM exhibitions, exhibitLocations, exhibitWorks
+		WHERE ewName = exName
+		AND exLocName = exName
+		AND exName != 'Back to the 80s'			--these works were already put in
+		AND exName != 'Life in Three Dimentions'	--their exhibits in A1 so I wont 
+		AND exName != 'Its a Colourful World';		--do it again

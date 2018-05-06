@@ -1,0 +1,24 @@
+storage	Wei	30	30	5	0	600	\N	\N	\N	\N	\N	\N	\N	\N	\N
+lobby	Wei	25	20	5	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
+galleryA	Wei	10	10	5	7	16	2017-03-07	\N	\N	\N	\N	\N	\N	\N	\N
+galleryB	Wei	10	15	5	7	16	2017-04-07	\N	\N	\N	\N	\N	\N	\N	\N
+galleryC	Wei	20	20	5	14	24	2017-02-07	\N	\N	\N	\N	\N	\N	\N	\N
+galleryD	Wei	20	25	5	15	25	\N	\N	\N	\N	\N	\N	\N	\N	\N
+grape	Wei	\N	\N	\N	\N	\N	\N	Sheldon	Sameul	29300	320 Front Street West	Flanders	SK	Canada	CA118TH
+scoob	Wei	\N	\N	\N	\N	\N	\N	Sheldon	Sameul	29300	1745 Broadway South	Woburn	SK	Canada	GU104QG
+george	Wei	\N	\N	\N	\N	\N	\N	Sheldon	Sameul	29300	232 West Street North	Savory	SK	Canada	SK95NS
+bambi	Wei	\N	\N	\N	\N	\N	\N	Sheldon	Sameul	29300	74 Gartner Street	Emerson	SK	Canada	L409YX
+quick	Wei	\N	\N	\N	\N	\N	\N	Sheldon	Sameul	29300	982 S. Johnson Street	Makamik	SK	Canada	NW22LL
+onloanadress	Dolly Donoghoe	\N	\N	\N	\N	\N	\N	\N	\N	\N	Heilsburg Place West	Richer	SK	Canada	IV448RN
+onloanadress	Thekla Minner	\N	\N	\N	\N	\N	\N	\N	\N	\N	Tokeneke Ridge Quay	Pakan	SK	Canada	CA118TH
+onloanadress	Irma Helems	\N	\N	\N	\N	\N	\N	\N	\N	\N	Jimdale Hill	Bitumount	SK	Canada	GU104QG
+onloanadress	Carlie Mattley	\N	\N	\N	\N	\N	\N	\N	\N	\N	Southeast Gott Route	Trenton	SK	Canada	SK95NS
+onloanadress	Louetta Dunsford	\N	\N	\N	\N	\N	\N	\N	\N	\N	South Bottlebrush Walk	Wasaga Beach	SK	Canada	L409YX
+onloanadress	Melva Pakley	\N	\N	\N	\N	\N	\N	\N	\N	\N	Sandy Creek Causeway	Sillery	SK	Canada	NW22LL
+grape-scoob	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+scoob-george	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+george-bambi	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+bambi-quick	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+saskatoon-grape	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+quick-saskatoon	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+velma	Wei	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

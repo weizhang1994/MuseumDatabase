@@ -1,0 +1,39 @@
+-- Wei zhang
+-- Part C: Verify the database
+
+-- ensure that what I do to a database works as planed
+-- Create and use queries that what I did for 1a worked as intended.
+SELECT * FROM musLocation;
+
+SELECT * FROM musExhibition;
+
+SELECT * FROM exhLocation;
+
+SELECT * FROM exhibition;
+
+SELECT * FROM exhibition;
+
+-- Create and use queries for 1b
+Select * from museum;
+SELECT * FROM musLocation;
+
+SELECT * FROM musExhibition;
+
+SELECT * FROM exhLocation;
+
+SELECT * FROM exhibition;
+
+-- Create and use queries for 2a.
+Select museumBelong from museum;
+
+-- Create and use queries for 2b;
+select * from museum  
+
+SELECT * FROM exhibition;
+
+
+--Create and use queries for 2c;
+select * from museum;
+select * from wordsNumber;
+select * from wordsAlpha;
+

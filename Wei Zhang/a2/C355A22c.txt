@@ -1,0 +1,81 @@
+ -- Wei Zhang  wez758 student# 11146590
+ --Part2.c more detailed information on items
+ 
+-- Query the description attribute of all the records in your database to identify all the different words that are found in it.
+select * from ts_stat('select to_tsvector(museumDescription) From museum') order by nentry DESC;
+
+-- create the report for this part
+Create view wordAlpha
+as
+select * from 
+ts_stat('select to_tsvector(museumDescription) From museum') 
+order by nentry DESC;
+
+-- Create the table for this part
+
+DROP DOMAIN IF EXISTS wordA CASCADE;
+CREATE DOMAIN wordA AS varchar(30) NOT NULL;
+DROP DOMAIN IF EXISTS wordNd CASCADE;
+CREATE DOMAIN wordNd AS smallint(2) NOT NULL;
+DROP DOMAIN IF EXISTS wordNe CASCADE;
+CREATE DOMAIN wordNe AS smallint(2) NOT NULL;
+create table wordAppearNumber (
+  wordAppearN wordA,
+  wordNdoc wordNd,
+  wordNemtry wordNe,
+  primary key (wordAppearN));
+
+-- insert the values from the table;
+insert into wordAppearNumber select * from words;
+
+-- Create the table for this part
+
+DROP DOMAIN IF EXISTS wordAA CASCADE;
+CREATE DOMAIN wordAA AS varchar(30) NOT NULL;
+DROP DOMAIN IF EXISTS wordNdA CASCADE;
+CREATE DOMAIN wordNdA AS smallint(2) NOT NULL;
+DROP DOMAIN IF EXISTS wordNeA CASCADE;
+CREATE DOMAIN wordNeA AS smallint(2) NOT NULL;
+
+create table wordAppearAlpha (
+  wordAppearA wordAA,
+  wordNdocA wordNdA,
+  wordNemtryA wordNeA,
+  primary key (wordAppearA));
+
+DROP DOMAIN IF EXISTS wordA CASCADE;
+CREATE DOMAIN wordA AS varchar(30) NOT NULL;
+DROP DOMAIN IF EXISTS wordNd CASCADE;
+CREATE DOMAIN wordNd AS smallint(2) NOT NULL;
+DROP DOMAIN IF EXISTS wordNe CASCADE;
+CREATE DOMAIN wordNe AS smallint(2) NOT NULL;
+create table wordAppearNumber (
+  wordAppearN wordA,
+  wordNdoc wordNd,
+  wordNemtry wordNe,
+  primary key (wordAppearN));  
+
+--Produce the second copy of query sorted in alphabetic order of the words(to identify similar words i.e variation on a single
+--word
+select * from ts_stat('select to_tsvector(museumDescription) From museum') order by word;
+
+-- Create report for this part
+Create view wordsNumber
+as
+select * from
+ts_stat('select to_tsvector(museumDescription) From museum')
+order by nentry DESC;
+
+
+
+-- According to the wordAppearN view, The most important words appear is the 'show'. So the most important attribute 
+-- the characteristic of the item is what the works showed. 
+DROP DOMAIN IF EXISTS mShow CASCADE;
+CREATE DOMAIN mShow AS varchar(50);
+
+ALTER TABLE museum drop COLUMN IF EXISTS museumShow;
+ALTER TABLE museum ADD COLUMN museumShow mShow;
+
+-- Update the records for each item to include appropriate values for the attribute
+update museum set museumShow = true where museumNumber < 40;
+update museum set museumShow = false where museumNumber >= 40;

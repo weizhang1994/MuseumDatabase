@@ -1,0 +1,277 @@
+
+--Set the date format to Month-Day-Year
+set datestyle to MDY;
+
+DROP VIEW Part3_5 CASCADE;
+DROP VIEW Part3_4 CASCADE;
+DROP VIEW Part3_3 CASCADE;
+DROP VIEW Part3_2 CASCADE;
+DROP VIEW Part3_1 CASCADE;
+
+DROP VIEW Items_in_museum CASCADE;
+DROP VIEW all_items_in_locations CASCADE;
+DROP VIEW all_galleries_info CASCADE;
+DROP VIEW all_exhibitions CASCADE;
+
+
+DROP TABLE Ex1_items CASCADE;
+DROP TABLE Ex2_items CASCADE;
+DROP TABLE Ex3_items CASCADE;
+DROP TABLE Exhibitions_info CASCADE;
+DROP TABLE medium CASCADE;
+DROP TABLE doors CASCADE;
+DROP TABLE lobby CASCADE;
+DROP TABLE storage CASCADE;
+DROP TABLE galleries CASCADE;
+
+DROP DOMAIN iNum CASCADE;
+DROP DOMAIN iAlpha CASCADE;
+DROP DOMAIN Ex_describe CASCADE;
+DROP DOMAIN describe CASCADE;
+DROP DOMAIN item_name CASCADE;
+DROP DOMAIN naming CASCADE;
+DROP DOMAIN types CASCADE;
+DROP DOMAIN valuing CASCADE;
+DROP DOMAIN capac CASCADE;
+DROP DOMAIN material CASCADE;
+DROP DOMAIN locating CASCADE;
+DROP DOMAIN dating CASCADE;
+
+CREATE DOMAIN iNum AS smallint;
+CREATE DOMAIN iAlpha AS character(3);
+CREATE DOMAIN describe AS character(400);
+CREATE DOMAIN Ex_describe AS character(110);
+CREATE DOMAIN item_name AS character(110);
+CREATE DOMAIN naming AS character(30);
+CREATE DOMAIN types AS character(20);
+CREATE DOMAIN valuing AS smallint;
+CREATE DOMAIN capac AS smallint;
+CREATE DOMAIN material AS character(55);
+CREATE DOMAIN locating AS character(15);
+CREATE DOMAIN dating AS DATE;
+
+--Create the galleries table, which will have all the infomation about the rooms in the musuem
+CREATE TABLE galleries (
+	Name locating NOT NULL PRIMARY KEY,
+	Dimension_m3 capac NULL,
+	Min_capacity capac NULL,
+	Max_capacity capac NULL,
+	
+	CHECK (Min_capacity <= Max_capacity)
+);
+
+--Create the storage table, which will have all the information about the items that are currently 
+--in the storage
+CREATE TABLE storage (
+	ItemAlpha iAlpha NOT NULL,
+	ItemNumber iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	
+	PRIMARY KEY (itemNumber, itemAlpha),
+	
+	CONSTRAINT storage_1 FOREIGN KEY (Current_location) REFERENCES galleries(Name)
+	
+);
+
+--Create the lobby table, which will have all the information about the items that are currently 
+--in the lobby
+CREATE TABLE lobby (
+	ItemAlpha_lobby iAlpha NOT NULL,
+	ItemNumber_lobby iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	
+	PRIMARY KEY (itemNumber_lobby, itemAlpha_lobby),
+	
+	CONSTRAINT storage_2 FOREIGN KEY (Current_location) REFERENCES galleries(Name)
+	
+);
+
+--Create the door table, which will have the information about the doors beetween the room in the museum
+CREATE TABLE doors (
+	Door_from locating NOT NULL,
+	Door_to locating NOT NULL,
+	
+	CONSTRAINT link_door FOREIGN KEY (Door_from) REFERENCES galleries(Name)
+);
+
+--Create the medium table, which will have the information about all the meterials of an item in the museum
+CREATE TABLE medium (
+	ItemAlpha_medium iAlpha NOT NULL,
+	ItemNumber_medium iNum NOT NULL,
+	Materials material NOT NULL
+	
+);
+
+--Create the Exhibitions_info table, which will have all the infomation about the exhibitions currently taking 
+--place in the musuem
+CREATE TABLE Exhibitions_info (
+	Exhibition_ID iAlpha NOT NULL PRIMARY KEY,
+	Theme naming NOT NULL,
+	EX_Description Ex_describe NOT NULL,
+	Number_of_items capac NOT NULL,
+	Start_Date dating NULL,
+	End_Date dating NULL,
+	Location_Name locating NULL,
+	
+	CHECK (Start_Date < End_Date),
+	UNIQUE (Location_Name),
+	CONSTRAINT ex_link_location FOREIGN KEY (Location_Name) REFERENCES galleries(Name)
+);
+
+--Create the Ex1_items table, which will have all the information about the items that are currently 
+--in this exhibition (this table have the same content as storage and lobby)
+CREATE TABLE Ex1_items (
+	ItemAlpha_ex iAlpha NOT NULL,
+	ItemNumber_ex iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	
+	PRIMARY KEY (itemNumber_ex, itemAlpha_ex),
+	
+	CONSTRAINT storage_3 FOREIGN KEY (Current_location) REFERENCES Exhibitions_info(Location_Name)
+	
+);
+
+--Create the Ex2_items table, which will have all the information about the items that are currently 
+--in this exhibition (this table have the same content as storage and lobby)
+CREATE TABLE Ex2_items (
+	ItemAlpha_ex iAlpha NOT NULL,
+	ItemNumber_ex iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	
+	PRIMARY KEY (itemNumber_ex, itemAlpha_ex),
+	
+	CONSTRAINT storage_4 FOREIGN KEY (Current_location) REFERENCES Exhibitions_info(Location_Name)
+	
+);
+
+--Create the Ex3_items table, which will have all the information about the items that are currently 
+--in this exhibition (this table have the same content as storage and lobby)
+CREATE TABLE Ex3_items (
+	ItemAlpha_ex iAlpha NOT NULL,
+	ItemNumber_ex iNum NOT NULL,
+	Name item_name NOT NULL,
+	Description describe NOT NULL,
+	Type types NOT NULL,
+	Sub_type types NOT NULL,
+	Author naming NOT NULL,
+	Date_Complete dating NOT NULL,
+	Date_Acquisition dating NOT NULL,
+	Insurance_Value_$ valuing NOT NULL,
+	Current_location locating NOT NULL,
+	
+	CHECK (Date_Complete < Date_Acquisition),
+	
+	PRIMARY KEY (itemNumber_ex, itemAlpha_ex),
+	
+	CONSTRAINT storage_5 FOREIGN KEY (Current_location) REFERENCES Exhibitions_info(Location_Name)
+);
+
+
+--Create the view that will contain all the information about the rooms in the museum, including the connecting doors
+CREATE VIEW all_galleries_info 
+	AS SELECT 
+		name,
+		dimension_m3,
+		min_capacity,
+		max_capacity,
+		door_to
+	FROM
+		galleries,
+		doors
+	WHERE
+		Name = Door_from
+;
+
+--Create view that will contain every information of the exhibitions, basically everything from the Exhibitions_info
+--table
+CREATE VIEW all_exhibitions
+	AS SELECT
+		*
+	FROM
+		Exhibitions_info
+;
+
+--Create view that will contain all information of the items and theirs current location
+CREATE VIEW all_items_in_locations
+	AS SELECT
+		* FROM storage
+	UNION SELECT
+		* FROM lobby
+	UNION SELECT
+		* FROM Ex1_items
+	UNION SELECT
+		* FROM Ex2_items
+	UNION SELECT
+		* FROM Ex3_items
+;
+
+
+--Create the view that will show all of the information about the all items in the museum this will also contain the 
+--materials of each item
+CREATE VIEW Items_in_museum
+	AS SELECT 
+		ItemAlpha,
+		ItemNumber,
+		Name,
+		Description,
+		Type,
+		Sub_type,
+		Author,
+		Date_Complete,
+		Date_Acquisition,
+		Insurance_Value_$,
+		Materials
+	FROM
+		all_items_in_locations,
+		medium
+	WHERE
+		ItemAlpha = ItemAlpha_medium AND
+		ItemNumber = ItemNumber_medium
+	ORDER BY
+		ItemNumber
+;
+
+
+
+
+

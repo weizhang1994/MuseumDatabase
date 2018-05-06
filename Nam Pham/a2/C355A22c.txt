@@ -1,0 +1,31 @@
+
+DROP TABLE Item_value CASCADE;
+
+--Do the part one, which get the name of the value, its occurance and number of items they appear in
+--SELECT * FROM ts_stat('select to_tsvector(description) from all_works');
+
+--Do the part one, which get the name of the value, its occurance and number of items they appear in and will be sorted by
+--theirs number of items they appear in
+--SELECT ts_stat.* FROM ts_stat('select to_tsvector(description) from all_works') order by ts_stat.ndoc DESC;
+
+--Do the part one, which get the name of the value, its occurance and number of items they appear in and will be sorted by
+--the name of value
+--SELECT ts_stat.* FROM ts_stat('select to_tsvector(description) from all_works') order by ts_stat.word;
+
+
+--Create the table for each item that conain the special value get from above
+CREATE TABLE Item_value (
+	
+	ItemAlpha ialpha NOT NULL,
+	ItemNumber iNum NOT NULL,
+	Values naming NULL
+);
+
+--Get the value from text file
+\copy item_value FROM 'C355A22c-1.txt'
+
+--Add a new column for all_works table
+ALTER TABLE all_works ADD COLUMN potray_with naming;
+
+--Update the all_works table, which now will get all the value from Item_value table
+UPDATE All_works SET potray_with = (SELECT values FROM item_value WHERE all_works.ItemAlpha = item_value.ItemAlpha);

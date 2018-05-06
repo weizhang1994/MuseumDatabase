@@ -1,0 +1,124 @@
+-- Daniel Morris
+-- ddm855
+-- 11188831
+
+DROP VIEW HeadAllWorks CASCADE;
+DROP VIEW PublicAllExhibitions CASCADE;
+DROP VIEW PublicExhibitionWorks CASCADE;
+DROP VIEW CuratorNextAvailableWorks CASCADE;
+DROP VIEW CuratorUnusedSpaceInGalleries CASCADE;
+
+
+CREATE VIEW HeadAllWorks
+	AS SELECT wkIdAlpha AS "Letter ID",
+		wkIdNum AS "Number ID",
+		wkName AS "Name of the Work",
+		wkValue AS "Insurance Value"
+	FROM Works
+;
+
+SELECT * FROM HeadAllWorks;
+
+CREATE VIEW PublicAllExhibitions
+	AS SELECT ewName AS "Exhibition Name",
+	exDesc AS "Description",
+	exLoc AS "Location",
+	COUNT(ewName)
+	FROM ExhibitWorks, Exhibitions
+	WHERE ewName = exName
+	GROUP BY ewName, exDesc, exLoc
+	
+;
+
+SELECT * FROM PublicAllExhibitions;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW PublicExhibitionWorks
+	AS SELECT wkName AS "Name of Work",
+	wkType AS "Type",
+	wkSubType AS "Sub-Type",
+	wkArtist AS "Artist",
+	wkCompDate AS "Completion Date",
+	ewName AS "Exhibition",
+	medMedia AS "Media Used",
+	wkDesc AS "Description"
+	FROM Works, ExhibitWorks, Media
+	WHERE ewIdAlpha = wkIdAlpha
+	AND ewIdNum = wkIdNum
+	AND medIDAlpha = wkIdAlpha
+	AND medIDNum = wkIdNum
+	ORDER BY ewName, wkName
+	
+;
+
+SELECT * FROM PublicExhibitionWorks;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW CuratorNextAvailableWorks
+	AS SELECT wkIdAlpha AS "Letter Id",
+	wkIdNum AS "Number ID",	
+	wkName AS "Name of Work",
+	wkType AS "Type",
+	exEnd AS "When Work Will Be Available"
+	FROM Works, Exhibitions, ExhibitWorks
+	WHERE exName = ewName
+	AND ewIdAlpha = wkIdAlpha
+	AND ewIdNum = wkIdNum
+	ORDER BY exEnd, wkType, wkName
+;
+
+SELECT * FROM CuratorNextAvailableWorks;
+
+CREATE VIEW CuratorUnusedSpaceInGalleries
+	AS SELECT rmName AS "Name of Gallery",
+	rmSuggMax - COUNT(ewName) AS "Number of unused spaces"
+	FROM Rooms, ExhibitWorks, Exhibitions, ExhibitLocations
+	WHERE rmName = exLocLoc
+	AND exName = ewName
+	AND exLocName = exName
+	GROUP BY ewName, rmName
+;
+
+SELECT * FROM CuratorUnusedSpaceInGalleries;
+
+

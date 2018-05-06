@@ -1,0 +1,10 @@
+Back to the 80s	2016-07-18	MCA	f	A collection of works in the museum that were created in the 1980's	2017-04-12
+Life in Three Dimentions	2016-08-19	MCA	f	A collection of all the museum's sculpture art	2017-01-18
+Its a Colourful World	2016-09-12	MCA	f	A collection of various colourful artworks	2017-09-18
+Dalmation	2017-04-17	MCA	f	A collection of works only using the colours black and white.	2017-08-12
+Through the Eye of the Lens	2017-01-23	MCA	f	A collection of the protography.	2017-06-18
+Old but Gold	2015-09-12	MCA	f	A collection of the museums oldest artwork.	2016-07-13
+Cowboy Exhibition	2015-10-13	MCA	f	A collection of the museums cowboy artwork.	2016-08-14
+Aboriginal Exhibition	2015-11-19	MCA	f	A collection of the museums aboriginal artwork.	2016-09-07
+Early 2000s Works	2017-09-23	MCA	f	A collection of works created between 2000 and 2006.	2017-12-23
+Saskatchewan Exhibition	2016-12-04	MCA	t	A traveling exhibition across Saskatchewan.	2017-04-03

@@ -1,0 +1,176 @@
+--  Wei Zhang Student# 11146590 Assignment3 CMPT355
+-- 1.Expanding your current exhibition:
+-- 1.1 Adding works to all current and currently planed upcoming exhibitions.
+update exhibition set exhibitionaworks = 6 where exhibitionname = 'Ink-Pot Combination';
+update exhibition set exhibitionaworks = 7 where exhibitionname = 'Output of Essences';
+update exhibition set exhibitionaworks = 8 where exhibitionname = 'Revolutionary-Art';
+update exhibition set exhibitionaworks = 7 where exhibitionname = 'Decoration Fifth';
+update exhibition set exhibitionaworks = 8 where exhibitionname = 'Implication of China';
+update exhibition set exhibitionaworks = 6 where exhibitionname = 'Mind and Pictures';
+
+
+
+ drop table if exists exhGala cascade;
+ create table exhGala (
+ exhibitionname ename,
+ exhibitionstartdate esdate,
+ exhibitionlocation elocation,
+ locationcapacitysmax lcsmax,
+ exhibitionnworks enwork,
+ PRIMARY KEY (exhibitionname, exhibitionstartdate'),
+ FOREIGN KEY (exhibitionname, exhibitionstartdate')
+ REFERENCES exhibition
+ 			ON UPDATE CASCADE
+ 			ON DELETE CASCADE
+ ');
+
+
+ insert into exhGala Values 
+ ('Output of Essences',	'2016-07-01',	'galleryA',	16,	9'),
+ ('Ink-Pot Combination',	'2016-08-01',	'galleryB',	16,	10'),
+ ('Revolutionary-Art',	'2016-09-01',	'galleryC',	24,	16'),
+ ('Decoration Fifth',	'2016-11-06',	'galleryB',	16,	9'),
+ ('Mind and Pictures',	'2016-11-06',	'galleryC',	24,	18'),
+ ('Implication of China','2016-11-06',	'galleryA',	16,	8');
+
+ drop view if exists exhibitionReport;
+ create view exhibitionReport as
+     select distinct
+       exhibition.exhibitionname, exhibition.exhibitionstartdate, exhibition.exhibitionLocation,
+       exhGala.locationcapacitysmax, exhibition.exhibitionnworks, exhibition.exhibitionenddate 
+     from exhibition,
+     exhGala
+     where exhibition.exhibitionname = exhGala.exhibitionname;	     
+    
+ select * from exhibitionReport;    
+
+
+ drop domain if exists meaDate cascade;
+ create domain meaDate date;
+
+ drop table if exists musexhAdd cascade;
+ create table musexhAdd ( 
+ museumLetter mletter,
+ museumNumber mnumber,
+ exhibitionname ename,
+ exhibitionstartdate esdate,
+ musexhAdd meaDate,
+ PRIMARY KEY (museumLetter, museumNumber, exhibitionname, exhibitionstartdate'),
+ FOREIGN KEY (museumLetter, museumNumber,exhibitionname, exhibitionstartdate')
+ REFERENCES musExhibition
+ 			ON UPDATE CASCADE
+ 			ON DELETE CASCADE
+ ');
+
+
+ insert into musExhibition Values
+ ('AJ',	9,	'Son of Poor Peasant',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AK',	10,	'Volcano Country',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AL',	11,	'A Thunder on a Plain',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AM',	12,	'Horse',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AN',	13,	'The Port of Hong Kong',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AQ',	16,	'Mountains and Waters',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AR',	17,	'The Triangle Plum is Blooming',	'Output of Essences',	'2016-07-01',	'2016-11-01''),
+ ('AS',	18,	'The Big Chrysanthemum on the Black Chair',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('AT',	19,	'Water-sprinkling Festival',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('BE',	30,	'Orchid cat pillow',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('BF',	31,	'Lion pillow',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('BG',	32,	'Jug figured green flower and landscape',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('BH',	33,	'Green flow and dragon bottle',	'Ink-Pot Combination',	'2016-08-01',	'2016-11-01''),
+ ('BY',	50,	'Five-poison tiger-figured shoes',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('BZ',	51,	'Golden-fish insole',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CA',	52,	'Corset',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CB',	53,	'Changing face',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CC',	54,	'General',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CD',	55,	'Liu Bei',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CE',	56,	'Zhang Fei',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01''),
+ ('CF',	57,	'Blessed marriage',	'Revolutionary-Art',	'2016-09-01',	'2016-11-01'')
+ ('AS',	18,	'The Big Chrysanthemum on the Black Chair',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AT',	19,	'Water-sprinkling Festival',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AU',	20,	'Goat jug',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AV',	21,	'Round and square bottle',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AW',	22,	'Green flow and dragon bottle',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AX',	23,	'Iron figured lotus bottle',	'Mind and Pictures',	'2016-11-06',	'2017-02-06''),
+ ('AY',	24,	'Double-ear yellow glazed bottle',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('AZ',	25,	'Fish jug',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BA',	26,	'White pocelain and green flower',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BB',	27,	'Wax stand in white glazed lion',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BC',	28,	'Small jug with green flower and five pieces',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BD',	29,	'Pagoda jug',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BE',	30,	'Orchid cat pillow',	'Decoration Fifth',	'2016-11-06',	'2017-02-06''),
+ ('BF',	31,	'Lion pillow',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BG',	32,	'Jug figured green flower and landscape',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BH',	33,	'Green flow and dragon bottle',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BI',	34,	'Statue of Xiang Xiuli',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BJ',	35,	'Son',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BK',	36,	'Washerwoman',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BL',	37,	'Statue of ZhuDe',	'Implication of China',	'2016-11-06',	'2017-02-06''),
+ ('BM',	38,	'Statue of Xu Beihong',	'Implication of China',	'2016-11-06',	'2017-02-06'');
+
+ insert into musexhAdd Values
+('AJ',	9,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AK',	10,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AL',	11,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AM',	12,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AN',	13,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AQ',	16,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AR',	17,	'Output of Essences',	'2016-07-01',	'2016-08-28''),
+('AS',	18,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('AT',	19,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('BE',	30,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('BF',	31,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('BG',	32,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('BH',	33,	'Ink-Pot Combination',	'2016-08-01',	'2016-08-28''),
+('BY',	50,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('BZ',	51,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CA',	52,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CB',	53,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CC',	54,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CD',	55,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CE',	56,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28''),
+('CF',	57,	'Revolutionary-Art',	'2016-09-01',	'2016-08-28'');
+
+ insert into musLocation Values
+('AJ',	9,	'Son of Poor Peasant',	'galleryA',	'2016-07-01''),
+('AK',	10,	'Volcano Country',	'galleryA',	'2016-07-01''),
+('AL',	11,	'A Thunder on a Plain',	'galleryA',	'2016-07-01''),
+('AM',	12,	'Horse',	'galleryA',	'2016-07-01''),
+('AN',	13,	'The Port of Hong Kong',	'galleryA',	'2016-07-01''),
+('AQ',	16,	'Mountains and Waters',	'galleryA',	'2016-07-01''),
+('AR',	17,	'The Triangle Plum is Blooming',	'galleryA',	'2016-07-01''),
+('AS',	18,	'The Big Chrysanthemum on the Black Chair',	'galleryB',	'2016-08-01''),
+('AT',	19,	'Water-sprinkling Festival',	'galleryB',	'2016-08-01''),
+('BE',	30,	'Orchid cat pillow',	'galleryB',	'2016-08-01''),
+('BF',	31,	'Lion pillow',	'galleryB',	'2016-08-01''),
+('BG',	32,	'Jug figured green flower and landscape',	'galleryB',	'2016-08-01''),
+('BH',	33,	'Green flow and dragon bottle',	'galleryB',	'2016-08-01''),
+('BY',	50,	'Five-poison tiger-figured shoes',	'galleryB',	'2016-09-01''),
+('BZ',	51,	'Golden-fish insole',	'galleryB',	'2016-09-01''),
+('CA',	52,	'Corset',	'galleryB',	'2016-09-01''),
+('CB',	53,	'Changing face',	'galleryB',	'2016-09-01''),
+('CC',	54,	'General',	'galleryB',	'2016-09-01''),
+('CD',	55,	'Liu Bei',	'galleryB',	'2016-09-01''),
+('CE',	56,	'Zhang Fei',	'galleryB',	'2016-09-01''),
+('CF',	57,	'Blessed marriage',	'galleryB',	'2016-09-01''),
+('AS',	18,	'The Big Chrysanthemum on the Black Chair',	'galleryC',	'2016-11-06''),
+('AT',	19,	'Water-sprinkling Festival',	'galleryC',	'2016-11-06''),
+('AU',	20,	'Goat jug',	'galleryC',	'2016-11-06''),
+('AV',	21,	'Round and square bottle',	'galleryC',	'2016-11-06''),
+('AW',	22,	'Green flow and dragon bottle',	'galleryC',	'2016-11-06''),
+('AX',	23,	'Iron figured lotus bottle',	'galleryC',	'2016-11-06''),
+('AY',	24,	'Double-ear yellow glazed bottle',	'galleryB',	'2016-11-06''),
+('AZ',	25,	'Fish jug',	'galleryB',	'2016-11-06''),
+('BA',	26,	'White pocelain and green flower',	'galleryB',	'2016-11-06''),
+('BB',	27,	'Wax stand in white glazed lion',	'galleryB',	'2016-11-06''),
+('BC',	28,	'Small jug with green flower and five pieces',	'galleryB',	'2016-11-06''),
+('BD',	29,	'Pagoda jug',	'galleryB',	'2016-11-06''),
+('BE',	30,	'Orchid cat pillow',	'galleryB',	'2016-11-06''),
+('BF',	31,	'Lion pillow',	'galleryA',	'2016-11-06''),
+('BG',	32,	'Jug figured green flower and landscape',	'galleryA',	'2016-11-06''),
+('BH',	33,	'Green flow and dragon bottle',	'galleryA',	'2016-11-06''),
+('BI',	34,	'Statue of Xiang Xiuli',	'galleryA',	'2016-11-06''),
+('BJ',	35,	'Son',	'galleryA',	'2016-11-06''),
+('BK',	36,	'Washerwoman',	'galleryA',	'2016-11-06''),
+('BL',	37,	'Statue of ZhuDe',	'galleryA',	'2016-11-06''),
+('BM',	38,	'Statue of Xu Beihong',	'galleryA',	'2016-11-06'');
+	     

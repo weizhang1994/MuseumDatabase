@@ -1,0 +1,33 @@
+JLK	189	John Smith
+KKK	190	Henry Them
+KKL	192	Khan Museum
+KJK	193	Walker Art Center
+KLK	194	Boston Center
+KJJ	195	Hala Barbra
+KJJ	195	Hughes Man
+KLL	196	Kai Smoan
+KJL	197	Beauty Gallery
+KLJ	198	The next Garden
+LLJ	200	Minh Chi Ho
+LLK	201	Smantha Oax
+LLK	201	Mike Lens
+LJJ	204	Mickey Norm
+LJJ	204	Hans Sanx
+LKK	205	Hoax Gallery
+LJK	206	New Museum
+LKJ	207	Jean Funk
+MMM	208	Boston Musem
+MMN	209	Canada Museum
+MMO	210	Montreal Museum
+MNM	211	The gallery
+MOM	212	Twin Museum
+MNN	213	Toronto Museum
+MOO	214	Saint Gallery
+MNO	215	Big Museum
+ABB	105	Museum of Alberta
+CAA	123	Henry Gallery
+DFE	135	Saint Louis Gallery
+FFD	146	The Zone
+HGH	166	The next garden
+JLJ	185	Walker Art Center
+KKJ	191	Vietnam zoo

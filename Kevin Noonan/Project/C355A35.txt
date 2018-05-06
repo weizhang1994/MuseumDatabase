@@ -1,0 +1,89 @@
+--Assignment #3 | Kevin Noonan | krn871 | 11138394
+
+--CREATE TABLE FOR traveling exhibition.
+
+DROP TABLE tempLocation CASCADE;
+DROP DOMAIN temLName CASCADE;
+DROP DOMAIN temLAddress CASCADE;
+DROP DOMAIN temLSecurity CASCADE;
+DROP DOMAIN temLInsurance CASCADE;
+DROP DOMAIN temLStartDate CASCADE;
+DROP DOMAIN temLEndDate CASCADE;
+
+CREATE DOMAIN temLName AS varchar(100);
+CREATE DOMAIN temLAddress AS varchar(100);
+CREATE DOMAIN temLSecurity AS varchar(30);
+CREATE DOMAIN temLInsurance AS integer;
+CREATE DOMAIN temLStartDate AS date;
+CREATE DOMAIN temLEndDate AS date;
+
+CREATE TABLE tempLocation(
+		tempLocName temLName NOT NULL,
+		tempLocAdd temLAddress NOT NULL, 
+		tempLocSec temLSecurity NOT NULL, 
+		tempLocIns temLInsurance NOT NULL, 
+		tempLocStart temLStartDate NOT NULL, 
+		tempLocEnd temLEndDate NOT NULL
+);
+
+--CREATE TEMP LOCATION
+INSERT into locations(
+SELECT 'tempLoc', 0, 0, 0, 0, '20161021' 
+);
+
+--Query gives
+--DDV
+--JXJ
+--POR
+--FORDF
+--MBD
+--DHT
+--DDC
+--HDVL
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'tempLoc', '20161225'
+FROM works
+WHERE wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'FORDF' AND wksnumberkey = 12
+OR wksletterkey = 'MBD' AND wksnumberkey = 66
+OR wksletterkey = 'DHT' AND wksnumberkey = 70
+OR wksletterkey = 'DDC' AND wksnumberkey = 72
+OR wksletterkey = 'HDVL' AND wksnumberkey = 77;
+
+--Process for bringig back after being on loan
+
+INSERT into workslocations
+SELECT wksletterkey, wksnumberkey, 'Storage', '20170118'
+FROM works
+WHERE wksletterkey = 'DDV' AND wksnumberkey = 4
+OR wksletterkey = 'JXJ' AND wksnumberkey = 6
+OR wksletterkey = 'POR' AND wksnumberkey = 8
+OR wksletterkey = 'FORDF' AND wksnumberkey = 12
+OR wksletterkey = 'MBD' AND wksnumberkey = 66
+OR wksletterkey = 'DHT' AND wksnumberkey = 70
+OR wksletterkey = 'DDC' AND wksnumberkey = 72
+OR wksletterkey = 'HDVL' AND wksnumberkey = 77;
+
+INSERT INTO tempLocation(
+SELECT 'Kal-tire', 'Rosetown', 'Mario', 5000000, '20161225', '20170118'
+);
+
+INSERT INTO tempLocation(
+SELECT 'Grip it', 'Saskatoon', 'Luigi', 5000000, '20161225', '20170118'
+);
+
+INSERT INTO tempLocation(
+SELECT 'Gov of Sask', 'Regina', 'The Rock', 5000000, '20161225', '20170118'
+);
+
+INSERT INTO tempLocation(
+SELECT 'Canadian Tire', 'Prince Albert', 'Sora', 5000000, '20161225', '20170118'
+);
+
+INSERT INTO tempLocation(
+SELECT 'Jiffy Tire', 'Kindersly', 'Gingerbread Man', 5000000, '20161225', '20170118'
+);
+

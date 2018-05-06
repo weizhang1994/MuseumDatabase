@@ -1,0 +1,36 @@
+--Wei Zhang Assignment3. Calculating disruption costs  
+drop view if exists extraExhibitionReport cascade;
+create view extraExhibitionReport as
+select
+exhibitionname, exhibitionstartdate,exhibitionenddate 
+from
+exhlocation
+where
+locationname in (''galleryA','galleryB','galleryC');
+select * from extraExhibitionReport;
+
+-- disruption cost for case1 
+-- For example given the special exhibition start date is '2016-10-26' and end date is '2016-11-07'
+drop view if exists disruptionCost1 cascade;  
+create view disruptionCost1
+as
+select
+5 * age(''2016-11-06' , '2016-10-26') + 2 * age(''2016-11-07','2016-10-26');
+
+
+-- disruption cost for case2 
+-- For example given the special exhibition start date is '2016-10-26' and end date is '2016-11-07'
+drop view if exists disruptionCost2 cascade;  
+create view disruptionCost2
+as
+select
+5 * age(''2016-11-06' , '2016-10-26') + 3 * age(''2016-11-07','2016-10-26');
+
+
+--disruption cost for case3
+-- For example given the special exhibition start date is '2016-10-26' and end date is '2016-11-07'
+drop view if exists disruptionCost3 cascade;  
+create view disruptionCost3
+as
+select
+3 * age(''2016-11-07','2016-10-26');

@@ -1,0 +1,1 @@
+INSERT INTO works_value VALUES (${Letter ID||||String||pk ds=10 dt=VARCHAR}$, ${Number ID||||Integer||pk unformatted ds=11 dt=INTEGER}$, ${Institution||||String||pk ds=50 dt=VARCHAR}$, current_date, ${New Insurance Value||||Integer||nullable unformatted ds=11 dt=INTEGER}$, null)

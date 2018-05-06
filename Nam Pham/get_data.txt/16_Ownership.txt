@@ -1,0 +1,57 @@
+
+
+\i '15_State.txt'
+
+INSERT INTO ns_works_ownership(ns_wo_idalpha,
+                           ns_wo_idnumeric,
+                           ns_wo_inname,
+                           ns_wo_innameowner,
+                           ns_wo_wostartdate) 
+	SELECT  itemalpha,
+	        itemnumber,
+		'WAC gallery',
+		'WAC gallery',
+		date_in
+	FROM look2 
+	WHERE date_in = '2016-06-01';
+	
+INSERT INTO ns_works_ownership(ns_wo_idalpha,
+                           ns_wo_idnumeric,
+                           ns_wo_inname,
+                           ns_wo_innameowner,
+                           ns_wo_wostartdate) 
+	SELECT  itemalpha,
+	        itemnumber,
+		'WAC gallery',
+		'WAC gallery',
+		date_in
+	FROM look2 
+	WHERE date_in = '2016-10-25';
+
+INSERT INTO ns_works_ownership(ns_wo_idalpha,
+                           ns_wo_idnumeric,
+                           ns_wo_inname,
+                           ns_wo_innameowner,
+                           ns_wo_wostartdate) 
+	SELECT  itemalpha_don,
+	        itemnumber_don,
+		'WAC gallery',
+		donor,
+		'2016-10-18'
+	FROM donors;
+	
+	
+UPDATE ns_works_ownership SET ns_wo_woenddate = '2016-10-21' WHERE ns_wo_idnumeric IN (111, 112, 113);
+INSERT INTO ns_works_ownership(ns_wo_idalpha,
+			       ns_wo_idnumeric,
+			       ns_wo_inname,
+			       ns_wo_innameowner,
+			       ns_wo_wostartdate)
+           VALUES ('BBC', 111, 'WAC gallery', 'CBC Museum', '2016-10-21');
+
+INSERT INTO ns_works_ownership(ns_wo_idalpha,
+			       ns_wo_idnumeric,
+			       ns_wo_inname,
+			       ns_wo_innameowner,
+			       ns_wo_wostartdate)
+           VALUES ('BAB', 112, 'WAC gallery', 'CBC Museum', '2016-10-21');

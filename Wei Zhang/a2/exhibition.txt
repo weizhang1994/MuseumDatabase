@@ -1,0 +1,3 @@
+Implication of China	'The chinese toys international exhibition - the toys exhibition include 8 works that shows the tradition style will last 4 month'  	2016-11-06	2017-03-06	galleryA	8	8
+Decoration Fifth	'An exhibition of decoration - this exhibition include 9 works that shows all kind of decorations will last for 5 months' 	2016-11-06	2017-04-06	galleryB	9	7
+Mind and Pictures	'An exhibition of paintings- this exhibition include 18 paintings showa all kind of painting style will last for 3 months'	2016-11-06	2017-02-06	galleryC	18	6

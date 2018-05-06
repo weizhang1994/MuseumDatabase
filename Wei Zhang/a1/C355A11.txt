@@ -1,0 +1,203 @@
+-- C355A11.txt
+-- Wei Zhang wez758 11146590
+-- This is database to collect the domains, tables, attributes, views required to
+-- fit the location data profiles
+
+
+-- Create all the needed domains for this museum table
+
+DROP DOMAIN IF EXISTS mLetter CASCADE;
+CREATE DOMAIN mLetter AS varchar('2) NOT NULL;
+DROP DOMAIN IF EXISTS mNumber CASCADE;
+CREATE DOMAIN mNumber AS smallint NOT NULL;
+DROP DOMAIN IF EXISTS mName CASCADE;
+CREATE DOMAIN mName AS varchar('50) NOT NULL;
+DROP DOMAIN IF EXISTS mDescription CASCADE;
+CREATE DOMAIN mDescription AS varchar('200) NOT NULL;
+DROP DOMAIN IF EXISTS mType CASCADE;
+CREATE DOMAIN mType AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS mSubtype CASCADE;
+CREATE DOMAiN mSubtype AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS mAuthor CASCADE;
+CREATE DOMAIN mAuthor AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS mMaterial CASCADE;
+CREATE DOMAIN mMaterial AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS mCompDate CASCADE;
+CREATE DOMAIN mCompDate AS smallint NOT NULL;
+DROP DOMAIN IF EXISTS mAcquDate CASCADE;
+CREATE DOMAIN mAcquDate AS date NOT NULL;
+DROP DOMAIN IF EXISTS mInsurance CASCADE;
+CREATE DOMAIN mInsurance AS smallint NOT NULL;
+
+
+
+-- Create a museum table
+-- This table is used to collect all the information of works in National Art Museum of China
+
+DROP TABLE IF EXISTS museum CASCADE;
+CREATE TABLE museum ('
+	museumLetter mLetter,
+	museumNumber mNumber,
+	museumName mName,
+	museumDescription mDescription,
+	museumType mType,
+	museumSubtype mSubtype,
+	museumAuthor mAuthor,
+	museumMaterial mMaterial,
+	museumCompDate mCompDate,
+	museumAcquDate mAcquDate,
+	museumInsurance mInsurance,
+	PRIMARY KEY('museumLetter, museumNumber),
+	UNIQUE('museumLetter, museumNumber)
+); 
+
+
+DROP TYPE IF EXISTS dimension CASCADE;
+-- Create a compositional type for the physical demensions 
+CREATE TYPE dimension AS ('
+	length	real,
+	width real,
+	height real
+);
+
+--Create domain for the location table
+DROP DOMAIN IF EXISTS lName CASCADE;
+CREATE DOMAIN lName AS varchar('10) NOT NULL;
+
+DROP DOMAIN IF EXISTS lcSmin CASCADE;
+CREATE DOMAIN lcSmin AS smallint NOT NULL;
+
+DROP DOMAIN IF EXISTS lcSmax CASCADE;
+CREATE DOMAIN lcSmax AS smallint NOT NULL;
+
+
+-- Create table location
+-- The museum consists of an entrance lobby, three galleries and a storage facility 
+DROP TABLE IF EXISTS location CASCADE;
+CREATE TABLE location ('
+	locationName lName,
+	locationDimension dimension,
+	locationCapacitySmin lcSmin,
+	locationCapacitySmax lcSmax,
+	CONSTRAINT valid_Snum CHECK ('locationCapacitySmax >= locationCapacitySmin),
+        PRIMARY KEY('locationName),
+	UNIQUE('locationName)
+);
+
+
+--Create domain for the secondary table locationDoor
+DROP DOMAIN IF EXISTS ldFrom CASCADE;
+CREATE DOMAIN ldFrom AS varchar('10) NOT NULL;
+DROP DOMAIN IF EXISTS ldTo CASCADE;
+CREATE DOMAIN ldTo AS varchar('10) NOT NULL;
+
+--Create secondary table locationDoor
+DROP TABLE IF EXISTS locationDoor CASCADE;
+CREATE TABLE locationDoor ('
+	locationDoorFrom ldFrom,
+	locationDoorTo ldTo,
+	PRIMARY KEY('locationDoorFrom, locationDoorTo),
+	FOREIGN KEY('locationDoorFrom)
+        REFERENCES location
+			ON UPDATE CASCADE
+			ON DELETE CASCADE
+	    
+	
+);
+
+
+--Create domain for the exhibition table
+DROP DOMAIN IF EXISTS eName CASCADE;
+CREATE DOMAIN eName AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS eDiscription CASCADE;
+CREATE DOMAIN eDiscription AS varchar('200) NOT NULL;
+DROP DOMAIN IF EXISTS esDate CASCADE;
+CREATE DOMAIN esDate AS date NOT NULL;
+DROP DOMAIN IF EXISTS enDate CASCADE;
+CREATE DOMAIN enDate AS date ;
+DROP DOMAIN IF EXISTS eLocation CASCADE;
+CREATE DOMAIN eLocation AS varchar('20) NOT NULL;
+DROP DOMAIN IF EXISTS enWork CASCADE;
+CREATE DOMAIN enWork AS smallint NOT NULL;
+DROP DOMAIN IF EXISTS eaWork CASCADE;
+CREATE DOMAIN eaWork AS smallint NOT NULL;
+
+-- Create the exhibition table
+-- The information needed to do an exhibition
+DROP TABLE IF EXISTS exhibition CASCADE;
+CREATE TABLE exhibition ('
+        exhibitionName eName,
+	exhibitionDescription eDiscription,
+	exhibitionStartDate esDate,
+	exhibitionEndDate enDate,
+	exhibitionLocation eLocation,
+	exhibitionNworks enWork,
+	exhibitionAworks eaWork,
+	UNIQUE('exhibitionName, exhibitionStartDate),
+	PRIMARY KEY('exhibitionName,exhibitionStartDate)
+);
+
+
+-- Create the musExhibition table
+-- The connection table between museum and exhibition tables
+DROP TABLE IF EXISTS musExhibition CASCADE;
+CREATE TABLE musExhibition ('
+	museumLetter mLetter,
+	museumNumber mNumber,
+	museumName mName,
+        exhibitionName eName,
+	exhibitionStartDate esDate,
+	exhibitionEndDate enDate,
+	PRIMARY KEY('museumLetter, museumNumber, exhibitionName, exhibitionStartDate ),
+	FOREIGN KEY('museumLetter, museumNumber)
+        REFERENCES museum
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	FOREIGN KEY('exhibitionName, exhibitionStartDate)
+        REFERENCES exhibition
+			ON UPDATE CASCADE
+			ON DELETE CASCADE		
+);
+
+
+-- Create the musLocation table
+-- The connection table between museum and location tables
+DROP TABLE IF EXISTS musLocation CASCADE;
+CREATE TABLE musLocation ('
+	museumLetter mLetter,
+	museumNumber mNumber,
+	museumName mName,
+	locationName lName,
+	exhibitionStartDate esDate,
+	PRIMARY KEY('museumLetter, museumNumber, locationName, exhibitionStartDate),
+	FOREIGN KEY('museumLetter, museumNumber)
+        REFERENCES museum
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	FOREIGN KEY('locationName)
+        REFERENCES location
+			ON UPDATE CASCADE
+			ON DELETE CASCADE	
+);
+
+	
+--Create the exhLocation table
+-- The connection table between exhibition and location tables
+DROP TABLE IF EXISTS exhLocation CASCADE;
+CREATE TABLE exhLocation ('
+	exhibitionName eName,
+	exhibitionStartDate esDate,
+	exhibitionEndDate enDate,
+	locationName lName,
+	PRIMARY KEY('exhibitionName, exhibitionStartDate, locationName),
+	FOREIGN KEY('exhibitionName, exhibitionStartDate)
+        REFERENCES exhibition
+			ON UPDATE CASCADE
+			ON DELETE CASCADE,
+	FOREIGN KEY('locationName)
+        REFERENCES location
+			ON UPDATE CASCADE
+			ON DELETE CASCADE	
+);
+
+

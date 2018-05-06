@@ -1,0 +1,164 @@
+
+DROP RULE date_change ON works_location CASCADE;
+
+DROP RULE date_change2 ON works_move_in_date CASCADE;
+
+DROP RULE purchase2 ON works_location CASCADE;
+
+DROP VIEW look CASCADE;
+
+--Alter the table to add a time column
+ALTER TABLE works_location ADD COLUMN time_in TIME;
+
+ALTER TABLE works_location ADD COLUMN time_out TIME;
+
+ALTER TABLE works_move_in_date ADD COLUMN time_in TIME;
+
+ALTER TABLE works_move_in_date ADD COLUMN time_out TIME;
+
+ALTER TABLE works_move_in_date ADD COLUMN cur_location locating;
+
+CREATE RULE add_time AS ON UPDATE TO works_location
+	DO ALSO UPDATE works_move_in_date SET time_in = new.time_in,
+					      time_out = new.time_out
+					  WHERE itemnumber = new.itemnumber_ex AND
+						itemalpha = new.itemalpha_ex AND
+						date_in = new.date_in
+;
+
+
+
+UPDATE works_move_in_date SET cur_location = now_location;
+
+ALTER TABLE works_move_in_date DROP COLUMN now_location;
+
+CREATE VIEW look2 AS SELECT * FROM works_move_in_date ORDER BY itemnumber, date_in, date_out;
+
+
+
+
+UPDATE works_location SET time_in = '9:12:23' WHERE date_in = '6/1/2016';
+UPDATE works_move_in_date SET time_in = '9:15:12' WHERE date_in = '6/1/2016' AND time_in IS NULL;
+
+UPDATE works_location SET time_out = '18:01:09' WHERE date_out = '10/21/2016';
+UPDATE works_move_in_date SET time_in = '18:10:27' WHERE date_in = '10/21/2016' AND time_out IS NULL;
+
+UPDATE works_location SET time_in = '10:19:08' WHERE date_in = '6/2/2016';
+UPDATE works_move_in_date SET time_in = '10:19:08' WHERE date_in = '6/2/2016' AND time_in IS NULL;
+UPDATE works_move_in_date SET time_out = '10:19:08' WHERE date_out = '6/2/2016';
+
+UPDATE works_location SET time_in = '20:00:00' WHERE date_in = '7/2/2016';
+UPDATE works_move_in_date SET time_out = '20:00:00' WHERE date_out = '7/2/2016';
+
+UPDATE works_location SET time_in = '20:00:00' WHERE date_in = '7/2/2016';
+UPDATE works_move_in_date SET time_out = '20:00:00' WHERE date_out = '7/2/2016';
+
+UPDATE works_location SET time_in = '18:00:00' WHERE date_in = '8/3/2016';
+UPDATE works_move_in_date SET time_out = '18:00:00' WHERE date_out = '8/3/2016';
+
+UPDATE works_location SET time_in = '18:30:00' WHERE date_in = '9/21/2016';
+UPDATE works_move_in_date SET time_out = '18:30:00' WHERE date_out = '9/21/2016';
+
+UPDATE works_location SET time_in = '8:25:18' WHERE date_in = '10/18/2016';
+UPDATE works_move_in_date SET time_in = '8:25:18' WHERE date_in = '10/18/2016' AND time_in IS NULL;
+
+UPDATE works_location SET time_in = '7:12:00' WHERE date_in = '10/25/2016';
+UPDATE works_move_in_date SET time_in = '7:12:00' WHERE date_in = '10/25/2016' AND time_in IS NULL;
+
+UPDATE works_location SET time_in = '13:00:00' WHERE date_in = '10/28/2016';
+UPDATE works_move_in_date SET time_out = '13:00:00' WHERE date_out = '10/28/2016';
+
+
+
+--SELECT * FROM look2;
+
+DROP RULE add_time ON works_location CASCADE;
+
+
+
+--The query for the first part
+SELECT itemalpha,
+       itemnumber,
+       date_in,
+       time_in,
+       date_out,
+       time_out,
+       date_out-date_in AS "Duration (days)" 
+  FROM works_move_in_date 
+  WHERE itemnumber = 100 AND
+	date_in > '11/1/2015' AND 
+	date_in < '11/1/2016' 
+  ORDER BY date_in;
+
+
+SELECT itemalpha,
+       itemnumber,
+       date_in,
+       time_in,
+       date_out,
+       time_out,
+       date_out-date_in AS "Duration (days)" 
+  FROM works_move_in_date 
+  WHERE itemnumber = 139 AND
+	date_in > '11/1/2015' AND 
+	date_in < '11/1/2016' 
+  ORDER BY date_in;
+  
+
+SELECT itemalpha,
+       itemnumber,
+       date_in,
+       time_in,
+       date_out,
+       time_out,
+       date_out-date_in AS "Duration (days)" 
+  FROM works_move_in_date 
+  WHERE itemnumber = 194 AND
+	date_in > '11/1/2015' AND 
+	date_in < '11/1/2016' 
+  ORDER BY date_in;
+  
+
+  
+--The query for the second part
+SELECT itemalpha, 
+       itemnumber, 
+       date_in, 
+       date_out, 
+       cur_location
+  FROM works_move_in_date
+  WHERE date_in > '11/1/2015' AND 
+	date_in < '11/1/2016' AND
+	cur_location <> 'STORAGE' AND 
+	cur_location <> 'LOBBY' 
+  ORDER BY cur_location, date_in;
+  
+
+
+  
+--The query for the third part
+SELECT DISTINCT cur_location AS "Location for exhibition", 
+		date_in AS "Date start",
+		date_out AS "Closed for changing exhibition" 
+	FROM works_move_in_date
+	WHERE date_in > '11/1/2015' AND 
+	      date_in < '11/1/2016' AND 
+	      cur_location <> 'STORAGE' AND 
+	      cur_location <> 'LOBBY' AND 
+	      date_in <> '10/28/2016' 
+	ORDER BY date_in, 
+		 date_out;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

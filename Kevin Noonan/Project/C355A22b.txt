@@ -1,0 +1,14 @@
+--Kevin Noonan | 11139394 | krn871 | Assignment #2
+
+--Add new column to Locations table called locAvailable this displays the date when the gallery is available
+
+ALTER TABLE locations
+ADD COLUMN locAvailable date DEFAULT current_date - Integer '110';
+
+--Insert into locations the new Gallery D and it's size, capacity and date of availability
+
+INSERT INTO locations
+SELECT 'Gallery D', 60, 135, 15, 25, current_date + Integer '62';
+
+INSERT INTO doors
+SELECT 6, 'Gallery D', 'Gallery B';

@@ -1,0 +1,19 @@
+--2b. expanded facilities
+--Build a new large gallery called galleryD with a suggested minimum of 15 works and suggested maximum of 25 works
+INSERT INTO Locations (
+	lcName, lcDimension, lcMinNumWork, lcMaxNumWork
+)
+VALUES (
+	'galleryD', 250, 15, 25
+);
+
+--Added one door connection between the new gallery galleryD
+--and one of the small galleries(the one furthest from the storage facility), 
+--which is gallery B in this case
+INSERT INTO Doors (
+	drLocation1, drLocation2
+)
+VALUES (
+	'galleryB', 'galleryD'
+)
+

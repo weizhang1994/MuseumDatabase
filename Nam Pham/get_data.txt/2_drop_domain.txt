@@ -1,0 +1,86 @@
+-- Drop Institutions table domains
+
+DROP DOMAIN IF EXISTS ns_inName cascade;
+DROP DOMAIN IF EXISTS ns_email cascade;
+DROP DOMAIN IF EXISTS ns_phoneNumber cascade;
+DROP DOMAIN IF EXISTS ns_streetAddress cascade;
+DROP DOMAIN IF EXISTS ns_city cascade;
+DROP DOMAIN IF EXISTS ns_countrySubdivision cascade;
+DROP DOMAIN IF EXISTS ns_country cascade;
+DROP DOMAIN IF EXISTS ns_postalCode cascade;
+
+
+-- Drop Works table domains:
+DROP DOMAIN IF EXISTS ns_IDAlpha cascade;
+DROP DOMAIN IF EXISTS ns_IDNumeric cascade;
+DROP DOMAIN IF EXISTS ns_wkName cascade;
+DROP DOMAIN IF EXISTS ns_creator cascade;
+DROP DOMAIN IF EXISTS ns_coDate cascade;
+DROP DOMAIN IF EXISTS ns_acDate cascade;
+DROP DOMAIN IF EXISTS ns_wkDescription cascade;
+DROP DOMAIN IF EXISTS ns_theme cascade;
+DROP DOMAIN IF EXISTS ns_subject cascade;
+DROP DOMAIN IF EXISTS ns_culture cascade;
+DROP DOMAIN IF EXISTS ns_colour cascade;
+DROP DOMAIN IF EXISTS ns_carType cascade;
+DROP DOMAIN IF EXISTS ns_transmission cascade;
+
+
+--Drop Locations table domains:
+DROP DOMAIN IF EXISTS ns_lcName cascade;
+DROP DOMAIN IF EXISTS ns_length cascade;
+DROP DOMAIN IF EXISTS ns_height cascade;
+DROP DOMAIN IF EXISTS ns_width cascade;
+DROP DOMAIN IF EXISTS ns_minNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_maxNumWorks cascade;
+DROP DOMAIN IF EXISTS ns_availabilityDate cascade;
+DROP DOMAIN IF EXISTS ns_sponsor cascade;
+DROP DOMAIN IF EXISTS ns_security cascade;
+DROP DOMAIN IF EXISTS ns_insurance cascade;
+
+
+-- Drop Exhibitions table domains:
+DROP DOMAIN IF EXISTS ns_exName cascade;
+DROP DOMAIN IF EXISTS ns_exStartDate cascade;
+DROP DOMAIN IF EXISTS ns_isTraveling cascade;
+DROP DOMAIN IF EXISTS ns_exDescription cascade;
+DROP DOMAIN IF EXISTS ns_exEndDate cascade;
+
+
+-- Drop Exhibitions_ location table domains:
+DROP DOMAIN IF EXISTS ns_travelingStartDate cascade;
+DROP DOMAIN IF EXISTS ns_travelingEndDate cascade;
+
+
+-- Drop Transactions table domains
+DROP DOMAIN IF EXISTS ns_trDate cascade;
+DROP DOMAIN IF EXISTS ns_trType cascade;
+
+
+--Drop Works_Ownership table domains
+DROP DOMAIN IF EXISTS ns_woStartDate cascade;
+DROP DOMAIN IF EXISTS ns_woEndDate cascade;
+
+
+--Drop Works_Locations table domains:
+DROP DOMAIN IF EXISTS ns_wlStartDateTime cascade;
+DROP DOMAIN IF EXISTS ns_wlEndDateTime cascade;
+
+
+-- Drop Works_Value table domains:
+DROP DOMAIN IF EXISTS ns_wvStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wvEndDate cascade;
+
+
+-- Drop Works_State domains:
+DROP DOMAIN IF EXISTS ns_state cascade;
+DROP DOMAIN IF EXISTS ns_wsStartDate cascade;
+DROP DOMAIN IF EXISTS ns_wsEndDate cascade;
+
+
+-- Drop Works_Exhibitions domain:
+--No new domain
+
+
+-- Drop Media table domains:
+DROP DOMAIN IF EXISTS ns_material cascade;

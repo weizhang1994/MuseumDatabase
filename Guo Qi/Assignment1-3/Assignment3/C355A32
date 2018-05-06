@@ -1,0 +1,201 @@
+-- Qi Guo	qig557	11158650	C355A31
+-------------------------------------------------------------------------------------------------
+----------------------------------------Evoving Collection---------------------------------------
+-------------------------------------------------------------------------------------------------
+--My museum has just purchased 15 additional new works on October 25
+--Add 15 new works to Works table. After insertion, there are 115 works totally as I have 100 works in Assignment2.
+--These works are bought from The National Museum of American History
+INSERT INTO Works(wkidletter, wkidnumber, wkname, wktype, wksubtype, wkauthor, wkcompletiondate, 
+					wkacquisitiondate, wkinsurancevalue, wkdescription, wkownership, wkcharacter)
+	
+	SELECT wfidletter, wfidnumber, wfname, wftype, wfsubtype, wfauthor, wfcompletiondate, 
+		wfacquisitiondate, wfinsurancevalue, wfdescription, 'owned work', 'printing technique'
+	FROM WorksFull
+	WHERE wfIDLetter='nmah' AND wfIDNumber in(
+			749469,
+			749473,
+			749520,
+			749374,
+			749806,
+			749888,
+			749978,
+			750113,
+			750233,
+			750419,
+			750280,
+			750359,
+			750415,
+			750503,
+			750514
+	);
+
+
+--Update owners table with new works and set owner to be Qi's Museum
+INSERT INTO Owners(ownwkIDLetter, ownwkIDNumber, ownName)
+	SELECT wfIDletter, wfIDNumber, 'Qi''s Museum' 
+	FROM WorksFull
+	WHERE wfIDLetter='nmah' AND wfIDNumber in(
+			749469,
+			749473,
+			749520,
+			749374,
+			749806,
+			749888,
+			749978,
+			750113,
+			750233,
+			750419,
+			750280,
+			750359,
+			750415,
+			750503,
+			750514
+	); 
+
+--Modify WorksLocations table accordingly
+--Added new works to storage and set start date to be October 25
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wkIDLetter, wkIDNumber, 'storage', '2016-10-25', NULL, 'Qi''s Museum'
+	FROM Works
+	WHERE wkIDLetter='nmah' AND wkIDNumber in(
+			749469,
+			749473,
+			749520,
+			749374,
+			749806,
+			749888,
+			749978,
+			750113,
+			750233,
+			750419,
+			750280,
+			750359,
+			750415,
+			750503,
+			750514
+	); 
+
+--My museum has also sold (de-collected) 3 works (that have not been exhibited since the start of the database) to other museums (on October 21).
+--Since there is only one work that have not been exhibitied with id:556193, I need to add 2 new data and de-collect them.
+
+INSERT INTO Works(wkidletter, wkidnumber, wkname, wktype, wksubtype, wkauthor, wkcompletiondate, 
+					wkacquisitiondate, wkinsurancevalue, wkdescription, wkownership, wkcharacter)
+	
+	SELECT wfidletter, wfidnumber, wfname, wftype, wfsubtype, wfauthor, wfcompletiondate, 
+		wfacquisitiondate, wfinsurancevalue, wfdescription, 'owned work', 'printing technique'
+	FROM WorksFull
+	WHERE wfIDLetter='nmah' AND wfIDNumber in(
+												750870,
+												750804
+											);
+
+INSERT INTO Owners(ownwkIDLetter, ownwkIDNumber, ownName)
+	SELECT wfIDletter, wfIDNumber, 'Qi''s Museum' 
+	FROM WorksFull
+	WHERE wfIDLetter='nmah' AND wfIDNumber in(
+			750870,
+			750804
+	); 
+
+INSERT INTO WorksLocations(wlIDLetter, wlIDNumber, wlLocation, wlStartDate, wlEndDate, wllcMuseum)
+	SELECT wkIDLetter, wkIDNumber, 'storage', '2016-10-05', NULL, 'Qi''s Museum'
+	FROM Works
+	WHERE wkIDLetter='nmah' AND wkIDNumber in(
+			750870,
+			750804
+	); 
+
+
+
+--Update worksLocations table and add new end date to those lines of data
+UPDATE WorksLocations
+	SET wlEndDate='2016-10-21'
+		WHERE wlLocation='storage' AND wlIDLetter='nmah' AND wlIDNumber in 
+																			(750870,
+																			750804,
+																			556193);
+
+--Update Owners table to new unknown owners
+UPDATE Owners
+	SET ownName='sold to another museum'
+	WHERE ownwkIDLetter='nmah' AND ownwkIDNumber in 
+													(750870,
+													750804,
+													556193);
+
+--Update ownership in Works table
+UPDATE Works
+	SET wkownership='sold work'
+	WHERE wkIDLetter='nmah' AND wkIDNumber in 
+												(750870,
+												750804,
+												556193);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,178 @@
+AAA	100	WAC gallery	gouache
+AAA	100	WAC gallery	paper
+AAB	101	WAC gallery	photographs
+AAB	101	WAC gallery	paint
+AAB	101	WAC gallery	pasteboard
+AAC	102	WAC gallery	tempera
+AAC	102	WAC gallery	paper
+ABA	103	WAC gallery	black lacquer spray paint
+ABA	103	WAC gallery	paper
+ACA	104	WAC gallery	ball point pen
+ACA	104	WAC gallery	paper
+ACA	104	WAC gallery	photograph
+ACA	104	WAC gallery	paint
+ACA	104	WAC gallery	newsprint
+ACC	106	WAC gallery	acrylic
+ACC	106	WAC gallery	string
+ACC	106	WAC gallery	paper
+ABC	107	WAC gallery	cut paper
+ACB	108	WAC gallery	Chinese rice paper eaten by snails
+ACB	108	WAC gallery	paperboard
+ACB	108	WAC gallery	glass
+BBB	109	WAC gallery	paint
+BBB	109	WAC gallery	paper
+BBA	110	WAC gallery	ink
+BBA	110	WAC gallery	paper
+BBC	111	WAC gallery	ink
+BBC	111	WAC gallery	paper
+BAB	112	WAC gallery	gouache
+BAB	112	WAC gallery	paper
+BCB	113	WAC gallery	graphite
+BCB	113	WAC gallery	gouache
+BCB	113	WAC gallery	paper
+BAA	114	WAC gallery	graphite
+BAA	114	WAC gallery	ink
+BAA	114	WAC gallery	paint
+BAA	114	WAC gallery	vintage magazine print
+BCC	115	WAC gallery	graphite
+BCC	115	WAC gallery	paper
+BAC	116	WAC gallery	"digital animation (color, sound) transferred to DVD"
+BAC	116	WAC gallery	watercolor
+BAC	116	WAC gallery	paper
+BCA	117	WAC gallery	"7 channel video projection (color, sound) "
+CCC	118	WAC gallery	carbon
+CCC	118	WAC gallery	aluminum
+CCC	118	WAC gallery	plastic
+CCC	118	WAC gallery	lacquer
+CCA	119	WAC gallery	polyester
+CCA	119	WAC gallery	paint
+CCB	120	WAC gallery	letterpress
+CCB	120	WAC gallery	paper bag
+CAC	121	WAC gallery	screenprint
+CAC	121	WAC gallery	paper
+CAC	121	WAC gallery	wood
+CAC	121	WAC gallery	silver foil
+CBC	122	WAC gallery	boxing gloves
+CBC	122	WAC gallery	metallic gold thread
+CBC	122	WAC gallery	satin
+CBB	124	WAC gallery	wooden sled
+CBB	124	WAC gallery	felt
+CBB	124	WAC gallery	fabric straps
+CBB	124	WAC gallery	flashlights
+CBB	124	WAC gallery	fat
+CBB	124	WAC gallery	oil paint
+CBB	124	WAC gallery	string
+CAB	125	WAC gallery	mixed media
+CBA	126	WAC gallery	aluminum
+CBA	126	WAC gallery	steel
+CBA	126	WAC gallery	wire
+CBA	126	WAC gallery	plexiglass
+CBA	126	WAC gallery	mixed media
+CBA	126	WAC gallery	paper
+DDD	127	WAC gallery	color photograph
+DDD	127	WAC gallery	vinyl
+DDD	127	WAC gallery	audio cassette tape
+DDE	128	WAC gallery	ink
+DDE	128	WAC gallery	graphite
+DDE	128	WAC gallery	acrylic
+DDE	128	WAC gallery	commercial screenprint
+DDE	128	WAC gallery	photographs
+DDE	128	WAC gallery	paper
+DDE	128	WAC gallery	frames
+DDF	129	WAC gallery	colored hammocks
+DDF	129	WAC gallery	35mm slides
+DDF	129	WAC gallery	audio disc
+DED	130	WAC gallery	offset lithograph
+DED	130	WAC gallery	paper
+DFD	131	WAC gallery	offset lithograph
+DFD	131	WAC gallery	paper
+DEE	132	WAC gallery	offset lithograph ink
+DEE	132	WAC gallery	paper
+DEE	132	WAC gallery	black-and-white photographs
+DFF	133	WAC gallery	mimeograph
+DFF	133	WAC gallery	paper
+DEF	134	WAC gallery	offset lithograph
+DEF	134	WAC gallery	paper
+EEE	136	WAC gallery	offset lithograph
+EEE	136	WAC gallery	paper
+EED	137	WAC gallery	offset lithograph
+EED	137	WAC gallery	paper
+EED	137	WAC gallery	rubber stamp
+EEF	138	WAC gallery	offset lithograph
+EEF	138	WAC gallery	paper
+EDE	139	WAC gallery	offset lithograph
+EDE	139	WAC gallery	paper
+EFE	140	WAC gallery	offset lithograph
+EFE	140	WAC gallery	paper
+EDD	141	WAC gallery	offset lithograph
+EDD	141	WAC gallery	paper
+EFF	142	WAC gallery	offset lithograph
+EFF	142	WAC gallery	paper
+EDF	143	WAC gallery	offset lithograph
+EDF	143	WAC gallery	paper
+EFD	144	WAC gallery	offset lithograph
+EFD	144	WAC gallery	paper
+EFD	144	WAC gallery	mimeograph
+EFD	144	WAC gallery	ballpoint
+FFF	145	WAC gallery	offset lithograph
+FFF	145	WAC gallery	paper
+FFE	147	WAC gallery	photogravure
+FFE	147	WAC gallery	paper
+FDF	148	WAC gallery	oil
+FDF	148	WAC gallery	canvas
+FEF	149	WAC gallery	egg tempera
+FEF	149	WAC gallery	composition board
+FDD	150	WAC gallery	wood
+FDD	150	WAC gallery	casein
+FEE	151	WAC gallery	screenprint
+FEE	151	WAC gallery	canvas
+FEE	151	WAC gallery	iron frame
+FDE	152	WAC gallery	oil
+FDE	152	WAC gallery	graphite
+FDE	152	WAC gallery	tissue paper mounted to mirror-polished stainless steel
+FED	153	WAC gallery	oil
+FED	153	WAC gallery	canvas
+GGG	154	WAC gallery	acrylic
+GGG	154	WAC gallery	glitter
+GGG	154	WAC gallery	canvas
+GGH	155	WAC gallery	acrylic lacquer
+GGH	155	WAC gallery	canvas
+GGI	156	WAC gallery	oil
+GGI	156	WAC gallery	canvas
+GHG	157	WAC gallery	oil
+GHG	157	WAC gallery	wood panel
+GIG	158	WAC gallery	aluminum leaf
+GIG	158	WAC gallery	acrylic
+GIG	158	WAC gallery	plywood panel
+GHH	159	WAC gallery	oil 
+GHH	159	WAC gallery	canvas
+GII	160	WAC gallery	oil
+GII	160	WAC gallery	automotive lacquer 
+GII	160	WAC gallery	dry pigment
+GII	160	WAC gallery	Japanese paper
+GII	160	WAC gallery	cloth
+GII	160	WAC gallery	Masonite
+GHI	161	WAC gallery	oil
+GHI	161	WAC gallery	canvas
+GIH	162	WAC gallery	oil
+GIH	162	WAC gallery	linen
+HHH	163	WAC gallery	oil 
+HHH	163	WAC gallery	canvas
+HHG	164	WAC gallery	oil
+HHG	164	WAC gallery	canvas
+HHI	165	WAC gallery	oil
+HHI	165	WAC gallery	acrylic
+HHI	165	WAC gallery	paper collage
+HHI	165	WAC gallery	glitter
+HHI	165	WAC gallery	polyester resin
+HHI	165	WAC gallery	map pins
+HHI	165	WAC gallery	elephant dung
+HHI	165	WAC gallery	linen
+HIH	167	WAC gallery	oil
+HIH	167	WAC gallery	canvas
+HGG	168	WAC gallery	oil
+HGG	168	WAC gallery	Masonite
+HII	169	WAC gallery	hand-colored screenprint
+HII	169	WAC gallery	paper 
+HGI	170	WAC gallery	offset lithograph
+HGI	170	WAC gallery	paper

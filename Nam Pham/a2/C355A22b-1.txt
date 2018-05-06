@@ -1,0 +1,7 @@
+STORAGE	LOBBY	STO-LOBBY
+Gallery No1	LOBBY	1-LOBBY
+Gallery No2	LOBBY	2-LOBBY
+Main Hall	Gallery No1	Main-1
+Main Hall	Gallery No2	Main-2
+Gallery No1	Gallery No2	1-2
+Grand Hall	Gallery No1	GRAND-1

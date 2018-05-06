@@ -1,0 +1,19 @@
+ALTER  TABLE Works ADD COLUMN wkBorrowStatus varchar(40) DEFAULT 'Owned';
+ALTER  TABLE Works ADD COLUMN wkBorrowedBy varchar(40);
+
+\copy Works FROM 'C355A22-1.txt'
+\copy Media FROM 'C355A22-2.txt'
+
+CREATE TABLE tempTable AS SELECT * FROM works;
+
+TRUNCATE tempTable;
+DELETE FROM tempTable;
+
+\copy tempTable FROM 'C355A22-1.txt'
+
+INSERT INTO worksLocations
+	SELECT wkIdAlpha, wkIdNum, 'Storage', '20161019'
+	FROM tempTable
+	WHERE wkBorrowStatus = 'Borrowed';
+
+DROP TABLE tempTable CASCADE;

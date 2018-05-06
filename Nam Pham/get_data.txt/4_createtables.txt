@@ -1,0 +1,385 @@
+
+
+
+
+-- There are 4 main tables, 7 temporal tables, 2 secondary tables
+
+
+
+
+-- 4 main TABLES
+-- (1) Institutions
+CREATE TABLE ns_institutions (
+        ns_in_inName                       ns_inName                    NOT NULL,
+    
+        ns_in_email                           ns_email                      NULL,
+        ns_in_phoneNumber                  ns_phoneNumber    NULL,
+        ns_in_streetAddress                ns_streetAddress     NULL,
+        ns_in_city                                     ns_city                          NULL,
+        ns_in_countrySubdivision           ns_countrySubdivision                       NULL,
+        ns_in_country                      ns_country                       NULL,
+        ns_in_postalCode                   ns_postalCode         NULL,
+    
+        PRIMARY KEY (  ns_in_InName )
+);
+
+
+
+
+-- (2) Works
+CREATE TABLE ns_works (
+        ns_wk_IDAlpha                    ns_IDAlpha                     NOT NULL,
+        ns_wk_IDNumeric                 ns_IDNumeric             NOT NULL,
+        ns_wk_inName                    ns_inName                 NOT NULL,
+    
+        ns_wk_wkName                    ns_wkName               NULL,
+        ns_wk_creator                   ns_creator                     NULL,
+        ns_wk_coDate                    ns_coDate                   NULL,
+        ns_wk_acDate                    ns_acDate                     NULL,
+        ns_wk_wkDescription                ns_wkDescription    NULL,
+        ns_wk_theme                     ns_theme                    NULL,
+        ns_wk_subject                     ns_subject                      NULL,
+        ns_wk_culture                ns_culture                      NULL,
+        ns_wk_colour                     ns_colour                     NULL,
+        ns_wk_carType                     ns_carType                    NULL,
+        ns_wk_transmission                 ns_transmission      NULL,
+
+
+
+
+   
+   CHECK ( ns_wk_coDate <  ns_wk_acDate),
+    
+        PRIMARY KEY (ns_wk_IDAlpha, ns_wk_IDNumeric,   ns_wk_inName),
+    
+        FOREIGN KEY ( ns_wk_inName)
+          REFERENCES ns_Institutions( ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (3) Locations
+CREATE TABLE ns_locations (
+
+
+        ns_lc_lcName                       ns_lcName                         NOT NULL,
+        ns_lc_inName                         ns_inName                         NOT NULL,
+            
+        ns_lc_length                        ns_length                             NULL,
+        ns_lc_height                        ns_height                             NULL,
+        ns_lc_width                        ns_width                             NULL,
+        ns_lc_minNumWorks        ns_minNumWorks                 NULL,
+        ns_lc_maxNumWorks        ns_maxNumWorks                 NULL,
+        ns_lc_availabilityDate           ns_availabilityDate                 NULL,
+        ns_lc_sponsor                    ns_sponsor                     NULL,
+        ns_lc_security                        ns_security                     NULL,
+        ns_lc_insurance                     ns_insurance                 NULL,
+        ns_lc_StreetAddress            ns_streetAddress                 NULL,
+        ns_lc_city                         ns_city                                 NULL,
+        ns_lc_countrySubdivision              ns_countrySubdivision                      NULL,
+        ns_lc_country                         ns_country                      NULL,
+        ns_lc_postalCode               ns_postalCode                       NULL,
+
+
+        PRIMARY KEY (ns_lc_lcName, ns_lc_inName),
+    
+        FOREIGN KEY (ns_lc_inName)
+            REFERENCES ns_institutions( ns_in_inName)
+                                ON UPDATE CASCADE    
+                                   ON DELETE CASCADE
+);
+-- (4) Exhibitions
+CREATE TABLE ns_exhibitions (
+
+
+        ns_ex_exName                   ns_exName               NOT NULL,
+        ns_ex_exStartDate             ns_exStartDate          NOT NULL,
+        ns_ex_inName                     ns_inName             NOT NULL,
+    
+        ns_ex_isTraveling                 ns_isTraveling              NOT NULL,
+        ns_ex_exDescription                ns_exDescription          NULL,
+        ns_ex_exEndDate              ns_exEndDate         NULL,
+    
+        PRIMARY KEY ( ns_ex_exName  , ns_ex_exStartDate ,   ns_ex_inName ),
+    
+        FOREIGN KEY ( ns_ex_inName )
+            REFERENCES ns_institutions(ns_in_inName )
+                                ON UPDATE CASCADE    
+                                ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--The 7 TEMPORAL TABLES
+
+
+-- (5) Transactions
+CREATE TABLE ns_Transactions (
+
+
+        ns_tr_inName                    ns_inName                 NOT NULL,
+        ns_tr_inNameReceiver         	ns_inName                 NOT NULL,
+	ns_tr_inNameGiver             	ns_inName                 NOT NULL,
+        ns_tr_IDAlpha                   ns_IDAlpha                NOT NULL,
+        ns_tr_IDNumeric                 ns_IDNumeric              NOT NULL,
+	ns_tr_trDate                    ns_trDate                 NOT NULL,
+    
+        ns_tr_trType                    ns_trType                 NULL,
+        ns_tr_IDAlphaOther              ns_IDAlpha                NULL,
+        ns_tr_ns_IDNumericOther         ns_IDNumeric              NULL
+    
+	--PRIMARY KEY (ns_tr_inName, ns_tr_inNameReceiver, ns_tr_inNameGiver, ns_tr_IDAlpha, ns_tr_IDNumeric, ns_tr_trDate  ),
+    
+	--FOREIGN KEY (ns_tr_inName, ns_tr_IDAlpha , ns_tr_IDNumeric )
+
+
+
+
+	--REFERENCES ns_works(ns_wk_inName, ns_wk_IDAlpha, ns_wk_IDNumeric )
+        --        ON UPDATE CASCADE    
+        --        ON DELETE CASCADE,
+    
+	--FOREIGN KEY (ns_tr_inNameReceiver) REFERENCES ns_institutions(ns_in_inName)
+        --         ON UPDATE CASCADE    
+        --         ON DELETE CASCADE,
+
+
+	--FOREIGN KEY (ns_tr_inNameGiver) REFERENCES ns_institutions(ns_in_inName)
+        --         ON UPDATE CASCADE    
+        --         ON DELETE CASCADE
+);
+
+
+
+
+-- (6) Works-Ownership
+CREATE TABLE ns_works_Ownership (
+        ns_wo_inName                ns_inName             NOT NULL,
+        ns_wo_IDAlpha               ns_IDAlpha            NOT NULL,
+        ns_wo_IDNumeric             ns_IDNumeric          NOT NULL,
+        ns_wo_inNameOwner           ns_inName             NOT NULL,
+        ns_wo_woStartDate           ns_woStartDate        NOT NULL,
+
+        ns_wo_woEndDate             ns_woEndDate          NULL,
+    
+        PRIMARY KEY (ns_wo_inName, ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_woStartDate,ns_wo_inNameOwner ),
+                
+        FOREIGN KEY (ns_wo_IDAlpha, ns_wo_IDNumeric, ns_wo_inName) REFERENCES ns_Works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                 ON UPDATE CASCADE    
+                 ON DELETE CASCADE,
+        FOREIGN KEY (ns_wo_inNameOwner ) REFERENCES ns_Institutions(ns_in_inName)
+        	   ON UPDATE CASCADE    
+                 ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (7) Works-Locations
+CREATE TABLE ns_works_Locations (
+
+
+        ns_wl_lcName                      ns_lcName                      NOT NULL,
+        ns_wl_IDAlpha                     ns_IDAlpha                     NOT NULL,
+        ns_wl_IDNumeric                   ns_IDNumeric                   NOT NULL,
+        ns_wl_inName                      ns_inName                      NOT NULL,
+        ns_wl_wlStartDateTime             ns_wlStartDateTime             NOT NULL,
+    
+        ns_wl_wlEndDateTime               ns_wlEndDateTime               NULL,
+    
+        PRIMARY KEY (ns_wl_lcName,ns_wl_IDAlpha, ns_wl_IDNumeric, ns_wl_inName, ns_wl_wlStartDateTime),
+    
+        FOREIGN KEY ( ns_wl_inName ,ns_wl_IDAlpha, ns_wl_IDNumeric) REFERENCES ns_works(ns_wk_inName, ns_wk_IDAlpha, ns_wk_IDNumeric )
+                ON UPDATE CASCADE    
+                ON DELETE CASCADE,
+    
+        FOREIGN KEY (ns_wl_lcName, ns_wl_inName) REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName )
+                               ON UPDATE CASCADE    
+                               ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+-- (8) Works-Exhibitions
+CREATE TABLE ns_Works_Exhibitions (
+
+
+
+
+        ns_we_IDAlpha            ns_IDAlpha             NOT NULL,
+        ns_we_IDNumeric          ns_IDNumeric           NOT NULL,
+        ns_we_exName             ns_exName              NOT NULL,
+        ns_we_inName             ns_inName              NOT NULL,
+        ns_we_exStartDate        ns_exStartDate         NOT NULL,
+
+
+
+
+        ns_we_exEndDate          ns_exEndDate           NULL,
+    
+        PRIMARY KEY (ns_we_IDAlpha, ns_we_IDNumeric, ns_we_exName, ns_we_inName, ns_we_exStartDate),
+        FOREIGN KEY (ns_we_IDAlpha, ns_we_IDNumeric, ns_we_inName) REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                  ON UPDATE CASCADE    
+                  ON DELETE CASCADE,
+        FOREIGN KEY (ns_we_exName,  ns_we_inName ,  ns_we_exStartDate ) REFERENCES ns_exhibitions(ns_ex_exName, ns_ex_inName, ns_ex_exStartDate)
+                  ON UPDATE CASCADE    
+                  ON DELETE CASCADE
+);
+
+
+
+
+
+-- (9) Exhibitions-Locations
+CREATE TABLE ns_exhibitions_Locations (
+    
+	ns_el_lcName			 ns_lcName    		   NOT NULL,
+	ns_el_exName			 ns_exName    		   NOT NULL,
+        ns_el_exStartDate	 	 ns_exStartDate 	   NOT NULL,
+	ns_el_inName 			 ns_inName 		   NOT NULL,
+
+
+        ns_el_travelingStartDate 	 ns_travelingStartDate 	   NULL,
+        ns_el_travelingEndDate 		 ns_travelingEndDate 	   NULL,
+        ns_el_exEndDate 		 ns_exEndDate 		   NULL,
+    
+        PRIMARY KEY (ns_el_lcName, ns_el_exName, ns_el_exStartDate, ns_el_inName),
+        FOREIGN KEY (ns_el_lcName, ns_el_inName) REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+                 ON UPDATE CASCADE    
+                 ON DELETE CASCADE,
+        FOREIGN KEY (ns_el_exName, ns_el_exStartDate, ns_el_inName) REFERENCES ns_exhibitions(ns_ex_exName, ns_ex_exStartDate,ns_ex_inName)
+                 ON UPDATE CASCADE    
+                 ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+-- (10) Works-Value
+CREATE TABLE ns_works_Value (
+        
+        ns_wv_IDAlpha            ns_IDAlpha            NOT NULL,
+        ns_wv_IDNumeric          ns_IDNumeric          NOT NULL,
+        ns_wv_inName             ns_inName             NOT NULL,
+        ns_wv_InsuranceValue     ns_insurance          NULL,
+    
+        ns_wv_startDate          ns_wvStartDate        NOT NULL,
+        ns_wv_enddate            ns_wvEndDate          NULL,
+    
+        PRIMARY KEY (ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName, ns_wv_InsuranceValue),
+        FOREIGN KEY (ns_wv_IDAlpha, ns_wv_IDNumeric, ns_wv_inName) REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+        ON UPDATE CASCADE    
+        ON DELETE CASCADE
+);
+
+
+
+
+-- (11) Works-State
+CREATE TABLE ns_Works_State (
+        ns_ws_IDAlpha                 ns_IDAlpha             NOT NULL,
+        ns_ws_IDNumeric               ns_IDNumeric           NOT NULL,
+        ns_ws_inName                  ns_inName              NOT NULL,
+        ns_ws_wsStartDate             ns_wsStartDate         NOT NULL,
+    
+        ns_ws_state                   ns_state               NULL,
+        ns_ws_wsEndDate               ns_wsEndDate           NULL,
+    
+        PRIMARY KEY (ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName, ns_ws_wsStartDate),
+        FOREIGN KEY (ns_ws_IDAlpha, ns_ws_IDNumeric, ns_ws_inName) REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+	            ON UPDATE CASCADE    
+                    ON DELETE CASCADE
+);
+
+
+--The last 2 secondary TABLES
+
+
+-- (12) Works-Media
+CREATE TABLE ns_works_media (
+        ns_wm_IDAlpha          ns_IDAlpha              NOT NULL,
+        ns_wm_IDNumeric        ns_IDNumeric            NOT NULL,
+        ns_wm_inName           ns_inName               NOT NULL,
+        ns_wm_material         ns_material             NOT NULL,
+    
+        PRIMARY KEY (ns_wm_IDAlpha, ns_wm_IDNumeric, ns_wm_inName, ns_wm_material),
+        FOREIGN KEY (ns_wm_IDAlpha, ns_wm_IDNumeric , ns_wm_inName) REFERENCES ns_works(ns_wk_IDAlpha, ns_wk_IDNumeric, ns_wk_inName)
+                  ON UPDATE CASCADE    
+                  ON DELETE CASCADE
+);
+
+
+
+
+
+
+-- (13) Locations-Doors
+CREATE TABLE ns_Locations_Doors (
+
+
+        ns_ld_inName          ns_inName             NOT NULL,
+        ns_ld_lcName1         ns_lcName             NOT NULL,
+        ns_ld_lcName2         ns_lcName             NOT NULL,
+    
+        PRIMARY KEY (ns_ld_inName, ns_ld_lcName1, ns_ld_lcName2),
+        FOREIGN KEY (ns_ld_lcName1, ns_ld_inName) REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+                          ON UPDATE CASCADE    
+                          ON DELETE CASCADE,
+        FOREIGN KEY (ns_ld_lcName2, ns_ld_inName) REFERENCES ns_locations(ns_lc_lcName, ns_lc_inName)
+                          ON UPDATE CASCADE    
+                          ON DELETE CASCADE
+);

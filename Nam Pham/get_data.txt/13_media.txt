@@ -1,0 +1,13 @@
+
+\i '12_Insert_doors.txt'
+
+INSERT INTO ns_works_media(ns_wm_idalpha,
+                           ns_wm_idnumeric,
+                           ns_wm_inname,
+                           ns_wm_material
+                           ) 
+	SELECT  itemalpha_medium,
+	        itemnumber_medium,
+		'WAC gallery',
+		materials
+	FROM medium;

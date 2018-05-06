@@ -1,0 +1,20 @@
+Gallery A	Back to the 80s	2016-07-18	MCA	\N	\N	2017-04-12
+Gallery B	Life in Three Dimentions	2016-08-19	MCA	\N	\N	2017-01-18
+Gallery C	Its a Colourful World	2016-09-12	MCA	\N	\N	2017-09-18
+Gallery A	Dalmation	2017-04-17	MCA	\N	\N	2017-08-12
+Gallery B	Through the Eye of the Lens	2017-01-23	MCA	\N	\N	2017-06-18
+Gallery C	Early 2000s Works	2017-09-23	MCA	\N	\N	2017-12-23
+Gallery A	Old but Gold	2015-09-12	MCA	\N	\N	2016-07-13
+Gallery B	Cowboy Exhibition	2015-10-13	MCA	\N	\N	2016-08-14
+Gallery C	Aboriginal Exhibition	2015-11-19	MCA	\N	\N	2016-09-07
+Sydney - Yorkton	Saskatchewan Exhibition	2016-12-04	MCA	2016-11-27	2016-12-04	2017-04-03
+KalTire Yorkton	Saskatchewan Exhibition	2016-12-04	MCA	2016-12-04	2017-01-01	2017-04-03
+Yorkton - Lumston	Saskatchewan Exhibition	2016-12-04	MCA	2017-01-01	2017-01-08	2017-04-03
+Town Hall Lumston	Saskatchewan Exhibition	2016-12-04	MCA	2017-01-08	2017-02-01	2017-04-03
+Lumston - Regina	Saskatchewan Exhibition	2016-12-04	MCA	2017-02-01	2017-02-08	2017-04-03
+Costco Regina	Saskatchewan Exhibition	2016-12-04	MCA	2017-02-08	2017-03-01	2017-04-03
+Regina - Moose Jaw	Saskatchewan Exhibition	2016-12-04	MCA	2017-03-01	2017-03-08	2017-04-03
+Tunnels Moose Jaw	Saskatchewan Exhibition	2016-12-04	MCA	2017-03-08	2017-03-13	2017-04-03
+Moose Jaw - Saskatoon	Saskatchewan Exhibition	2016-12-04	MCA	2017-03-13	2017-03-20	2017-04-03
+U of S Saskatoon	Saskatchewan Exhibition	2016-12-04	MCA	2017-03-20	2017-04-03	2017-04-03
+Saskatoon - Sydney	Saskatchewan Exhibition	2016-12-04	MCA	2017-04-03	2017-04-10	2017-04-03

@@ -1,0 +1,235 @@
+
+DROP TABLE Temp_location CASCADE;
+
+--Create the table that contain all the info of the temporary location
+CREATE TABLE Temp_location (
+	
+	name_location naming NOT NULL,
+	sponsor naming NOT NULL,
+	address address2 NOT NULL,
+	head_of_security naming NOT NULL,
+	insurance valuing NOT NULL,
+	
+	CONSTRAINT temporary_key FOREIGN KEY(name_location) REFERENCES galleries(name)
+	
+);
+
+--Create the date, time and the items for the traveling exhibition
+
+--Location Number 1
+INSERT INTO galleries VALUES ('Humboldt');
+INSERT INTO temp_location VALUES ('Humboldt', 
+				    'Humboldt Museum',
+				    '602 Main St, Humboldt, SK S0K 2A0',
+				    'Charles Hummberbag',
+				    1700)
+;
+INSERT INTO exhibitions_info VALUES 
+	 ('TR1', 
+	  'Traveling exhibition', 
+	  'The traveling exhibition which is used for promote the musem in the province', 
+	  7, 
+	  '11/25/2016', 
+	  '12/16/2016', 
+	  'Humboldt')
+;
+INSERT INTO exhibition_location VALUES ('TR1', 'Humboldt', 7);
+INSERT INTO exhibitions_works VALUES ('IGH', 179, 'TR1');
+INSERT INTO works_move_in_date VALUES ('IGH', 179, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('IHG', 180, 'TR1');
+INSERT INTO works_move_in_date VALUES ('IHG', 180, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('JJJ', 181, 'TR1');
+INSERT INTO works_move_in_date VALUES ('JJJ', 181, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('JJK', 182, 'TR1');
+INSERT INTO works_move_in_date VALUES ('JJK', 182, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('JJL', 183, 'TR1');
+INSERT INTO works_move_in_date VALUES ('JJL', 183, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('LJL', 202, 'TR1');
+INSERT INTO works_move_in_date VALUES ('LJL', 202, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+INSERT INTO exhibitions_works VALUES ('LKL', 203, 'TR1');
+INSERT INTO works_move_in_date VALUES ('LKL', 203, '11/25/2016', '12/16/2016', null, null, 'Humboldt');
+
+UPDATE works_move_in_date SET 
+		date_out = '11/23/2016' 
+	WHERE date_in = '10/25/2016' AND 
+	      date_out IS NULL AND 
+	      itemnumber NOT IN (184, 186, 187, 188)
+; 
+
+
+--Location Number 2
+INSERT INTO galleries VALUES ('Regina');
+INSERT INTO temp_location VALUES ('Regina', 
+				    'Royal Saskatchewan Museum',
+				    '2445 Albert St, Regina, SK, S4P 4W7',
+				    'Harry Winsdor',
+				    1899)
+;
+INSERT INTO exhibitions_info VALUES 
+	 ('TR2', 
+	  'Traveling exhibition', 
+	  'The traveling exhibition which is used for promote the musem in the province', 
+	  7, 
+	  '12/23/2016', 
+	  '1/13/2017', 
+	  'Regina')
+;
+INSERT INTO exhibition_location VALUES ('TR2', 'Regina', 7);
+INSERT INTO exhibitions_works VALUES ('IGH', 179, 'TR2');
+INSERT INTO works_move_in_date VALUES ('IGH', 179, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('IHG', 180, 'TR2');
+INSERT INTO works_move_in_date VALUES ('IHG', 180, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('JJJ', 181, 'TR2');
+INSERT INTO works_move_in_date VALUES ('JJJ', 181, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('JJK', 182, 'TR2');
+INSERT INTO works_move_in_date VALUES ('JJK', 182, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('JJL', 183, 'TR2');
+INSERT INTO works_move_in_date VALUES ('JJL', 183, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('LJL', 202, 'TR2');
+INSERT INTO works_move_in_date VALUES ('LJL', 202, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+INSERT INTO exhibitions_works VALUES ('LKL', 203, 'TR2');
+INSERT INTO works_move_in_date VALUES ('LKL', 203, '12/23/2016', '1/13/2017', null, null, 'Regina');
+
+
+--Location Number 3
+INSERT INTO galleries VALUES ('Moose Jaw');
+INSERT INTO temp_location VALUES ('Moose Jaw', 
+				    'Moose Jaw Museum & Art Gallery',
+				    '461 Langdon Cresent, Moose Jaw, SK, S6H 0X6',
+				    'Mike Wood',
+				    1750)
+;
+INSERT INTO exhibitions_info VALUES 
+	 ('TR3', 
+	  'Traveling exhibition', 
+	  'The traveling exhibition which is used for promote the musem in the province', 
+	  7, 
+	  '1/21/2017', 
+	  '2/10/2017', 
+	  'Moose Jaw')
+;
+INSERT INTO exhibition_location VALUES ('TR3', 'Moose Jaw', 7);
+INSERT INTO exhibitions_works VALUES ('IGH', 179, 'TR3');
+INSERT INTO works_move_in_date VALUES ('IGH', 179, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('IHG', 180, 'TR3');
+INSERT INTO works_move_in_date VALUES ('IHG', 180, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('JJJ', 181, 'TR3');
+INSERT INTO works_move_in_date VALUES ('JJJ', 181, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('JJK', 182, 'TR3');
+INSERT INTO works_move_in_date VALUES ('JJK', 182, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('JJL', 183, 'TR3');
+INSERT INTO works_move_in_date VALUES ('JJL', 183, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('LJL', 202, 'TR3');
+INSERT INTO works_move_in_date VALUES ('LJL', 202, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+INSERT INTO exhibitions_works VALUES ('LKL', 203, 'TR3');
+INSERT INTO works_move_in_date VALUES ('LKL', 203, '1/21/2017', '2/10/2017', null, null, 'Moose Jaw');
+
+
+--Location Number 4
+INSERT INTO galleries VALUES ('Swift Current');
+INSERT INTO temp_location VALUES ('Swift Current', 
+				    'Swift Current Museum',
+				    '44 Robert St W, Swift Current, SK, S9H 4M9',
+				    'Mike Wood',
+				    1700)
+;
+INSERT INTO exhibitions_info VALUES 
+	 ('TR4', 
+	  'Traveling exhibition', 
+	  'The traveling exhibition which is used for promote the musem in the province', 
+	  7, 
+	  '2/16/2017', 
+	  '3/9/2017', 
+	  'Swift Current')
+;
+INSERT INTO exhibition_location VALUES ('TR4', 'Swift Current', 7);
+INSERT INTO exhibitions_works VALUES ('IGH', 179, 'TR4');
+INSERT INTO works_move_in_date VALUES ('IGH', 179, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('IHG', 180, 'TR4');
+INSERT INTO works_move_in_date VALUES ('IHG', 180, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('JJJ', 181, 'TR4');
+INSERT INTO works_move_in_date VALUES ('JJJ', 181, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('JJK', 182, 'TR4');
+INSERT INTO works_move_in_date VALUES ('JJK', 182, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('JJL', 183, 'TR4');
+INSERT INTO works_move_in_date VALUES ('JJL', 183, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('LJL', 202, 'TR4');
+INSERT INTO works_move_in_date VALUES ('LJL', 202, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+INSERT INTO exhibitions_works VALUES ('LKL', 203, 'TR4');
+INSERT INTO works_move_in_date VALUES ('LKL', 203, '2/16/2017', '3/9/2017', null, null, 'Swift Current');
+
+
+
+--Location number 5
+INSERT INTO galleries VALUES ('Kindersley');
+INSERT INTO temp_location VALUES ('Kindersley', 
+				    'Kindersley Plains Museum',
+				    '7 HWY, Kindersley No 290, SK',
+				    'Billy Nike',
+				    1699)
+;
+INSERT INTO exhibitions_info VALUES 
+	 ('TR5', 
+	  'Traveling exhibition', 
+	  'The traveling exhibition which is used for promote the musem in the province', 
+	  7, 
+	  '3/18/2017', 
+	  '4/3/2017', 
+	  'Kindersley')
+;
+INSERT INTO exhibition_location VALUES ('TR5', 'Kindersley', 7);
+INSERT INTO exhibitions_works VALUES ('IGH', 179, 'TR5');
+INSERT INTO works_move_in_date VALUES ('IGH', 179, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('IHG', 180, 'TR5');
+INSERT INTO works_move_in_date VALUES ('IHG', 180, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('JJJ', 181, 'TR5');
+INSERT INTO works_move_in_date VALUES ('JJJ', 181, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('JJK', 182, 'TR5');
+INSERT INTO works_move_in_date VALUES ('JJK', 182, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('JJL', 183, 'TR5');
+INSERT INTO works_move_in_date VALUES ('JJL', 183, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('LJL', 202, 'TR5');
+INSERT INTO works_move_in_date VALUES ('LJL', 202, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+INSERT INTO exhibitions_works VALUES ('LKL', 203, 'TR5');
+INSERT INTO works_move_in_date VALUES ('LKL', 203, '3/18/2017', '4/3/2017', null, null, 'Kindersley');
+
+
+
+
+
+
+
+
+
+
+

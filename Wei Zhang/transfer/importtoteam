@@ -1,0 +1,3 @@
+Begin
+\copy exhibition from 'w_exhibitions';
+select count (*) from exhibition;

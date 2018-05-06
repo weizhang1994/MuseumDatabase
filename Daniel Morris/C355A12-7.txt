@@ -1,0 +1,6 @@
+1	Lobby	Storage
+2	Lobby	Gallery A
+3	Lobby	Gallery B
+4	Gallery A	Gallery B
+5	Gallery A	Gallery C
+6	Gallery B	Gallery C

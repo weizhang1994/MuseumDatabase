@@ -1,0 +1,161 @@
+  Wei Zhang studentNumber: 11146590 NSID:wez758
+  CMPT355 Assignment3 Part 3
+
+ drop domain if exists miTime cascade;
+ create domain miTime as time; 
+ alter table musLocation 
+ add column moveinTime miTime;
+
+ update muslocation 
+ set moveinTime = '8:00:00'
+ where exhibitionstartdate = '2016-06-01';
+
+ update muslocation 
+ set moveinTime = '8:00:00'
+ where exhibitionstartdate = '2016-07-01';
+
+ update muslocation 
+ set moveinTime = '8:00:00'
+ where exhibitionstartdate = '2016-08-01'or exhibitionstartdate = '2016-09-01';
+
+ update muslocation 
+ set moveinTime = '8:00:00'
+ where exhibitionstartdate = '2016-10-25'or exhibitionstartdate = '2016-11-02' or
+ exhibitionstartdate = '2016-11-06';
+
+ alter table exhibition 
+ add column moveinTime miTime;
+ update exhibition
+ set moveintime = '8:00:00';
+
+ alter table musExhibition 
+ add column moveinTime miTime;
+ update musExhibition
+ set moveintime = '8:00:00';
+
+ alter table exhlocation 
+ add column moveinTime miTime;
+ update exhlocation
+ set moveintime = '8:00:00';
+
+ drop domain if exists modate cascade;
+ create domain modate date;
+ alter table muslocation 
+ add column moveoutdate modate;
+ add column moveouttime mitime; 
+
+ update muslocation set moveoutdate = '2016-07-01'
+ where moveindate = '2016-06-01' and museumnumber in (0,1,2,3,4,5,6,14,15);
+
+ update muslocation set moveoutdate = '2016-07-01'
+ where moveindate = '2016-06-01' and museumnumber in (48,49);
+
+ update muslocation set moveoutdate = '2016-08-01'
+ where moveindate = '2016-06-01' and museumnumber between 20 and 29;
+
+ update muslocation set moveoutdate = '2016-09-01'
+ where moveindate = '2016-06-01' and museumnumber in (7,8,34,35,36,37,38,39,40,41,42,43,44,45,46,47);
+
+ update muslocation set moveoutdate = '2016-10-28'
+ where moveindate = '2016-06-01' and museumnumber in (9,10,11,12,13,16,17);
+
+ update muslocation set moveoutdate = '2016-10-28'
+ where moveindate = '2016-06-01' and museumnumber in (18,19,30,31,32,33);
+
+ update muslocation set moveoutdate = '2016-11-03'
+ where moveindate = '2016-06-01' and museumnumber between 58 and 61;
+
+ update muslocation set moveoutdate = '2016-10-21'
+ where moveindate = '2016-06-01' and museumnumber between 62 and 64 ;
+
+ update muslocation set moveoutdate = '2016-11-02'
+ where moveindate = '2016-07-01' and museumnumber in (0,1,2,3,4,5,6,14,15);   
+
+ update muslocation set moveoutdate = '2016-11-02'
+ where moveindate = '2016-08-01' and museumnumber between 20 and 29;  
+
+ update muslocation set moveoutdate = '2016-11-02'
+ where moveindate = '2016-09-01' and museumnumber in (7,8,34,35,36,37,38,39,40,41,42,43,44,45,46,47);  
+
+ update muslocation set moveoutdate = '2017-04-07'
+ where moveindate = '2016-11-06' and locationname = 'galleryB'; 
+
+ update muslocation set moveoutdate = '2017-02-07'
+ where moveindate = '2016-11-06' and locationname = 'galleryC'; 
+
+ update muslocation set moveoutdate = '2017-03-07'
+ where moveindate = '2016-11-06' and locationname = 'galleryA'; 
+
+ update muslocation set moveoutdate = '2016-11-03'
+ where moveindate = '2016-11-02'; 
+
+ update muslocation set moveoutdate = '2016-11-02'
+ where moveindate = '2016-10-28'; 
+
+ update muslocation set moveouttime = '8:00:00'
+ where museumnumber between 48 and 49 and moveindate = '2016-06-01'; 
+
+ --produce a query to test that your database is properly working
+drop view if exists a311report cascade;
+create view a311report as 
+select 
+museumletter, museumnumber, locationname, moveindate, moveintime, moveoutdate, moveouttime
+from 
+musLocation
+where moveindate between '2015-11-01' and '2016-11-01' and moveoutdate between '2015-11-01' and '2016-11-01'
+and museumnumber = 40
+order by moveindate; 
+select * 
+from a311report;
+
+drop view if exists a31report cascade;
+create view a31report as 
+select 
+museumletter, museumnumber, locationname, moveindate, moveintime, moveoutdate, moveouttime
+from 
+musLocation
+where moveindate between '2015-11-01' and '2016-11-01' and moveoutdate between '2015-11-01' and '2016-11-01'
+order by moveindate; 
+select * 
+from a31report;
+
+  --produce a query that lists all the works found in an exhibition between two dates
+drop view if exists a32report cascade;
+create view a32report as 
+select 
+museumnumber,museumname, exhibitionname,exhibitionstartdate, exhibitionenddate
+from 
+musExhibition
+where exhibitionstartdate between '2015-11-01' and '2016-11-01' and exhibitionenddate between '2015-11-01' and '2016-11-01'
+order by exhibitionstartdate,museumname;
+select
+*
+from
+a32report;
+
+drop view if exists a321report cascade;
+create view a321report as 
+select 
+museumnumber,museumname, exhibitionname,exhibitionstartdate, exhibitionenddate
+from 
+musExhibition
+where exhibitionstartdate between '2015-11-01' and '2016-11-01' and exhibitionenddate between '2015-11-01' and '2016-11-01'
+and exhibitionname = 'Output of Essences'
+order by exhibitionstartdate,museumname;
+select
+*
+from
+a32report;
+
+ -- produce a query that lists all the exhibitions that make use of a location between 2 dates 
+drop view if exists a33report cascade;
+create view a33report as
+select 
+exhibitionname, exhibitionstartdate, exhibitionenddate,locationname
+from exhlocation 
+where exhibitionstartdate between '2015-11-01' and '2016-11-01' and exhibitionenddate between '2015-11-01' and '2016-11-01'
+order by exhibitionstartdate;
+select 
+* 
+from
+a33report;

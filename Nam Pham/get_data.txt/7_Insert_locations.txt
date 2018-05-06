@@ -1,0 +1,87 @@
+
+\i '6_Insert_works.txt'
+
+
+INSERT INTO ns_locations(ns_lc_lcName, 
+			 ns_lc_inName, 
+			 ns_lc_minnumworks, 
+			 ns_lc_maxnumworks) 
+		SELECT  name, 
+		'WAC gallery',
+		min_capacity, 
+		max_capacity 
+	FROM galleries;
+	
+
+UPDATE ns_locations SET ns_lc_length = 8 , ns_lc_height = 10, ns_lc_width = 4, ns_lc_availabilityDate = '2017-03-26' WHERE ns_lc_lcname = 'Gallery No1';
+
+UPDATE ns_locations SET ns_lc_length = 15 , ns_lc_height = 10, ns_lc_width = 4, ns_lc_availabilityDate = '2017-06-25' WHERE ns_lc_lcname = 'Gallery No2';
+
+UPDATE ns_locations SET ns_lc_length = 25 , ns_lc_height = 10, ns_lc_width = 4, ns_lc_availabilityDate = '2017-03-11' WHERE ns_lc_lcname = 'Main Hall';
+
+UPDATE ns_locations SET ns_lc_length = 21 , ns_lc_height = 10, ns_lc_width = 10 WHERE ns_lc_lcname = 'STORAGE';
+
+UPDATE ns_locations SET ns_lc_length = 7 , ns_lc_height = 10, ns_lc_width = 4 WHERE ns_lc_lcname = 'LOBBY';
+
+UPDATE ns_locations SET ns_lc_length = 30 , ns_lc_height = 10, ns_lc_width = 4, ns_lc_availabilityDate = current_date WHERE ns_lc_lcname = 'Grand Hall';
+
+UPDATE ns_locations SET ns_lc_sponsor = 'Humboldt Museum',
+			ns_lc_security = 'Charles Hummberbag',
+			ns_lc_insurance = 1700, 
+			ns_lc_streetaddress = '602 Main St',
+			ns_lc_city = 'Humboldt',
+			ns_lc_country = 'Canada',
+			ns_lc_countrysubdivision = 'Saskatchewan',
+			ns_lc_postalcode = 'S0K 2A0'
+		WHERE ns_lc_lcname = 'Humboldt';
+		
+		
+UPDATE ns_locations SET ns_lc_sponsor = 'Royal Saskatchewan Museum ',
+			ns_lc_security = ' Harry Winsdor',
+			ns_lc_insurance = 1899, 
+			ns_lc_streetaddress = '2445 Albert St',
+			ns_lc_city = 'Regina',
+			ns_lc_country = 'Canada',
+			ns_lc_countrysubdivision = 'Saskatchewan',
+			ns_lc_postalcode = 'S4P 4W7'
+		WHERE ns_lc_lcname = 'Regina';
+		
+		
+UPDATE ns_locations SET ns_lc_sponsor = 'Moose Jaw Museum & Art Gallery',
+			ns_lc_security = 'Mike Wood',
+			ns_lc_insurance = 1750, 
+			ns_lc_streetaddress = '461 Langdon Cresent',
+			ns_lc_city = 'Moose Jaw',
+			ns_lc_country = 'Canada',
+			ns_lc_countrysubdivision = 'Saskatchewan',
+			ns_lc_postalcode = 'S6H 0X6'
+		WHERE ns_lc_lcname = 'Moose Jaw';
+		
+		
+UPDATE ns_locations SET ns_lc_sponsor = 'Swift Current Museum',
+			ns_lc_security = 'Mike Wood',
+			ns_lc_insurance = 1700, 
+			ns_lc_streetaddress = '44 Robert St W',
+			ns_lc_city = 'Swift Current',
+			ns_lc_country = 'Canada',
+			ns_lc_countrysubdivision = 'Saskatchewan',
+			ns_lc_postalcode = 'S9H 4M9'
+		WHERE ns_lc_lcname = 'Swift Current';
+		
+UPDATE ns_locations SET ns_lc_sponsor = 'Kindersley Plains Museum ',
+			ns_lc_security = 'Billy Nike ',
+			ns_lc_insurance = 1699, 
+			ns_lc_streetaddress = '7 HWY',
+			ns_lc_city = 'Kindersley',
+			ns_lc_country = 'Canada',
+			ns_lc_countrysubdivision = 'Saskatchewan',
+			ns_lc_postalcode = 'S8K 1M1'
+		WHERE ns_lc_lcname = 'Kindersley';
+		
+		
+		
+		
+		
+		
+		
+		

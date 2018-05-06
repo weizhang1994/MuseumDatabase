@@ -1,0 +1,35 @@
+
+
+\i '14_Value.txt'
+
+
+INSERT INTO ns_works_state(ns_ws_idalpha,
+                           ns_ws_idnumeric,
+                           ns_ws_inname,
+                           ns_ws_state,
+                           ns_ws_wsstartdate) 
+	SELECT  itemalpha,
+	        itemnumber,
+		'WAC gallery',
+		'in good condition',
+		'2016-6-1'
+	FROM all_works;
+
+UPDATE ns_works_state SET ns_ws_wsenddate = '2016-10-21' WHERE ns_ws_idnumeric IN (111, 112, 113);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

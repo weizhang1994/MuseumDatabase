@@ -1,0 +1,367 @@
+
+
+DROP VIEW CurrentStorage;
+DROP VIEW ExhibitionWorksCount;
+DROP VIEW ExhibitWorks;
+DROP VIEW SpacesInGalleries;
+DROP VIEW WorksAvailability;
+DROP VIEW ExhibitLocations;
+DROP VIEW AllDoors;
+DROP VIEW ExhibitionDates;
+DROP VIEW ExhibitWorksSmall;
+DROP VIEW WorksLocations;
+DROP VIEW CurrentWorksOwnership;
+DROP VIEW WorksOwnership;
+DROP VIEW GalleryAvailability;
+DROP VIEW WorkTypes;
+DROP VIEW ExhibitWorksCountWithRoomMax;
+DROP VIEW LocationsBetweenDates;
+DROP VIEW ExhibitionWorksBetweenDates;
+DROP VIEW LocationExhibitionsBetweenDates;
+DROP VIEW CurrentBorrowedWorksLocations;
+DROP VIEW CurrentExhibitionSubjectCount;
+DROP VIEW WorksTravelingToSK;
+DROP VIEW TransactionTypes;
+
+
+
+-- Produce for the head of the museum a listing of all works (including their identifier, name, and insurance value)
+-- that are currently in storage. 
+
+CREATE VIEW CurrentStorage
+AS SELECT wk_idalpha AS "Letter ID",
+wk_idnumeric AS "NumberID",
+wk_wkname AS "Name of the Work",
+wk_inname AS "Institution",
+wv_insurancevalue AS "Insurance Value"
+FROM Works, works_value, works_locations
+WHERE wk_idalpha = wv_idalpha
+AND wk_idnumeric = wv_idnumeric
+AND wk_inname = wv_inname
+AND wk_idalpha = wl_idalpha
+AND wk_idnumeric = wl_idNumeric
+AND wk_inname = wl_inName
+AND (wl_lcname = 'Storage' OR wl_lcname = 'storage' OR wl_lcname = 'STORAGE')
+AND wl_wlstartdatetime <= now()
+AND (wl_wlenddatetime >= now() OR wl_wlenddatetime is null);
+
+
+
+
+-- Produce for the public a listing of all exhibitions (including name, description, location, and number of works) 
+
+CREATE VIEW ExhibitionWorksCount
+	AS SELECT ex_exname AS "Exhibition Name",
+	ex_inname AS "Institution",
+	ex_exdescription AS "Description",
+	el_lcname AS "Location",
+	COUNT(we_exname)
+	FROM works_exhibitions, exhibitions, exhibitions_locations
+	WHERE we_exname = ex_exname
+	AND we_inname = ex_inname
+	AND el_exname = ex_exname
+	AND el_inname = ex_inname
+	GROUP BY ex_exname, ex_inname, we_exname, ex_exdescription, el_lcname
+;
+
+
+-- Produce for the public a listing of all publicly available data on all works in each of the exhibitions sorted by exhibition and by the name of the work
+
+CREATE VIEW ExhibitWorks
+	AS SELECT we_exname AS "Exhibition",
+	we_inname AS "Institution",
+	wk_wkname AS "Name of Work",
+	wk_theme AS "Theme",
+	wk_subject AS "Subject",
+	wk_culture AS "Culture",
+	wk_colour AS "Colour",
+	wk_cartype AS "Car Type",
+	wk_transmission AS "Transmission",
+	wk_creator AS "Creator",
+	wk_codate AS "Completion Date",
+	wm_material AS "Media Used",
+	wk_wkdescription AS "Description"
+	FROM Works, Works_Exhibitions, Works_Media
+	WHERE we_idalpha = wk_idalpha
+	AND we_idnumeric = wk_idnumeric
+	AND wm_idalpha = wk_idalpha
+	AND wm_idnumeric = wk_idnumeric
+	ORDER BY we_exname, wk_wkname
+	
+;
+
+
+
+-- Produce for the curator a listing of the amount of additional works that could be added to each exhibit based on
+-- the unused capacity of the galleries that they are currently in. This listing should just have the amount of additional
+-- works that could be added and the name of the exhibit 
+
+CREATE VIEW SpacesInGalleries
+        AS SELECT lc_lcname AS "Name of Gallery",
+	lc_inname AS "Institution",
+	lc_maxnumworks - COUNT(we_exstartdate) AS "Number of unused spaces",
+	ex_exstartdate AS "Start Date",
+	ex_exenddate AS "End Date"
+	FROM Locations, works_exhibitions, Exhibitions, exhibitions_locations
+	WHERE lc_lcname = el_lcname
+	AND lc_inname = el_inname
+	AND el_exname = ex_exname
+	AND el_inname = ex_inname
+	AND we_exname = ex_exname
+	AND we_inname = ex_inname
+	AND ex_istraveling = false
+	GROUP BY ex_exstartdate, ex_exenddate, lc_inname, lc_maxnumworks, we_exname, lc_lcname
+	ORDER BY lc_inname, lc_maxnumworks - COUNT(we_exname)
+;
+
+
+-- Produce for a curator a listing of works sorted by when they are available for use in a new exhibition and by
+-- classification and by name of the work
+
+CREATE VIEW WorksAvailability
+	AS SELECT wk_inname AS "Institution",
+	wk_idalpha AS "Letter Id",
+	wk_idnumeric AS "Number ID",
+	wl_wlstartdatetime AS "When Work Will Be Available",
+	wk_wkname AS "Name of Work",
+	wk_theme AS "Theme",
+	wk_subject AS "Subject",
+	wk_culture AS "Culture",
+	wk_colour AS "Colour",
+	wk_cartype AS "Car Type",
+	wk_transmission AS "Transmission"
+	
+	FROM Works, works_locations
+	WHERE wl_lcname = 'Storage'
+	AND wl_idalpha = wk_idalpha
+	AND wl_idNumeric = wk_idnumeric
+	AND wl_inName = wk_inname
+	AND wl_wlenddatetime is null
+	ORDER BY wl_wlstartdatetime, wk_subject, wk_wkname
+;
+
+
+
+-- Produce a listing of all locations of exhibitions' locations
+CREATE VIEW ExhibitLocations
+	AS SELECT el_exname AS "Exhibition", 
+	el_inname AS "Institution",
+	el_lcname AS "Location"
+	FROM exhibitions_locations
+;
+
+
+
+-- Produce a listing of all doors
+CREATE VIEW AllDoors
+	AS SELECT ld_inname AS "Institution",
+	ld_lcname1 AS " ",
+	ld_lcname2 AS "  "
+	FROM locations_doors
+;
+
+-- Produce a listing of all exhibitions with start and end dates
+CREATE VIEW ExhibitionDates
+	AS SELECT ex_exname AS "Exhibition",
+	ex_inname AS "Institution",
+	ex_exstartdate AS "Start Date",
+	ex_exenddate AS "End Date"
+	FROM exhibitions
+;
+
+
+-- Produce a limited number of attributes listing of all works in all exhibitions
+CREATE VIEW ExhibitWorksSmall
+	AS SELECT we_exname AS "Exhibition",
+	we_idalpha AS "Letter ID",
+	we_idnumeric AS "Numeric ID",
+	we_inname AS "Institution"
+	FROM works_exhibitions
+	ORDER BY we_exname
+;
+
+-- Produce a listing of all work locations
+CREATE VIEW WorksLocations 
+	AS SELECT wl_idalpha AS "Letter ID",
+	wl_idnumeric AS "Numeric ID",
+	wl_lcname AS "Location",
+	wl_inName AS "Institution",
+	wl_wlstartdatetime AS "Start Date",
+	wl_wlenddatetime AS "End Date"
+	FROM works_locations
+	ORDER BY wl_idalpha, wl_idnumeric, wl_wlstartdatetime
+;
+
+
+-- Produce a listing of all current work ownership status
+CREATE VIEW CurrentWorksOwnership
+	AS SELECT wo_IdAlpha AS "Letter ID",
+	wo_IdNumeric AS "Number ID",
+	current_date AS "Current Date",
+	wo_innameowner AS "Owner"
+	FROM works_ownership
+	
+	WHERE wo_wostartdate <= now() AND wo_woenddate >= now() OR wo_woenddate is null
+;
+
+
+-- Produce a listing of all work ownership status
+CREATE VIEW WorksOwnership
+	AS SELECT wo_IdAlpha AS "Letter ID",
+	wo_IdNumeric AS "Number ID",
+	current_date AS "Current Date",
+	wo_innameowner AS "Owner"
+	FROM works_ownership
+;
+
+-- Produce a list of when each gallery from all museums will be available
+CREATE VIEW GalleryAvailability
+	AS SELECT lc_lcname AS "Location",
+	lc_inname AS "Institution",
+	lc_availabilitydate AS "Availabity Date"
+	FROM locations
+	
+	WHERE lc_availabilitydate is not null
+;
+
+
+
+
+-- Produce a query of all types that the work belongs to
+CREATE VIEW WorkTypes
+	AS SELECT wk_idalpha AS "Letter ID",
+	wk_idnumeric AS "Numeric ID",
+	wk_inname AS "Institution",
+	wk_theme AS "Theme",
+	wk_subject AS "Subject",
+	wk_culture AS "Culture",
+	wk_colour AS "Colour",
+	wk_cartype AS "Car Type",
+	wk_transmission AS "Transmission"
+	FROM works
+;
+
+--produce a report of all current and future exhibitions including the name of the exhibiton, 
+-- the dates it is happening (starting and ending dates), the maximum recommended capacity of the 
+-- locations it is using, and the current number of works planned for it 
+
+CREATE VIEW ExhibitWorksCountWithRoomMax
+	AS SELECT ex_exname AS "Exhibition Name",
+	ex_inname AS "Institution",
+	ex_exdescription AS "Description",
+	el_lcname AS "Location",
+	COUNT(we_exname) AS "Number of Works",
+	lc_maxnumworks AS "Suggested Max Number of Works"
+	FROM works_exhibitions, exhibitions, exhibitions_locations, locations
+	WHERE we_exname = ex_exname
+	AND we_inname = ex_inname
+	AND el_exname = ex_exname
+	AND el_inname = ex_inname
+	AND el_lcname = lc_lcname
+	AND el_inname = lc_inname
+	AND ex_istraveling = false
+	GROUP BY lc_maxnumworks, ex_exname, ex_inname, we_exname, ex_exdescription, el_lcname
+;
+
+-- Produce a query that lists the different locations that a given work was/is/will be in between two dates
+
+CREATE VIEW LocationsBetweenDates
+	AS SELECT wl_inname AS "Institution",
+	wl_lcname AS "Location",
+	wl_idalpha AS "Letter ID",
+	wl_idNumeric AS "Numeric ID",
+	wl_wlstartdatetime AS "Start Date-Time",
+	wl_wlenddatetime AS "End Date-Time"
+	FROM works_locations
+;
+
+-- Produce a query that lists all the works found in an exhibition between two dates
+
+CREATE VIEW ExhibitionWorksBetweenDates
+	AS SELECT we_idalpha AS "Letter ID",
+	we_idnumeric AS "Numeric ID",
+	we_exname AS "Exhibition",
+	we_inname AS "Institution",
+	we_exstartdate AS "Start Date",
+	we_exenddate AS "End Date"
+	FROM works_exhibitions
+;
+
+
+
+-- Produce a query that lists all the exhibitions that make use of a location between two dates
+
+CREATE VIEW LocationExhibitionsBetweenDates
+	AS SELECT el_exname AS "Exhibition",
+	el_inname AS "Institution",
+	el_exstartdate AS "Start Date",
+	el_exenddate AS "End Date",
+	el_lcname AS "Location"
+	From exhibitions_locations
+;
+
+
+
+-- Query to determine the current location of all borrowed works in our museums
+
+CREATE VIEW CurrentBorrowedWorksLocations
+	AS SELECT wl_idalpha AS "Letter ID",
+	wl_idnumeric AS "Numeric ID",
+	wl_inname AS "Institution",
+	wl_lcname AS "Location",
+	current_date
+	FROM transactions, works_locations
+	WHERE wl_idalpha = tr_idalpha
+	AND wl_idnumeric = tr_idNumeric
+	AND wl_inname = tr_inname
+	AND (tr_trtype = 'borrow in' OR tr_trtype = 'Borrow In' OR tr_trtype = 'Borrow in')
+	AND ((now() > wl_wlstartdatetime AND wl_wlenddatetime is null)
+		OR(now() > wl_wlstartdatetime AND now() < wl_wlenddatetime))
+;
+
+
+-- Query to determine how many works of a specified subject are in current exhibitions
+	
+CREATE VIEW CurrentExhibitionSubjectCount
+	AS SELECT COUNT(wk_idalpha),
+	wk_subject AS "Subject",
+	wk_inname AS "Institution",
+	we_exname AS "Exhibition"
+	FROM works, works_exhibitions
+	WHERE wk_idalpha = we_idalpha
+	AND wk_idnumeric = we_idnumeric
+	AND ((now() > we_exstartdate AND we_exenddate is null)
+		OR(now() > we_exstartdate AND now() < we_exenddate))
+	GROUP BY wk_subject, wk_inname, we_exname
+	ORDER BY COUNT DESC
+;
+	
+	
+	
+-- Query to determine what works will be in saskatchewan and at what dates
+
+CREATE VIEW WorksTravelingToSK
+	AS SELECT wk_wkname AS "Work Name",
+	wl_wlstartdatetime AS "Start Date",
+	wl_wlenddatetime AS "End Date"
+	FROM works, works_locations, locations
+	WHERE wk_idalpha = wl_idalpha
+	AND wk_idnumeric = wl_idNumeric
+	AND wk_inname = wl_inname
+	AND lc_lcname = wl_lcname
+	AND lc_inname = wl_inname
+	AND lc_countrysubdivision = 'SK'
+;
+
+
+CREATE VIEW TransactionTypes
+	AS SELECT tr_inname AS "Institution",
+	tr_innamereceiver AS "Reciever",
+	tr_innamegiver AS "Giver",
+	tr_idalpha AS "Letter ID",
+	tr_idNumeric AS "Number ID",
+	tr_trtype AS "Transaction Type"
+	FROM transactions
+	ORDER BY tr_trdate
+;
+	

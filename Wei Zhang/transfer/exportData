@@ -1,0 +1,15 @@
+
+
+ \copy ns_works to 'w_works';                                              
+ \copy ns_locations to 'w_locations';                                      
+ \copy ns_exhibitions to 'w_exhibitions';
+ \copy ns_institutions to 'w_institutions';
+ \copy ns_exhibitions_locations to 'w_exhibitons_locations';
+ \copy ns_locations_doors to 'w_locations_doors';
+ \copy ns_transactions to 'w_transactions';
+ \copy ns_works_exhibitions to 'w_works_exhibitions';
+ \copy ns_works_locations to 'w_works_locations';
+ \copy ns_works_media to 'w_works_media';
+ \copy ns_works_ownership to 'w_works_ownership';
+ \copy ns_works_state to 'w_works_state';
+ \copy ns_works_value to 'w_works_value';

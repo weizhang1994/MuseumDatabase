@@ -1,0 +1,162 @@
+
+DROP TABLE loan_institution CASCADE;
+
+DROP DOMAIN address2 CASCADE;
+DROP DOMAIN mail CASCADE;
+DROP DOMAIN phone CASCADE;
+
+CREATE DOMAIN address2 AS character(100);
+CREATE DOMAIN phone AS character(17);
+CREATE DOMAIN mail AS character(30);
+
+--The table that contain all information of the place that been loan the museum's item
+CREATE TABLE loan_institution (
+	
+	itemalpha_loan iAlpha NOT NULL,
+	itemNumber_loan iNum  NOT NULL,
+	name naming NOT NULL,
+	address address2 NOT NULL,
+	phoneNum phone NOT NULL,
+	e_mail mail NOT NULL,
+	start_date Dating NOT NULL,
+	end_date Dating NOT NULL,
+	
+	CONSTRAINT loan_key FOREIGN KEY (ItemNumber_loan, ItemAlpha_loan) REFERENCES all_works(ItemNumber, ItemAlpha)
+	
+);
+
+INSERT INTO galleries VALUES ('ON LOAN');
+
+
+
+UPDATE works_move_in_date SET date_out = '3/3/2017' WHERE ItemNumber = 102 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('AAC', 102, '3/3/2017', '5/9/2017', null, null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'AAC',
+	102,
+	'Art Gallery of Ontario',
+	'317 Dundas Street West, Toronto, Ontario, M5T 1G4',
+	'(+1) 306-998-9999',
+	'thehead@gmail.com',
+	'3/3/2017',
+	'5/9/2017'
+	
+);
+
+
+UPDATE works_move_in_date SET date_out = '2/19/2017' WHERE ItemNumber = 103 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('ABA', 103, '2/19/2017', '7/11/2017', null, null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'ABA',
+	103,
+	'CBC Museum',
+	'250 Front Street West, Toronto, Ontario, Canada',
+	'(+1) 355-777-6666',
+	'museum_head@gmail.com',
+	'2/19/2017',
+	'7/11/2017'
+	
+);
+
+--This item is currently been loan
+UPDATE all_works SET claim = 'ON LOAN' WHERE ItemNumber = 175;
+UPDATE works_location SET 
+	current_location = 'ON LOAN',
+	date_in = '10/27/2016',
+	date_out = '1/22/2017',
+	time_in = '10:30:00'
+	WHERE ItemNumber_ex = 175
+;
+UPDATE works_move_in_date SET date_out = '10/27/2016', time_out = '10:30:00' WHERE ItemNumber = 175 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('IGI', 175, '10/27/2016', '1/22/2017', '10:30:00', null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'IGI',
+	175,
+	'Bata Shoe Museum',
+	'327 Bloor Street West, Toronto, Canada',
+	'(+1) 306-121-2121',
+	'the_fiurehead@gmail.com',
+	'10/27/2016',
+	'1/22/2017'
+	
+);
+
+UPDATE works_move_in_date SET date_out = '2/4/2017' WHERE ItemNumber = 176 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('IHI', 176, '2/4/2017', '5/10/2017', null, null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'IHI',
+	176,
+	'Addison Sod House',
+	'Oakdale No.320, Kindersley Saskatchewan, Canada',
+	'(+1) 306-666-7676',
+	'theboss@gmail.com',
+	'2/4/2017',
+	'5/10/2017'
+	
+);
+
+
+--This item is currently been loan, the rest will be in the future
+UPDATE all_works SET claim = 'ON LOAN' WHERE ItemNumber = 177;
+UPDATE works_location SET 
+	current_location = 'ON LOAN',
+	date_in = '10/29/2016',
+	date_out = '2/26/2017',
+	time_in = '11:30:00'
+	WHERE ItemNumber_ex = 177
+;
+UPDATE works_move_in_date SET date_out = '10/29/2016', time_out = '11:30:00' WHERE ItemNumber = 177 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('IGG', 177, '10/29/2016', '2/26/2017', '11:30:00', null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'IGG',
+	177,
+	'Annandale Historic Site',
+	'30 Tillson Avanue, Tillsonburg, Ontario, Canada',
+	'(+1) 306-111-1111',
+	'the__head@gmail.com',
+	'10/29/2016',
+	'2/26/2017'
+	
+);
+
+
+UPDATE works_move_in_date SET date_out = '11/25/2017' WHERE ItemNumber = 178 AND date_out IS NULL;
+INSERT INTO works_move_in_date VALUES ('IHH', 178, '11/25/2016', '4/4/2017', null, null, 'ON LOAN');
+INSERT INTO loan_institution VALUES (
+	
+	'IHH',
+	178,
+	'Art Gallery of Ontario',
+	'317 Dundas Street West, Toronto, Ontario, M5T 1G4',
+	'(+1) 306-998-9999',
+	'thehead@gmail.com',
+	'11/25/2016',
+	'4/4/2017'
+	
+);
+
+--SELECT * FROM works_location ORDER BY itemnumber_ex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

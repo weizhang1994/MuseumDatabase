@@ -1,0 +1,35 @@
+Cars of Inventors	PLE 	7
+Cars of Inventors	OYMIII	11
+Cars of Inventors	ALC	14
+Cars of Inventors	NASHH	21
+Cars of Inventors	DCA	44
+Cars of Inventors	GALT	47
+Cars of Inventors	PASA	48
+Cars of Inventors	DDT	53
+Hogs of the Road	FORDM	9
+Hogs of the Road	HDKHRM	61
+Hogs of the Road	BSEI	62
+Hogs of the Road	AC	63
+Hogs of the Road	BVO	51
+Hogs of the Road	JXKR	57
+Hogs of the Road	DDSZ	22
+Hogs of the Road	FMASW	38
+Hogs of the Road	PKT	52
+Millionaires Day Out	CCI	5
+Millionaires Day Out	JXKSS 	59
+Millionaires Day Out	DDSZ	22
+Millionaires Day Out	BTA	15
+Millionaires Day Out	BEB	23
+Millionaires Day Out	FB	25
+Millionaires Day Out	MERR	28
+Millionaires Day Out	MERTF	33
+Millionaires Day Out	BTC	35
+Millionaires Day Out	MLP	39
+Millionaires Day Out	MBW	42
+Millionaires Day Out	CISC	43
+Millionaires Day Out	TLGS	45
+Millionaires Day Out	DDS	46
+Millionaires Day Out	PM	49
+Millionaires Day Out	FMMS	50
+Millionaires Day Out	LDR	55
+Millionaires Day Out	BENZ	58

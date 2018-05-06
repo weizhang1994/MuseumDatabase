@@ -1,0 +1,102 @@
+DROP RULE give_location_1 ON exhibition_location CASCADE;
+
+DROP RULE give_location_main ON exhibition_location CASCADE;
+
+DROP RULE give_location ON exhibition_location CASCADE;
+
+DROP RULE ex_to_locate2 ON exhibition_location CASCADE; 
+
+DROP RULE ex_to_locate ON exhibition_location CASCADE; 
+
+DROP RULE date_change2 ON works_move_in_date CASCADE;
+
+DROP RULE date_change ON works_location CASCADE;
+
+DROP RULE return_to_storage ON exhibitions_works CASCADE;
+
+--When we delete all infomation from exhibitions_works, the data will also change in works_location table
+CREATE RULE return_to_storage AS ON DELETE to exhibitions_works
+	DO ALSO UPDATE works_location SET current_location = 'STORAGE', date_in = date_out + 1, date_out = null
+				      WHERE current_location <> 'STORAGE' AND current_location <> 'LOBBY';
+
+
+
+--When we update the value date of the works_location, the new data will be insert to works_move_in_date table
+CREATE RULE date_change AS ON UPDATE TO works_location
+	DO ALSO INSERT INTO works_move_in_date VALUES  (new.itemalpha_ex,
+							new.itemNumber_ex,
+							new.date_in,
+							null,
+							new.current_location);
+
+--When we insert the new info to works_move_in_date the date of the date that has been null will be changed
+CREATE RULE date_change2 AS ON INSERT to works_move_in_date
+	DO ALSO UPDATE works_move_in_date SET date_out = new.date_in
+		WHERE itemalpha = new.itemalpha AND itemNumber = new.itemNumber 
+						AND date_in <> new.date_in AND date_out IS null;
+
+--Delete everything from exhibitions_work to activate the 3 upper rule
+DELETE FROM exhibitions_works;
+
+
+
+
+--I have to insert manually for one exhibition because I don't know how to not include the galleries with the same capacity
+--and when they are already been used
+INSERT INTO exhibitions_info VALUES ('GRA', 
+				     'Grand book collection', 
+				      'The exhibition that show the collection of books from many popular author.', 
+				      9, 
+				      '1/24/2017', 
+				      '6/24/2017', 
+				      'Gallery No2')
+;
+
+INSERT INTO exhibition_location VALUES ('GRA', 
+					'Gallery No2', 
+					9)
+;
+
+--The rule will activate when we insert some information of the new exhibition and it will insert the id and no of items of new exhibition to exhibition_location table
+CREATE RULE ex_to_locate AS ON INSERT TO exhibitions_info 
+	DO ALSO INSERT INTO exhibition_location SELECT new.exhibition_id, null, new.number_of_items 
+							FROM exhibitions_info LIMIT 1;
+
+--When the exhibition_location table has the id of the new exhibition and the no of items, it now can compare the capacity of the location with the number of the items
+--to get the suitable location
+CREATE RULE ex_to_locate2 AS ON INSERT TO exhibition_location 
+	DO ALSO UPDATE exhibition_location SET current_location = (SELECT name FROM galleries
+									WHERE new.no_of_items >= min_capacity AND
+									      new.no_of_items <= max_capacity AND
+									      name <> 'STORAGE' AND
+									      name <> 'LOBBY' 
+								    LIMIT 1)
+					WHERE ex_id = new.ex_id;
+
+--When we get the location in exhibition_location, it will update the location for exhibition_info
+CREATE RULE give_location AS ON UPDATE TO exhibition_location 
+	DO ALSO UPDATE exhibitions_info SET location_name = new.current_location
+					WHERE exhibition_id = new.ex_id;
+
+--This rule is for when the exhibition get 'Main Hall', the rule will set the date that the exhibition will start end in 3 months later
+CREATE RULE give_location_main AS ON UPDATE TO exhibition_location WHERE new.current_location = 'Main Hall'
+	DO ALSO UPDATE exhibitions_info SET location_name = new.current_location,
+					    start_date = (SELECT MAX(end_date) FROM exhibitions_info
+								  WHERE location_name = new.current_location) + 5,
+					    end_date = (SELECT MAX(end_date) FROM exhibitions_info
+								  WHERE location_name = new.current_location) + 96
+					WHERE exhibition_id = new.ex_id;
+
+--This rule is for when the exhibition get 'Gallery No1', the rule will set the date that the exhibition will start end in 4 months later
+CREATE RULE give_location_1 AS ON UPDATE TO exhibition_location WHERE new.current_location = 'Gallery No1'
+	DO ALSO UPDATE exhibitions_info SET location_name = new.current_location,
+					    start_date = (SELECT MAX(end_date) FROM exhibitions_info
+								  WHERE location_name = new.current_location) + 5,
+					    end_date = (SELECT MAX(end_date) FROM exhibitions_info
+								  WHERE location_name = new.current_location) + 126
+					WHERE exhibition_id = new.ex_id;
+
+--Insert the informaition of the new exhibition
+INSERT INTO exhibitions_info VALUES ('MED' , 'Media Collection', 'Contain many media from the 20th century, people are allowed to buy', 8, null,null);
+
+INSERT INTO exhibitions_info VALUES ('ART', 'Grand Art', 'Contain new art from the famous artist, the bid will not be held for this event', 18, null,null);

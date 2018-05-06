@@ -1,0 +1,46 @@
+\set museumName 'Petersen Museum'
+
+
+
+
+
+DELETE FROM locations_doors
+WHERE ld_inname = :'museumName';
+
+DELETE FROM exhibitions_locations
+WHERE el_inname = :'museumName';
+
+DELETE FROM transactions
+WHERE tr_inname = :'museumName';
+
+DELETE FROM works_exhibitions
+WHERE we_inname = :'museumName';
+
+DELETE FROM works_locations
+WHERE wl_inname = :'museumName';
+
+DELETE FROM works_media
+WHERE wm_inname = :'museumName';
+
+DELETE FROM works_ownership
+WHERE wo_inname = :'museumName';
+
+DELETE FROM works_state
+WHERE ws_inname = :'museumName';
+
+DELETE FROM works_value
+WHERE wv_inname = :'museumName';
+
+DELETE FROM works
+WHERE wk_inname = :'museumName';
+
+DELETE FROM locations
+WHERE lc_inname = :'museumName';
+
+DELETE FROM exhibitions
+WHERE ex_inname = :'museumName';
+
+
+-- this doesnt really work too well....
+DELETE FROM institutions
+WHERE in_inname = :'museumName';

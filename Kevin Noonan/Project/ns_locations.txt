@@ -1,0 +1,17 @@
+Gallery D	Petersen Museum	135	60	40	15	25	2017-02-05	\N	\N	\N	\N	\N	\N	\N	\N
+Storage	Petersen Museum	200	60	40	0	600	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Lobby	Petersen Museum	60	60	40	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery A	Petersen Museum	45	30	40	7	16	2016-03-18	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery B	Petersen Museum	45	30	40	7	16	2016-05-09	\N	\N	\N	\N	\N	\N	\N	\N
+Gallery C	Petersen Museum	95	60	40	14	24	2016-07-10	\N	\N	\N	\N	\N	\N	\N	\N
+Kal-Tire Rosetown	Petersen Museum	\N	\N	\N	\N	\N	2016-12-25	Kal-Tire	Mario	5000000	1245 Fred lane	Rosetown	Saskatchewan	Canada	S4J 3D5
+Grip it Saskatoon	Petersen Museum	\N	\N	\N	\N	\N	2017-01-26	Grip it	Luigi	5000000	1837 8th Street	Saskatoon	Saskatchewan	Canada	S8H 0J4
+Gov of Sask Regina	Petersen Museum	\N	\N	\N	\N	\N	2017-02-24	Regina	Mario	5000000	45 Berta Lane	Regina	Saskatchewan	Canada	S0L 4F7
+Canadian Tire Prince Albert	Petersen Museum	\N	\N	\N	\N	\N	2017-03-24	Canadian Tire	Sora	5000000	6 Fish Ave	Prince Albert	Saskatchewan	Canada	S9V 7N0
+Jiffy Tire Kindersley	Petersen Museum	\N	\N	\N	\N	\N	2017-04-22	Jiffy Tire	Gingerbread Man	5000000	100 Albert Way	Kindersley	Saskatchewan	Canada	S1Y 0F7
+Petersen Museum - Rosetown	Petersen Museum	\N	\N	\N	\N	\N	2016-12-18	\N	\N	\N	\N	\N	\N	\N	\N
+Rosetown - Saskatoon	Petersen Museum	\N	\N	\N	\N	\N	2017-01-19	\N	\N	\N	\N	\N	\N	\N	\N
+Saskatoon - Regina	Petersen Museum	\N	\N	\N	\N	\N	2017-02-17	\N	\N	\N	\N	\N	\N	\N	\N
+Regina - Prince Albert	Petersen Museum	\N	\N	\N	\N	\N	2017-03-17	\N	\N	\N	\N	\N	\N	\N	\N
+Prince Albert - Kindersley	Petersen Museum	\N	\N	\N	\N	\N	2017-04-15	\N	\N	\N	\N	\N	\N	\N	\N
+Kindersley - Petersen Museum	Petersen Museum	\N	\N	\N	\N	\N	2017-04-29	\N	\N	\N	\N	\N	\N	\N	\N
